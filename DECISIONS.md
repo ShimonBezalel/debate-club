@@ -21,3 +21,5 @@ Judge calls can use `--judge-max-output-tokens` separately from debate turns bec
 ## 2026-06-27: Use Git-Rendered Archive README
 
 `debateclub ledger rebuild` now writes both `matches/index.json` and `matches/README.md`. The README makes the open debate ledger browsable directly on GitHub without introducing a hosted database.
+
+The rendered archive timestamp is derived from the newest committed match timestamp, not wall-clock rebuild time. This keeps Git-backed ledger rebuilds deterministic when the match artifacts have not changed.

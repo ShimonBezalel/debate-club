@@ -38,7 +38,9 @@ describe("ledger artifacts", () => {
     const index = await rebuildLedgerIndex(out);
     expect(index.matches).toHaveLength(1);
     expect(index.matches[0]?.match_id).toBe("match-ledger-001");
+    expect(index.generated_at).toBe(match.created_at);
     const readme = await readFile(join(out, "README.md"), "utf8");
+    expect(readme).toContain("Ledger through:");
     expect(readme).toContain("| Match | Featured | Timestamp | Conjecture |");
 
     const replay = await replayMatch(folder);

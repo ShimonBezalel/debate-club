@@ -59,7 +59,8 @@ export async function rebuildLedgerIndex(matchesRoot: string): Promise<LedgerInd
     });
   }
   matches.sort((a, b) => a.created_at.localeCompare(b.created_at));
-  const index = { generated_at: new Date().toISOString(), matches };
+  const generatedAt = matches.at(-1)?.created_at ?? "1970-01-01T00:00:00.000Z";
+  const index = { generated_at: generatedAt, matches };
   await writeFile(join(matchesRoot, "index.json"), `${JSON.stringify(index, null, 2)}\n`);
   await writeFile(join(matchesRoot, "README.md"), renderLedgerReadme(index));
   return index;
@@ -71,7 +72,7 @@ export function renderLedgerReadme(index: LedgerIndex): string {
     "",
     "This directory is the Git-backed open debate ledger. Every match is a reproducible artifact with transcript, JSONL turns, judge votes, scorecard, timing, tool log, and match metadata.",
     "",
-    `Generated: ${index.generated_at}`,
+    `Ledger through: ${index.generated_at}`,
     "",
     "| Match | Featured | Timestamp | Conjecture | Protocol | Pro | Con | Winner | Judge split | Transcript | Scorecard |",
     "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"
