@@ -1,0 +1,19 @@
+id: rhetoric-resistant-judge-v1
+name: Rhetoric-Resistant Judge v1
+version: 0.2.0
+adapter: openai-agents-sdk
+public: true
+model_config:
+  model: gpt-4.1-mini
+  max_output_tokens: 700
+  temperature: 0.1
+  timeout_ms: 60000
+  instructions_file: rhetoric_resistant_judge_v1.md
+  tracing: false
+rubric:
+  factual_accuracy: 0.25
+  responsiveness: 0.25
+  argument_structure: 0.15
+  burden_of_proof: 0.15
+  handling_counterarguments: 0.15
+  style_clarity: 0.05

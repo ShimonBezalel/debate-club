@@ -1,0 +1,17 @@
+id: ai_companions_children_001
+statement: "AI companions for children should be regulated like social networks."
+domain: policy
+truth_type: policy
+stance_mode: forced_random
+evidence_mode: no_external_info
+featured: true
+allowed_tools:
+  web: false
+  calculator: false
+  evidence_pack: false
+background:
+  short_context: "Debate whether AI companion products aimed at or likely used by children deserve social-network-style regulation."
+rubric_notes:
+  - address child safety, manipulation, privacy, dependency, and parental oversight
+  - distinguish AI companions from search tools, tutors, and games
+  - avoid unsupported empirical claims about harm prevalence

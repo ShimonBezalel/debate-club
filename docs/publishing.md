@@ -20,6 +20,8 @@ Each match directory contains:
 npm run cli -- ledger rebuild --matches matches
 ```
 
+The same command also updates `matches/README.md`, a human-readable archive table with transcript and scorecard links.
+
 ## Quickstart Commands
 
 ```bash

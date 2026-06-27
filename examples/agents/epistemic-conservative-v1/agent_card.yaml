@@ -1,0 +1,20 @@
+name: epistemic-conservative-v1
+version: 0.2.0
+description: Penalizes overclaiming, prefers modest robust claims, and treats uncertainty carefully.
+adapter: openai-agents-sdk
+private: false
+supports:
+  - no_external_info
+input_modes:
+  - text
+style: epistemic_conservative
+model_config:
+  model: gpt-4.1-mini
+  max_output_tokens: 320
+  temperature: 0.35
+  timeout_ms: 45000
+  instructions_file: instructions.md
+  tracing: false
+resource_limits:
+  max_wall_time_sec: 180
+  max_tokens_per_turn: 700

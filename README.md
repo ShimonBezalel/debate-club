@@ -45,11 +45,42 @@ The repo includes one deterministic stub match:
 
 ## Optional SDK Adapter
 
-The deterministic path uses stubs and requires no API key. The OpenAI Agents SDK adapter boundary is optional and refuses to run without `OPENAI_API_KEY` and the optional SDK package. Real model runs should be curated before committing transcripts.
+The deterministic path uses stubs and requires no API key. The OpenAI Agents SDK path is available through explicit flags and refuses to call the API unless `--live` is set.
+
+Check local live readiness without printing secrets:
+
+```bash
+npm run cli -- doctor
+```
+
+Dry-run the live harness without API calls:
+
+```bash
+npm run cli -- run --dry-run --protocol examples/protocols/classic_v1.yaml --conjecture examples/conjectures/git_backed_ledgers_001.yaml --pro examples/agents/steelman-v1 --con examples/agents/cross-examiner-v1 --judges examples/judges/panels/openai_epistemic_panel_v1 --judge-limit 1 --out matches/tmp --match-id dry-run-openai-path
+```
+
+Run a low-cost live match:
+
+```bash
+npm run cli -- run --live --model gpt-4.1-mini --judge-model gpt-4.1-mini --max-output-tokens 320 --temperature 0.4 --judge-limit 1 --protocol examples/protocols/classic_v1.yaml --conjecture examples/conjectures/git_backed_ledgers_001.yaml --pro examples/agents/steelman-v1 --con examples/agents/cross-examiner-v1 --judges examples/judges/panels/openai_epistemic_panel_v1 --out matches --match-id live-git-ledgers-demo
+```
+
+Real model runs should be curated before committing transcripts.
 
 ## Cost And Secrets
 
 Do not commit `.env` files, API keys, private prompts, or model transcripts that expose private harness internals. Keep real SDK runs explicit and curated.
+
+Cost controls:
+
+- `--live` is required for API calls.
+- `--dry-run` validates the live path with no API calls.
+- `--model` and `--judge-model` select models.
+- `--max-output-tokens` caps each model response.
+- `--temperature` controls variance.
+- `--timeout-ms` aborts long calls.
+- `--judge-limit` can cap panel size.
+- tracing is disabled by default unless `--tracing` is set.
 
 ## Roadmap
 

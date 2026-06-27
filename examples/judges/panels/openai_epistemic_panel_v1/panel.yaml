@@ -1,0 +1,4 @@
+id: openai_epistemic_panel_v1
+judges:
+  - epistemic_judge_v1.yaml
+  - rhetoric_resistant_judge_v1.yaml

@@ -3,6 +3,7 @@ import { existsSync } from "node:fs";
 import { symlink, unlink } from "node:fs/promises";
 import { join } from "node:path";
 import { Command } from "commander";
+import { DEFAULT_MAX_OUTPUT_TOKENS, DEFAULT_OPENAI_JUDGE_MODEL, DEFAULT_OPENAI_MODEL, DEFAULT_TEMPERATURE, DEFAULT_TIMEOUT_MS, openAiAgentsSdkAvailable, openAiApiKeyPresent, type LiveAdapterOptions } from "../adapters/openaiAgentsSdk.js";
 import { loadAgentFromDirectory } from "../agents/loadAgent.js";
 import { writeMatchArtifacts } from "../ledger/artifacts.js";
 import { buildLeaderboard } from "../ledger/leaderboard.js";
@@ -17,6 +18,44 @@ import { protocolSchema } from "../schemas/protocol.js";
 function defaultMatchId(conjectureId: string): string {
   const stamp = new Date().toISOString().replace(/[:.]/g, "-");
   return `${stamp}-${conjectureId}`;
+}
+
+function parsePositiveInt(value: string): number {
+  const parsed = Number.parseInt(value, 10);
+  if (!Number.isFinite(parsed) || parsed <= 0) {
+    throw new Error(`Expected a positive integer, received '${value}'.`);
+  }
+  return parsed;
+}
+
+function parseNumber(value: string): number {
+  const parsed = Number.parseFloat(value);
+  if (!Number.isFinite(parsed)) {
+    throw new Error(`Expected a number, received '${value}'.`);
+  }
+  return parsed;
+}
+
+function liveOptions(options: {
+  live?: boolean;
+  dryRun?: boolean;
+  model?: string;
+  judgeModel?: string;
+  maxOutputTokens?: number;
+  temperature?: number;
+  timeoutMs?: number;
+  tracing?: boolean;
+}): LiveAdapterOptions {
+  return {
+    live: Boolean(options.live),
+    dryRun: Boolean(options.dryRun),
+    model: options.model,
+    judgeModel: options.judgeModel,
+    maxOutputTokens: options.maxOutputTokens,
+    temperature: options.temperature,
+    timeoutMs: options.timeoutMs,
+    tracing: Boolean(options.tracing)
+  };
 }
 
 async function updateLatestLink(matchesRoot: string, matchId: string): Promise<void> {
@@ -39,16 +78,26 @@ async function main(): Promise<void> {
     .requiredOption("--judges <directory>")
     .requiredOption("--out <directory>")
     .option("--match-id <id>")
+    .option("--live", "allow live OpenAI adapter calls")
+    .option("--dry-run", "validate live adapter paths without API calls")
+    .option("--model <model>", "OpenAI model for debaters")
+    .option("--judge-model <model>", "OpenAI model for judges")
+    .option("--max-output-tokens <tokens>", "maximum output tokens for live model calls", parsePositiveInt)
+    .option("--temperature <temperature>", "model temperature for live calls", parseNumber)
+    .option("--timeout-ms <milliseconds>", "timeout per live model call", parsePositiveInt)
+    .option("--judge-limit <count>", "limit number of judges loaded from panel", parsePositiveInt)
+    .option("--tracing", "enable OpenAI Agents SDK tracing")
     .action(async (options) => {
       try {
         const protocol = protocolSchema.parse(await loadYamlFile(options.protocol));
         const conjecture = conjectureSchema.parse(await loadYamlFile(options.conjecture));
         const matchId = options.matchId ?? defaultMatchId(conjecture.id);
+        const adapterOptions = liveOptions(options);
         const match = await runMatch({
           protocol,
           conjecture,
-          agents: { pro: await loadAgentFromDirectory(options.pro), con: await loadAgentFromDirectory(options.con) },
-          judges: await loadJudgePanel(options.judges),
+          agents: { pro: await loadAgentFromDirectory(options.pro, adapterOptions), con: await loadAgentFromDirectory(options.con, adapterOptions) },
+          judges: await loadJudgePanel(options.judges, { ...adapterOptions, judgeLimit: options.judgeLimit }),
           matchId
         });
         const folder = await writeMatchArtifacts(match, options.out);
@@ -59,6 +108,24 @@ async function main(): Promise<void> {
         process.stderr.write(`debateclub run failed: ${explainZodError(error)}\n`);
         process.exitCode = 1;
       }
+    });
+
+  program.command("doctor")
+    .description("Check optional live adapter configuration without printing secrets.")
+    .action(async () => {
+      const sdkAvailable = await openAiAgentsSdkAvailable();
+      const keyPresent = openAiApiKeyPresent();
+      process.stdout.write([
+        "Debate Club doctor",
+        `OpenAI Agents SDK installed: ${sdkAvailable ? "yes" : "no"}`,
+        `OPENAI_API_KEY present: ${keyPresent ? "yes" : "no"}`,
+        `Default debater model: ${process.env.DEBATECLUB_MODEL ?? DEFAULT_OPENAI_MODEL}`,
+        `Default judge model: ${process.env.DEBATECLUB_JUDGE_MODEL ?? DEFAULT_OPENAI_JUDGE_MODEL}`,
+        `Default max output tokens: ${DEFAULT_MAX_OUTPUT_TOKENS}`,
+        `Default temperature: ${DEFAULT_TEMPERATURE}`,
+        `Default timeout ms: ${DEFAULT_TIMEOUT_MS}`,
+        ""
+      ].join("\n"));
     });
 
   program.command("replay")

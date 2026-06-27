@@ -1,0 +1,17 @@
+id: llm_debate_synthetic_data_001
+statement: "Competitive LLM debate can generate useful synthetic reasoning data even when it does not reliably discover truth."
+domain: research_methodology
+truth_type: technical_design
+stance_mode: forced_random
+evidence_mode: no_external_info
+featured: true
+allowed_tools:
+  web: false
+  calculator: false
+  evidence_pack: false
+background:
+  short_context: "Debate the core Debate Club thesis: value as adversarial reasoning data despite imperfect truth discovery."
+rubric_notes:
+  - separate usefulness for training/evaluation from truth-finding reliability
+  - discuss judge-hacking and overfitting risks explicitly
+  - explain what metadata makes the transcripts scientifically useful

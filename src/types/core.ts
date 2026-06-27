@@ -4,6 +4,30 @@ export type EvidenceMode = "no_external_info" | "provided_packet_only" | "web_al
 export type TruthType = "factual_known" | "factual_uncertain" | "normative" | "policy" | "philosophical" | "technical_design" | "strategic";
 export type DebatePhase = "opening" | "rebuttal" | "cross_exam" | "answer" | "closing";
 
+export interface ModelUsage {
+  requests?: number;
+  input_tokens?: number;
+  output_tokens?: number;
+  total_tokens?: number;
+}
+
+export interface ModelMetadata {
+  provider?: "openai" | "stub";
+  adapter?: "stub" | "openai-agents-sdk";
+  model?: string;
+  dry_run?: boolean;
+  usage?: ModelUsage;
+}
+
+export interface ModelConfig {
+  model?: string;
+  max_output_tokens?: number;
+  temperature?: number;
+  timeout_ms?: number;
+  instructions_file?: string;
+  tracing?: boolean;
+}
+
 export interface TurnBudget {
   time_sec: number;
   max_tokens: number;
@@ -14,6 +38,7 @@ export interface DebateMove {
   speaker: Side;
   phase: DebatePhase;
   text: string;
+  metadata?: ModelMetadata;
 }
 
 export interface DebateTurn extends DebateMove {
@@ -61,6 +86,7 @@ export interface Conjecture {
   background?: {
     short_context?: string;
   };
+  featured?: boolean;
   rubric_notes: string[];
 }
 
@@ -88,6 +114,7 @@ export interface AgentCard {
   input_modes: string[];
   stance?: Side;
   style?: string;
+  model_config?: ModelConfig;
   resource_limits: {
     max_wall_time_sec: number;
     max_tokens_per_turn: number;
@@ -101,6 +128,7 @@ export interface JudgeCard {
   adapter: "stub" | "openai-agents-sdk";
   public: boolean;
   rubric: RubricWeights;
+  model_config?: ModelConfig;
 }
 
 export interface JudgePanel {
@@ -133,6 +161,7 @@ export interface JudgeVote {
   scores: Record<Side, RubricScores>;
   decisive_moments: Array<{ turn_id: string; reason: string }>;
   flags: Array<{ side: Side; type: string; severity: "low" | "medium" | "high"; quote: string }>;
+  metadata?: ModelMetadata;
 }
 
 export interface ScoreSummary {

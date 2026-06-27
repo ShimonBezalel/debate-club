@@ -1,0 +1,20 @@
+name: cross-examiner-v1
+version: 0.2.0
+description: Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.
+adapter: openai-agents-sdk
+private: false
+supports:
+  - no_external_info
+input_modes:
+  - text
+style: adversarial_cross_examiner
+model_config:
+  model: gpt-4.1-mini
+  max_output_tokens: 320
+  temperature: 0.5
+  timeout_ms: 45000
+  instructions_file: instructions.md
+  tracing: false
+resource_limits:
+  max_wall_time_sec: 180
+  max_tokens_per_turn: 700

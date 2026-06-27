@@ -10,6 +10,15 @@ export const rubricWeightsSchema = z.object({
   style_clarity: z.number().min(0).max(1)
 });
 
+export const modelConfigSchema = z.object({
+  model: z.string().min(1).optional(),
+  max_output_tokens: z.number().int().positive().optional(),
+  temperature: z.number().min(0).max(2).optional(),
+  timeout_ms: z.number().int().positive().optional(),
+  instructions_file: z.string().min(1).optional(),
+  tracing: z.boolean().optional()
+});
+
 export const agentCardSchema = z.object({
   name: z.string().min(1),
   version: z.string().min(1),
@@ -20,6 +29,7 @@ export const agentCardSchema = z.object({
   input_modes: z.array(z.string().min(1)),
   stance: z.enum(["pro", "con"]).optional(),
   style: z.string().optional(),
+  model_config: modelConfigSchema.optional(),
   resource_limits: z.object({
     max_wall_time_sec: z.number().int().positive(),
     max_tokens_per_turn: z.number().int().positive()
@@ -32,7 +42,8 @@ export const judgeCardSchema = z.object({
   version: z.string().min(1),
   adapter: z.enum(["stub", "openai-agents-sdk"]),
   public: z.boolean(),
-  rubric: rubricWeightsSchema
+  rubric: rubricWeightsSchema,
+  model_config: modelConfigSchema.optional()
 });
 
 export const judgePanelSchema = z.object({

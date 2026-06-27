@@ -26,5 +26,17 @@ export const judgeVoteSchema = z.object({
     type: z.string().min(1),
     severity: z.enum(["low", "medium", "high"]),
     quote: z.string()
-  }))
+  })),
+  metadata: z.object({
+    provider: z.enum(["openai", "stub"]).optional(),
+    adapter: z.enum(["stub", "openai-agents-sdk"]).optional(),
+    model: z.string().optional(),
+    dry_run: z.boolean().optional(),
+    usage: z.object({
+      requests: z.number().optional(),
+      input_tokens: z.number().optional(),
+      output_tokens: z.number().optional(),
+      total_tokens: z.number().optional()
+    }).optional()
+  }).optional()
 });

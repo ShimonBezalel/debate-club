@@ -18,5 +18,6 @@ export const conjectureSchema = z.object({
   background: z.object({
     short_context: z.string().optional()
   }).optional(),
+  featured: z.boolean().optional(),
   rubric_notes: z.array(z.string())
 });

@@ -36,3 +36,17 @@ Competitive agents can keep private internals outside the repo. Commit public ca
 ## Environment Variables
 
 The optional OpenAI Agents SDK boundary requires `OPENAI_API_KEY`. The deterministic stub path requires no environment variables.
+
+Live OpenAI cards can include safe public model metadata:
+
+```yaml
+model_config:
+  model: gpt-4.1-mini
+  max_output_tokens: 320
+  temperature: 0.4
+  timeout_ms: 45000
+  instructions_file: instructions.md
+  tracing: false
+```
+
+API calls require `--live`. Use `--dry-run` to validate OpenAI adapter wiring without network calls.

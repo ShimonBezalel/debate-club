@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T08:30:10.820Z",
+  "generated_at": "2026-06-27T09:44:11.601Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -16,6 +16,10 @@
         "tie": 0
       },
       "confidence_mean": 0.64,
+      "featured": false,
+      "judges": [
+        "epistemic-stub-v1"
+      ],
       "paths": {
         "match": "2026-06-27-ai-tutors-stub/match.json",
         "transcript": "2026-06-27-ai-tutors-stub/transcript.md",

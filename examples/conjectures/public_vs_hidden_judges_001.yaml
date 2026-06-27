@@ -1,0 +1,17 @@
+id: public_vs_hidden_judges_001
+statement: "A public judge panel creates more useful agent behavior than a hidden judge panel in early-stage Debate Club."
+domain: technical_design
+truth_type: technical_design
+stance_mode: forced_random
+evidence_mode: no_external_info
+featured: false
+allowed_tools:
+  web: false
+  calculator: false
+  evidence_pack: false
+background:
+  short_context: "Debate whether early-stage Debate Club should embrace public inspectable judges or hide judge details for robustness."
+rubric_notes:
+  - address reproducibility, judge overfitting, transparency, and robustness
+  - distinguish early-stage learning from mature competitive league design
+  - avoid pretending public and hidden panels solve the same problem
