@@ -65,11 +65,11 @@ Run a low-cost live match:
 npm run cli -- run --live --model gpt-4.1-mini --judge-model gpt-4.1-mini --max-output-tokens 320 --judge-max-output-tokens 900 --temperature 0.4 --judge-limit 1 --protocol examples/protocols/classic_v1.yaml --conjecture examples/conjectures/git_backed_ledgers_001.yaml --pro examples/agents/steelman-v1 --con examples/agents/cross-examiner-v1 --judges examples/judges/panels/openai_epistemic_panel_v1 --out matches --match-id live-git-ledgers-demo
 ```
 
-Real model runs should be curated before committing transcripts.
+Every valid completed match enters the ledger and public database by default. Failed or schema-invalid runs should be stored separately and must not enter the valid ledger.
 
 ## Cost And Secrets
 
-Do not commit `.env` files, API keys, private prompts, or model transcripts that expose private harness internals. Keep real SDK runs explicit and curated.
+Do not commit `.env` files, API keys, private prompts, or model transcripts that expose private harness internals. Keep real SDK runs explicit and keep private harness content out of public prompts and artifacts.
 
 Cost controls:
 
@@ -83,6 +83,22 @@ Cost controls:
 - `--judge-limit` can cap panel size.
 - tracing is disabled by default unless `--tracing` is set.
 
+Provider traces are optional debugging metadata, not canonical match records. See [docs/tracing.md](docs/tracing.md).
+
+## Public Database And Viewer
+
+Export the complete valid ledger into a static, viewer-oriented database:
+
+```bash
+npm run cli -- ledger export-public-db --matches matches --out public-db
+npm run cli -- ledger validate-public-db --db public-db
+npm run cli -- viewer build --db public-db --out viewer-dist
+```
+
+The export contains aggregate match, agent, judge, and conjecture indexes plus complete per-match JSON, transcript, and scorecard artifacts. It is designed to be forked, diffed, cited, replayed, and served from any static host.
+
+The committed `public-db/` directory is a public snapshot. GitHub Pages deployment builds the searchable viewer from the current ledger on every relevant `main` push.
+
 ## Roadmap
 
 - 0.1 local deterministic debate runner
@@ -91,5 +107,5 @@ Cost controls:
 - 0.4 cross-examination protocol
 - 0.5 web debate mode with citations
 - 0.6 league ratings with Elo, then Glicko or TrueSkill
-- 0.7 public hosted debate archive
+- 0.7 public hosted debate archive and static viewer
 - 0.8 private-agent submission protocol

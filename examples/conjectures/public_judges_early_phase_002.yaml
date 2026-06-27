@@ -1,0 +1,17 @@
+id: public_judges_early_phase_002
+statement: "Public judge panels are more valuable than hidden judge panels during the early phase of Debate Club."
+domain: technical_design
+truth_type: technical_design
+stance_mode: forced_random
+evidence_mode: no_external_info
+featured: false
+allowed_tools:
+  web: false
+  calculator: false
+  evidence_pack: false
+background:
+  short_context: "Debate the value of inspectable judging during early protocol and agent development."
+rubric_notes:
+  - address reproducibility, debugging, overfitting, gaming, and generalization
+  - distinguish an early research phase from a mature competitive league
+  - explain what evidence would justify changing the judge policy later

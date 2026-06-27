@@ -1,0 +1,17 @@
+id: static_public_db_001
+statement: "For Debate Club, a static Git-backed public ledger is a better first database than a hosted SQL database."
+domain: technical_design
+truth_type: technical_design
+stance_mode: forced_random
+evidence_mode: no_external_info
+featured: true
+allowed_tools:
+  web: false
+  calculator: false
+  evidence_pack: false
+background:
+  short_context: "Debate the canonical storage architecture for Debate Club's first public database and viewer."
+rubric_notes:
+  - compare openness, durability, queryability, operational burden, and migration paths
+  - distinguish a canonical record from indexes and caches
+  - address concurrency and schema evolution without assuming mature-scale traffic

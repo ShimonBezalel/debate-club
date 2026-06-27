@@ -37,6 +37,17 @@ export const judgeVoteSchema = z.object({
       input_tokens: z.number().optional(),
       output_tokens: z.number().optional(),
       total_tokens: z.number().optional()
+    }).optional(),
+    trace: z.object({
+      requested: z.boolean(),
+      enabled: z.boolean(),
+      provider: z.literal("openai"),
+      trace_id: z.string().optional(),
+      agent_name: z.string().min(1),
+      model: z.string().min(1),
+      started_at: z.string().datetime(),
+      platform_url: z.string().url().optional(),
+      response_storage: z.literal("disabled")
     }).optional()
   }).optional()
 });

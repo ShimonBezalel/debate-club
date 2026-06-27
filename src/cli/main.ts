@@ -9,11 +9,14 @@ import { writeMatchArtifacts } from "../ledger/artifacts.js";
 import { buildLeaderboard } from "../ledger/leaderboard.js";
 import { rebuildLedgerIndex } from "../ledger/rebuild.js";
 import { replayMatch } from "../ledger/replay.js";
+import { exportPublicDb } from "../publicDb/export.js";
+import { validatePublicDb } from "../publicDb/validate.js";
 import { loadJudgePanel } from "../judges/loadPanel.js";
 import { runMatch } from "../runner/runMatch.js";
 import { conjectureSchema } from "../schemas/conjecture.js";
 import { explainZodError, loadYamlFile } from "../schemas/load.js";
 import { protocolSchema } from "../schemas/protocol.js";
+import { buildViewer } from "../viewer/build.js";
 
 function defaultMatchId(conjectureId: string): string {
   const stamp = new Date().toISOString().replace(/[:.]/g, "-");
@@ -127,6 +130,8 @@ async function main(): Promise<void> {
         `Default max output tokens: ${DEFAULT_MAX_OUTPUT_TOKENS}`,
         `Default temperature: ${DEFAULT_TEMPERATURE}`,
         `Default timeout ms: ${DEFAULT_TIMEOUT_MS}`,
+        "Tracing default: disabled (enable with --tracing)",
+        "Trace response storage: disabled (local match artifacts remain canonical)",
         ""
       ].join("\n"));
     });
@@ -151,6 +156,45 @@ async function main(): Promise<void> {
         process.stdout.write(`Rebuilt ledger with ${index.matches.length} match${index.matches.length === 1 ? "" : "es"}\n`);
       } catch (error) {
         process.stderr.write(`debateclub ledger rebuild failed: ${error instanceof Error ? error.message : String(error)}\n`);
+        process.exitCode = 1;
+      }
+    });
+
+  ledger.command("export-public-db")
+    .requiredOption("--matches <directory>")
+    .requiredOption("--out <directory>")
+    .action(async (options) => {
+      try {
+        const manifest = await exportPublicDb(options.matches, options.out);
+        process.stdout.write(`Exported ${manifest.match_count} public match${manifest.match_count === 1 ? "" : "es"} to ${options.out}\n`);
+      } catch (error) {
+        process.stderr.write(`debateclub ledger export-public-db failed: ${error instanceof Error ? error.message : String(error)}\n`);
+        process.exitCode = 1;
+      }
+    });
+
+  ledger.command("validate-public-db")
+    .requiredOption("--db <directory>")
+    .action(async (options) => {
+      try {
+        const result = await validatePublicDb(options.db);
+        process.stdout.write(`Public DB valid: ${result.match_count} match${result.match_count === 1 ? "" : "es"}\n`);
+      } catch (error) {
+        process.stderr.write(`debateclub ledger validate-public-db failed: ${explainZodError(error)}\n`);
+        process.exitCode = 1;
+      }
+    });
+
+  const viewer = program.command("viewer");
+  viewer.command("build")
+    .requiredOption("--db <directory>")
+    .requiredOption("--out <directory>")
+    .action(async (options) => {
+      try {
+        const result = await buildViewer(options.db, options.out);
+        process.stdout.write(`Built viewer for ${result.match_count} match${result.match_count === 1 ? "" : "es"} at ${result.output}\n`);
+      } catch (error) {
+        process.stderr.write(`debateclub viewer build failed: ${explainZodError(error)}\n`);
         process.exitCode = 1;
       }
     });

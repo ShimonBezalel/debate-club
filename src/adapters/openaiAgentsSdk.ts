@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { Agent, Runner } from "@openai/agents";
+import { Agent, getGlobalTraceProvider, Runner, withTrace } from "@openai/agents";
 import type { DebateAgent } from "../agents/interface.js";
 import type { DebateJudge } from "../judges/interface.js";
 import { judgeVoteSchema } from "../schemas/judgeVote.js";
@@ -16,6 +16,7 @@ import type {
   ModelConfig,
   ModelMetadata,
   ModelUsage,
+  ProviderTraceMetadata,
   TurnBudget
 } from "../types/core.js";
 
@@ -90,13 +91,65 @@ function usageFromResult(result: unknown): ModelUsage | undefined {
   };
 }
 
-function metadata(config: { model: string }, dryRun: boolean, usage?: ModelUsage): ModelMetadata {
+function traceMetadata(config: { model: string; tracing: boolean }, agentName: string, dryRun: boolean, startedAt: string, traceId?: string): ProviderTraceMetadata {
+  return {
+    requested: config.tracing,
+    enabled: config.tracing && !dryRun && Boolean(traceId),
+    provider: "openai",
+    trace_id: traceId,
+    agent_name: agentName,
+    model: config.model,
+    started_at: startedAt,
+    response_storage: "disabled"
+  };
+}
+
+function metadata(config: { model: string; tracing: boolean }, agentName: string, dryRun: boolean, usage?: ModelUsage, trace?: ProviderTraceMetadata): ModelMetadata {
   return {
     provider: "openai",
     adapter: "openai-agents-sdk",
     model: config.model,
     dry_run: dryRun,
-    usage
+    usage,
+    trace: trace ?? traceMetadata(config, agentName, dryRun, new Date().toISOString())
+  };
+}
+
+async function runWithOptionalTrace<T>(
+  config: { model: string; tracing: boolean },
+  context: { matchId: string; role: "debater" | "judge"; agentName: string; actionId: string },
+  run: () => Promise<T>
+): Promise<{ result: T; trace: ProviderTraceMetadata }> {
+  const startedAt = new Date().toISOString();
+  if (!config.tracing) {
+    return {
+      result: await run(),
+      trace: traceMetadata(config, context.agentName, false, startedAt)
+    };
+  }
+  let traceId: string | undefined;
+  const result = await withTrace(
+    `Debate Club ${context.role}`,
+    async (trace) => {
+      traceId = trace.traceId;
+      return run();
+    },
+    {
+      groupId: context.matchId,
+      metadata: {
+        match_id: context.matchId,
+        role: context.role,
+        agent_name: context.agentName,
+        action_id: context.actionId,
+        model: config.model,
+        response_storage: "disabled"
+      }
+    }
+  );
+  await getGlobalTraceProvider().forceFlush();
+  return {
+    result,
+    trace: traceMetadata(config, context.agentName, false, startedAt, traceId)
   };
 }
 
@@ -167,7 +220,7 @@ function defaultJudgeInstructions(card: JudgeCard): string {
   ].join("\n");
 }
 
-function dryRunMove(card: AgentCard, observation: DebateObservation, config: { model: string }): DebateMove {
+function dryRunMove(card: AgentCard, observation: DebateObservation, config: { model: string; tracing: boolean }): DebateMove {
   const side = observation.side === "pro" ? "Pro" : "Con";
   const style = card.style ?? "openai-dry-run";
   return {
@@ -175,11 +228,11 @@ function dryRunMove(card: AgentCard, observation: DebateObservation, config: { m
     speaker: observation.side,
     phase: observation.turn.phase,
     text: `${side} ${observation.turn.phase} (${card.name}, dry run): ${style} would argue the ${observation.side} side of "${observation.conjecture.statement}" while directly answering ${observation.transcript.at(-1)?.turn_id ?? "the opening burden"}.`,
-    metadata: metadata(config, true)
+    metadata: metadata(config, card.name, true)
   };
 }
 
-function dryRunVote(card: JudgeCard, match: CompletedMatch, config: { model: string }): JudgeVote {
+function dryRunVote(card: JudgeCard, match: CompletedMatch, config: { model: string; tracing: boolean }): JudgeVote {
   return {
     judge_id: card.id,
     winner: "tie",
@@ -190,7 +243,7 @@ function dryRunVote(card: JudgeCard, match: CompletedMatch, config: { model: str
     },
     decisive_moments: [{ turn_id: match.transcript[0]?.turn_id ?? "pro_opening", reason: "Dry run validates the OpenAI judge path without calling the API." }],
     flags: [],
-    metadata: metadata(config, true)
+    metadata: metadata(config, card.name, true)
   };
 }
 
@@ -203,7 +256,10 @@ export async function createOpenAiAgentsSdkAgent(card: AgentCard, directory?: st
     throw new Error("OPENAI_API_KEY is required for the openai-agents-sdk adapter.");
   }
   const instructions = await loadInstructions(directory, config.instructions_file, defaultAgentInstructions(card));
-  const runner = new Runner({ tracingDisabled: !config.tracing });
+  const runner = new Runner({
+    tracingDisabled: !config.tracing,
+    traceIncludeSensitiveData: false
+  });
 
   return {
     card: { ...card, model_config: { ...card.model_config, model: config.model, max_output_tokens: config.max_output_tokens, temperature: config.temperature, timeout_ms: config.timeout_ms, tracing: config.tracing } },
@@ -227,13 +283,18 @@ export async function createOpenAiAgentsSdkAgent(card: AgentCard, directory?: st
       });
       const timeout = withTimeoutSignal(config.timeout_ms);
       try {
-        const result = await runner.run(agent, formatAgentInput(observation, budget), { signal: timeout.signal, maxTurns: 1 });
+        const traced = await runWithOptionalTrace(config, {
+          matchId: observation.match_id,
+          role: "debater",
+          agentName: card.name,
+          actionId: observation.turn.id
+        }, () => runner.run(agent, formatAgentInput(observation, budget), { signal: timeout.signal, maxTurns: 1 }));
         return {
           turn_id: observation.turn.id,
           speaker: observation.side,
           phase: observation.turn.phase,
-          text: String(result.finalOutput ?? "").trim(),
-          metadata: metadata(config, false, usageFromResult(result))
+          text: String(traced.result.finalOutput ?? "").trim(),
+          metadata: metadata(config, card.name, false, usageFromResult(traced.result), traced.trace)
         };
       } finally {
         timeout.cancel();
@@ -254,7 +315,10 @@ export async function createOpenAiAgentsSdkJudge(card: JudgeCard, directory?: st
     throw new Error("OPENAI_API_KEY is required for the openai-agents-sdk judge adapter.");
   }
   const instructions = await loadInstructions(directory, config.instructions_file, defaultJudgeInstructions(card));
-  const runner = new Runner({ tracingDisabled: !config.tracing });
+  const runner = new Runner({
+    tracingDisabled: !config.tracing,
+    traceIncludeSensitiveData: false
+  });
 
   return {
     card: { ...card, model_config: { ...card.model_config, model: config.model, max_output_tokens: config.max_output_tokens, temperature: config.temperature, timeout_ms: config.timeout_ms, tracing: config.tracing } },
@@ -276,12 +340,17 @@ export async function createOpenAiAgentsSdkJudge(card: JudgeCard, directory?: st
       });
       const timeout = withTimeoutSignal(config.timeout_ms);
       try {
-        const result = await runner.run(agent, formatJudgeInput(match), { signal: timeout.signal, maxTurns: 1 });
-        const vote = judgeVoteSchema.parse(result.finalOutput);
+        const traced = await runWithOptionalTrace(config, {
+          matchId: match.match_id,
+          role: "judge",
+          agentName: card.name,
+          actionId: card.id
+        }, () => runner.run(agent, formatJudgeInput(match), { signal: timeout.signal, maxTurns: 1 }));
+        const vote = judgeVoteSchema.parse(traced.result.finalOutput);
         return {
           ...vote,
           judge_id: card.id,
-          metadata: metadata(config, false, usageFromResult(result))
+          metadata: metadata(config, card.name, false, usageFromResult(traced.result), traced.trace)
         };
       } finally {
         timeout.cancel();

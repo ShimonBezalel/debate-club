@@ -1,0 +1,17 @@
+id: losing_transcript_data_value_001
+statement: "A losing debate transcript can be more valuable training data than a winning debate transcript."
+domain: research_methodology
+truth_type: philosophical
+stance_mode: forced_random
+evidence_mode: no_external_info
+featured: true
+allowed_tools:
+  web: false
+  calculator: false
+  evidence_pack: false
+background:
+  short_context: "Debate the data value of visible errors, failed strategies, and judge disagreement relative to successful persuasion."
+rubric_notes:
+  - distinguish training value from benchmark score and truth
+  - address error diversity, negative examples, selection effects, and labeling quality
+  - avoid assuming that every loss is informative

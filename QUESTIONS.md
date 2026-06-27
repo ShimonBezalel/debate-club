@@ -1,6 +1,5 @@
 # Questions
 
-- Should committed real-model match artifacts be curated manually before entering `matches/`?
 - Should competitive agent cards allow fully hidden model declarations, or require declared model family?
 - Should the website page be merged from the preview PR into the production publishing path, or should production wait for a broader site release?
 

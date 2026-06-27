@@ -1,0 +1,17 @@
+id: harness_over_model_choice_001
+statement: "Open-source agent harnesses will matter more than model choice for many applied AI workflows."
+domain: ai_engineering
+truth_type: strategic
+stance_mode: forced_random
+evidence_mode: no_external_info
+featured: false
+allowed_tools:
+  web: false
+  calculator: false
+  evidence_pack: false
+background:
+  short_context: "Debate the relative value of orchestration, tools, memory, evaluation, and workflow design versus selecting a stronger base model."
+rubric_notes:
+  - address task complexity, model capability thresholds, portability, cost, and reliability
+  - distinguish many applied workflows from frontier capability research
+  - avoid treating harness quality and model quality as independent

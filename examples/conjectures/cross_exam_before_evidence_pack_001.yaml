@@ -1,0 +1,17 @@
+id: cross_exam_before_evidence_pack_001
+statement: "Cross-examination should be implemented before evidence-pack debates."
+domain: technical_design
+truth_type: technical_design
+stance_mode: forced_random
+evidence_mode: no_external_info
+featured: true
+allowed_tools:
+  web: false
+  calculator: false
+  evidence_pack: false
+background:
+  short_context: "Debate Club currently supports a classic opening, rebuttal, and closing protocol."
+rubric_notes:
+  - compare research value, implementation complexity, evaluation quality, and failure modes
+  - address whether interactive questioning reveals capabilities unavailable in static turns
+  - distinguish protocol sequencing from permanent feature priority

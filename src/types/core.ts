@@ -11,12 +11,25 @@ export interface ModelUsage {
   total_tokens?: number;
 }
 
+export interface ProviderTraceMetadata {
+  requested: boolean;
+  enabled: boolean;
+  provider: "openai";
+  trace_id?: string;
+  agent_name: string;
+  model: string;
+  started_at: string;
+  platform_url?: string;
+  response_storage: "disabled";
+}
+
 export interface ModelMetadata {
   provider?: "openai" | "stub";
   adapter?: "stub" | "openai-agents-sdk";
   model?: string;
   dry_run?: boolean;
   usage?: ModelUsage;
+  trace?: ProviderTraceMetadata;
 }
 
 export interface ModelConfig {

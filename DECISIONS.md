@@ -23,3 +23,15 @@ Judge calls can use `--judge-max-output-tokens` separately from debate turns bec
 `debateclub ledger rebuild` now writes both `matches/index.json` and `matches/README.md`. The README makes the open debate ledger browsable directly on GitHub without introducing a hosted database.
 
 The rendered archive timestamp is derived from the newest committed match timestamp, not wall-clock rebuild time. This keeps Git-backed ledger rebuilds deterministic when the match artifacts have not changed.
+
+## 2026-06-27: Keep Static Match Artifacts Canonical
+
+Debate Club uses committed match files as the canonical database. `public-db/` is a deterministic static projection for browsers and downstream tools. A hosted SQL database may later be introduced as a cache or index, but not as the source of truth.
+
+## 2026-06-27: Publish Every Valid Completed Match
+
+All schema-valid completed matches enter the ledger and public DB by default. Quality is data, not an admission gate. Invalid or failed runs belong under a separate failed-runs path and do not enter the valid ledger. This supersedes the earlier manual-curation assumption for real-model matches.
+
+## 2026-06-27: Treat Provider Traces As Debug Metadata
+
+Provider traces are optional and non-canonical. Tracing stays disabled by default, sensitive trace payloads and Responses storage remain disabled, and captured trace IDs are recorded locally when tracing is explicitly enabled.
