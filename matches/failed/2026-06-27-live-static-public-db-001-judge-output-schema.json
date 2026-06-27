@@ -1,0 +1,11 @@
+{
+  "attempted_match_id": "live-static-public-db-001",
+  "conjecture_id": "static_public_db_001",
+  "failed_at": "2026-06-27T11:03:00Z",
+  "recorded_at": "2026-06-27T11:09:17Z",
+  "stage": "live_judging",
+  "reason": "The provider-generated judge output included adapter-owned trace metadata with an empty agent_name, causing structured-output schema validation to fail.",
+  "resolution": "Separated the model-facing judge output schema from locally appended execution metadata, added a regression test, and reran the match successfully.",
+  "included_in_ledger": false,
+  "included_in_public_db": false
+}

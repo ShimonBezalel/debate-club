@@ -1,0 +1,58 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "tie",
+    "confidence": 0.7,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 4,
+        "responsiveness": 4,
+        "argument_structure": 4,
+        "burden_of_proof": 4,
+        "handling_counterarguments": 4,
+        "style_clarity": 4
+      },
+      "con": {
+        "factual_accuracy": 4,
+        "responsiveness": 4,
+        "argument_structure": 4,
+        "burden_of_proof": 4,
+        "handling_counterarguments": 4,
+        "style_clarity": 4
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Pro side clearly articulated the volatility and provider-specific nature of traces undermining reproducibility, emphasizing the burden of proof on trace inclusion for canonical records."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Con side effectively challenged the pro’s assumptions about trace volatility and lock-in by highlighting versioning, normalization practices, and the necessity of trace data for completeness and observability."
+      }
+    ],
+    "flags": [],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 2064,
+        "output_tokens": 199,
+        "total_tokens": 2263
+      },
+      "trace": {
+        "requested": true,
+        "enabled": true,
+        "provider": "openai",
+        "trace_id": "trace_4b036cd76e164a2488144202a1180c68",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-4.1-mini",
+        "started_at": "2026-06-27T11:20:24.779Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

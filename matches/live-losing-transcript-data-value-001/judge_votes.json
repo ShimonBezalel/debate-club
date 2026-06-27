@@ -1,0 +1,57 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "tie",
+    "confidence": 0.85,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 4,
+        "responsiveness": 5,
+        "argument_structure": 5,
+        "burden_of_proof": 4,
+        "handling_counterarguments": 5,
+        "style_clarity": 5
+      },
+      "con": {
+        "factual_accuracy": 5,
+        "responsiveness": 5,
+        "argument_structure": 5,
+        "burden_of_proof": 5,
+        "handling_counterarguments": 5,
+        "style_clarity": 5
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Pro effectively clarifies that the value of losing transcripts depends on systematic selection and annotation, addressing Con's concerns about noise and selection bias while emphasizing error diversity as a complementary training signal."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Con successfully challenges the intrinsic value claim by highlighting that curation is the real source of training value, applicable equally to winning transcripts, and questions the philosophical necessity of error diversity."
+      }
+    ],
+    "flags": [],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 2043,
+        "output_tokens": 207,
+        "total_tokens": 2250
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-4.1-mini",
+        "started_at": "2026-06-27T11:22:23.507Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

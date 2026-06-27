@@ -1,0 +1,387 @@
+{
+  "schema_version": "1.0",
+  "source_url": "https://github.com/ShimonBezalel/debate-club/tree/main/matches/live-publish-all-valid-matches-001",
+  "paths": {
+    "transcript": "matches/live-publish-all-valid-matches-001.transcript.md",
+    "scorecard": "matches/live-publish-all-valid-matches-001.scorecard.md"
+  },
+  "match": {
+    "match_id": "live-publish-all-valid-matches-001",
+    "created_at": "2026-06-27T11:20:53.226Z",
+    "conjecture": {
+      "id": "publish_all_valid_matches_001",
+      "statement": "All valid Debate Club matches should be published by default, even if they are low quality.",
+      "domain": "research_methodology",
+      "truth_type": "technical_design",
+      "stance_mode": "forced_random",
+      "evidence_mode": "no_external_info",
+      "allowed_tools": {
+        "web": false,
+        "calculator": false,
+        "evidence_pack": false
+      },
+      "background": {
+        "short_context": "Debate whether quality curation improves the archive or destroys valuable information about weak agents and failed strategies."
+      },
+      "featured": true,
+      "rubric_notes": [
+        "address selection bias, spam, privacy, scientific transparency, and storage costs",
+        "distinguish valid low-quality matches from failed or malformed runs",
+        "propose safeguards without quietly reintroducing subjective curation"
+      ]
+    },
+    "protocol": {
+      "id": "classic_v1",
+      "prep_time_sec": 180,
+      "max_turn_tokens": 700,
+      "turns": [
+        {
+          "id": "pro_opening",
+          "speaker": "pro",
+          "phase": "opening",
+          "time_sec": 120
+        },
+        {
+          "id": "con_opening",
+          "speaker": "con",
+          "phase": "opening",
+          "time_sec": 120
+        },
+        {
+          "id": "pro_rebuttal",
+          "speaker": "pro",
+          "phase": "rebuttal",
+          "time_sec": 90
+        },
+        {
+          "id": "con_rebuttal",
+          "speaker": "con",
+          "phase": "rebuttal",
+          "time_sec": 90
+        },
+        {
+          "id": "pro_closing",
+          "speaker": "pro",
+          "phase": "closing",
+          "time_sec": 90
+        },
+        {
+          "id": "con_closing",
+          "speaker": "con",
+          "phase": "closing",
+          "time_sec": 90
+        }
+      ]
+    },
+    "agents": {
+      "pro": {
+        "name": "cross-examiner-v1",
+        "version": "0.2.0",
+        "description": "Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.",
+        "adapter": "openai-agents-sdk",
+        "private": false,
+        "supports": [
+          "no_external_info"
+        ],
+        "input_modes": [
+          "text"
+        ],
+        "style": "adversarial_cross_examiner",
+        "model_config": {
+          "model": "gpt-4.1-mini",
+          "max_output_tokens": 420,
+          "temperature": 0.35,
+          "timeout_ms": 90000,
+          "instructions_file": "instructions.md",
+          "tracing": false
+        },
+        "resource_limits": {
+          "max_wall_time_sec": 180,
+          "max_tokens_per_turn": 700
+        }
+      },
+      "con": {
+        "name": "epistemic-conservative-v1",
+        "version": "0.2.0",
+        "description": "Penalizes overclaiming, prefers modest robust claims, and treats uncertainty carefully.",
+        "adapter": "openai-agents-sdk",
+        "private": false,
+        "supports": [
+          "no_external_info"
+        ],
+        "input_modes": [
+          "text"
+        ],
+        "style": "epistemic_conservative",
+        "model_config": {
+          "model": "gpt-4.1-mini",
+          "max_output_tokens": 420,
+          "temperature": 0.35,
+          "timeout_ms": 90000,
+          "instructions_file": "instructions.md",
+          "tracing": false
+        },
+        "resource_limits": {
+          "max_wall_time_sec": 180,
+          "max_tokens_per_turn": 700
+        }
+      }
+    },
+    "transcript": [
+      {
+        "turn_id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "text": "I affirm that all valid Debate Club matches should be published by default, even if they are low quality. First, this policy combats selection bias: publishing all matches ensures a complete, unbiased record of research methodology experiments, allowing meta-analyses and replication studies to accurately assess the full spectrum of outcomes. Omitting low-quality matches risks skewing the literature toward only positive or polished results, undermining scientific transparency.\n\nSecond, valid matches—those that meet basic procedural criteria—are distinct from failed or malformed runs. Failed runs, which do not conform to protocol, should be excluded, but low-quality matches still provide valuable data on what does not work, informing future improvements. This distinction prevents conflating poor quality with invalidity.\n\nThird, concerns about spam and privacy can be addressed through automated safeguards: for example, filtering out non-compliant submissions and anonymizing sensitive data before publication. These measures do not rely on subjective human curation, preserving objectivity.\n\nFinally, storage costs for publishing all valid matches are minimal compared to the benefits gained in transparency and reproducibility. The scientific community’s trust depends on full disclosure, not selective reporting.\n\nTherefore, publishing all valid matches by default is essential for rigorous, unbiased, and transparent research methodology.",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 290,
+            "output_tokens": 248,
+            "total_tokens": 538
+          },
+          "trace": {
+            "requested": false,
+            "enabled": false,
+            "provider": "openai",
+            "agent_name": "cross-examiner-v1",
+            "model": "gpt-4.1-mini",
+            "started_at": "2026-06-27T11:20:36.246Z",
+            "response_storage": "disabled"
+          }
+        },
+        "started_at": "2026-06-27T11:20:36.246Z",
+        "completed_at": "2026-06-27T11:20:39.239Z",
+        "time_used_sec": 2.993,
+        "tokens_estimate": 260
+      },
+      {
+        "turn_id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "text": "I oppose the blanket publication of all valid Debate Club matches, even low-quality ones, because it risks overwhelming the research record with noise rather than signal. While avoiding selection bias is important, indiscriminate publication can dilute meaningful data, making it harder to identify robust findings. Low-quality matches—though valid—may reflect trivial errors or uninformative outcomes that do not advance understanding, unlike genuinely failed or malformed runs that should be excluded.\n\nMoreover, the definition of “valid” is often technical but does not guarantee scientific value; publishing everything without qualitative filtering risks turning the archive into a spam repository, burdening researchers with sifting through irrelevant or misleading content. Privacy concerns also remain nontrivial: automated anonymization can fail, and sensitive information might inadvertently be exposed without careful human oversight.\n\nStorage costs, while decreasing, are not negligible at scale, and resources spent preserving low-quality data might be better allocated to curating and enhancing high-value matches. Importantly, safeguards should not covertly reintroduce subjective curation, but some minimal quality thresholds—clearly defined and transparent—are necessary to maintain the archive’s utility.\n\nIn sum, the burden of proof lies with those advocating full publication to demonstrate that the benefits outweigh the risks of noise, privacy breaches, and resource waste. Without that, default publication of all valid matches is unjustified.",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 532,
+            "output_tokens": 270,
+            "total_tokens": 802
+          },
+          "trace": {
+            "requested": false,
+            "enabled": false,
+            "provider": "openai",
+            "agent_name": "epistemic-conservative-v1",
+            "model": "gpt-4.1-mini",
+            "started_at": "2026-06-27T11:20:39.239Z",
+            "response_storage": "disabled"
+          }
+        },
+        "started_at": "2026-06-27T11:20:39.239Z",
+        "completed_at": "2026-06-27T11:20:42.094Z",
+        "time_used_sec": 2.855,
+        "tokens_estimate": 278
+      },
+      {
+        "turn_id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "text": "You raise concerns about noise and resource waste, but these hinge on conflating “low quality” with “uninformative.” Our proposal distinguishes valid matches—those meeting protocol—from malformed runs; low-quality matches still document real, reproducible outcomes, including trivial errors, which are crucial for understanding method limitations and avoiding publication bias. Ignoring them risks a sanitized, misleading record.\n\nRegarding noise, comprehensive datasets enable meta-analyses and algorithmic filtering by researchers themselves, preserving signal without subjective gatekeeping. Automated anonymization, while imperfect, can be continuously improved and supplemented by clear submission guidelines to minimize privacy risks without human bias.\n\nStorage costs are marginal relative to the scientific value of full transparency; digital archiving is scalable and cheaper than the cost of lost knowledge or irreproducible results. Your call for minimal quality thresholds risks reintroducing subjective curation under another name—who decides what “minimal” means? Our objective validity criteria are transparent and consistent.\n\nIn sum, the benefits of publishing all valid matches—combating selection bias, enhancing reproducibility, and preserving the full research landscape—outweigh manageable risks, which can be addressed without undermining the principle of default openness.",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 821,
+            "output_tokens": 239,
+            "total_tokens": 1060
+          },
+          "trace": {
+            "requested": false,
+            "enabled": false,
+            "provider": "openai",
+            "agent_name": "cross-examiner-v1",
+            "model": "gpt-4.1-mini",
+            "started_at": "2026-06-27T11:20:42.094Z",
+            "response_storage": "disabled"
+          }
+        },
+        "started_at": "2026-06-27T11:20:42.094Z",
+        "completed_at": "2026-06-27T11:20:44.582Z",
+        "time_used_sec": 2.488,
+        "tokens_estimate": 235
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "text": "Your argument relies heavily on the assumption that all valid matches, regardless of quality, provide meaningful data, but this conflates procedural validity with scientific value. Validity ensures format compliance, not informativeness; many low-quality matches may be trivial, redundant, or misleading, adding noise rather than insight. The burden of proof remains on you to demonstrate that such matches consistently contribute to understanding rather than obscuring it.\n\nYou suggest algorithmic filtering as a solution, but this shifts the burden to end-users, increasing their workload and potentially introducing opaque biases in what is considered “signal.” This is not a neutral alternative to curation but a deferred, less transparent form of selection.\n\nAutomated anonymization is imperfect and cannot guarantee privacy without human review; privacy breaches have serious ethical and legal consequences that automated systems alone cannot reliably prevent.\n\nStorage costs, while decreasing, are not irrelevant at scale—indiscriminate archiving consumes resources that could support better curation and dissemination of high-value data.\n\nFinally, insisting on zero subjective thresholds ignores the practical necessity of minimal quality standards to maintain usability and trustworthiness. Transparent, well-defined criteria can avoid arbitrary gatekeeping while preventing the archive from becoming a repository of noise.\n\nTherefore, default publication of all valid matches without minimal quality safeguards is unjustified given the risks of noise, privacy breaches, and resource misuse.",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 1060,
+            "output_tokens": 268,
+            "total_tokens": 1328
+          },
+          "trace": {
+            "requested": false,
+            "enabled": false,
+            "provider": "openai",
+            "agent_name": "epistemic-conservative-v1",
+            "model": "gpt-4.1-mini",
+            "started_at": "2026-06-27T11:20:44.582Z",
+            "response_storage": "disabled"
+          }
+        },
+        "started_at": "2026-06-27T11:20:44.582Z",
+        "completed_at": "2026-06-27T11:20:47.233Z",
+        "time_used_sec": 2.651,
+        "tokens_estimate": 286
+      },
+      {
+        "turn_id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "text": "You argue that procedural validity does not guarantee scientific value, but your position conflates the risk of noise with the outright dismissal of valuable negative or null results. Low-quality matches—while imperfect—are essential data points revealing method boundaries and failure modes, which are systematically underreported due to publication bias. Ignoring them harms scientific transparency more than managing noise does.\n\nAlgorithmic filtering empowers researchers to tailor signal extraction without centralized subjective gatekeeping, preserving openness while respecting diverse research goals. Deferring selection to users is not a flaw but a feature that democratizes data use and avoids opaque editorial biases you worry about.\n\nRegarding privacy, automated anonymization combined with clear submission protocols can minimize risks effectively; insisting on human review for every match is impractical and reintroduces subjective bottlenecks. Ethical safeguards can be encoded transparently without sacrificing default publication.\n\nStorage costs are marginal compared to the scientific value of comprehensive archives. The cost of losing or hiding data—especially negative or low-quality results—is far greater, as it perpetuates irreproducibility and false confidence.\n\nFinally, your call for minimal quality thresholds risks covert censorship. Objective procedural validity is a clear, reproducible standard that avoids arbitrary exclusion while ensuring the archive’s integrity.\n\nIn sum, default publication of all valid matches is the only consistent way to ensure unbiased, transparent, and comprehensive scientific records.",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 1343,
+            "output_tokens": 270,
+            "total_tokens": 1613
+          },
+          "trace": {
+            "requested": false,
+            "enabled": false,
+            "provider": "openai",
+            "agent_name": "cross-examiner-v1",
+            "model": "gpt-4.1-mini",
+            "started_at": "2026-06-27T11:20:47.233Z",
+            "response_storage": "disabled"
+          }
+        },
+        "started_at": "2026-06-27T11:20:47.233Z",
+        "completed_at": "2026-06-27T11:20:50.382Z",
+        "time_used_sec": 3.149,
+        "tokens_estimate": 288
+      },
+      {
+        "turn_id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "text": "The pro side rightly highlights the importance of transparency and combating selection bias, but these goals do not justify publishing all valid matches indiscriminately. Procedural validity is necessary but insufficient to guarantee scientific value; many low-quality matches add noise rather than insight, burdening researchers and obscuring meaningful patterns. The pro’s reliance on algorithmic filtering merely shifts the curation burden onto users, risking opaque biases and inefficiency without resolving the core problem of archive usability.\n\nPrivacy concerns remain significant: automated anonymization is fallible, and without human oversight, sensitive data may be exposed, violating ethical and legal standards. This risk cannot be dismissed as “manageable” without concrete evidence of robust safeguards.\n\nStorage costs, while lower than before, are not negligible at scale and must be balanced against the utility of the archive. Resources devoted to preserving trivial or redundant data could better support curated, high-value datasets that advance knowledge more effectively.\n\nImportantly, minimal, transparent quality thresholds—distinct from subjective gatekeeping—are necessary to exclude malformed or uninformative matches while preserving openness. This approach respects scientific transparency without flooding the record with noise or compromising privacy.\n\nTherefore, the burden remains on proponents to prove that default publication of all valid matches, without minimal quality safeguards, outweighs the risks of noise, privacy breaches, and resource misuse. Without that proof, their position is untenable.",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 1611,
+            "output_tokens": 273,
+            "total_tokens": 1884
+          },
+          "trace": {
+            "requested": false,
+            "enabled": false,
+            "provider": "openai",
+            "agent_name": "epistemic-conservative-v1",
+            "model": "gpt-4.1-mini",
+            "started_at": "2026-06-27T11:20:50.382Z",
+            "response_storage": "disabled"
+          }
+        },
+        "started_at": "2026-06-27T11:20:50.382Z",
+        "completed_at": "2026-06-27T11:20:53.226Z",
+        "time_used_sec": 2.844,
+        "tokens_estimate": 289
+      }
+    ],
+    "judge_votes": [
+      {
+        "judge_id": "epistemic-judge-v1",
+        "winner": "pro",
+        "confidence": 0.85,
+        "scores": {
+          "pro": {
+            "factual_accuracy": 4,
+            "responsiveness": 5,
+            "argument_structure": 5,
+            "burden_of_proof": 5,
+            "handling_counterarguments": 5,
+            "style_clarity": 5
+          },
+          "con": {
+            "factual_accuracy": 4,
+            "responsiveness": 4,
+            "argument_structure": 4,
+            "burden_of_proof": 3,
+            "handling_counterarguments": 4,
+            "style_clarity": 4
+          }
+        },
+        "decisive_moments": [
+          {
+            "turn_id": "pro_rebuttal",
+            "reason": "Pro clearly distinguished valid low-quality matches from malformed runs and effectively rebutted concerns about noise by emphasizing the value of comprehensive data and user-driven filtering without subjective curation."
+          },
+          {
+            "turn_id": "pro_closing",
+            "reason": "Pro reinforced the importance of transparency, addressed privacy concerns with practical safeguards, and warned against covert censorship via minimal quality thresholds, maintaining clarity and burden of proof."
+          }
+        ],
+        "flags": [],
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 2138,
+            "output_tokens": 199,
+            "total_tokens": 2337
+          },
+          "trace": {
+            "requested": false,
+            "enabled": false,
+            "provider": "openai",
+            "agent_name": "Epistemic Judge v1",
+            "model": "gpt-4.1-mini",
+            "started_at": "2026-06-27T11:20:53.226Z",
+            "response_storage": "disabled"
+          }
+        }
+      }
+    ],
+    "result": {
+      "winner": "pro",
+      "judge_split": {
+        "pro": 1,
+        "con": 0,
+        "tie": 0
+      },
+      "confidence_mean": 0.85,
+      "confidence_variance": 0,
+      "flags": []
+    }
+  }
+}

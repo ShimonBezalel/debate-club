@@ -1,0 +1,57 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "pro",
+    "confidence": 0.85,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 4,
+        "responsiveness": 5,
+        "argument_structure": 5,
+        "burden_of_proof": 5,
+        "handling_counterarguments": 5,
+        "style_clarity": 5
+      },
+      "con": {
+        "factual_accuracy": 4,
+        "responsiveness": 4,
+        "argument_structure": 4,
+        "burden_of_proof": 4,
+        "handling_counterarguments": 4,
+        "style_clarity": 4
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Pro effectively reframed the con's points about model thresholds and integration challenges to reinforce the importance of harnesses in managing complexity and enabling modularity, directly addressing the con's strongest arguments."
+      },
+      {
+        "turn_id": "pro_closing",
+        "reason": "Pro clarified the co-dependence of harness and model quality and emphasized the strategic advantage of harnesses in applied workflows beyond baseline model capabilities, solidifying their position."
+      }
+    ],
+    "flags": [],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 2044,
+        "output_tokens": 205,
+        "total_tokens": 2249
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-4.1-mini",
+        "started_at": "2026-06-27T11:23:24.945Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

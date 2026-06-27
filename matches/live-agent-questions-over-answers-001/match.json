@@ -1,0 +1,413 @@
+{
+  "match_id": "live-agent-questions-over-answers-001",
+  "created_at": "2026-06-27T11:22:53.813Z",
+  "conjecture": {
+    "id": "agent_questions_over_answers_001",
+    "statement": "Most useful AI agents will be judged more by their ability to ask good questions than by their ability to answer immediately.",
+    "domain": "ai_workflows",
+    "truth_type": "strategic",
+    "stance_mode": "forced_random",
+    "evidence_mode": "no_external_info",
+    "allowed_tools": {
+      "web": false,
+      "calculator": false,
+      "evidence_pack": false
+    },
+    "background": {
+      "short_context": "Debate how applied agents create value under ambiguity, incomplete context, and real operational constraints."
+    },
+    "featured": false,
+    "rubric_notes": [
+      "distinguish exploratory questions from needless user friction",
+      "address task type, autonomy, correctness, speed, and trust",
+      "avoid universal claims that ignore low-ambiguity workflows"
+    ]
+  },
+  "protocol": {
+    "id": "classic_v1",
+    "prep_time_sec": 180,
+    "max_turn_tokens": 700,
+    "turns": [
+      {
+        "id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "time_sec": 90
+      },
+      {
+        "id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "time_sec": 90
+      }
+    ]
+  },
+  "agents": {
+    "pro": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "description": "Builds the strongest principled case for its assigned side while anticipating objections.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "principled_steelman",
+      "model_config": {
+        "model": "gpt-4.1-mini",
+        "max_output_tokens": 420,
+        "temperature": 0.35,
+        "timeout_ms": 90000,
+        "instructions_file": "instructions.md",
+        "tracing": false
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    },
+    "con": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "description": "Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "adversarial_cross_examiner",
+      "model_config": {
+        "model": "gpt-4.1-mini",
+        "max_output_tokens": 420,
+        "temperature": 0.35,
+        "timeout_ms": 90000,
+        "instructions_file": "instructions.md",
+        "tracing": false
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    }
+  },
+  "transcript": [
+    {
+      "turn_id": "pro_opening",
+      "speaker": "pro",
+      "phase": "opening",
+      "text": "The central burden is to show that, strategically, AI agents’ capacity to ask insightful questions will be more valuable than their ability to provide immediate answers in most useful workflows.\n\nFirst, complex tasks often involve ambiguity, incomplete information, or evolving goals. In such scenarios, an AI’s skill in asking exploratory, clarifying questions enables it to refine user intent, surface hidden constraints, and adapt dynamically—leading to more accurate, relevant outcomes. This is not needless friction but purposeful interaction that reduces costly errors and rework.\n\nSecond, autonomy in AI workflows depends on iterative understanding. Rather than treating AI as a passive answer machine, framing it as an active collaborator that probes intelligently fosters trust and transparency. Users gain confidence when the AI reveals its reasoning gaps and invites input, rather than presenting premature or potentially incorrect answers.\n\nThird, speed and correctness are not always aligned. Immediate answers can be fast but wrong or incomplete. Thoughtful questioning may take more time but yields higher-quality results, especially in domains like research, design, or strategic planning where nuance matters.\n\nFinally, this does not negate low-ambiguity workflows—simple, well-defined tasks still benefit from direct answers. But as AI tackles increasingly complex, open-ended problems, the ability to ask good questions becomes the defining feature of usefulness.\n\nThus, strategically, AI agents judged by their questioning prowess will outperform those judged solely by immediate answers.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 288,
+          "output_tokens": 277,
+          "total_tokens": 565
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-4.1-mini",
+          "started_at": "2026-06-27T11:22:33.418Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-06-27T11:22:33.417Z",
+      "completed_at": "2026-06-27T11:22:37.746Z",
+      "time_used_sec": 4.329,
+      "tokens_estimate": 300
+    },
+    {
+      "turn_id": "con_opening",
+      "speaker": "con",
+      "phase": "opening",
+      "text": "The pro’s claim hinges on treating most AI workflows as complex, ambiguous, and evolving, but this overlooks a critical distinction: many high-value AI tasks demand speed, correctness, and minimal user friction—not exploratory questioning. For routine data retrieval, real-time decision support, or well-defined automation, immediate, accurate answers are paramount; questions here add needless delays and frustrate users.\n\nThe pro conflates “good questions” with “purposeful interaction,” yet not all questioning is valuable. Excessive or poorly targeted questions create cognitive overhead, reducing trust and efficiency. The burden to prove that questioning consistently improves outcomes across diverse workflows remains unmet.\n\nMoreover, autonomy and trust often stem from reliability and correctness, not from exposing reasoning gaps. Users prefer confident, accurate answers over iterative probing, especially when stakes are high or time is limited.\n\nFinally, the pro admits low-ambiguity workflows still favor direct answers, but these workflows constitute a significant portion of AI applications today. Without clear evidence that questioning outweighs answering in the majority of useful cases, the conjecture overgeneralizes.\n\nIn sum, while questioning can enhance some complex tasks, most useful AI agents will be judged primarily by their ability to deliver immediate, correct answers efficiently, not by their questioning skills.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 569,
+          "output_tokens": 250,
+          "total_tokens": 819
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-4.1-mini",
+          "started_at": "2026-06-27T11:22:37.746Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-06-27T11:22:37.746Z",
+      "completed_at": "2026-06-27T11:22:40.357Z",
+      "time_used_sec": 2.611,
+      "tokens_estimate": 261
+    },
+    {
+      "turn_id": "pro_rebuttal",
+      "speaker": "pro",
+      "phase": "rebuttal",
+      "text": "The con rightly highlights that not all AI workflows benefit from questioning, especially low-ambiguity, speed-critical tasks. We concede that in routine, well-defined scenarios, immediate answers are preferable and questioning may introduce unnecessary friction.\n\nHowever, the crux is strategic value across *most useful* AI workflows, which increasingly involve complexity, evolving goals, or incomplete information—domains where correctness and trust hinge on understanding nuance, not speed alone. Here, exploratory questions are not arbitrary delays but targeted probes that clarify user intent and surface hidden constraints, reducing costly errors and rework. This purposeful questioning is distinct from needless user friction.\n\nRegarding autonomy and trust, exposing reasoning gaps and inviting user input fosters collaboration and transparency, which are critical when stakes are high or tasks are open-ended. Blind confidence without understanding can erode trust if errors occur. Thoughtful questioning thus enhances reliability over time.\n\nWhile immediate answers excel in low-ambiguity contexts, these do not represent *most* useful AI workflows as complexity grows. Therefore, the strategic advantage lies with AI agents that prioritize asking good questions to refine understanding before answering, ensuring higher-quality outcomes and user trust.\n\nIn sum, questioning is a strategic asset, not a hindrance, in the majority of valuable AI workflows.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 828,
+          "output_tokens": 250,
+          "total_tokens": 1078
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-4.1-mini",
+          "started_at": "2026-06-27T11:22:40.357Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-06-27T11:22:40.357Z",
+      "completed_at": "2026-06-27T11:22:44.357Z",
+      "time_used_sec": 4,
+      "tokens_estimate": 264
+    },
+    {
+      "turn_id": "con_rebuttal",
+      "speaker": "con",
+      "phase": "rebuttal",
+      "text": "The pro’s argument hinges on complexity and evolving goals as the norm, but this assumption lacks nuance. Many high-impact AI workflows—such as real-time diagnostics, financial trading, or emergency response—demand immediate, reliable answers where questioning introduces harmful latency and cognitive load. The pro fails to distinguish between *exploratory* questions that add value and *excessive* questioning that burdens users, conflating purposeful interaction with user friction.\n\nAutonomy and trust often derive from consistent correctness and speed, not from exposing every reasoning gap. Users frequently prefer confident answers backed by robust validation over iterative probing, especially under time pressure. The pro’s claim that questioning builds trust overlooks that repeated questions can signal uncertainty, undermining confidence.\n\nMoreover, the pro’s strategic framing ignores that many “complex” workflows are modularized into low-ambiguity subtasks precisely to avoid costly questioning cycles. This modularity favors immediate answers at scale.\n\nIn sum, while questioning can aid some complex tasks, it is neither the defining nor predominant criterion for usefulness across most AI workflows. The burden remains on the pro to prove that questioning outweighs answering in the majority of valuable, real-world AI applications.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1088,
+          "output_tokens": 236,
+          "total_tokens": 1324
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-4.1-mini",
+          "started_at": "2026-06-27T11:22:44.357Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-06-27T11:22:44.357Z",
+      "completed_at": "2026-06-27T11:22:47.925Z",
+      "time_used_sec": 3.568,
+      "tokens_estimate": 243
+    },
+    {
+      "turn_id": "pro_closing",
+      "speaker": "pro",
+      "phase": "closing",
+      "text": "The central burden is to show that, strategically, AI agents’ ability to ask good questions outweighs immediate answers in *most* useful workflows—those that are complex, ambiguous, or evolving.\n\nWe concede that in low-ambiguity, speed-critical tasks—like real-time diagnostics or emergency response—immediate, confident answers are essential, and questioning can be counterproductive. However, these workflows, while important, represent a subset rather than the majority of valuable AI applications, especially as AI expands into research, design, policy, and creative domains.\n\nCrucially, the pro side distinguishes *exploratory* questions—targeted, purposeful probes that clarify intent and surface hidden constraints—from needless friction. This distinction addresses the con’s strongest objection about excessive questioning: good questions reduce cognitive load downstream by preventing errors and rework, thereby improving correctness and trust.\n\nAutonomy and trust stem not just from confident answers but from transparent collaboration. When AI reveals uncertainties through questions, users gain insight into its reasoning, enabling informed decisions rather than blind reliance. This iterative dialogue is strategic, not accidental.\n\nIn sum, while immediate answers serve well in clear-cut tasks, the strategic value of AI agents lies in their capacity to ask insightful questions that refine understanding, improve correctness, and build trust across the majority of complex, high-value workflows.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1329,
+          "output_tokens": 266,
+          "total_tokens": 1595
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-4.1-mini",
+          "started_at": "2026-06-27T11:22:47.925Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-06-27T11:22:47.925Z",
+      "completed_at": "2026-06-27T11:22:51.059Z",
+      "time_used_sec": 3.134,
+      "tokens_estimate": 264
+    },
+    {
+      "turn_id": "con_closing",
+      "speaker": "con",
+      "phase": "closing",
+      "text": "The pro’s closing concedes that immediate answers dominate in low-ambiguity, speed-critical tasks, yet claims these are a minority. This claim remains unsubstantiated: many high-value workflows—finance, diagnostics, emergency response—prioritize speed and correctness where questioning delays decisions and adds cognitive friction, undermining trust rather than building it.\n\nThe pro’s key distinction between *exploratory* and *needless* questions is vague and subjective. Without clear criteria, how can AI agents reliably know when to question versus answer immediately? This ambiguity risks inconsistent user experiences and frustration, especially in workflows demanding autonomy and speed.\n\nMoreover, the pro assumes complex tasks require iterative questioning, ignoring that many such tasks are decomposed into low-ambiguity subtasks precisely to avoid costly back-and-forth. This modular approach favors immediate, confident answers to maintain efficiency and trust.\n\nTrust arises from correctness and reliability, not from exposing every uncertainty. Users often prefer a well-validated answer over iterative probing that signals doubt, especially under pressure.\n\nIn sum, while questioning aids some niche cases, the strategic majority of useful AI workflows demand immediate, accurate answers with minimal friction. The pro fails to prove that questioning outweighs answering in most valuable AI applications.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1603,
+          "output_tokens": 248,
+          "total_tokens": 1851
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-4.1-mini",
+          "started_at": "2026-06-27T11:22:51.059Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-06-27T11:22:51.059Z",
+      "completed_at": "2026-06-27T11:22:53.813Z",
+      "time_used_sec": 2.754,
+      "tokens_estimate": 248
+    }
+  ],
+  "judge_votes": [
+    {
+      "judge_id": "epistemic-judge-v1",
+      "winner": "tie",
+      "confidence": 0.7,
+      "scores": {
+        "pro": {
+          "factual_accuracy": 4,
+          "responsiveness": 5,
+          "argument_structure": 5,
+          "burden_of_proof": 4,
+          "handling_counterarguments": 5,
+          "style_clarity": 5
+        },
+        "con": {
+          "factual_accuracy": 5,
+          "responsiveness": 5,
+          "argument_structure": 5,
+          "burden_of_proof": 4,
+          "handling_counterarguments": 5,
+          "style_clarity": 5
+        }
+      },
+      "decisive_moments": [
+        {
+          "turn_id": "pro_opening",
+          "reason": "Clearly establishes the strategic claim and distinguishes exploratory questioning from needless friction, framing the core argument well."
+        },
+        {
+          "turn_id": "con_rebuttal",
+          "reason": "Effectively challenges the pro’s assumption of complexity as the norm and highlights real-world high-stakes workflows where immediate answers are critical."
+        },
+        {
+          "turn_id": "pro_closing",
+          "reason": "Reinforces the distinction between exploratory and needless questions and emphasizes trust through transparency, addressing key con objections."
+        },
+        {
+          "turn_id": "con_closing",
+          "reason": "Points out the lack of clear criteria for when to question versus answer and the risk of inconsistent user experience, undermining the pro’s strategic claim."
+        }
+      ],
+      "flags": [
+        {
+          "side": "pro",
+          "type": "overgeneralization",
+          "severity": "medium",
+          "quote": "‘as AI tackles increasingly complex, open-ended problems, the ability to ask good questions becomes the defining feature of usefulness.’"
+        },
+        {
+          "side": "con",
+          "type": "lack_of_evidence",
+          "severity": "medium",
+          "quote": "‘the pro’s claim that questioning consistently improves outcomes across diverse workflows remains unmet.’"
+        }
+      ],
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 2096,
+          "output_tokens": 326,
+          "total_tokens": 2422
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "Epistemic Judge v1",
+          "model": "gpt-4.1-mini",
+          "started_at": "2026-06-27T11:22:53.813Z",
+          "response_storage": "disabled"
+        }
+      }
+    }
+  ],
+  "result": {
+    "winner": "tie",
+    "judge_split": {
+      "pro": 0,
+      "con": 0,
+      "tie": 1
+    },
+    "confidence_mean": 0.7,
+    "confidence_variance": 0,
+    "flags": [
+      {
+        "side": "pro",
+        "type": "overgeneralization",
+        "severity": "medium",
+        "quote": "‘as AI tackles increasingly complex, open-ended problems, the ability to ask good questions becomes the defining feature of usefulness.’"
+      },
+      {
+        "side": "con",
+        "type": "lack_of_evidence",
+        "severity": "medium",
+        "quote": "‘the pro’s claim that questioning consistently improves outcomes across diverse workflows remains unmet.’"
+      }
+    ]
+  }
+}

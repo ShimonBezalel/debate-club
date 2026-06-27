@@ -51,3 +51,5 @@ export const judgeVoteSchema = z.object({
     }).optional()
   }).optional()
 });
+
+export const judgeModelOutputSchema = judgeVoteSchema.omit({ metadata: true });

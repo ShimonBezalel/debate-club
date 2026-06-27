@@ -1,0 +1,107 @@
+# Debate Transcript
+
+Match: live-agent-questions-over-answers-001
+Conjecture: Most useful AI agents will be judged more by their ability to ask good questions than by their ability to answer immediately.
+Protocol: classic_v1
+
+## pro_opening
+
+Speaker: pro
+Phase: opening
+Time used: 4.329s
+Token estimate: 300
+
+The central burden is to show that, strategically, AI agents’ capacity to ask insightful questions will be more valuable than their ability to provide immediate answers in most useful workflows.
+
+First, complex tasks often involve ambiguity, incomplete information, or evolving goals. In such scenarios, an AI’s skill in asking exploratory, clarifying questions enables it to refine user intent, surface hidden constraints, and adapt dynamically—leading to more accurate, relevant outcomes. This is not needless friction but purposeful interaction that reduces costly errors and rework.
+
+Second, autonomy in AI workflows depends on iterative understanding. Rather than treating AI as a passive answer machine, framing it as an active collaborator that probes intelligently fosters trust and transparency. Users gain confidence when the AI reveals its reasoning gaps and invites input, rather than presenting premature or potentially incorrect answers.
+
+Third, speed and correctness are not always aligned. Immediate answers can be fast but wrong or incomplete. Thoughtful questioning may take more time but yields higher-quality results, especially in domains like research, design, or strategic planning where nuance matters.
+
+Finally, this does not negate low-ambiguity workflows—simple, well-defined tasks still benefit from direct answers. But as AI tackles increasingly complex, open-ended problems, the ability to ask good questions becomes the defining feature of usefulness.
+
+Thus, strategically, AI agents judged by their questioning prowess will outperform those judged solely by immediate answers.
+
+## con_opening
+
+Speaker: con
+Phase: opening
+Time used: 2.611s
+Token estimate: 261
+
+The pro’s claim hinges on treating most AI workflows as complex, ambiguous, and evolving, but this overlooks a critical distinction: many high-value AI tasks demand speed, correctness, and minimal user friction—not exploratory questioning. For routine data retrieval, real-time decision support, or well-defined automation, immediate, accurate answers are paramount; questions here add needless delays and frustrate users.
+
+The pro conflates “good questions” with “purposeful interaction,” yet not all questioning is valuable. Excessive or poorly targeted questions create cognitive overhead, reducing trust and efficiency. The burden to prove that questioning consistently improves outcomes across diverse workflows remains unmet.
+
+Moreover, autonomy and trust often stem from reliability and correctness, not from exposing reasoning gaps. Users prefer confident, accurate answers over iterative probing, especially when stakes are high or time is limited.
+
+Finally, the pro admits low-ambiguity workflows still favor direct answers, but these workflows constitute a significant portion of AI applications today. Without clear evidence that questioning outweighs answering in the majority of useful cases, the conjecture overgeneralizes.
+
+In sum, while questioning can enhance some complex tasks, most useful AI agents will be judged primarily by their ability to deliver immediate, correct answers efficiently, not by their questioning skills.
+
+## pro_rebuttal
+
+Speaker: pro
+Phase: rebuttal
+Time used: 4.000s
+Token estimate: 264
+
+The con rightly highlights that not all AI workflows benefit from questioning, especially low-ambiguity, speed-critical tasks. We concede that in routine, well-defined scenarios, immediate answers are preferable and questioning may introduce unnecessary friction.
+
+However, the crux is strategic value across *most useful* AI workflows, which increasingly involve complexity, evolving goals, or incomplete information—domains where correctness and trust hinge on understanding nuance, not speed alone. Here, exploratory questions are not arbitrary delays but targeted probes that clarify user intent and surface hidden constraints, reducing costly errors and rework. This purposeful questioning is distinct from needless user friction.
+
+Regarding autonomy and trust, exposing reasoning gaps and inviting user input fosters collaboration and transparency, which are critical when stakes are high or tasks are open-ended. Blind confidence without understanding can erode trust if errors occur. Thoughtful questioning thus enhances reliability over time.
+
+While immediate answers excel in low-ambiguity contexts, these do not represent *most* useful AI workflows as complexity grows. Therefore, the strategic advantage lies with AI agents that prioritize asking good questions to refine understanding before answering, ensuring higher-quality outcomes and user trust.
+
+In sum, questioning is a strategic asset, not a hindrance, in the majority of valuable AI workflows.
+
+## con_rebuttal
+
+Speaker: con
+Phase: rebuttal
+Time used: 3.568s
+Token estimate: 243
+
+The pro’s argument hinges on complexity and evolving goals as the norm, but this assumption lacks nuance. Many high-impact AI workflows—such as real-time diagnostics, financial trading, or emergency response—demand immediate, reliable answers where questioning introduces harmful latency and cognitive load. The pro fails to distinguish between *exploratory* questions that add value and *excessive* questioning that burdens users, conflating purposeful interaction with user friction.
+
+Autonomy and trust often derive from consistent correctness and speed, not from exposing every reasoning gap. Users frequently prefer confident answers backed by robust validation over iterative probing, especially under time pressure. The pro’s claim that questioning builds trust overlooks that repeated questions can signal uncertainty, undermining confidence.
+
+Moreover, the pro’s strategic framing ignores that many “complex” workflows are modularized into low-ambiguity subtasks precisely to avoid costly questioning cycles. This modularity favors immediate answers at scale.
+
+In sum, while questioning can aid some complex tasks, it is neither the defining nor predominant criterion for usefulness across most AI workflows. The burden remains on the pro to prove that questioning outweighs answering in the majority of valuable, real-world AI applications.
+
+## pro_closing
+
+Speaker: pro
+Phase: closing
+Time used: 3.134s
+Token estimate: 264
+
+The central burden is to show that, strategically, AI agents’ ability to ask good questions outweighs immediate answers in *most* useful workflows—those that are complex, ambiguous, or evolving.
+
+We concede that in low-ambiguity, speed-critical tasks—like real-time diagnostics or emergency response—immediate, confident answers are essential, and questioning can be counterproductive. However, these workflows, while important, represent a subset rather than the majority of valuable AI applications, especially as AI expands into research, design, policy, and creative domains.
+
+Crucially, the pro side distinguishes *exploratory* questions—targeted, purposeful probes that clarify intent and surface hidden constraints—from needless friction. This distinction addresses the con’s strongest objection about excessive questioning: good questions reduce cognitive load downstream by preventing errors and rework, thereby improving correctness and trust.
+
+Autonomy and trust stem not just from confident answers but from transparent collaboration. When AI reveals uncertainties through questions, users gain insight into its reasoning, enabling informed decisions rather than blind reliance. This iterative dialogue is strategic, not accidental.
+
+In sum, while immediate answers serve well in clear-cut tasks, the strategic value of AI agents lies in their capacity to ask insightful questions that refine understanding, improve correctness, and build trust across the majority of complex, high-value workflows.
+
+## con_closing
+
+Speaker: con
+Phase: closing
+Time used: 2.754s
+Token estimate: 248
+
+The pro’s closing concedes that immediate answers dominate in low-ambiguity, speed-critical tasks, yet claims these are a minority. This claim remains unsubstantiated: many high-value workflows—finance, diagnostics, emergency response—prioritize speed and correctness where questioning delays decisions and adds cognitive friction, undermining trust rather than building it.
+
+The pro’s key distinction between *exploratory* and *needless* questions is vague and subjective. Without clear criteria, how can AI agents reliably know when to question versus answer immediately? This ambiguity risks inconsistent user experiences and frustration, especially in workflows demanding autonomy and speed.
+
+Moreover, the pro assumes complex tasks require iterative questioning, ignoring that many such tasks are decomposed into low-ambiguity subtasks precisely to avoid costly back-and-forth. This modular approach favors immediate, confident answers to maintain efficiency and trust.
+
+Trust arises from correctness and reliability, not from exposing every uncertainty. Users often prefer a well-validated answer over iterative probing that signals doubt, especially under pressure.
+
+In sum, while questioning aids some niche cases, the strategic majority of useful AI workflows demand immediate, accurate answers with minimal friction. The pro fails to prove that questioning outweighs answering in most valuable AI applications.

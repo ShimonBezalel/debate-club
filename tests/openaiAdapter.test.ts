@@ -1,10 +1,19 @@
 import { describe, expect, it } from "vitest";
-import { createOpenAiAgentsSdkAgent, createOpenAiAgentsSdkJudge, openAiAgentsSdkAvailable } from "../src/adapters/openaiAgentsSdk.js";
+import { createOpenAiAgentsSdkAgent, createOpenAiAgentsSdkJudge, effectiveTurnBudget, effectiveTurnWordBudget, openAiAgentsSdkAvailable } from "../src/adapters/openaiAgentsSdk.js";
 
 describe("openai agents sdk adapter boundary", () => {
   it("reports availability without requiring credentials", async () => {
     const available = await openAiAgentsSdkAvailable();
     expect(typeof available).toBe("boolean");
+  });
+
+  it("keeps the prompted turn budget below the provider hard cap", () => {
+    expect(effectiveTurnBudget({ time_sec: 120, max_tokens: 700 }, 260)).toEqual({
+      time_sec: 120,
+      max_tokens: 228
+    });
+    expect(effectiveTurnBudget({ time_sec: 30, max_tokens: 120 }, 260).max_tokens).toBe(120);
+    expect(effectiveTurnWordBudget(228)).toBe(125);
   });
 
   it("requires explicit live or dry-run mode", async () => {

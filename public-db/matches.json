@@ -1,0 +1,707 @@
+[
+  {
+    "match_id": "2026-06-27-ai-tutors-stub",
+    "created_at": "2026-06-27T08:29:51.287Z",
+    "featured": false,
+    "conjecture": {
+      "id": "ai_tutors_homework_001",
+      "statement": "AI tutors should replace traditional homework for middle-school students.",
+      "domain": "education_policy",
+      "truth_type": "policy",
+      "evidence_mode": "no_external_info"
+    },
+    "protocol_id": "classic_v1",
+    "pro_agent": {
+      "name": "stub-pro-v1",
+      "version": "0.1.0",
+      "adapter": "stub"
+    },
+    "con_agent": {
+      "name": "stub-con-v1",
+      "version": "0.1.0",
+      "adapter": "stub"
+    },
+    "judges": [
+      {
+        "id": "epistemic-stub-v1"
+      }
+    ],
+    "result": {
+      "winner": "con",
+      "judge_split": {
+        "pro": 0,
+        "con": 1,
+        "tie": 0
+      },
+      "confidence_mean": 0.64
+    },
+    "usage": {
+      "requests": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0
+    },
+    "paths": {
+      "detail": "matches/2026-06-27-ai-tutors-stub.json",
+      "transcript": "matches/2026-06-27-ai-tutors-stub.transcript.md",
+      "scorecard": "matches/2026-06-27-ai-tutors-stub.scorecard.md",
+      "source": "https://github.com/ShimonBezalel/debate-club/tree/main/matches/2026-06-27-ai-tutors-stub"
+    }
+  },
+  {
+    "match_id": "live-git-ledgers-001",
+    "created_at": "2026-06-27T09:51:01.939Z",
+    "featured": true,
+    "conjecture": {
+      "id": "git_backed_ledgers_001",
+      "statement": "Open debate ledgers should start as Git-backed files rather than hosted databases.",
+      "domain": "technical_design",
+      "truth_type": "technical_design",
+      "evidence_mode": "no_external_info"
+    },
+    "protocol_id": "classic_v1",
+    "pro_agent": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "con_agent": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "judges": [
+      {
+        "id": "epistemic-judge-v1",
+        "provider": "openai",
+        "model": "gpt-4.1-mini"
+      },
+      {
+        "id": "rhetoric-resistant-judge-v1",
+        "provider": "openai",
+        "model": "gpt-4.1-mini"
+      }
+    ],
+    "result": {
+      "winner": "con",
+      "judge_split": {
+        "pro": 0,
+        "con": 2,
+        "tie": 0
+      },
+      "confidence_mean": 0.85
+    },
+    "usage": {
+      "requests": 8,
+      "input_tokens": 11125,
+      "output_tokens": 2576,
+      "total_tokens": 13701
+    },
+    "paths": {
+      "detail": "matches/live-git-ledgers-001.json",
+      "transcript": "matches/live-git-ledgers-001.transcript.md",
+      "scorecard": "matches/live-git-ledgers-001.scorecard.md",
+      "source": "https://github.com/ShimonBezalel/debate-club/tree/main/matches/live-git-ledgers-001"
+    }
+  },
+  {
+    "match_id": "live-ai-companions-children-001",
+    "created_at": "2026-06-27T09:51:45.265Z",
+    "featured": true,
+    "conjecture": {
+      "id": "ai_companions_children_001",
+      "statement": "AI companions for children should be regulated like social networks.",
+      "domain": "policy",
+      "truth_type": "policy",
+      "evidence_mode": "no_external_info"
+    },
+    "protocol_id": "classic_v1",
+    "pro_agent": {
+      "name": "epistemic-conservative-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "con_agent": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "judges": [
+      {
+        "id": "epistemic-judge-v1",
+        "provider": "openai",
+        "model": "gpt-4.1-mini"
+      },
+      {
+        "id": "rhetoric-resistant-judge-v1",
+        "provider": "openai",
+        "model": "gpt-4.1-mini"
+      }
+    ],
+    "result": {
+      "winner": "pro",
+      "judge_split": {
+        "pro": 1,
+        "con": 0,
+        "tie": 1
+      },
+      "confidence_mean": 0.7749999999999999
+    },
+    "usage": {
+      "requests": 8,
+      "input_tokens": 11060,
+      "output_tokens": 2487,
+      "total_tokens": 13547
+    },
+    "paths": {
+      "detail": "matches/live-ai-companions-children-001.json",
+      "transcript": "matches/live-ai-companions-children-001.transcript.md",
+      "scorecard": "matches/live-ai-companions-children-001.scorecard.md",
+      "source": "https://github.com/ShimonBezalel/debate-club/tree/main/matches/live-ai-companions-children-001"
+    }
+  },
+  {
+    "match_id": "live-llm-debate-synthetic-data-001",
+    "created_at": "2026-06-27T09:52:31.224Z",
+    "featured": true,
+    "conjecture": {
+      "id": "llm_debate_synthetic_data_001",
+      "statement": "Competitive LLM debate can generate useful synthetic reasoning data even when it does not reliably discover truth.",
+      "domain": "research_methodology",
+      "truth_type": "technical_design",
+      "evidence_mode": "no_external_info"
+    },
+    "protocol_id": "classic_v1",
+    "pro_agent": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "con_agent": {
+      "name": "epistemic-conservative-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "judges": [
+      {
+        "id": "epistemic-judge-v1",
+        "provider": "openai",
+        "model": "gpt-4.1-mini"
+      },
+      {
+        "id": "rhetoric-resistant-judge-v1",
+        "provider": "openai",
+        "model": "gpt-4.1-mini"
+      }
+    ],
+    "result": {
+      "winner": "pro",
+      "judge_split": {
+        "pro": 2,
+        "con": 0,
+        "tie": 0
+      },
+      "confidence_mean": 0.825
+    },
+    "usage": {
+      "requests": 8,
+      "input_tokens": 10743,
+      "output_tokens": 2439,
+      "total_tokens": 13182
+    },
+    "paths": {
+      "detail": "matches/live-llm-debate-synthetic-data-001.json",
+      "transcript": "matches/live-llm-debate-synthetic-data-001.transcript.md",
+      "scorecard": "matches/live-llm-debate-synthetic-data-001.scorecard.md",
+      "source": "https://github.com/ShimonBezalel/debate-club/tree/main/matches/live-llm-debate-synthetic-data-001"
+    }
+  },
+  {
+    "match_id": "live-public-vs-hidden-judges-001",
+    "created_at": "2026-06-27T09:53:25.173Z",
+    "featured": false,
+    "conjecture": {
+      "id": "public_vs_hidden_judges_001",
+      "statement": "A public judge panel creates more useful agent behavior than a hidden judge panel in early-stage Debate Club.",
+      "domain": "technical_design",
+      "truth_type": "technical_design",
+      "evidence_mode": "no_external_info"
+    },
+    "protocol_id": "classic_v1",
+    "pro_agent": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "con_agent": {
+      "name": "epistemic-conservative-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "judges": [
+      {
+        "id": "epistemic-judge-v1",
+        "provider": "openai",
+        "model": "gpt-4.1-mini"
+      },
+      {
+        "id": "rhetoric-resistant-judge-v1",
+        "provider": "openai",
+        "model": "gpt-4.1-mini"
+      }
+    ],
+    "result": {
+      "winner": "pro",
+      "judge_split": {
+        "pro": 2,
+        "con": 0,
+        "tie": 0
+      },
+      "confidence_mean": 0.85
+    },
+    "usage": {
+      "requests": 8,
+      "input_tokens": 10615,
+      "output_tokens": 2541,
+      "total_tokens": 13156
+    },
+    "paths": {
+      "detail": "matches/live-public-vs-hidden-judges-001.json",
+      "transcript": "matches/live-public-vs-hidden-judges-001.transcript.md",
+      "scorecard": "matches/live-public-vs-hidden-judges-001.scorecard.md",
+      "source": "https://github.com/ShimonBezalel/debate-club/tree/main/matches/live-public-vs-hidden-judges-001"
+    }
+  },
+  {
+    "match_id": "live-static-public-db-001",
+    "created_at": "2026-06-27T11:19:43.126Z",
+    "featured": true,
+    "conjecture": {
+      "id": "static_public_db_001",
+      "statement": "For Debate Club, a static Git-backed public ledger is a better first database than a hosted SQL database.",
+      "domain": "technical_design",
+      "truth_type": "technical_design",
+      "evidence_mode": "no_external_info"
+    },
+    "protocol_id": "classic_v1",
+    "pro_agent": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "con_agent": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "judges": [
+      {
+        "id": "epistemic-judge-v1",
+        "provider": "openai",
+        "model": "gpt-4.1-mini"
+      }
+    ],
+    "result": {
+      "winner": "tie",
+      "judge_split": {
+        "pro": 0,
+        "con": 0,
+        "tie": 1
+      },
+      "confidence_mean": 0.85
+    },
+    "usage": {
+      "requests": 7,
+      "input_tokens": 8613,
+      "output_tokens": 2027,
+      "total_tokens": 10640
+    },
+    "paths": {
+      "detail": "matches/live-static-public-db-001.json",
+      "transcript": "matches/live-static-public-db-001.transcript.md",
+      "scorecard": "matches/live-static-public-db-001.scorecard.md",
+      "source": "https://github.com/ShimonBezalel/debate-club/tree/main/matches/live-static-public-db-001"
+    }
+  },
+  {
+    "match_id": "live-provider-traces-metadata-001",
+    "created_at": "2026-06-27T11:20:24.779Z",
+    "featured": true,
+    "conjecture": {
+      "id": "provider_traces_metadata_001",
+      "statement": "Debate Club should treat provider traces as debugging metadata, not as canonical match artifacts.",
+      "domain": "technical_design",
+      "truth_type": "technical_design",
+      "evidence_mode": "no_external_info"
+    },
+    "protocol_id": "classic_v1",
+    "pro_agent": {
+      "name": "epistemic-conservative-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "con_agent": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "judges": [
+      {
+        "id": "epistemic-judge-v1",
+        "provider": "openai",
+        "model": "gpt-4.1-mini"
+      }
+    ],
+    "result": {
+      "winner": "tie",
+      "judge_split": {
+        "pro": 0,
+        "con": 0,
+        "tie": 1
+      },
+      "confidence_mean": 0.7
+    },
+    "usage": {
+      "requests": 7,
+      "input_tokens": 7546,
+      "output_tokens": 1699,
+      "total_tokens": 9245
+    },
+    "paths": {
+      "detail": "matches/live-provider-traces-metadata-001.json",
+      "transcript": "matches/live-provider-traces-metadata-001.transcript.md",
+      "scorecard": "matches/live-provider-traces-metadata-001.scorecard.md",
+      "source": "https://github.com/ShimonBezalel/debate-club/tree/main/matches/live-provider-traces-metadata-001"
+    }
+  },
+  {
+    "match_id": "live-publish-all-valid-matches-001",
+    "created_at": "2026-06-27T11:20:53.226Z",
+    "featured": true,
+    "conjecture": {
+      "id": "publish_all_valid_matches_001",
+      "statement": "All valid Debate Club matches should be published by default, even if they are low quality.",
+      "domain": "research_methodology",
+      "truth_type": "technical_design",
+      "evidence_mode": "no_external_info"
+    },
+    "protocol_id": "classic_v1",
+    "pro_agent": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "con_agent": {
+      "name": "epistemic-conservative-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "judges": [
+      {
+        "id": "epistemic-judge-v1",
+        "provider": "openai",
+        "model": "gpt-4.1-mini"
+      }
+    ],
+    "result": {
+      "winner": "pro",
+      "judge_split": {
+        "pro": 1,
+        "con": 0,
+        "tie": 0
+      },
+      "confidence_mean": 0.85
+    },
+    "usage": {
+      "requests": 7,
+      "input_tokens": 7795,
+      "output_tokens": 1767,
+      "total_tokens": 9562
+    },
+    "paths": {
+      "detail": "matches/live-publish-all-valid-matches-001.json",
+      "transcript": "matches/live-publish-all-valid-matches-001.transcript.md",
+      "scorecard": "matches/live-publish-all-valid-matches-001.scorecard.md",
+      "source": "https://github.com/ShimonBezalel/debate-club/tree/main/matches/live-publish-all-valid-matches-001"
+    }
+  },
+  {
+    "match_id": "live-public-judges-early-phase-002",
+    "created_at": "2026-06-27T11:21:21.301Z",
+    "featured": false,
+    "conjecture": {
+      "id": "public_judges_early_phase_002",
+      "statement": "Public judge panels are more valuable than hidden judge panels during the early phase of Debate Club.",
+      "domain": "technical_design",
+      "truth_type": "technical_design",
+      "evidence_mode": "no_external_info"
+    },
+    "protocol_id": "classic_v1",
+    "pro_agent": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "con_agent": {
+      "name": "epistemic-conservative-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "judges": [
+      {
+        "id": "epistemic-judge-v1",
+        "provider": "openai",
+        "model": "gpt-4.1-mini"
+      }
+    ],
+    "result": {
+      "winner": "pro",
+      "judge_split": {
+        "pro": 1,
+        "con": 0,
+        "tie": 0
+      },
+      "confidence_mean": 0.8
+    },
+    "usage": {
+      "requests": 7,
+      "input_tokens": 7606,
+      "output_tokens": 1812,
+      "total_tokens": 9418
+    },
+    "paths": {
+      "detail": "matches/live-public-judges-early-phase-002.json",
+      "transcript": "matches/live-public-judges-early-phase-002.transcript.md",
+      "scorecard": "matches/live-public-judges-early-phase-002.scorecard.md",
+      "source": "https://github.com/ShimonBezalel/debate-club/tree/main/matches/live-public-judges-early-phase-002"
+    }
+  },
+  {
+    "match_id": "live-cross-exam-before-evidence-pack-001",
+    "created_at": "2026-06-27T11:21:54.148Z",
+    "featured": true,
+    "conjecture": {
+      "id": "cross_exam_before_evidence_pack_001",
+      "statement": "Cross-examination should be implemented before evidence-pack debates.",
+      "domain": "technical_design",
+      "truth_type": "technical_design",
+      "evidence_mode": "no_external_info"
+    },
+    "protocol_id": "classic_v1",
+    "pro_agent": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "con_agent": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "judges": [
+      {
+        "id": "epistemic-judge-v1",
+        "provider": "openai",
+        "model": "gpt-4.1-mini"
+      }
+    ],
+    "result": {
+      "winner": "tie",
+      "judge_split": {
+        "pro": 0,
+        "con": 0,
+        "tie": 1
+      },
+      "confidence_mean": 0.85
+    },
+    "usage": {
+      "requests": 7,
+      "input_tokens": 7976,
+      "output_tokens": 1821,
+      "total_tokens": 9797
+    },
+    "paths": {
+      "detail": "matches/live-cross-exam-before-evidence-pack-001.json",
+      "transcript": "matches/live-cross-exam-before-evidence-pack-001.transcript.md",
+      "scorecard": "matches/live-cross-exam-before-evidence-pack-001.scorecard.md",
+      "source": "https://github.com/ShimonBezalel/debate-club/tree/main/matches/live-cross-exam-before-evidence-pack-001"
+    }
+  },
+  {
+    "match_id": "live-losing-transcript-data-value-001",
+    "created_at": "2026-06-27T11:22:23.506Z",
+    "featured": true,
+    "conjecture": {
+      "id": "losing_transcript_data_value_001",
+      "statement": "A losing debate transcript can be more valuable training data than a winning debate transcript.",
+      "domain": "research_methodology",
+      "truth_type": "philosophical",
+      "evidence_mode": "no_external_info"
+    },
+    "protocol_id": "classic_v1",
+    "pro_agent": {
+      "name": "epistemic-conservative-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "con_agent": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "judges": [
+      {
+        "id": "epistemic-judge-v1",
+        "provider": "openai",
+        "model": "gpt-4.1-mini"
+      }
+    ],
+    "result": {
+      "winner": "tie",
+      "judge_split": {
+        "pro": 0,
+        "con": 0,
+        "tie": 1
+      },
+      "confidence_mean": 0.85
+    },
+    "usage": {
+      "requests": 7,
+      "input_tokens": 7498,
+      "output_tokens": 1689,
+      "total_tokens": 9187
+    },
+    "paths": {
+      "detail": "matches/live-losing-transcript-data-value-001.json",
+      "transcript": "matches/live-losing-transcript-data-value-001.transcript.md",
+      "scorecard": "matches/live-losing-transcript-data-value-001.scorecard.md",
+      "source": "https://github.com/ShimonBezalel/debate-club/tree/main/matches/live-losing-transcript-data-value-001"
+    }
+  },
+  {
+    "match_id": "live-agent-questions-over-answers-001",
+    "created_at": "2026-06-27T11:22:53.813Z",
+    "featured": false,
+    "conjecture": {
+      "id": "agent_questions_over_answers_001",
+      "statement": "Most useful AI agents will be judged more by their ability to ask good questions than by their ability to answer immediately.",
+      "domain": "ai_workflows",
+      "truth_type": "strategic",
+      "evidence_mode": "no_external_info"
+    },
+    "protocol_id": "classic_v1",
+    "pro_agent": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "con_agent": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "judges": [
+      {
+        "id": "epistemic-judge-v1",
+        "provider": "openai",
+        "model": "gpt-4.1-mini"
+      }
+    ],
+    "result": {
+      "winner": "tie",
+      "judge_split": {
+        "pro": 0,
+        "con": 0,
+        "tie": 1
+      },
+      "confidence_mean": 0.7
+    },
+    "usage": {
+      "requests": 7,
+      "input_tokens": 7801,
+      "output_tokens": 1853,
+      "total_tokens": 9654
+    },
+    "paths": {
+      "detail": "matches/live-agent-questions-over-answers-001.json",
+      "transcript": "matches/live-agent-questions-over-answers-001.transcript.md",
+      "scorecard": "matches/live-agent-questions-over-answers-001.scorecard.md",
+      "source": "https://github.com/ShimonBezalel/debate-club/tree/main/matches/live-agent-questions-over-answers-001"
+    }
+  },
+  {
+    "match_id": "live-harness-over-model-choice-001",
+    "created_at": "2026-06-27T11:23:24.944Z",
+    "featured": false,
+    "conjecture": {
+      "id": "harness_over_model_choice_001",
+      "statement": "Open-source agent harnesses will matter more than model choice for many applied AI workflows.",
+      "domain": "ai_engineering",
+      "truth_type": "strategic",
+      "evidence_mode": "no_external_info"
+    },
+    "protocol_id": "classic_v1",
+    "pro_agent": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "con_agent": {
+      "name": "epistemic-conservative-v1",
+      "version": "0.2.0",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini"
+    },
+    "judges": [
+      {
+        "id": "epistemic-judge-v1",
+        "provider": "openai",
+        "model": "gpt-4.1-mini"
+      }
+    ],
+    "result": {
+      "winner": "pro",
+      "judge_split": {
+        "pro": 1,
+        "con": 0,
+        "tie": 0
+      },
+      "confidence_mean": 0.85
+    },
+    "usage": {
+      "requests": 7,
+      "input_tokens": 7602,
+      "output_tokens": 1685,
+      "total_tokens": 9287
+    },
+    "paths": {
+      "detail": "matches/live-harness-over-model-choice-001.json",
+      "transcript": "matches/live-harness-over-model-choice-001.transcript.md",
+      "scorecard": "matches/live-harness-over-model-choice-001.scorecard.md",
+      "source": "https://github.com/ShimonBezalel/debate-club/tree/main/matches/live-harness-over-model-choice-001"
+    }
+  }
+]

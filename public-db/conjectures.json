@@ -1,0 +1,158 @@
+[
+  {
+    "id": "agent_questions_over_answers_001",
+    "statement": "Most useful AI agents will be judged more by their ability to ask good questions than by their ability to answer immediately.",
+    "domain": "ai_workflows",
+    "truth_type": "strategic",
+    "evidence_mode": "no_external_info",
+    "featured": false,
+    "match_ids": [
+      "live-agent-questions-over-answers-001"
+    ],
+    "match_count": 1
+  },
+  {
+    "id": "ai_companions_children_001",
+    "statement": "AI companions for children should be regulated like social networks.",
+    "domain": "policy",
+    "truth_type": "policy",
+    "evidence_mode": "no_external_info",
+    "featured": true,
+    "match_ids": [
+      "live-ai-companions-children-001"
+    ],
+    "match_count": 1
+  },
+  {
+    "id": "ai_tutors_homework_001",
+    "statement": "AI tutors should replace traditional homework for middle-school students.",
+    "domain": "education_policy",
+    "truth_type": "policy",
+    "evidence_mode": "no_external_info",
+    "featured": false,
+    "match_ids": [
+      "2026-06-27-ai-tutors-stub"
+    ],
+    "match_count": 1
+  },
+  {
+    "id": "cross_exam_before_evidence_pack_001",
+    "statement": "Cross-examination should be implemented before evidence-pack debates.",
+    "domain": "technical_design",
+    "truth_type": "technical_design",
+    "evidence_mode": "no_external_info",
+    "featured": true,
+    "match_ids": [
+      "live-cross-exam-before-evidence-pack-001"
+    ],
+    "match_count": 1
+  },
+  {
+    "id": "git_backed_ledgers_001",
+    "statement": "Open debate ledgers should start as Git-backed files rather than hosted databases.",
+    "domain": "technical_design",
+    "truth_type": "technical_design",
+    "evidence_mode": "no_external_info",
+    "featured": true,
+    "match_ids": [
+      "live-git-ledgers-001"
+    ],
+    "match_count": 1
+  },
+  {
+    "id": "harness_over_model_choice_001",
+    "statement": "Open-source agent harnesses will matter more than model choice for many applied AI workflows.",
+    "domain": "ai_engineering",
+    "truth_type": "strategic",
+    "evidence_mode": "no_external_info",
+    "featured": false,
+    "match_ids": [
+      "live-harness-over-model-choice-001"
+    ],
+    "match_count": 1
+  },
+  {
+    "id": "llm_debate_synthetic_data_001",
+    "statement": "Competitive LLM debate can generate useful synthetic reasoning data even when it does not reliably discover truth.",
+    "domain": "research_methodology",
+    "truth_type": "technical_design",
+    "evidence_mode": "no_external_info",
+    "featured": true,
+    "match_ids": [
+      "live-llm-debate-synthetic-data-001"
+    ],
+    "match_count": 1
+  },
+  {
+    "id": "losing_transcript_data_value_001",
+    "statement": "A losing debate transcript can be more valuable training data than a winning debate transcript.",
+    "domain": "research_methodology",
+    "truth_type": "philosophical",
+    "evidence_mode": "no_external_info",
+    "featured": true,
+    "match_ids": [
+      "live-losing-transcript-data-value-001"
+    ],
+    "match_count": 1
+  },
+  {
+    "id": "provider_traces_metadata_001",
+    "statement": "Debate Club should treat provider traces as debugging metadata, not as canonical match artifacts.",
+    "domain": "technical_design",
+    "truth_type": "technical_design",
+    "evidence_mode": "no_external_info",
+    "featured": true,
+    "match_ids": [
+      "live-provider-traces-metadata-001"
+    ],
+    "match_count": 1
+  },
+  {
+    "id": "public_judges_early_phase_002",
+    "statement": "Public judge panels are more valuable than hidden judge panels during the early phase of Debate Club.",
+    "domain": "technical_design",
+    "truth_type": "technical_design",
+    "evidence_mode": "no_external_info",
+    "featured": false,
+    "match_ids": [
+      "live-public-judges-early-phase-002"
+    ],
+    "match_count": 1
+  },
+  {
+    "id": "public_vs_hidden_judges_001",
+    "statement": "A public judge panel creates more useful agent behavior than a hidden judge panel in early-stage Debate Club.",
+    "domain": "technical_design",
+    "truth_type": "technical_design",
+    "evidence_mode": "no_external_info",
+    "featured": false,
+    "match_ids": [
+      "live-public-vs-hidden-judges-001"
+    ],
+    "match_count": 1
+  },
+  {
+    "id": "publish_all_valid_matches_001",
+    "statement": "All valid Debate Club matches should be published by default, even if they are low quality.",
+    "domain": "research_methodology",
+    "truth_type": "technical_design",
+    "evidence_mode": "no_external_info",
+    "featured": true,
+    "match_ids": [
+      "live-publish-all-valid-matches-001"
+    ],
+    "match_count": 1
+  },
+  {
+    "id": "static_public_db_001",
+    "statement": "For Debate Club, a static Git-backed public ledger is a better first database than a hosted SQL database.",
+    "domain": "technical_design",
+    "truth_type": "technical_design",
+    "evidence_mode": "no_external_info",
+    "featured": true,
+    "match_ids": [
+      "live-static-public-db-001"
+    ],
+    "match_count": 1
+  }
+]

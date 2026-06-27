@@ -1,4 +1,4 @@
-import { copyFile, mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import type { CompletedMatch, ModelUsage, Side } from "../types/core.js";
 import { PUBLIC_DB_SCHEMA_VERSION, type PublicDbManifest, type PublicMatchSummary } from "./schema.js";
@@ -7,6 +7,11 @@ const SOURCE_REPO_URL = "https://github.com/ShimonBezalel/debate-club";
 
 function json(value: unknown): string {
   return `${JSON.stringify(value, null, 2)}\n`;
+}
+
+async function writeProjectedMarkdown(source: string, destination: string): Promise<void> {
+  const content = await readFile(source, "utf8");
+  await writeFile(destination, content.replace(/[ \t]+$/gm, ""));
 }
 
 function renderReadme(manifest: PublicDbManifest): string {
@@ -278,8 +283,8 @@ export async function exportPublicDb(matchesRoot: string, outRoot: string): Prom
       },
       match
     }));
-    await copyFile(join(matchesRoot, match.match_id, "transcript.md"), join(outRoot, summary.paths.transcript));
-    await copyFile(join(matchesRoot, match.match_id, "scorecard.md"), join(outRoot, summary.paths.scorecard));
+    await writeProjectedMarkdown(join(matchesRoot, match.match_id, "transcript.md"), join(outRoot, summary.paths.transcript));
+    await writeProjectedMarkdown(join(matchesRoot, match.match_id, "scorecard.md"), join(outRoot, summary.paths.scorecard));
   }
 
   const manifest: PublicDbManifest = {

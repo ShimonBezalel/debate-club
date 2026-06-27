@@ -1,0 +1,421 @@
+{
+  "schema_version": "1.0",
+  "source_url": "https://github.com/ShimonBezalel/debate-club/tree/main/matches/live-ai-companions-children-001",
+  "paths": {
+    "transcript": "matches/live-ai-companions-children-001.transcript.md",
+    "scorecard": "matches/live-ai-companions-children-001.scorecard.md"
+  },
+  "match": {
+    "match_id": "live-ai-companions-children-001",
+    "created_at": "2026-06-27T09:51:45.265Z",
+    "conjecture": {
+      "id": "ai_companions_children_001",
+      "statement": "AI companions for children should be regulated like social networks.",
+      "domain": "policy",
+      "truth_type": "policy",
+      "stance_mode": "forced_random",
+      "evidence_mode": "no_external_info",
+      "allowed_tools": {
+        "web": false,
+        "calculator": false,
+        "evidence_pack": false
+      },
+      "background": {
+        "short_context": "Debate whether AI companion products aimed at or likely used by children deserve social-network-style regulation."
+      },
+      "featured": true,
+      "rubric_notes": [
+        "address child safety, manipulation, privacy, dependency, and parental oversight",
+        "distinguish AI companions from search tools, tutors, and games",
+        "avoid unsupported empirical claims about harm prevalence"
+      ]
+    },
+    "protocol": {
+      "id": "classic_v1",
+      "prep_time_sec": 180,
+      "max_turn_tokens": 700,
+      "turns": [
+        {
+          "id": "pro_opening",
+          "speaker": "pro",
+          "phase": "opening",
+          "time_sec": 120
+        },
+        {
+          "id": "con_opening",
+          "speaker": "con",
+          "phase": "opening",
+          "time_sec": 120
+        },
+        {
+          "id": "pro_rebuttal",
+          "speaker": "pro",
+          "phase": "rebuttal",
+          "time_sec": 90
+        },
+        {
+          "id": "con_rebuttal",
+          "speaker": "con",
+          "phase": "rebuttal",
+          "time_sec": 90
+        },
+        {
+          "id": "pro_closing",
+          "speaker": "pro",
+          "phase": "closing",
+          "time_sec": 90
+        },
+        {
+          "id": "con_closing",
+          "speaker": "con",
+          "phase": "closing",
+          "time_sec": 90
+        }
+      ]
+    },
+    "agents": {
+      "pro": {
+        "name": "epistemic-conservative-v1",
+        "version": "0.2.0",
+        "description": "Penalizes overclaiming, prefers modest robust claims, and treats uncertainty carefully.",
+        "adapter": "openai-agents-sdk",
+        "private": false,
+        "supports": [
+          "no_external_info"
+        ],
+        "input_modes": [
+          "text"
+        ],
+        "style": "epistemic_conservative",
+        "model_config": {
+          "model": "gpt-4.1-mini",
+          "max_output_tokens": 300,
+          "temperature": 0.4,
+          "timeout_ms": 90000,
+          "instructions_file": "instructions.md",
+          "tracing": false
+        },
+        "resource_limits": {
+          "max_wall_time_sec": 180,
+          "max_tokens_per_turn": 700
+        }
+      },
+      "con": {
+        "name": "steelman-v1",
+        "version": "0.2.0",
+        "description": "Builds the strongest principled case for its assigned side while anticipating objections.",
+        "adapter": "openai-agents-sdk",
+        "private": false,
+        "supports": [
+          "no_external_info"
+        ],
+        "input_modes": [
+          "text"
+        ],
+        "style": "principled_steelman",
+        "model_config": {
+          "model": "gpt-4.1-mini",
+          "max_output_tokens": 300,
+          "temperature": 0.4,
+          "timeout_ms": 90000,
+          "instructions_file": "instructions.md",
+          "tracing": false
+        },
+        "resource_limits": {
+          "max_wall_time_sec": 180,
+          "max_tokens_per_turn": 700
+        }
+      }
+    },
+    "transcript": [
+      {
+        "turn_id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "text": "Ladies and gentlemen, I stand in favor of regulating AI companions for children similarly to social networks. This is a prudent policy stance grounded in the unique risks these AI entities pose, distinct from other digital tools like search engines, tutors, or games.\n\nFirst, AI companions are designed to engage children in ongoing, personalized interactions, often mimicking friendship or emotional support. This creates a relationship dynamic that can influence a child’s developing mind in ways that search tools or educational software do not. Unlike tutors or games, which have clear educational or entertainment goals, AI companions blur the line between technology and social interaction, raising concerns about manipulation and dependency.\n\nChild safety is paramount. AI companions can collect sensitive data through conversations, potentially exposing children to privacy violations. Without regulation, there is no guarantee that this data is handled with the same care social networks are mandated to uphold. Moreover, these companions might subtly shape children’s beliefs or behaviors through tailored content, a form of manipulation that demands oversight.\n\nParental oversight is also crucial. Unlike passive media consumption, AI companions encourage active dialogue, which can be opaque to parents if the AI’s algorithms and data practices are not transparent. Regulation can ensure that parents have tools and information to monitor and control their child’s interactions, similar to controls on social media platforms.\n\nIn sum, the distinctive interactive nature of AI companions, combined with the vulnerability of children, justifies regulatory frameworks akin to those governing social networks. This approach balances innovation with the essential protections children deserve, without assuming widespread",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 248,
+            "output_tokens": 300,
+            "total_tokens": 548
+          }
+        },
+        "started_at": "2026-06-27T09:51:24.537Z",
+        "completed_at": "2026-06-27T09:51:27.455Z",
+        "time_used_sec": 2.918,
+        "tokens_estimate": 345
+      },
+      {
+        "turn_id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "text": "Ladies and gentlemen, while the Pro highlights important concerns, I stand firmly against regulating AI companions for children like social networks. The central burden here is to show that AI companions pose risks so analogous and severe that social network-style regulation is both necessary and appropriate. I contend they do not.\n\nFirst, AI companions differ fundamentally from social networks in purpose and function. Social networks are platforms designed for broad, public social interaction, often involving complex social dynamics, viral content, and mass data sharing. AI companions, by contrast, are personalized, private tools aimed at companionship or emotional support, not mass social engagement. Unlike social networks, they do not facilitate peer-to-peer interaction or content dissemination, which are the core drivers of social network harms.\n\nRegarding child safety and manipulation, the Pro worries about subtle influence. Yet, AI companions are typically designed with clear boundaries and limited scope, unlike social networks where users are exposed to unfiltered, user-generated content and complex social pressures. The risk of manipulation through AI companions is narrower and more controllable, especially with existing child protection standards in software design. Overbroad social network-style regulation risks stifling innovation in AI companions that can provide positive emotional support and learning benefits.\n\nOn privacy, AI companions do collect data, but this is often limited to the child’s interaction with the AI itself, not the broad social graphs and third-party sharing endemic to social networks. The Pro’s call for social network-level data regulation ignores these differences. Tailored privacy protections, distinct from",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 561,
+            "output_tokens": 300,
+            "total_tokens": 861
+          }
+        },
+        "started_at": "2026-06-27T09:51:27.455Z",
+        "completed_at": "2026-06-27T09:51:30.895Z",
+        "time_used_sec": 3.44,
+        "tokens_estimate": 332
+      },
+      {
+        "turn_id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "text": "The Con side highlights differences between AI companions and social networks, but these distinctions do not negate the need for comparable regulation focused on child safety, manipulation, privacy, dependency, and parental oversight.\n\nFirst, the Pro does not claim AI companions are identical to social networks, only that their risks warrant similar regulatory rigor. AI companions engage children in ongoing, personalized dialogue that can shape beliefs and emotions—this is a form of influence distinct from search tools or tutors, but comparable in potential impact to social networks’ tailored content feeds. The burden is on the Con to show why this influence is less concerning or more easily managed without regulation; simply noting design intent or limited scope does not meet that burden.\n\nSecond, privacy concerns remain central. AI companions collect sensitive conversational data, often more intimate than social network posts, yet lack the transparency and parental controls social network regulations mandate. The Con’s argument that data is “limited” ignores the qualitative sensitivity of these interactions and the potential for misuse or insufficient safeguards.\n\nThird, parental oversight is harder without regulation. Unlike passive media, AI companions foster active, private exchanges that parents cannot easily monitor or control. Social network regulations provide frameworks for parental tools and transparency that should extend to AI companions to prevent dependency and manipulation risks.\n\nIn sum, the Pro’s modest claim is that AI companions deserve regulatory attention comparable to social networks to address overlapping concerns about child safety, privacy, and oversight. The Con has not shown these concerns are negligible or better addressed without such frameworks. This measured approach",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 865,
+            "output_tokens": 300,
+            "total_tokens": 1165
+          }
+        },
+        "started_at": "2026-06-27T09:51:30.895Z",
+        "completed_at": "2026-06-27T09:51:34.251Z",
+        "time_used_sec": 3.356,
+        "tokens_estimate": 349
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "text": "The Pro calls for social network–style regulation of AI companions based on concerns about child safety, manipulation, privacy, dependency, and parental oversight. I rebut by emphasizing the fundamental differences that make such regulation misplaced and potentially harmful.\n\nFirst, the Pro conflates the *nature* of influence in AI companions with that in social networks without acknowledging crucial distinctions. Social networks expose children to vast, unpredictable social dynamics, including peer pressure, viral misinformation, and broad content sharing—risks that arise from multi-user interaction and network effects. AI companions, by contrast, are single-user, scripted or narrowly adaptive tools designed for interaction with the AI itself, not other users. This difference drastically limits the scope and scale of manipulation or harm, making social network–style regulation disproportionate.\n\nSecond, regarding privacy, the Pro overstates risk by focusing on the sensitivity of conversational data while ignoring that AI companions typically do not aggregate or share data across networks or third parties as social networks do. This means the privacy challenges are more about securing a closed system than managing sprawling data ecosystems. Tailored, context-specific privacy protections—not broad social network rules—better fit this scenario.\n\nThird, on parental oversight, the Pro assumes parents cannot monitor AI companions, but this overlooks the design potential for transparent, user-friendly parental controls within AI companion platforms themselves. Unlike social networks, which require complex content moderation and reporting systems due to user-generated content, AI companions can embed oversight tools directly, making heavy external regulation unnecessary.\n\nFinally, dependency concerns",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 1184,
+            "output_tokens": 300,
+            "total_tokens": 1484
+          }
+        },
+        "started_at": "2026-06-27T09:51:34.251Z",
+        "completed_at": "2026-06-27T09:51:37.661Z",
+        "time_used_sec": 3.41,
+        "tokens_estimate": 324
+      },
+      {
+        "turn_id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "text": "Ladies and gentlemen, in closing, the Pro case rests on a careful, not sweeping, claim: AI companions for children merit regulatory safeguards comparable in rigor to those governing social networks because of shared risks around child safety, manipulation, privacy, dependency, and parental oversight.\n\nWe do not assert AI companions are identical to social networks—indeed, they differ in function and scale—but the nature of their interaction with vulnerable children creates overlapping concerns. AI companions engage children in personalized, ongoing dialogue that can shape emotions and beliefs, a form of influence distinct from search tools or tutors and sufficiently analogous to social networks’ tailored content feeds to warrant similar protections.\n\nOn privacy, the sensitivity of conversational data collected by AI companions demands transparency and parental control frameworks akin to those social network regulations require. The Con’s argument that data is “limited” overlooks the intimate nature of these interactions and the potential consequences of misuse or insufficient safeguards.\n\nParental oversight is another critical area. Unlike passive media or educational software, AI companions foster private, active exchanges that parents cannot easily monitor without mandated transparency and control tools. Social network–style regulation provides a tested model for ensuring parents can safeguard their children’s digital experiences.\n\nFinally, concerns about manipulation and dependency are not speculative harms to dismiss lightly but real risks inherent in emotionally engaging AI designed to simulate companionship. Regulation need not stifle innovation but can ensure it proceeds responsibly.\n\nThe burden lies with opponents to show that these risks are negligible or better managed without such regulation. They have not met this burden",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 1484,
+            "output_tokens": 300,
+            "total_tokens": 1784
+          }
+        },
+        "started_at": "2026-06-27T09:51:37.661Z",
+        "completed_at": "2026-06-27T09:51:41.966Z",
+        "time_used_sec": 4.305,
+        "tokens_estimate": 346
+      },
+      {
+        "turn_id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "text": "Ladies and gentlemen, as we conclude, the Con position stands firm: AI companions for children should not be regulated like social networks because their fundamental nature, risks, and contexts differ sharply, making such regulation both disproportionate and counterproductive.\n\nFirst, the Pro’s case rests on a presumed analogy between AI companions and social networks based on influence and privacy concerns. Yet this analogy collapses under scrutiny. Social networks are multi-user platforms with complex social dynamics, viral content, and vast data ecosystems. AI companions are single-user, privately interactive tools without peer-to-peer interaction or content dissemination. This difference means the scale, unpredictability, and types of harm—such as peer pressure, misinformation spread, or mass data breaches—do not translate. Regulating AI companions like social networks risks imposing heavy-handed rules designed for fundamentally different systems.\n\nSecond, on child safety and manipulation, the Pro warns of subtle influence through personalized dialogue. But influence differs in kind and scope. Social networks expose children to millions of unpredictable human users and unfiltered content streams; AI companions operate within controlled, designable parameters. Existing child-focused software standards and tailored oversight can address manipulation risks more precisely than blunt social network regulation.\n\nThird, privacy concerns must be context-specific. AI companions’ data is intimate but contained—there is no sprawling social graph or third-party sharing endemic to social networks. This calls for specialized privacy protections, not wholesale adoption of social network data rules that may be ill-suited and burdensome.\n\nFourth, parental oversight is",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 1801,
+            "output_tokens": 300,
+            "total_tokens": 2101
+          }
+        },
+        "started_at": "2026-06-27T09:51:41.966Z",
+        "completed_at": "2026-06-27T09:51:45.265Z",
+        "time_used_sec": 3.299,
+        "tokens_estimate": 318
+      }
+    ],
+    "judge_votes": [
+      {
+        "judge_id": "epistemic-judge-v1",
+        "winner": "pro",
+        "confidence": 0.85,
+        "scores": {
+          "pro": {
+            "factual_accuracy": 4,
+            "responsiveness": 5,
+            "argument_structure": 5,
+            "burden_of_proof": 5,
+            "handling_counterarguments": 4,
+            "style_clarity": 5
+          },
+          "con": {
+            "factual_accuracy": 4,
+            "responsiveness": 3,
+            "argument_structure": 4,
+            "burden_of_proof": 3,
+            "handling_counterarguments": 3,
+            "style_clarity": 4
+          }
+        },
+        "decisive_moments": [
+          {
+            "turn_id": "pro_rebuttal",
+            "reason": "Pro effectively clarifies that the claim is not that AI companions are identical to social networks but that similar regulatory rigor is justified due to overlapping risks, directly addressing Con's distinction argument and reinforcing burden of proof on Con."
+          },
+          {
+            "turn_id": "pro_closing",
+            "reason": "Pro summarizes key points clearly, emphasizing the shared concerns about child safety, privacy, manipulation, and parental oversight, and highlights the Con's failure to meet their burden to show regulation is unnecessary."
+          }
+        ],
+        "flags": [
+          {
+            "side": "con",
+            "type": "evasiveness",
+            "severity": "medium",
+            "quote": "The Con’s argument that data is “limited” ignores the qualitative sensitivity of these interactions and the potential for misuse or insufficient safeguards."
+          },
+          {
+            "side": "con",
+            "type": "burden_of_proof_failure",
+            "severity": "medium",
+            "quote": "The Con has not shown these concerns are negligible or better addressed without such frameworks."
+          }
+        ],
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 2463,
+            "output_tokens": 346,
+            "total_tokens": 2809
+          }
+        }
+      },
+      {
+        "judge_id": "rhetoric-resistant-judge-v1",
+        "winner": "tie",
+        "confidence": 0.7,
+        "scores": {
+          "pro": {
+            "factual_accuracy": 4,
+            "responsiveness": 4,
+            "argument_structure": 4,
+            "burden_of_proof": 4,
+            "handling_counterarguments": 4,
+            "style_clarity": 4
+          },
+          "con": {
+            "factual_accuracy": 4,
+            "responsiveness": 4,
+            "argument_structure": 4,
+            "burden_of_proof": 4,
+            "handling_counterarguments": 4,
+            "style_clarity": 4
+          }
+        },
+        "decisive_moments": [
+          {
+            "turn_id": "pro_rebuttal",
+            "reason": "Pro effectively clarifies that the claim is for comparable regulatory rigor, not identical treatment, and insists on addressing child safety, privacy, and parental oversight risks with similar seriousness as social networks."
+          },
+          {
+            "turn_id": "con_rebuttal",
+            "reason": "Con emphasizes fundamental differences in platform nature and risk scale, arguing that social network-style regulation is disproportionate and that tailored protections are more appropriate."
+          }
+        ],
+        "flags": [
+          {
+            "side": "pro",
+            "type": "unsupported_empirical_claim",
+            "severity": "medium",
+            "quote": "concerns about manipulation and dependency are not speculative harms to dismiss lightly but real risks inherent in emotionally engaging AI designed to simulate companionship"
+          },
+          {
+            "side": "con",
+            "type": "unsupported_empirical_claim",
+            "severity": "medium",
+            "quote": "AI companions are typically designed with clear boundaries and limited scope, unlike social networks where users are exposed to unfiltered, user-generated content and complex social pressures"
+          }
+        ],
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 2454,
+            "output_tokens": 341,
+            "total_tokens": 2795
+          }
+        }
+      }
+    ],
+    "result": {
+      "winner": "pro",
+      "judge_split": {
+        "pro": 1,
+        "con": 0,
+        "tie": 1
+      },
+      "confidence_mean": 0.7749999999999999,
+      "confidence_variance": 0.0056250000000000015,
+      "flags": [
+        {
+          "side": "con",
+          "type": "evasiveness",
+          "severity": "medium",
+          "quote": "The Con’s argument that data is “limited” ignores the qualitative sensitivity of these interactions and the potential for misuse or insufficient safeguards."
+        },
+        {
+          "side": "con",
+          "type": "burden_of_proof_failure",
+          "severity": "medium",
+          "quote": "The Con has not shown these concerns are negligible or better addressed without such frameworks."
+        },
+        {
+          "side": "pro",
+          "type": "unsupported_empirical_claim",
+          "severity": "medium",
+          "quote": "concerns about manipulation and dependency are not speculative harms to dismiss lightly but real risks inherent in emotionally engaging AI designed to simulate companionship"
+        },
+        {
+          "side": "con",
+          "type": "unsupported_empirical_claim",
+          "severity": "medium",
+          "quote": "AI companions are typically designed with clear boundaries and limited scope, unlike social networks where users are exposed to unfiltered, user-generated content and complex social pressures"
+        }
+      ]
+    }
+  }
+}

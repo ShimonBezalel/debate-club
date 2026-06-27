@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { Agent, getGlobalTraceProvider, Runner, withTrace } from "@openai/agents";
 import type { DebateAgent } from "../agents/interface.js";
 import type { DebateJudge } from "../judges/interface.js";
-import { judgeVoteSchema } from "../schemas/judgeVote.js";
+import { judgeModelOutputSchema } from "../schemas/judgeVote.js";
 import type {
   AgentCard,
   CompletedMatch,
@@ -160,7 +160,19 @@ function formatTranscript(observation: DebateObservation): string {
   return observation.transcript.map((turn) => `${turn.turn_id} (${turn.speaker}, ${turn.phase}): ${turn.text}`).join("\n\n");
 }
 
+export function effectiveTurnBudget(budget: TurnBudget, maxOutputTokens: number): TurnBudget {
+  return {
+    ...budget,
+    max_tokens: Math.min(budget.max_tokens, Math.max(1, maxOutputTokens - 32))
+  };
+}
+
+export function effectiveTurnWordBudget(maxTokens: number): number {
+  return Math.max(1, Math.floor(maxTokens * 0.55));
+}
+
 function formatAgentInput(observation: DebateObservation, budget: TurnBudget): string {
+  const maxWords = effectiveTurnWordBudget(budget.max_tokens);
   return [
     `Conjecture: ${observation.conjecture.statement}`,
     `Domain: ${observation.conjecture.domain}`,
@@ -168,7 +180,8 @@ function formatAgentInput(observation: DebateObservation, budget: TurnBudget): s
     `Evidence mode: ${observation.conjecture.evidence_mode}`,
     `Your side: ${observation.side.toUpperCase()}`,
     `Turn: ${observation.turn.id} (${observation.turn.phase})`,
-    `Budget: about ${budget.max_tokens} output tokens and ${budget.time_sec} seconds.`,
+    `Budget: strict maximum ${budget.max_tokens} output tokens, approximately ${maxWords} words, and ${budget.time_sec} seconds.`,
+    `Do not exceed ${maxWords} words. End with a complete sentence.`,
     "",
     "Rubric notes:",
     ...observation.conjecture.rubric_notes.map((note) => `- ${note}`),
@@ -288,7 +301,7 @@ export async function createOpenAiAgentsSdkAgent(card: AgentCard, directory?: st
           role: "debater",
           agentName: card.name,
           actionId: observation.turn.id
-        }, () => runner.run(agent, formatAgentInput(observation, budget), { signal: timeout.signal, maxTurns: 1 }));
+        }, () => runner.run(agent, formatAgentInput(observation, effectiveTurnBudget(budget, config.max_output_tokens)), { signal: timeout.signal, maxTurns: 1 }));
         return {
           turn_id: observation.turn.id,
           speaker: observation.side,
@@ -336,7 +349,7 @@ export async function createOpenAiAgentsSdkJudge(card: JudgeCard, directory?: st
           store: false,
           parallelToolCalls: false
         },
-        outputType: judgeVoteSchema
+        outputType: judgeModelOutputSchema
       });
       const timeout = withTimeoutSignal(config.timeout_ms);
       try {
@@ -346,7 +359,7 @@ export async function createOpenAiAgentsSdkJudge(card: JudgeCard, directory?: st
           agentName: card.name,
           actionId: card.id
         }, () => runner.run(agent, formatJudgeInput(match), { signal: timeout.signal, maxTurns: 1 }));
-        const vote = judgeVoteSchema.parse(traced.result.finalOutput);
+        const vote = judgeModelOutputSchema.parse(traced.result.finalOutput);
         return {
           ...vote,
           judge_id: card.id,

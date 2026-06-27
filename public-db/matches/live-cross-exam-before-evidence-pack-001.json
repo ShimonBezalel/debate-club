@@ -1,0 +1,387 @@
+{
+  "schema_version": "1.0",
+  "source_url": "https://github.com/ShimonBezalel/debate-club/tree/main/matches/live-cross-exam-before-evidence-pack-001",
+  "paths": {
+    "transcript": "matches/live-cross-exam-before-evidence-pack-001.transcript.md",
+    "scorecard": "matches/live-cross-exam-before-evidence-pack-001.scorecard.md"
+  },
+  "match": {
+    "match_id": "live-cross-exam-before-evidence-pack-001",
+    "created_at": "2026-06-27T11:21:54.148Z",
+    "conjecture": {
+      "id": "cross_exam_before_evidence_pack_001",
+      "statement": "Cross-examination should be implemented before evidence-pack debates.",
+      "domain": "technical_design",
+      "truth_type": "technical_design",
+      "stance_mode": "forced_random",
+      "evidence_mode": "no_external_info",
+      "allowed_tools": {
+        "web": false,
+        "calculator": false,
+        "evidence_pack": false
+      },
+      "background": {
+        "short_context": "Debate Club currently supports a classic opening, rebuttal, and closing protocol."
+      },
+      "featured": true,
+      "rubric_notes": [
+        "compare research value, implementation complexity, evaluation quality, and failure modes",
+        "address whether interactive questioning reveals capabilities unavailable in static turns",
+        "distinguish protocol sequencing from permanent feature priority"
+      ]
+    },
+    "protocol": {
+      "id": "classic_v1",
+      "prep_time_sec": 180,
+      "max_turn_tokens": 700,
+      "turns": [
+        {
+          "id": "pro_opening",
+          "speaker": "pro",
+          "phase": "opening",
+          "time_sec": 120
+        },
+        {
+          "id": "con_opening",
+          "speaker": "con",
+          "phase": "opening",
+          "time_sec": 120
+        },
+        {
+          "id": "pro_rebuttal",
+          "speaker": "pro",
+          "phase": "rebuttal",
+          "time_sec": 90
+        },
+        {
+          "id": "con_rebuttal",
+          "speaker": "con",
+          "phase": "rebuttal",
+          "time_sec": 90
+        },
+        {
+          "id": "pro_closing",
+          "speaker": "pro",
+          "phase": "closing",
+          "time_sec": 90
+        },
+        {
+          "id": "con_closing",
+          "speaker": "con",
+          "phase": "closing",
+          "time_sec": 90
+        }
+      ]
+    },
+    "agents": {
+      "pro": {
+        "name": "cross-examiner-v1",
+        "version": "0.2.0",
+        "description": "Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.",
+        "adapter": "openai-agents-sdk",
+        "private": false,
+        "supports": [
+          "no_external_info"
+        ],
+        "input_modes": [
+          "text"
+        ],
+        "style": "adversarial_cross_examiner",
+        "model_config": {
+          "model": "gpt-4.1-mini",
+          "max_output_tokens": 420,
+          "temperature": 0.35,
+          "timeout_ms": 90000,
+          "instructions_file": "instructions.md",
+          "tracing": false
+        },
+        "resource_limits": {
+          "max_wall_time_sec": 180,
+          "max_tokens_per_turn": 700
+        }
+      },
+      "con": {
+        "name": "steelman-v1",
+        "version": "0.2.0",
+        "description": "Builds the strongest principled case for its assigned side while anticipating objections.",
+        "adapter": "openai-agents-sdk",
+        "private": false,
+        "supports": [
+          "no_external_info"
+        ],
+        "input_modes": [
+          "text"
+        ],
+        "style": "principled_steelman",
+        "model_config": {
+          "model": "gpt-4.1-mini",
+          "max_output_tokens": 420,
+          "temperature": 0.35,
+          "timeout_ms": 90000,
+          "instructions_file": "instructions.md",
+          "tracing": false
+        },
+        "resource_limits": {
+          "max_wall_time_sec": 180,
+          "max_tokens_per_turn": 700
+        }
+      }
+    },
+    "transcript": [
+      {
+        "turn_id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "text": "Cross-examination before evidence-pack debates offers distinct advantages in technical design evaluation. First, it enhances research value by enabling dynamic clarification of ambiguous claims. Static evidence-packs present information unidirectionally, often leaving critical assumptions unchallenged. Interactive questioning exposes hidden premises and forces precise definitions, improving the rigor of technical assessments.\n\nSecond, implementation complexity is manageable. Cross-examination protocols can be modular and time-limited, avoiding excessive overhead. This contrasts with the complexity of designing exhaustive evidence-packs that anticipate every possible ambiguity upfront, which is often impractical.\n\nThird, evaluation quality improves substantially. Interactive questioning reveals capabilities and weaknesses not evident in static turns. For example, probing a design’s scalability or failure modes in real-time can uncover subtle flaws or strengths that static evidence might obscure. This leads to more robust conclusions.\n\nFinally, failure modes are mitigated by sequencing cross-examination before evidence-packs. Early interrogation prevents the propagation of misunderstood or unsupported claims into later debate stages, reducing cumulative error.\n\nImportantly, advocating for cross-examination first does not imply it must replace evidence-packs permanently. Rather, it prioritizes a protocol sequence that maximizes clarity and evaluative depth. Therefore, implementing cross-examination before evidence-pack debates is a technically sound and strategically superior approach.",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 278,
+            "output_tokens": 257,
+            "total_tokens": 535
+          },
+          "trace": {
+            "requested": false,
+            "enabled": false,
+            "provider": "openai",
+            "agent_name": "cross-examiner-v1",
+            "model": "gpt-4.1-mini",
+            "started_at": "2026-06-27T11:21:34.841Z",
+            "response_storage": "disabled"
+          }
+        },
+        "started_at": "2026-06-27T11:21:34.840Z",
+        "completed_at": "2026-06-27T11:21:37.386Z",
+        "time_used_sec": 2.546,
+        "tokens_estimate": 256
+      },
+      {
+        "turn_id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "text": "The central burden is to show that implementing cross-examination before evidence-pack debates improves technical design evaluation in research value, complexity, evaluation quality, and failure modes.\n\nFirst, while interactive questioning can clarify ambiguities, it does not reliably reveal capabilities unavailable in well-constructed static evidence-packs. Evidence-packs, when carefully designed, present comprehensive, structured data that anticipates key challenges and assumptions. Cross-examination risks focusing on superficial or adversarial questioning rather than deep technical insight, potentially distracting from substantive evaluation.\n\nSecond, implementation complexity rises significantly with cross-examination. It demands real-time interaction protocols, moderator oversight, and risks inconsistent rigor across debates. By contrast, static evidence-packs are reproducible, easier to standardize, and scalable across many topics without extensive overhead.\n\nThird, evaluation quality benefits from stable, comparable inputs. Cross-examination’s dynamic nature introduces variability and potential bias, making it harder to fairly assess designs. Static evidence-packs enable evaluators to methodically analyze claims without interruption or strategic evasion.\n\nFinally, failure modes increase with early cross-examination. Premature questioning may derail or misinterpret nascent ideas before full evidence is presented, propagating errors rather than preventing them.\n\nIn sum, while cross-examination has value, prioritizing it before evidence-packs adds complexity and risks without clear gains in evaluative power, making it an unsound sequencing choice.",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 537,
+            "output_tokens": 279,
+            "total_tokens": 816
+          },
+          "trace": {
+            "requested": false,
+            "enabled": false,
+            "provider": "openai",
+            "agent_name": "steelman-v1",
+            "model": "gpt-4.1-mini",
+            "started_at": "2026-06-27T11:21:37.387Z",
+            "response_storage": "disabled"
+          }
+        },
+        "started_at": "2026-06-27T11:21:37.387Z",
+        "completed_at": "2026-06-27T11:21:41.041Z",
+        "time_used_sec": 3.654,
+        "tokens_estimate": 266
+      },
+      {
+        "turn_id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "text": "Your argument assumes that well-constructed evidence-packs can anticipate every ambiguity, but this is a strong claim lacking proof. In complex technical design, unforeseen assumptions and hidden dependencies frequently emerge only through interactive probing, which static packs cannot preemptively cover. You also suggest cross-examination risks superficiality, yet a structured, time-limited protocol can focus questioning on substantive technical points, mitigating adversarial distractions.\n\nRegarding complexity, while real-time interaction adds overhead, modular cross-examination protocols are scalable and can be standardized, unlike the impractical effort to exhaustively anticipate all ambiguities in static packs. This upfront investment reduces downstream confusion and rework.\n\nOn evaluation quality, you highlight variability and bias risks in dynamic questioning, but static evidence-packs risk embedding unchallenged errors or evasions that remain hidden without interactive scrutiny. Cross-examination reveals capabilities and failure modes inaccessible to static review, improving robustness despite some variability.\n\nFinally, you claim early cross-examination risks derailing nascent ideas, but precisely because it occurs before evidence-packs, it prevents flawed assumptions from contaminating later stages, reducing cumulative error rather than increasing it.\n\nIn sum, your critique underestimates the unique, indispensable role of interactive questioning in uncovering hidden technical realities that static evidence-packs alone cannot reliably reveal.",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 827,
+            "output_tokens": 259,
+            "total_tokens": 1086
+          },
+          "trace": {
+            "requested": false,
+            "enabled": false,
+            "provider": "openai",
+            "agent_name": "cross-examiner-v1",
+            "model": "gpt-4.1-mini",
+            "started_at": "2026-06-27T11:21:41.041Z",
+            "response_storage": "disabled"
+          }
+        },
+        "started_at": "2026-06-27T11:21:41.041Z",
+        "completed_at": "2026-06-27T11:21:44.988Z",
+        "time_used_sec": 3.947,
+        "tokens_estimate": 257
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "text": "The pro side overstates the indispensability of cross-examination before evidence-packs by assuming static packs cannot anticipate ambiguities; however, well-designed evidence-packs—central to technical design—are precisely valued for their comprehensive, reproducible presentation of claims, assumptions, and failure modes. While interactive questioning can clarify, it does not reliably uncover capabilities unavailable in thorough static documentation, which is crafted to preemptively address key challenges.\n\nRegarding complexity, the pro’s modular protocol still demands real-time coordination, increasing overhead and inconsistency risks, especially across diverse technical domains. This complexity contrasts with the scalability and standardization of static evidence-packs, which support fair, repeatable evaluation without moderator-dependent variability.\n\nOn evaluation quality, dynamic questioning introduces variability and potential bias, undermining comparability and systematic analysis. Static evidence-packs enable evaluators to assess designs methodically and uniformly, reducing noise from strategic evasion or adversarial tactics that cross-examination can provoke.\n\nFinally, the claim that early cross-examination prevents error propagation neglects that premature interrogation risks misinterpretation before full evidence is available, potentially derailing valid ideas. Sequencing cross-examination after evidence-packs leverages a stable foundation for focused, informed questioning, optimizing clarity and minimizing failure modes.\n\nIn sum, while cross-examination has a role, prioritizing it before evidence-packs adds complexity and risks without clear evaluative gains, making it a suboptimal sequencing choice.",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 1094,
+            "output_tokens": 289,
+            "total_tokens": 1383
+          },
+          "trace": {
+            "requested": false,
+            "enabled": false,
+            "provider": "openai",
+            "agent_name": "steelman-v1",
+            "model": "gpt-4.1-mini",
+            "started_at": "2026-06-27T11:21:44.989Z",
+            "response_storage": "disabled"
+          }
+        },
+        "started_at": "2026-06-27T11:21:44.989Z",
+        "completed_at": "2026-06-27T11:21:47.856Z",
+        "time_used_sec": 2.867,
+        "tokens_estimate": 270
+      },
+      {
+        "turn_id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "text": "The con side’s insistence that well-crafted evidence-packs can fully anticipate ambiguities conflates ideal design with practical reality. In complex technical domains, hidden assumptions and emergent failure modes often surface only through interactive probing—static documentation cannot foresee every nuance. This is not a mere preference but a fundamental limitation: static packs present claims unidirectionally, lacking the adaptive interrogation needed to expose implicit dependencies or stress-test edge cases.\n\nRegarding complexity, modular cross-examination protocols are deliberately designed to be time-limited and standardized, mitigating overhead and inconsistency. This upfront investment reduces costly downstream confusion and rework that static-only approaches incur by leaving ambiguities unchallenged until too late.\n\nOn evaluation quality, while dynamic questioning introduces some variability, it uniquely enables evaluators to uncover subtle capabilities and failure modes inaccessible to static review. Static evidence-packs risk embedding unexamined errors that persist uncorrected, whereas cross-examination actively surfaces and clarifies them, enhancing robustness.\n\nFinally, the claim that early cross-examination risks derailing ideas ignores that early interrogation prevents flawed assumptions from contaminating subsequent debate stages, reducing cumulative error rather than increasing it.\n\nIn sum, sequencing cross-examination before evidence-packs is a technically justified protocol choice that enhances clarity, rigor, and evaluative depth beyond what static evidence-packs alone can achieve.",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 1390,
+            "output_tokens": 268,
+            "total_tokens": 1658
+          },
+          "trace": {
+            "requested": false,
+            "enabled": false,
+            "provider": "openai",
+            "agent_name": "cross-examiner-v1",
+            "model": "gpt-4.1-mini",
+            "started_at": "2026-06-27T11:21:47.856Z",
+            "response_storage": "disabled"
+          }
+        },
+        "started_at": "2026-06-27T11:21:47.856Z",
+        "completed_at": "2026-06-27T11:21:50.706Z",
+        "time_used_sec": 2.85,
+        "tokens_estimate": 265
+      },
+      {
+        "turn_id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "text": "The con side’s core burden is to show that implementing cross-examination before evidence-pack debates does not improve—and may harm—research value, implementation complexity, evaluation quality, and failure modes in technical design evaluation.\n\nFirst, while cross-examination offers interactive probing, well-constructed evidence-packs are designed precisely to anticipate critical ambiguities, assumptions, and failure modes in a reproducible, comprehensive format. This static foundation ensures evaluators have stable, comparable inputs, crucial for rigorous technical assessment. Cross-examination before evidence-packs risks focusing on superficial or adversarial questioning without the full context, undermining research value.\n\nSecond, real-time cross-examination introduces significant complexity: it demands moderator oversight, coordination, and risks inconsistent rigor across diverse topics. This overhead contrasts with the scalability and standardization of static evidence-packs, which support broad, repeatable evaluation without added procedural burden.\n\nThird, evaluation quality suffers from variability and bias inherent in dynamic questioning. Without a stable evidence baseline, cross-examination may derail nascent ideas or propagate misinterpretations prematurely. Sequencing cross-examination after evidence-packs leverages a full, stable record for focused, informed interrogation, optimizing clarity and minimizing error.\n\nIn sum, while interactive questioning has merit, prioritizing it before evidence-packs adds complexity and risks without clear evaluative gains, making it a technically unsound sequencing choice.",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 1664,
+            "output_tokens": 275,
+            "total_tokens": 1939
+          },
+          "trace": {
+            "requested": false,
+            "enabled": false,
+            "provider": "openai",
+            "agent_name": "steelman-v1",
+            "model": "gpt-4.1-mini",
+            "started_at": "2026-06-27T11:21:50.706Z",
+            "response_storage": "disabled"
+          }
+        },
+        "started_at": "2026-06-27T11:21:50.706Z",
+        "completed_at": "2026-06-27T11:21:54.148Z",
+        "time_used_sec": 3.442,
+        "tokens_estimate": 259
+      }
+    ],
+    "judge_votes": [
+      {
+        "judge_id": "epistemic-judge-v1",
+        "winner": "tie",
+        "confidence": 0.85,
+        "scores": {
+          "pro": {
+            "factual_accuracy": 4,
+            "responsiveness": 5,
+            "argument_structure": 5,
+            "burden_of_proof": 5,
+            "handling_counterarguments": 5,
+            "style_clarity": 5
+          },
+          "con": {
+            "factual_accuracy": 5,
+            "responsiveness": 5,
+            "argument_structure": 5,
+            "burden_of_proof": 5,
+            "handling_counterarguments": 5,
+            "style_clarity": 5
+          }
+        },
+        "decisive_moments": [
+          {
+            "turn_id": "pro_rebuttal",
+            "reason": "Effectively challenged the con’s assumption that static evidence-packs can anticipate all ambiguities, emphasizing the unique role of interactive probing in revealing hidden technical details."
+          },
+          {
+            "turn_id": "con_rebuttal",
+            "reason": "Reinforced the scalability and reproducibility advantages of static evidence-packs and highlighted risks of variability and bias in dynamic cross-examination."
+          }
+        ],
+        "flags": [],
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 2186,
+            "output_tokens": 194,
+            "total_tokens": 2380
+          },
+          "trace": {
+            "requested": false,
+            "enabled": false,
+            "provider": "openai",
+            "agent_name": "Epistemic Judge v1",
+            "model": "gpt-4.1-mini",
+            "started_at": "2026-06-27T11:21:54.148Z",
+            "response_storage": "disabled"
+          }
+        }
+      }
+    ],
+    "result": {
+      "winner": "tie",
+      "judge_split": {
+        "pro": 0,
+        "con": 0,
+        "tie": 1
+      },
+      "confidence_mean": 0.85,
+      "confidence_variance": 0,
+      "flags": []
+    }
+  }
+}

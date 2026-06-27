@@ -1,0 +1,78 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "tie",
+    "confidence": 0.7,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 4,
+        "responsiveness": 5,
+        "argument_structure": 5,
+        "burden_of_proof": 4,
+        "handling_counterarguments": 5,
+        "style_clarity": 5
+      },
+      "con": {
+        "factual_accuracy": 5,
+        "responsiveness": 5,
+        "argument_structure": 5,
+        "burden_of_proof": 4,
+        "handling_counterarguments": 5,
+        "style_clarity": 5
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_opening",
+        "reason": "Clearly establishes the strategic claim and distinguishes exploratory questioning from needless friction, framing the core argument well."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Effectively challenges the pro’s assumption of complexity as the norm and highlights real-world high-stakes workflows where immediate answers are critical."
+      },
+      {
+        "turn_id": "pro_closing",
+        "reason": "Reinforces the distinction between exploratory and needless questions and emphasizes trust through transparency, addressing key con objections."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "Points out the lack of clear criteria for when to question versus answer and the risk of inconsistent user experience, undermining the pro’s strategic claim."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "overgeneralization",
+        "severity": "medium",
+        "quote": "‘as AI tackles increasingly complex, open-ended problems, the ability to ask good questions becomes the defining feature of usefulness.’"
+      },
+      {
+        "side": "con",
+        "type": "lack_of_evidence",
+        "severity": "medium",
+        "quote": "‘the pro’s claim that questioning consistently improves outcomes across diverse workflows remains unmet.’"
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 2096,
+        "output_tokens": 326,
+        "total_tokens": 2422
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-4.1-mini",
+        "started_at": "2026-06-27T11:22:53.813Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

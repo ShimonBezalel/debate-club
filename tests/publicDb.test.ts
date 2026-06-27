@@ -32,6 +32,8 @@ describe("public DB export", () => {
     const readme = await readFile(join(out, "README.md"), "utf8");
     expect(readme).toContain("## Schema");
     expect(readme).toContain("fork, diff, cite, and replay");
+    const transcript = await readFile(join(out, "matches", "live-public-vs-hidden-judges-001.transcript.md"), "utf8");
+    expect(transcript).not.toMatch(/[ \t]+$/m);
   });
 
   it("validates a complete export and rejects inconsistent manifests", async () => {

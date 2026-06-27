@@ -1,0 +1,107 @@
+[
+  {
+    "name": "cross-examiner-v1",
+    "version": "0.2.0",
+    "description": "Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.",
+    "adapter": "openai-agents-sdk",
+    "private": false,
+    "models": [
+      "gpt-4.1-mini"
+    ],
+    "match_ids": [
+      "live-agent-questions-over-answers-001",
+      "live-cross-exam-before-evidence-pack-001",
+      "live-git-ledgers-001",
+      "live-harness-over-model-choice-001",
+      "live-llm-debate-synthetic-data-001",
+      "live-losing-transcript-data-value-001",
+      "live-provider-traces-metadata-001",
+      "live-publish-all-valid-matches-001",
+      "live-static-public-db-001"
+    ],
+    "sides": [
+      "con",
+      "pro"
+    ],
+    "match_count": 9
+  },
+  {
+    "name": "epistemic-conservative-v1",
+    "version": "0.2.0",
+    "description": "Penalizes overclaiming, prefers modest robust claims, and treats uncertainty carefully.",
+    "adapter": "openai-agents-sdk",
+    "private": false,
+    "models": [
+      "gpt-4.1-mini"
+    ],
+    "match_ids": [
+      "live-ai-companions-children-001",
+      "live-harness-over-model-choice-001",
+      "live-llm-debate-synthetic-data-001",
+      "live-losing-transcript-data-value-001",
+      "live-provider-traces-metadata-001",
+      "live-public-judges-early-phase-002",
+      "live-public-vs-hidden-judges-001",
+      "live-publish-all-valid-matches-001"
+    ],
+    "sides": [
+      "con",
+      "pro"
+    ],
+    "match_count": 8
+  },
+  {
+    "name": "steelman-v1",
+    "version": "0.2.0",
+    "description": "Builds the strongest principled case for its assigned side while anticipating objections.",
+    "adapter": "openai-agents-sdk",
+    "private": false,
+    "models": [
+      "gpt-4.1-mini"
+    ],
+    "match_ids": [
+      "live-agent-questions-over-answers-001",
+      "live-ai-companions-children-001",
+      "live-cross-exam-before-evidence-pack-001",
+      "live-git-ledgers-001",
+      "live-public-judges-early-phase-002",
+      "live-public-vs-hidden-judges-001",
+      "live-static-public-db-001"
+    ],
+    "sides": [
+      "con",
+      "pro"
+    ],
+    "match_count": 7
+  },
+  {
+    "name": "stub-con-v1",
+    "version": "0.1.0",
+    "description": "Deterministic con agent for local tests and examples.",
+    "adapter": "stub",
+    "private": false,
+    "models": [],
+    "match_ids": [
+      "2026-06-27-ai-tutors-stub"
+    ],
+    "sides": [
+      "con"
+    ],
+    "match_count": 1
+  },
+  {
+    "name": "stub-pro-v1",
+    "version": "0.1.0",
+    "description": "Deterministic pro agent for local tests and examples.",
+    "adapter": "stub",
+    "private": false,
+    "models": [],
+    "match_ids": [
+      "2026-06-27-ai-tutors-stub"
+    ],
+    "sides": [
+      "pro"
+    ],
+    "match_count": 1
+  }
+]
