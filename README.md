@@ -62,7 +62,7 @@ npm run cli -- run --dry-run --protocol examples/protocols/classic_v1.yaml --con
 Run a low-cost live match:
 
 ```bash
-npm run cli -- run --live --model gpt-4.1-mini --judge-model gpt-4.1-mini --max-output-tokens 320 --temperature 0.4 --judge-limit 1 --protocol examples/protocols/classic_v1.yaml --conjecture examples/conjectures/git_backed_ledgers_001.yaml --pro examples/agents/steelman-v1 --con examples/agents/cross-examiner-v1 --judges examples/judges/panels/openai_epistemic_panel_v1 --out matches --match-id live-git-ledgers-demo
+npm run cli -- run --live --model gpt-4.1-mini --judge-model gpt-4.1-mini --max-output-tokens 320 --judge-max-output-tokens 900 --temperature 0.4 --judge-limit 1 --protocol examples/protocols/classic_v1.yaml --conjecture examples/conjectures/git_backed_ledgers_001.yaml --pro examples/agents/steelman-v1 --con examples/agents/cross-examiner-v1 --judges examples/judges/panels/openai_epistemic_panel_v1 --out matches --match-id live-git-ledgers-demo
 ```
 
 Real model runs should be curated before committing transcripts.
@@ -77,6 +77,7 @@ Cost controls:
 - `--dry-run` validates the live path with no API calls.
 - `--model` and `--judge-model` select models.
 - `--max-output-tokens` caps each model response.
+- `--judge-max-output-tokens` lets structured judge JSON use a larger cap than debate turns.
 - `--temperature` controls variance.
 - `--timeout-ms` aborts long calls.
 - `--judge-limit` can cap panel size.

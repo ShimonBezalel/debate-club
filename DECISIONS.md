@@ -16,6 +16,8 @@ The OpenAI Agents SDK adapter is represented as an optional boundary in 0.1. The
 
 OpenAI-powered agents and judges require `--live` before any API call. `--dry-run` exercises the same adapter path without network access. This keeps the default CLI safe for CI, demos, and contributors without credentials.
 
+Judge calls can use `--judge-max-output-tokens` separately from debate turns because structured JSON votes need more room than short speeches. This was added after a live smoke showed the judge JSON could truncate under a low global cap.
+
 ## 2026-06-27: Use Git-Rendered Archive README
 
 `debateclub ledger rebuild` now writes both `matches/index.json` and `matches/README.md`. The README makes the open debate ledger browsable directly on GitHub without introducing a hosted database.

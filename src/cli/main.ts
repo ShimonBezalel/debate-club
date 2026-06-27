@@ -42,6 +42,7 @@ function liveOptions(options: {
   model?: string;
   judgeModel?: string;
   maxOutputTokens?: number;
+  judgeMaxOutputTokens?: number;
   temperature?: number;
   timeoutMs?: number;
   tracing?: boolean;
@@ -52,6 +53,7 @@ function liveOptions(options: {
     model: options.model,
     judgeModel: options.judgeModel,
     maxOutputTokens: options.maxOutputTokens,
+    judgeMaxOutputTokens: options.judgeMaxOutputTokens,
     temperature: options.temperature,
     timeoutMs: options.timeoutMs,
     tracing: Boolean(options.tracing)
@@ -83,6 +85,7 @@ async function main(): Promise<void> {
     .option("--model <model>", "OpenAI model for debaters")
     .option("--judge-model <model>", "OpenAI model for judges")
     .option("--max-output-tokens <tokens>", "maximum output tokens for live model calls", parsePositiveInt)
+    .option("--judge-max-output-tokens <tokens>", "maximum output tokens for live judge calls", parsePositiveInt)
     .option("--temperature <temperature>", "model temperature for live calls", parseNumber)
     .option("--timeout-ms <milliseconds>", "timeout per live model call", parsePositiveInt)
     .option("--judge-limit <count>", "limit number of judges loaded from panel", parsePositiveInt)
