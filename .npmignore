@@ -1,0 +1,10 @@
+node_modules/
+src/
+tests/
+coverage/
+.github/
+.env
+.env.*
+private_agents/
+matches/tmp/
+docs/superpowers/

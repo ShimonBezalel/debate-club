@@ -1,0 +1,51 @@
+{
+  "name": "debate-club",
+  "version": "0.1.0",
+  "description": "Open match protocol for private debate agents and public judge panels.",
+  "type": "module",
+  "bin": {
+    "debateclub": "./dist/cli/main.js"
+  },
+  "files": [
+    "dist",
+    "examples",
+    "docs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "cli": "tsx src/cli/main.ts",
+    "debate:stub": "tsx src/cli/main.ts run --protocol examples/protocols/classic_v1.yaml --conjecture examples/conjectures/ai_tutors_homework_001.yaml --pro examples/agents/stub_pro --con examples/agents/stub_con --judges examples/judges/stub_panel --out matches",
+    "ledger:rebuild": "tsx src/cli/main.ts ledger rebuild --matches matches",
+    "replay:latest": "tsx src/cli/main.ts replay matches/latest"
+  },
+  "keywords": [
+    "llm",
+    "debate",
+    "agents",
+    "evaluation",
+    "self-play"
+  ],
+  "author": "Shimon Bezalel",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "yaml": "^2.5.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "peerDependenciesMeta": {
+    "@openai/agents": {
+      "optional": true
+    }
+  }
+}
