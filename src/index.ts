@@ -12,3 +12,5 @@ export * from "./agents/loadAgent.js";
 export * from "./judges/interface.js";
 export * from "./judges/stubJudge.js";
 export * from "./judges/loadPanel.js";
+export * from "./runner/runMatch.js";
+export * from "./scoring/aggregate.js";
