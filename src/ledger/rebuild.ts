@@ -73,14 +73,15 @@ export function renderLedgerReadme(index: LedgerIndex): string {
     "",
     `Generated: ${index.generated_at}`,
     "",
-    "| Match | Featured | Conjecture | Protocol | Pro | Con | Winner | Judge split | Transcript | Scorecard |",
-    "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"
+    "| Match | Featured | Timestamp | Conjecture | Protocol | Pro | Con | Winner | Judge split | Transcript | Scorecard |",
+    "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"
   ];
   for (const match of index.matches) {
     const split = `pro ${match.judge_split.pro ?? 0}, con ${match.judge_split.con ?? 0}, tie ${match.judge_split.tie ?? 0}`;
     lines.push([
       `| ${match.match_id}`,
       match.featured ? "yes" : "no",
+      match.created_at,
       match.conjecture_statement.replaceAll("|", "\\|"),
       match.protocol_id,
       match.pro_agent,

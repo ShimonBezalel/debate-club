@@ -39,7 +39,7 @@ describe("ledger artifacts", () => {
     expect(index.matches).toHaveLength(1);
     expect(index.matches[0]?.match_id).toBe("match-ledger-001");
     const readme = await readFile(join(out, "README.md"), "utf8");
-    expect(readme).toContain("| Match | Featured | Conjecture |");
+    expect(readme).toContain("| Match | Featured | Timestamp | Conjecture |");
 
     const replay = await replayMatch(folder);
     expect(replay).toContain("pro_opening");

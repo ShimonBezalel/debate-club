@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T09:44:11.601Z",
+  "generated_at": "2026-06-27T09:54:37.243Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -24,6 +24,110 @@
         "match": "2026-06-27-ai-tutors-stub/match.json",
         "transcript": "2026-06-27-ai-tutors-stub/transcript.md",
         "scorecard": "2026-06-27-ai-tutors-stub/scorecard.md"
+      }
+    },
+    {
+      "match_id": "live-git-ledgers-001",
+      "created_at": "2026-06-27T09:51:01.939Z",
+      "conjecture_id": "git_backed_ledgers_001",
+      "conjecture_statement": "Open debate ledgers should start as Git-backed files rather than hosted databases.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "steelman-v1",
+      "con_agent": "cross-examiner-v1",
+      "winner": "con",
+      "judge_split": {
+        "pro": 0,
+        "con": 2,
+        "tie": 0
+      },
+      "confidence_mean": 0.85,
+      "featured": true,
+      "judges": [
+        "epistemic-judge-v1",
+        "rhetoric-resistant-judge-v1"
+      ],
+      "paths": {
+        "match": "live-git-ledgers-001/match.json",
+        "transcript": "live-git-ledgers-001/transcript.md",
+        "scorecard": "live-git-ledgers-001/scorecard.md"
+      }
+    },
+    {
+      "match_id": "live-ai-companions-children-001",
+      "created_at": "2026-06-27T09:51:45.265Z",
+      "conjecture_id": "ai_companions_children_001",
+      "conjecture_statement": "AI companions for children should be regulated like social networks.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "epistemic-conservative-v1",
+      "con_agent": "steelman-v1",
+      "winner": "pro",
+      "judge_split": {
+        "pro": 1,
+        "con": 0,
+        "tie": 1
+      },
+      "confidence_mean": 0.7749999999999999,
+      "featured": true,
+      "judges": [
+        "epistemic-judge-v1",
+        "rhetoric-resistant-judge-v1"
+      ],
+      "paths": {
+        "match": "live-ai-companions-children-001/match.json",
+        "transcript": "live-ai-companions-children-001/transcript.md",
+        "scorecard": "live-ai-companions-children-001/scorecard.md"
+      }
+    },
+    {
+      "match_id": "live-llm-debate-synthetic-data-001",
+      "created_at": "2026-06-27T09:52:31.224Z",
+      "conjecture_id": "llm_debate_synthetic_data_001",
+      "conjecture_statement": "Competitive LLM debate can generate useful synthetic reasoning data even when it does not reliably discover truth.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "cross-examiner-v1",
+      "con_agent": "epistemic-conservative-v1",
+      "winner": "pro",
+      "judge_split": {
+        "pro": 2,
+        "con": 0,
+        "tie": 0
+      },
+      "confidence_mean": 0.825,
+      "featured": true,
+      "judges": [
+        "epistemic-judge-v1",
+        "rhetoric-resistant-judge-v1"
+      ],
+      "paths": {
+        "match": "live-llm-debate-synthetic-data-001/match.json",
+        "transcript": "live-llm-debate-synthetic-data-001/transcript.md",
+        "scorecard": "live-llm-debate-synthetic-data-001/scorecard.md"
+      }
+    },
+    {
+      "match_id": "live-public-vs-hidden-judges-001",
+      "created_at": "2026-06-27T09:53:25.173Z",
+      "conjecture_id": "public_vs_hidden_judges_001",
+      "conjecture_statement": "A public judge panel creates more useful agent behavior than a hidden judge panel in early-stage Debate Club.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "steelman-v1",
+      "con_agent": "epistemic-conservative-v1",
+      "winner": "pro",
+      "judge_split": {
+        "pro": 2,
+        "con": 0,
+        "tie": 0
+      },
+      "confidence_mean": 0.85,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1",
+        "rhetoric-resistant-judge-v1"
+      ],
+      "paths": {
+        "match": "live-public-vs-hidden-judges-001/match.json",
+        "transcript": "live-public-vs-hidden-judges-001/transcript.md",
+        "scorecard": "live-public-vs-hidden-judges-001/scorecard.md"
       }
     }
   ]

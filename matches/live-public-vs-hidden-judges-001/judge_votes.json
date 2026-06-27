@@ -1,0 +1,140 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "pro",
+    "confidence": 0.85,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 0.9,
+        "responsiveness": 0.9,
+        "argument_structure": 0.9,
+        "burden_of_proof": 0.85,
+        "handling_counterarguments": 0.85,
+        "style_clarity": 0.9
+      },
+      "con": {
+        "factual_accuracy": 0.85,
+        "responsiveness": 0.8,
+        "argument_structure": 0.8,
+        "burden_of_proof": 0.75,
+        "handling_counterarguments": 0.8,
+        "style_clarity": 0.85
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_opening",
+        "reason": "Clearly lays out the burden of proof and defines 'useful agent behavior' with respect to early-stage learning, emphasizing transparency's role in reproducibility and mitigating judge overfitting."
+      },
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Effectively addresses the con's concerns about overfitting and reproducibility by explaining why transparency reduces hidden overfitting and enables iterative debugging, which hidden judges preclude."
+      },
+      {
+        "turn_id": "pro_closing",
+        "reason": "Concedes limitations but reinforces that public judges uniquely enable diagnosable, iterative improvement essential for early-stage robustness and reproducibility, directly responding to con's challenges."
+      }
+    ],
+    "flags": [
+      {
+        "side": "con",
+        "type": "burden_of_proof_shift",
+        "severity": "medium",
+        "quote": "The burden of proof lies with the pro side to show that transparency reliably prevents overfitting rather than merely shifting its form."
+      },
+      {
+        "side": "con",
+        "type": "conflation",
+        "severity": "medium",
+        "quote": "The pro argument conflates transparency with reproducibility without addressing how public judges’ complexity or ambiguity might undermine the latter."
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 2355,
+        "output_tokens": 411,
+        "total_tokens": 2766
+      }
+    }
+  },
+  {
+    "judge_id": "rhetoric-resistant-judge-v1",
+    "winner": "pro",
+    "confidence": 0.85,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 4,
+        "responsiveness": 5,
+        "argument_structure": 5,
+        "burden_of_proof": 5,
+        "handling_counterarguments": 4,
+        "style_clarity": 4
+      },
+      "con": {
+        "factual_accuracy": 4,
+        "responsiveness": 4,
+        "argument_structure": 4,
+        "burden_of_proof": 3,
+        "handling_counterarguments": 4,
+        "style_clarity": 4
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_opening",
+        "reason": "Clearly defines useful agent behavior and grounds the advantage of public judges in transparency enabling reproducibility and mitigating overfitting, directly addressing early-stage learning challenges."
+      },
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Effectively counters con’s overfitting concern by explaining early agents' limited sophistication and how transparency aids iterative refinement and diagnosis, reinforcing the pro claim."
+      },
+      {
+        "turn_id": "pro_closing",
+        "reason": "Acknowledges limitations but persuasively argues that transparency uniquely enables diagnosable iterative improvement and reproducibility in early-stage agents, underscoring the pro position."
+      }
+    ],
+    "flags": [
+      {
+        "side": "con",
+        "type": "unsupported_empirical_claim",
+        "severity": "medium",
+        "quote": "Hidden judges, by contrast, present an opaque but stable target, encouraging agents to discover deeper, more robust patterns that generalize beyond the known criteria."
+      },
+      {
+        "side": "con",
+        "type": "unsupported_empirical_claim",
+        "severity": "medium",
+        "quote": "Hidden judges, if well-designed, can provide consistent, unbiased evaluation signals that foster reproducibility through stable feedback."
+      },
+      {
+        "side": "con",
+        "type": "unsupported_empirical_claim",
+        "severity": "medium",
+        "quote": "Early-stage agents benefit from learning under uncertainty, which"
+      },
+      {
+        "side": "pro",
+        "type": "confident_rhetoric",
+        "severity": "low",
+        "quote": "Public judges expose evaluation criteria openly, allowing agents to generalize beyond superficial patterns and align more closely with intended goals."
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 2346,
+        "output_tokens": 450,
+        "total_tokens": 2796
+      }
+    }
+  }
+]

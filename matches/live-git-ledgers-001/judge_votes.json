@@ -1,0 +1,134 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "con",
+    "confidence": 0.85,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 4,
+        "responsiveness": 4,
+        "argument_structure": 4,
+        "burden_of_proof": 4,
+        "handling_counterarguments": 4,
+        "style_clarity": 4
+      },
+      "con": {
+        "factual_accuracy": 5,
+        "responsiveness": 5,
+        "argument_structure": 5,
+        "burden_of_proof": 5,
+        "handling_counterarguments": 5,
+        "style_clarity": 5
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "con_opening",
+        "reason": "Clearly articulated the fundamental problem of forks in debate ledgers undermining consensus, challenging pro's core forkability claim."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Highlighted practical requirements for schema validation and referential integrity that Git cannot natively support, undermining pro's reviewability and data quality claims."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "Effectively summarized the incompatibility of Git branching with a unified authoritative ledger and emphasized operational complexity of relying on external validation, tipping the balance."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "overgeneralization",
+        "severity": "medium",
+        "quote": "The pro side assumes that decentralization means chaotic forks, but in debate contexts, maintaining a canonical ledger is crucial."
+      },
+      {
+        "side": "pro",
+        "type": "evasive_rebuttal",
+        "severity": "medium",
+        "quote": "Schema migrations and referential integrity are important but manageable with disciplined commit practices and validation scripts applied alongside Git."
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 2466,
+        "output_tokens": 359,
+        "total_tokens": 2825
+      }
+    }
+  },
+  {
+    "judge_id": "rhetoric-resistant-judge-v1",
+    "winner": "con",
+    "confidence": 0.85,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 3,
+        "responsiveness": 3,
+        "argument_structure": 3,
+        "burden_of_proof": 3,
+        "handling_counterarguments": 3,
+        "style_clarity": 3
+      },
+      "con": {
+        "factual_accuracy": 5,
+        "responsiveness": 5,
+        "argument_structure": 5,
+        "burden_of_proof": 5,
+        "handling_counterarguments": 5,
+        "style_clarity": 4
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "con_opening",
+        "reason": "Con clearly distinguished the fundamental difference between code forking and authoritative ledger integrity, emphasizing the need for a single canonical record in debates, which the pro side did not adequately address."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Con effectively highlighted the limitations of Git for structured, relational data management, schema enforcement, and discoverability, pointing out practical risks of relying on external validation scripts."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "Con summarized the practical operational complexities and risks of Git-backed ledgers, reinforcing that hosted databases better handle concurrency, data integrity, and scalability from the start."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_empirical_claim",
+        "severity": "medium",
+        "quote": "Git’s native branching and merging empower community-driven evolution before consensus solidifies."
+      },
+      {
+        "side": "pro",
+        "type": "excessive_abstraction",
+        "severity": "medium",
+        "quote": "Early-stage reviewability demands visible, human-readable audit trails, which Git delivers natively."
+      },
+      {
+        "side": "pro",
+        "type": "evasion_of_opponents_strongest_point",
+        "severity": "high",
+        "quote": "I concede that hosted databases offer strong transactional integrity and sophisticated querying, but these strengths address a later, more mature phase rather than the foundational stage."
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 2457,
+        "output_tokens": 417,
+        "total_tokens": 2874
+      }
+    }
+  }
+]

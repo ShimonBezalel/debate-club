@@ -1,0 +1,124 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "pro",
+    "confidence": 0.85,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 4,
+        "responsiveness": 5,
+        "argument_structure": 5,
+        "burden_of_proof": 4,
+        "handling_counterarguments": 5,
+        "style_clarity": 5
+      },
+      "con": {
+        "factual_accuracy": 4,
+        "responsiveness": 4,
+        "argument_structure": 4,
+        "burden_of_proof": 4,
+        "handling_counterarguments": 4,
+        "style_clarity": 4
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Pro effectively reframes judge-hacking and overfitting as phenomena that are themselves valuable data points, supported by concrete metadata strategies and experimental design features to mitigate risks, directly addressing Con's strongest concerns."
+      },
+      {
+        "turn_id": "pro_closing",
+        "reason": "Pro clarifies the distinction between truth-finding and scientific usefulness, emphasizing the role of metadata and diverse judging to preserve data quality and usefulness, reinforcing their burden-of-proof management."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "overconfident_claim",
+        "severity": "low",
+        "quote": "The opposition’s insistence on truth anchors as a prerequisite for usefulness conflates truth-finding with the broader scientific value of synthetic reasoning data."
+      },
+      {
+        "side": "con",
+        "type": "burden_of_proof",
+        "severity": "medium",
+        "quote": "The burden of proof lies with proponents to demonstrate that debate transcripts, absent reliable truth discovery, do not primarily encode strategic gaming or judge overfitting."
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 2365,
+        "output_tokens": 360,
+        "total_tokens": 2725
+      }
+    }
+  },
+  {
+    "judge_id": "rhetoric-resistant-judge-v1",
+    "winner": "pro",
+    "confidence": 0.8,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 4,
+        "responsiveness": 5,
+        "argument_structure": 5,
+        "burden_of_proof": 4,
+        "handling_counterarguments": 5,
+        "style_clarity": 4
+      },
+      "con": {
+        "factual_accuracy": 4,
+        "responsiveness": 4,
+        "argument_structure": 4,
+        "burden_of_proof": 3,
+        "handling_counterarguments": 4,
+        "style_clarity": 4
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_opening",
+        "reason": "Clearly distinguishes usefulness for training/evaluation from truth-finding reliability and introduces relevant metadata as mitigation for judge-hacking and overfitting."
+      },
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Effectively argues that judge-hacking and overfitting are not negations of usefulness but phenomena that can be studied and mitigated through metadata and experimental design."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Raises important concerns about reliance on metadata without external validation but fails to provide concrete alternatives or evidence that metadata cannot be effective."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_empirical_claim",
+        "severity": "medium",
+        "quote": "Empirical protocols—like cross-debate consistency checks and multi-judge aggregation—further reduce overfitting risks, ensuring data diversity and robustness."
+      },
+      {
+        "side": "con",
+        "type": "burden_of_proof_evaded",
+        "severity": "medium",
+        "quote": "The burden of proof lies with proponents to demonstrate that debate transcripts, absent reliable truth discovery, do not primarily encode strategic gaming or judge overfitting."
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 2356,
+        "output_tokens": 381,
+        "total_tokens": 2737
+      }
+    }
+  }
+]

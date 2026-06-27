@@ -1,0 +1,433 @@
+{
+  "match_id": "live-git-ledgers-001",
+  "created_at": "2026-06-27T09:51:01.939Z",
+  "conjecture": {
+    "id": "git_backed_ledgers_001",
+    "statement": "Open debate ledgers should start as Git-backed files rather than hosted databases.",
+    "domain": "technical_design",
+    "truth_type": "technical_design",
+    "stance_mode": "forced_random",
+    "evidence_mode": "no_external_info",
+    "allowed_tools": {
+      "web": false,
+      "calculator": false,
+      "evidence_pack": false
+    },
+    "background": {
+      "short_context": "Debate the first storage architecture for an open-source debate archive. Focus on early-stage project constraints."
+    },
+    "featured": true,
+    "rubric_notes": [
+      "compare forkability, reviewability, portability, and operational cost",
+      "distinguish early-stage architecture from eventual hosted product needs",
+      "address data quality, schema migration, and discoverability"
+    ]
+  },
+  "protocol": {
+    "id": "classic_v1",
+    "prep_time_sec": 180,
+    "max_turn_tokens": 700,
+    "turns": [
+      {
+        "id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "time_sec": 90
+      },
+      {
+        "id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "time_sec": 90
+      }
+    ]
+  },
+  "agents": {
+    "pro": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "description": "Builds the strongest principled case for its assigned side while anticipating objections.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "principled_steelman",
+      "model_config": {
+        "model": "gpt-4.1-mini",
+        "max_output_tokens": 300,
+        "temperature": 0.4,
+        "timeout_ms": 90000,
+        "instructions_file": "instructions.md",
+        "tracing": false
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    },
+    "con": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "description": "Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "adversarial_cross_examiner",
+      "model_config": {
+        "model": "gpt-4.1-mini",
+        "max_output_tokens": 300,
+        "temperature": 0.4,
+        "timeout_ms": 90000,
+        "instructions_file": "instructions.md",
+        "tracing": false
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    }
+  },
+  "transcript": [
+    {
+      "turn_id": "pro_opening",
+      "speaker": "pro",
+      "phase": "opening",
+      "text": "The central burden of proof here is to demonstrate that starting open debate ledgers as Git-backed files—rather than hosted databases—provides a stronger foundation for early-stage development, long-term maintainability, and community engagement.\n\nFirst, **forkability** is a critical advantage of Git-backed files. Git’s distributed nature allows anyone to clone, branch, and modify the ledger independently without requiring centralized permission or infrastructure. This fosters decentralized innovation and experimentation, essential in early-stage open debates where multiple perspectives and proposals must evolve in parallel. Hosted databases, by contrast, are inherently centralized and opaque, making forks cumbersome or impossible without explicit export/import mechanisms.\n\nSecond, **reviewability** is naturally enhanced by Git’s built-in version control and diffing tools. Every change to the ledger is a commit with a clear author, timestamp, and message, enabling transparent audit trails and peer review. This granular history supports accountability and trust, key qualities for open debates where participants must verify the integrity of records. Hosted databases typically lack such fine-grained, human-readable change histories, often requiring additional logging layers.\n\nThird, **portability** is a major strength of Git-backed files. The ledger is stored as plain text files, easily transferred, mirrored, or archived across diverse environments without vendor lock-in. This ensures long-term accessibility and resilience, even if the original hosting service ceases operation. Hosted databases often rely on proprietary formats or complex schemas that complicate migration and archiving.\n\nFourth, **operational cost** is",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 262,
+          "output_tokens": 300,
+          "total_tokens": 562
+        }
+      },
+      "started_at": "2026-06-27T09:50:36.906Z",
+      "completed_at": "2026-06-27T09:50:45.240Z",
+      "time_used_sec": 8.334,
+      "tokens_estimate": 302
+    },
+    {
+      "turn_id": "con_opening",
+      "speaker": "con",
+      "phase": "opening",
+      "text": "While the pro side highlights some appealing features of Git-backed files, these advantages are overstated or misapplied when considering the practical needs of open debate ledgers.\n\nFirst, on **forkability**: yes, Git excels at branching code, but debate ledgers are not source code repositories. Forking a ledger implies splitting the authoritative record, which undermines consensus and coherence. Hosted databases, designed for concurrent multi-user access, support controlled branching through transaction isolation and schema versioning, preserving a single source of truth rather than fragmenting it. The pro side assumes that decentralization means chaotic forks, but in debate contexts, maintaining a canonical ledger is crucial.\n\nSecond, regarding **reviewability**: Git’s commit history is linear and file-centric, which becomes unwieldy as ledger complexity grows. Debate data often involves structured records, relational queries, and metadata beyond simple diffs. Hosted databases enable rich querying, indexing, and validation that Git cannot replicate. The pro side assumes that human-readable diffs suffice for data quality, ignoring that schema migration and referential integrity require database-level enforcement.\n\nThird, on **portability**: while plain text files are portable, this simplicity sacrifices data integrity and discoverability. Hosted databases support standardized export formats, APIs, and search indexes, facilitating efficient discovery and integration. The pro side conflates file portability with overall system robustness, ignoring that complex debate ledgers need schema evolution and data validation that plain files cannot guarantee.\n\nFinally, **operational cost**:",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 568,
+          "output_tokens": 300,
+          "total_tokens": 868
+        }
+      },
+      "started_at": "2026-06-27T09:50:45.241Z",
+      "completed_at": "2026-06-27T09:50:48.350Z",
+      "time_used_sec": 3.109,
+      "tokens_estimate": 298
+    },
+    {
+      "turn_id": "pro_rebuttal",
+      "speaker": "pro",
+      "phase": "rebuttal",
+      "text": "The central burden remains to show that starting open debate ledgers as Git-backed files—not hosted databases—better serves early-stage development and long-term viability. I concede that hosted databases offer strong transactional integrity and sophisticated querying, but these strengths address a later, more mature phase rather than the foundational stage.\n\n**Forkability:** The pro side’s emphasis on forkability is not about chaotic fragmentation but enabling parallel exploration and innovation without gatekeeping. Early-stage debate ledgers benefit from decentralized branching to experiment with alternative proposals or schema designs transparently. Hosted databases enforce a single canonical state, which can stifle experimentation or require complex migration tooling. Git’s native branching and merging empower community-driven evolution before consensus solidifies.\n\n**Reviewability:** While databases provide rich querying, they lack the built-in, human-readable, line-by-line change history that Git commits offer. Early debates demand transparent audit trails where every edit is attributable and reviewable without specialized tools. Schema migrations and referential integrity are important but manageable with disciplined commit practices and validation scripts applied alongside Git. This layered approach preserves both data quality and reviewability in a lightweight, accessible form.\n\n**Portability:** Plain text files in Git repositories ensure the ledger’s longevity and vendor neutrality. Complex hosted databases risk lock-in and costly migrations, especially in open, evolving projects. Early-stage portability means anyone can clone, archive, or fork the ledger instantly—critical for open participation and resilience. Discoverability can be enhanced with metadata files and indexing tools layered on top of Git",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 878,
+          "output_tokens": 300,
+          "total_tokens": 1178
+        }
+      },
+      "started_at": "2026-06-27T09:50:48.350Z",
+      "completed_at": "2026-06-27T09:50:51.526Z",
+      "time_used_sec": 3.176,
+      "tokens_estimate": 316
+    },
+    {
+      "turn_id": "con_rebuttal",
+      "speaker": "con",
+      "phase": "rebuttal",
+      "text": "The pro side’s framing of Git-backed files as inherently superior for early-stage open debate ledgers overlooks key practical trade-offs that undermine their case.\n\n**Forkability:** The pro argument romanticizes forks as innovation but ignores the fundamental need for a canonical, authoritative ledger in debates. Forking a ledger fragments the record, risking confusion and loss of consensus. Hosted databases support controlled concurrency and branching through transactions and versioning, preserving a single source of truth while enabling experimentation via feature flags or sandboxed environments. Git’s model suits code branching, not evolving a shared, structured debate record where coherence matters more than unrestricted forks.\n\n**Reviewability:** While Git provides line-by-line diffs, debate ledgers involve structured, relational data that require schema validation, referential integrity, and complex queries—none of which Git inherently supports. Relying on commit messages and diffs for data quality is fragile and error-prone. Hosted databases enable enforced constraints and rich querying, essential for maintaining data integrity and enabling discoverability as the ledger scales. The pro side’s suggestion of “validation scripts alongside Git” shifts complexity onto users and risks inconsistencies.\n\n**Portability:** Plain text files are portable, but portability alone doesn’t guarantee long-term data quality or discoverability. Hosted databases offer standardized export formats, APIs, and indexing, facilitating efficient search and integration—critical for open debates with growing data volumes and diverse participants. The pro side understates the operational cost and complexity of managing schema migrations and data validation purely in",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1190,
+          "output_tokens": 300,
+          "total_tokens": 1490
+        }
+      },
+      "started_at": "2026-06-27T09:50:51.526Z",
+      "completed_at": "2026-06-27T09:50:54.664Z",
+      "time_used_sec": 3.138,
+      "tokens_estimate": 310
+    },
+    {
+      "turn_id": "pro_closing",
+      "speaker": "pro",
+      "phase": "closing",
+      "text": "The central burden remains: starting open debate ledgers as Git-backed files, rather than hosted databases, best supports early-stage innovation, transparency, and long-term resilience.\n\n**Forkability:** The pro case rightly emphasizes that early-stage debate ledgers require a flexible, decentralized environment to explore alternative proposals and schema designs without gatekeeping. Git’s branching and merging are not about fragmenting the canonical record permanently but about enabling parallel experimentation before consensus forms. Hosted databases, while strong at concurrency, impose a rigid single source of truth early on, which can stifle community-driven evolution and slow iteration. Controlled concurrency in databases is valuable later but premature at inception.\n\n**Reviewability:** Git’s line-by-line, author-attributed commit history provides unparalleled transparency and accountability, crucial for trust in open debates. While databases enforce schema and relational integrity, these can be layered on top of Git workflows via validation scripts and CI pipelines—preserving lightweight accessibility without sacrificing data quality. Relying solely on databases for data integrity risks opaque change histories and higher barriers to community participation. Early-stage reviewability demands visible, human-readable audit trails, which Git delivers natively.\n\n**Portability:** Git-backed plain text files guarantee vendor neutrality, ease of cloning, archiving, and offline access—critical for open participation and long-term preservation. Hosted databases’ proprietary formats and complex migrations threaten lock-in and loss of data accessibility. Discoverability can be enhanced through metadata files and external indexing tools layered on Git, avoiding premature complexity. Early-stage",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1497,
+          "output_tokens": 300,
+          "total_tokens": 1797
+        }
+      },
+      "started_at": "2026-06-27T09:50:54.664Z",
+      "completed_at": "2026-06-27T09:50:57.469Z",
+      "time_used_sec": 2.805,
+      "tokens_estimate": 302
+    },
+    {
+      "turn_id": "con_closing",
+      "speaker": "con",
+      "phase": "closing",
+      "text": "The pro side’s closing leans heavily on ideals—forkability as “parallel experimentation,” reviewability as “human-readable audit trails,” and portability as “vendor neutrality”—but these gloss over essential practicalities that make Git-backed files ill-suited as a starting point for open debate ledgers.\n\n**Forkability:** The pro argument assumes forks are benign experimentation, but in a debate ledger, forks fracture the authoritative record, sow confusion, and undermine consensus-building. Unlike code, debate data demands a single, coherent ledger. Hosted databases provide controlled concurrency, transactional integrity, and schema versioning that maintain one canonical source while enabling safe experimentation through sandboxed environments or feature toggles. Git’s branching model is fundamentally incompatible with preserving a unified, authoritative debate record.\n\n**Reviewability:** The pro side overstates Git’s line-by-line diffs as sufficient for data quality. Debate ledgers are structured, relational, and require enforced schema constraints, referential integrity, and complex queries for validation and discoverability—none of which Git supports natively. Relying on external validation scripts layered on Git shifts the burden onto users, increasing error risk and operational complexity. Hosted databases embed these guarantees, ensuring consistent, queryable, and discoverable data from the start.\n\n**Portability:** While plain text files are portable, portability alone doesn’t ensure long-term data integrity or ease of discovery. Hosted databases support standardized export formats, APIs, and indexing that scale with growing data and participant diversity. The pro side’s",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1807,
+          "output_tokens": 300,
+          "total_tokens": 2107
+        }
+      },
+      "started_at": "2026-06-27T09:50:57.469Z",
+      "completed_at": "2026-06-27T09:51:01.938Z",
+      "time_used_sec": 4.469,
+      "tokens_estimate": 290
+    }
+  ],
+  "judge_votes": [
+    {
+      "judge_id": "epistemic-judge-v1",
+      "winner": "con",
+      "confidence": 0.85,
+      "scores": {
+        "pro": {
+          "factual_accuracy": 4,
+          "responsiveness": 4,
+          "argument_structure": 4,
+          "burden_of_proof": 4,
+          "handling_counterarguments": 4,
+          "style_clarity": 4
+        },
+        "con": {
+          "factual_accuracy": 5,
+          "responsiveness": 5,
+          "argument_structure": 5,
+          "burden_of_proof": 5,
+          "handling_counterarguments": 5,
+          "style_clarity": 5
+        }
+      },
+      "decisive_moments": [
+        {
+          "turn_id": "con_opening",
+          "reason": "Clearly articulated the fundamental problem of forks in debate ledgers undermining consensus, challenging pro's core forkability claim."
+        },
+        {
+          "turn_id": "con_rebuttal",
+          "reason": "Highlighted practical requirements for schema validation and referential integrity that Git cannot natively support, undermining pro's reviewability and data quality claims."
+        },
+        {
+          "turn_id": "con_closing",
+          "reason": "Effectively summarized the incompatibility of Git branching with a unified authoritative ledger and emphasized operational complexity of relying on external validation, tipping the balance."
+        }
+      ],
+      "flags": [
+        {
+          "side": "pro",
+          "type": "overgeneralization",
+          "severity": "medium",
+          "quote": "The pro side assumes that decentralization means chaotic forks, but in debate contexts, maintaining a canonical ledger is crucial."
+        },
+        {
+          "side": "pro",
+          "type": "evasive_rebuttal",
+          "severity": "medium",
+          "quote": "Schema migrations and referential integrity are important but manageable with disciplined commit practices and validation scripts applied alongside Git."
+        }
+      ],
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 2466,
+          "output_tokens": 359,
+          "total_tokens": 2825
+        }
+      }
+    },
+    {
+      "judge_id": "rhetoric-resistant-judge-v1",
+      "winner": "con",
+      "confidence": 0.85,
+      "scores": {
+        "pro": {
+          "factual_accuracy": 3,
+          "responsiveness": 3,
+          "argument_structure": 3,
+          "burden_of_proof": 3,
+          "handling_counterarguments": 3,
+          "style_clarity": 3
+        },
+        "con": {
+          "factual_accuracy": 5,
+          "responsiveness": 5,
+          "argument_structure": 5,
+          "burden_of_proof": 5,
+          "handling_counterarguments": 5,
+          "style_clarity": 4
+        }
+      },
+      "decisive_moments": [
+        {
+          "turn_id": "con_opening",
+          "reason": "Con clearly distinguished the fundamental difference between code forking and authoritative ledger integrity, emphasizing the need for a single canonical record in debates, which the pro side did not adequately address."
+        },
+        {
+          "turn_id": "con_rebuttal",
+          "reason": "Con effectively highlighted the limitations of Git for structured, relational data management, schema enforcement, and discoverability, pointing out practical risks of relying on external validation scripts."
+        },
+        {
+          "turn_id": "con_closing",
+          "reason": "Con summarized the practical operational complexities and risks of Git-backed ledgers, reinforcing that hosted databases better handle concurrency, data integrity, and scalability from the start."
+        }
+      ],
+      "flags": [
+        {
+          "side": "pro",
+          "type": "unsupported_empirical_claim",
+          "severity": "medium",
+          "quote": "Git’s native branching and merging empower community-driven evolution before consensus solidifies."
+        },
+        {
+          "side": "pro",
+          "type": "excessive_abstraction",
+          "severity": "medium",
+          "quote": "Early-stage reviewability demands visible, human-readable audit trails, which Git delivers natively."
+        },
+        {
+          "side": "pro",
+          "type": "evasion_of_opponents_strongest_point",
+          "severity": "high",
+          "quote": "I concede that hosted databases offer strong transactional integrity and sophisticated querying, but these strengths address a later, more mature phase rather than the foundational stage."
+        }
+      ],
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 2457,
+          "output_tokens": 417,
+          "total_tokens": 2874
+        }
+      }
+    }
+  ],
+  "result": {
+    "winner": "con",
+    "judge_split": {
+      "pro": 0,
+      "con": 2,
+      "tie": 0
+    },
+    "confidence_mean": 0.85,
+    "confidence_variance": 0,
+    "flags": [
+      {
+        "side": "pro",
+        "type": "overgeneralization",
+        "severity": "medium",
+        "quote": "The pro side assumes that decentralization means chaotic forks, but in debate contexts, maintaining a canonical ledger is crucial."
+      },
+      {
+        "side": "pro",
+        "type": "evasive_rebuttal",
+        "severity": "medium",
+        "quote": "Schema migrations and referential integrity are important but manageable with disciplined commit practices and validation scripts applied alongside Git."
+      },
+      {
+        "side": "pro",
+        "type": "unsupported_empirical_claim",
+        "severity": "medium",
+        "quote": "Git’s native branching and merging empower community-driven evolution before consensus solidifies."
+      },
+      {
+        "side": "pro",
+        "type": "excessive_abstraction",
+        "severity": "medium",
+        "quote": "Early-stage reviewability demands visible, human-readable audit trails, which Git delivers natively."
+      },
+      {
+        "side": "pro",
+        "type": "evasion_of_opponents_strongest_point",
+        "severity": "high",
+        "quote": "I concede that hosted databases offer strong transactional integrity and sophisticated querying, but these strengths address a later, more mature phase rather than the foundational stage."
+      }
+    ]
+  }
+}

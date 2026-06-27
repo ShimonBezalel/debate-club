@@ -1,0 +1,120 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "pro",
+    "confidence": 0.85,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 4,
+        "responsiveness": 5,
+        "argument_structure": 5,
+        "burden_of_proof": 5,
+        "handling_counterarguments": 4,
+        "style_clarity": 5
+      },
+      "con": {
+        "factual_accuracy": 4,
+        "responsiveness": 3,
+        "argument_structure": 4,
+        "burden_of_proof": 3,
+        "handling_counterarguments": 3,
+        "style_clarity": 4
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Pro effectively clarifies that the claim is not that AI companions are identical to social networks but that similar regulatory rigor is justified due to overlapping risks, directly addressing Con's distinction argument and reinforcing burden of proof on Con."
+      },
+      {
+        "turn_id": "pro_closing",
+        "reason": "Pro summarizes key points clearly, emphasizing the shared concerns about child safety, privacy, manipulation, and parental oversight, and highlights the Con's failure to meet their burden to show regulation is unnecessary."
+      }
+    ],
+    "flags": [
+      {
+        "side": "con",
+        "type": "evasiveness",
+        "severity": "medium",
+        "quote": "The Con’s argument that data is “limited” ignores the qualitative sensitivity of these interactions and the potential for misuse or insufficient safeguards."
+      },
+      {
+        "side": "con",
+        "type": "burden_of_proof_failure",
+        "severity": "medium",
+        "quote": "The Con has not shown these concerns are negligible or better addressed without such frameworks."
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 2463,
+        "output_tokens": 346,
+        "total_tokens": 2809
+      }
+    }
+  },
+  {
+    "judge_id": "rhetoric-resistant-judge-v1",
+    "winner": "tie",
+    "confidence": 0.7,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 4,
+        "responsiveness": 4,
+        "argument_structure": 4,
+        "burden_of_proof": 4,
+        "handling_counterarguments": 4,
+        "style_clarity": 4
+      },
+      "con": {
+        "factual_accuracy": 4,
+        "responsiveness": 4,
+        "argument_structure": 4,
+        "burden_of_proof": 4,
+        "handling_counterarguments": 4,
+        "style_clarity": 4
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Pro effectively clarifies that the claim is for comparable regulatory rigor, not identical treatment, and insists on addressing child safety, privacy, and parental oversight risks with similar seriousness as social networks."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Con emphasizes fundamental differences in platform nature and risk scale, arguing that social network-style regulation is disproportionate and that tailored protections are more appropriate."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_empirical_claim",
+        "severity": "medium",
+        "quote": "concerns about manipulation and dependency are not speculative harms to dismiss lightly but real risks inherent in emotionally engaging AI designed to simulate companionship"
+      },
+      {
+        "side": "con",
+        "type": "unsupported_empirical_claim",
+        "severity": "medium",
+        "quote": "AI companions are typically designed with clear boundaries and limited scope, unlike social networks where users are exposed to unfiltered, user-generated content and complex social pressures"
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 2454,
+        "output_tokens": 341,
+        "total_tokens": 2795
+      }
+    }
+  }
+]
