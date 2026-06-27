@@ -1,0 +1,12 @@
+name: openai-agents-sdk-example-v1
+version: 0.1.0
+description: Example private harness card for the optional OpenAI Agents SDK adapter.
+adapter: openai-agents-sdk
+private: true
+supports:
+  - no_external_info
+input_modes:
+  - text
+resource_limits:
+  max_wall_time_sec: 180
+  max_tokens_per_turn: 700
