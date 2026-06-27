@@ -1,9 +1,9 @@
 # Questions
 
-- Should the public project page be added to `/Users/shimon/ws/shimmybezalel`, the older `shimonbezalel.github.io` repository, or only kept in this repo for now?
 - Should committed real-model match artifacts be curated manually before entering `matches/`?
 - Should competitive agent cards allow fully hidden model declarations, or require declared model family?
+- Should the website page be merged from the preview PR into the production publishing path, or should production wait for a broader site release?
 
 ## Website Publication
 
-The Debate Club repo contains `site/debate-club.md` as a website-ready page. The likely Astro site at `/Users/shimon/ws/shimmybezalel` builds successfully, but its worktree already has unrelated uncommitted changes. Please confirm whether to publish there, the older `ShimonBezalel/shimonbezalel.github.io` repo, or another target.
+Resolved 2026-06-27: use the real Astro site at `/Users/shimon/ws/shimmybezalel`, not the older GitHub Pages repository. The Debate Club page is on website branch `debate-club-page` and PR `forge-flows/shimmybezalel#1`, preserving unrelated dirty site changes.
