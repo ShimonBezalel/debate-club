@@ -7,4 +7,5 @@ npm-debug.log*
 .DS_Store
 coverage/
 matches/tmp/
+matches/latest
 private_agents/

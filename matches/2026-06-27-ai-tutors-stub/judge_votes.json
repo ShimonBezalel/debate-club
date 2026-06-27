@@ -1,0 +1,32 @@
+[
+  {
+    "judge_id": "epistemic-stub-v1",
+    "winner": "con",
+    "confidence": 0.64,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 7,
+        "responsiveness": 7,
+        "argument_structure": 7,
+        "burden_of_proof": 7,
+        "handling_counterarguments": 7,
+        "style_clarity": 8
+      },
+      "con": {
+        "factual_accuracy": 7,
+        "responsiveness": 7,
+        "argument_structure": 8,
+        "burden_of_proof": 7,
+        "handling_counterarguments": 7,
+        "style_clarity": 8
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "con_opening",
+        "reason": "Con produced the stronger deterministic stub case under the public rubric."
+      }
+    ],
+    "flags": []
+  }
+]

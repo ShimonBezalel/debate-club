@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-06-27T08:30:10.820Z",
+  "matches": [
+    {
+      "match_id": "2026-06-27-ai-tutors-stub",
+      "created_at": "2026-06-27T08:29:51.287Z",
+      "conjecture_id": "ai_tutors_homework_001",
+      "conjecture_statement": "AI tutors should replace traditional homework for middle-school students.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "stub-pro-v1",
+      "con_agent": "stub-con-v1",
+      "winner": "con",
+      "judge_split": {
+        "pro": 0,
+        "con": 1,
+        "tie": 0
+      },
+      "confidence_mean": 0.64,
+      "paths": {
+        "match": "2026-06-27-ai-tutors-stub/match.json",
+        "transcript": "2026-06-27-ai-tutors-stub/transcript.md",
+        "scorecard": "2026-06-27-ai-tutors-stub/scorecard.md"
+      }
+    }
+  ]
+}

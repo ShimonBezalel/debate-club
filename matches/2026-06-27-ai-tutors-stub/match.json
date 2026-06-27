@@ -1,0 +1,213 @@
+{
+  "match_id": "2026-06-27-ai-tutors-stub",
+  "created_at": "2026-06-27T08:29:51.287Z",
+  "conjecture": {
+    "id": "ai_tutors_homework_001",
+    "statement": "AI tutors should replace traditional homework for middle-school students.",
+    "domain": "education_policy",
+    "truth_type": "policy",
+    "stance_mode": "forced_random",
+    "evidence_mode": "no_external_info",
+    "allowed_tools": {
+      "web": false,
+      "calculator": false,
+      "evidence_pack": false
+    },
+    "background": {
+      "short_context": "Debate whether AI tutors should replace traditional homework, not whether AI tutors are useful in general."
+    },
+    "rubric_notes": [
+      "distinguish replacement from supplementation",
+      "discuss equity, feedback quality, cheating, and motivation",
+      "avoid unsupported empirical claims"
+    ]
+  },
+  "protocol": {
+    "id": "classic_v1",
+    "prep_time_sec": 180,
+    "max_turn_tokens": 700,
+    "turns": [
+      {
+        "id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "time_sec": 90
+      },
+      {
+        "id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "time_sec": 90
+      }
+    ]
+  },
+  "agents": {
+    "pro": {
+      "name": "stub-pro-v1",
+      "version": "0.1.0",
+      "description": "Deterministic pro agent for local tests and examples.",
+      "adapter": "stub",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "stance": "pro",
+      "style": "structured_policy_case",
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    },
+    "con": {
+      "name": "stub-con-v1",
+      "version": "0.1.0",
+      "description": "Deterministic con agent for local tests and examples.",
+      "adapter": "stub",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "stance": "con",
+      "style": "skeptical_policy_case",
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    }
+  },
+  "transcript": [
+    {
+      "turn_id": "pro_opening",
+      "speaker": "pro",
+      "phase": "opening",
+      "text": "Pro opening: Replacement deserves a fair trial when it improves feedback speed, personalization, and accountability. No prior claims have been made. The burden is to compare replacement against supplementation, not against doing nothing.",
+      "started_at": "2026-06-27T08:29:51.286Z",
+      "completed_at": "2026-06-27T08:29:51.286Z",
+      "time_used_sec": 0,
+      "tokens_estimate": 44
+    },
+    {
+      "turn_id": "con_opening",
+      "speaker": "con",
+      "phase": "opening",
+      "text": "Con opening: Replacement is too strong because homework also builds practice habits, teacher context, and equitable routines. Prior claims: pro_opening. The burden is to compare replacement against supplementation, not against doing nothing.",
+      "started_at": "2026-06-27T08:29:51.287Z",
+      "completed_at": "2026-06-27T08:29:51.287Z",
+      "time_used_sec": 0,
+      "tokens_estimate": 43
+    },
+    {
+      "turn_id": "pro_rebuttal",
+      "speaker": "pro",
+      "phase": "rebuttal",
+      "text": "Pro rebuttal: Replacement deserves a fair trial when it improves feedback speed, personalization, and accountability. Prior claims: pro_opening, con_opening. The burden is to compare replacement against supplementation, not against doing nothing.",
+      "started_at": "2026-06-27T08:29:51.287Z",
+      "completed_at": "2026-06-27T08:29:51.287Z",
+      "time_used_sec": 0,
+      "tokens_estimate": 42
+    },
+    {
+      "turn_id": "con_rebuttal",
+      "speaker": "con",
+      "phase": "rebuttal",
+      "text": "Con rebuttal: Replacement is too strong because homework also builds practice habits, teacher context, and equitable routines. Prior claims: pro_opening, con_opening, pro_rebuttal. The burden is to compare replacement against supplementation, not against doing nothing.",
+      "started_at": "2026-06-27T08:29:51.287Z",
+      "completed_at": "2026-06-27T08:29:51.287Z",
+      "time_used_sec": 0,
+      "tokens_estimate": 46
+    },
+    {
+      "turn_id": "pro_closing",
+      "speaker": "pro",
+      "phase": "closing",
+      "text": "Pro closing: Replacement deserves a fair trial when it improves feedback speed, personalization, and accountability. Prior claims: pro_opening, con_opening, pro_rebuttal, con_rebuttal. The burden is to compare replacement against supplementation, not against doing nothing.",
+      "started_at": "2026-06-27T08:29:51.287Z",
+      "completed_at": "2026-06-27T08:29:51.287Z",
+      "time_used_sec": 0,
+      "tokens_estimate": 44
+    },
+    {
+      "turn_id": "con_closing",
+      "speaker": "con",
+      "phase": "closing",
+      "text": "Con closing: Replacement is too strong because homework also builds practice habits, teacher context, and equitable routines. Prior claims: pro_opening, con_opening, pro_rebuttal, con_rebuttal, pro_closing. The burden is to compare replacement against supplementation, not against doing nothing.",
+      "started_at": "2026-06-27T08:29:51.287Z",
+      "completed_at": "2026-06-27T08:29:51.287Z",
+      "time_used_sec": 0,
+      "tokens_estimate": 48
+    }
+  ],
+  "judge_votes": [
+    {
+      "judge_id": "epistemic-stub-v1",
+      "winner": "con",
+      "confidence": 0.64,
+      "scores": {
+        "pro": {
+          "factual_accuracy": 7,
+          "responsiveness": 7,
+          "argument_structure": 7,
+          "burden_of_proof": 7,
+          "handling_counterarguments": 7,
+          "style_clarity": 8
+        },
+        "con": {
+          "factual_accuracy": 7,
+          "responsiveness": 7,
+          "argument_structure": 8,
+          "burden_of_proof": 7,
+          "handling_counterarguments": 7,
+          "style_clarity": 8
+        }
+      },
+      "decisive_moments": [
+        {
+          "turn_id": "con_opening",
+          "reason": "Con produced the stronger deterministic stub case under the public rubric."
+        }
+      ],
+      "flags": []
+    }
+  ],
+  "result": {
+    "winner": "con",
+    "judge_split": {
+      "pro": 0,
+      "con": 1,
+      "tie": 0
+    },
+    "confidence_mean": 0.64,
+    "confidence_variance": 0,
+    "flags": []
+  }
+}
