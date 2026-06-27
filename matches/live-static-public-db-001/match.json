@@ -1,0 +1,387 @@
+{
+  "match_id": "live-static-public-db-001",
+  "created_at": "2026-06-27T11:19:43.126Z",
+  "conjecture": {
+    "id": "static_public_db_001",
+    "statement": "For Debate Club, a static Git-backed public ledger is a better first database than a hosted SQL database.",
+    "domain": "technical_design",
+    "truth_type": "technical_design",
+    "stance_mode": "forced_random",
+    "evidence_mode": "no_external_info",
+    "allowed_tools": {
+      "web": false,
+      "calculator": false,
+      "evidence_pack": false
+    },
+    "background": {
+      "short_context": "Debate the canonical storage architecture for Debate Club's first public database and viewer."
+    },
+    "featured": true,
+    "rubric_notes": [
+      "compare openness, durability, queryability, operational burden, and migration paths",
+      "distinguish a canonical record from indexes and caches",
+      "address concurrency and schema evolution without assuming mature-scale traffic"
+    ]
+  },
+  "protocol": {
+    "id": "classic_v1",
+    "prep_time_sec": 180,
+    "max_turn_tokens": 700,
+    "turns": [
+      {
+        "id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "time_sec": 90
+      },
+      {
+        "id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "time_sec": 90
+      }
+    ]
+  },
+  "agents": {
+    "pro": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "description": "Builds the strongest principled case for its assigned side while anticipating objections.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "principled_steelman",
+      "model_config": {
+        "model": "gpt-4.1-mini",
+        "max_output_tokens": 420,
+        "temperature": 0.35,
+        "timeout_ms": 90000,
+        "instructions_file": "instructions.md",
+        "tracing": false
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    },
+    "con": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "description": "Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "adversarial_cross_examiner",
+      "model_config": {
+        "model": "gpt-4.1-mini",
+        "max_output_tokens": 420,
+        "temperature": 0.35,
+        "timeout_ms": 90000,
+        "instructions_file": "instructions.md",
+        "tracing": false
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    }
+  },
+  "transcript": [
+    {
+      "turn_id": "pro_opening",
+      "speaker": "pro",
+      "phase": "opening",
+      "text": "The central burden here is to show that for Debate Club’s initial database, a static Git-backed public ledger outperforms a hosted SQL database across key dimensions: openness, durability, queryability, operational burden, and migration flexibility.\n\nFirst, openness: Git’s public ledger is inherently transparent and auditable by design, enabling any participant to verify the entire history of changes without special permissions. In contrast, hosted SQL databases are typically closed systems requiring credentials and trust in a central operator, limiting transparency and community trust.\n\nSecond, durability: Git’s content-addressed storage and distributed replication ensure that data is resilient against accidental loss or tampering. Hosted SQL databases rely on centralized backups and replication, which introduce single points of failure and trust.\n\nThird, queryability: While SQL excels at complex queries, Debate Club’s initial scale and traffic are modest, making Git’s append-only log and simple indexing sufficient. Moreover, indexes and caches can be layered atop Git to optimize queries without compromising the canonical ledger’s integrity.\n\nFourth, operational burden: Git requires minimal infrastructure—just static file hosting—eliminating the need for database administration, patching, or uptime SLAs. Hosted SQL demands continuous maintenance and monitoring, increasing complexity and cost.\n\nFinally, migration and schema evolution: Git’s schema-less commits allow flexible, incremental evolution without rigid migrations. SQL schemas require careful versioning and migrations, risking downtime or data loss.\n\nIn sum, Git-backed ledgers provide a more open, durable, and operationally simple foundation for Debate Club’s first database than hosted SQL.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 289,
+          "output_tokens": 311,
+          "total_tokens": 600
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-4.1-mini",
+          "started_at": "2026-06-27T11:19:23.387Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-06-27T11:19:23.387Z",
+      "completed_at": "2026-06-27T11:19:26.710Z",
+      "time_used_sec": 3.323,
+      "tokens_estimate": 314
+    },
+    {
+      "turn_id": "con_opening",
+      "speaker": "con",
+      "phase": "opening",
+      "text": "Your argument assumes that Git’s openness and durability inherently outweigh SQL’s strengths, but this overlooks critical nuances.\n\nFirst, openness: while Git repositories are public, they expose raw data that often requires specialized tools to interpret. Hosted SQL databases can expose selective views or APIs, balancing transparency with usability and privacy. Openness is not just public access but meaningful, accessible data consumption.\n\nSecond, durability: Git’s distributed model protects against data loss but risks fragmentation and conflicting histories without strong coordination. Hosted SQL databases offer ACID guarantees ensuring consistent, reliable state—critical even at modest scale.\n\nThird, queryability: you downplay SQL’s power by citing low initial traffic, but even small applications benefit from expressive queries and indexes for user experience and analytics. Git’s append-only log is not a database; layering indexes atop it adds complexity and duplicates operational burden you claim to reduce.\n\nFourth, operational burden: Git’s minimal infrastructure shifts complexity to client tooling and coordination, especially for concurrency control and conflict resolution. SQL’s mature tooling and managed services reduce operational risk despite requiring some maintenance.\n\nFinally, schema evolution: schema-less commits risk inconsistent data interpretation and complicate application logic. SQL schemas enforce structure, enabling safer evolution and validation.\n\nIn sum, your case conflates a canonical ledger with complete database functionality, underestimating SQL’s practical advantages in consistency, query power, and manageable operational complexity.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 604,
+          "output_tokens": 276,
+          "total_tokens": 880
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-4.1-mini",
+          "started_at": "2026-06-27T11:19:26.710Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-06-27T11:19:26.710Z",
+      "completed_at": "2026-06-27T11:19:30.581Z",
+      "time_used_sec": 3.871,
+      "tokens_estimate": 292
+    },
+    {
+      "turn_id": "pro_rebuttal",
+      "speaker": "pro",
+      "phase": "rebuttal",
+      "text": "The central burden remains: Git-backed ledgers offer a superior foundational database for Debate Club’s initial needs by balancing openness, durability, queryability, operational burden, and migration flexibility better than hosted SQL.\n\nAddressing openness: While SQL APIs can tailor access, they inherently restrict transparency behind permission layers. Git’s public ledger exposes the canonical record fully and immutably, enabling independent verification without trust in intermediaries. Specialized tooling is a modest, one-time cost compared to ongoing trust assumptions.\n\nOn durability and consistency: Git’s content-addressed commits provide strong immutability guarantees and distributed replication, mitigating data loss without single points of failure. Debate Club’s modest scale and low concurrency mean complex ACID transactions and conflict resolution are premature optimizations; Git’s append-only model naturally serializes changes, avoiding concurrency complexity upfront.\n\nRegarding queryability: SQL’s power is undeniable but unnecessary initially. Layered indexes and caches on Git separate concerns—preserving a clean, auditable canonical ledger while enabling efficient queries. This separation avoids coupling data integrity with query complexity, a best practice often overlooked.\n\nOperational burden: Git’s minimal server requirements eliminate DBAs and uptime SLAs, reducing risk and cost. Client-side tooling complexity is manageable and scales with community involvement, aligning with Debate Club’s collaborative ethos.\n\nFinally, schema evolution: Git’s schema-less commits allow incremental, flexible evolution without rigid migrations or downtime, critical for early-stage projects.\n\nIn sum, Git-backed ledgers better serve Debate Club’s initial database by prioritizing openness, durability, simplicity, and flexible evolution over premature complexity.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 889,
+          "output_tokens": 315,
+          "total_tokens": 1204
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-4.1-mini",
+          "started_at": "2026-06-27T11:19:30.582Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-06-27T11:19:30.582Z",
+      "completed_at": "2026-06-27T11:19:33.789Z",
+      "time_used_sec": 3.207,
+      "tokens_estimate": 312
+    },
+    {
+      "turn_id": "con_rebuttal",
+      "speaker": "con",
+      "phase": "rebuttal",
+      "text": "Your defense of Git’s openness overlooks that raw public data is not inherently accessible or meaningful without mature tooling—this shifts complexity to users rather than eliminating it. SQL’s controlled APIs provide tailored, user-friendly transparency without exposing raw internals, balancing openness with practical usability.\n\nOn durability and consistency, Git’s distributed model risks divergent histories and requires manual reconciliation, which is a hidden operational cost. SQL’s ACID guarantees provide immediate, reliable consistency even at modest scale, preventing subtle data anomalies that can erode trust.\n\nQueryability is not just about initial traffic but about enabling meaningful user interactions and analytics. Layering indexes atop Git duplicates effort and fragments responsibility, increasing operational burden rather than reducing it. SQL integrates queries and indexing natively, simplifying development and maintenance.\n\nRegarding operational burden, Git’s minimal server needs trade off for client-side complexity in concurrency control and conflict resolution—nontrivial tasks that can slow development and increase bugs. Managed SQL services offer mature, battle-tested tooling that reduces these risks.\n\nFinally, schema-less commits risk inconsistent data interpretations and complicate application logic, increasing long-term maintenance costs. SQL schemas enforce structure and validation, enabling safer evolution and clearer contracts between components.\n\nIn sum, your case underestimates the hidden costs and operational risks Git imposes while overstating the simplicity and openness benefits compared to hosted SQL.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1214,
+          "output_tokens": 267,
+          "total_tokens": 1481
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-4.1-mini",
+          "started_at": "2026-06-27T11:19:33.789Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-06-27T11:19:33.789Z",
+      "completed_at": "2026-06-27T11:19:36.792Z",
+      "time_used_sec": 3.003,
+      "tokens_estimate": 284
+    },
+    {
+      "turn_id": "pro_closing",
+      "speaker": "pro",
+      "phase": "closing",
+      "text": "The central burden is to confirm that for Debate Club’s initial database, a static Git-backed public ledger remains superior to hosted SQL by delivering a principled balance of openness, durability, queryability, operational burden, and migration flexibility—without premature complexity.\n\nWe concede that raw Git data requires tooling for usability; however, this is a one-time, open-source investment that empowers any participant to independently verify the canonical record. SQL’s selective APIs trade transparency for convenience and centralized trust, which conflicts with Debate Club’s ethos of open verification.\n\nRegarding consistency, Debate Club’s modest concurrency means Git’s append-only commits naturally serialize changes without complex ACID overhead or reconciliation risk. The distributed model’s potential divergence is negligible at this scale and can be managed via simple coordination protocols, avoiding hidden operational costs.\n\nQueryability layered atop Git cleanly separates concerns: the canonical ledger remains immutable and auditable, while indexes and caches optimize user queries. This modularity prevents coupling data integrity with query complexity, unlike SQL’s monolithic model that risks schema lock-in and migration fragility.\n\nOperationally, Git’s minimal server footprint eliminates DBAs and uptime SLAs, reducing cost and risk. Client-side tooling complexity scales with community involvement, aligning with Debate Club’s collaborative model better than opaque managed services.\n\nFinally, Git’s schema-less commits enable flexible, incremental evolution without downtime—critical for an evolving early-stage project—whereas SQL schema rigidity risks costly migrations.\n\nIn sum, a Git-backed ledger offers a more open, durable, and operationally lean foundation than hosted SQL for Debate Club’s first database.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1486,
+          "output_tokens": 316,
+          "total_tokens": 1802
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-4.1-mini",
+          "started_at": "2026-06-27T11:19:36.792Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-06-27T11:19:36.792Z",
+      "completed_at": "2026-06-27T11:19:39.934Z",
+      "time_used_sec": 3.142,
+      "tokens_estimate": 322
+    },
+    {
+      "turn_id": "con_closing",
+      "speaker": "con",
+      "phase": "closing",
+      "text": "Your closing concedes Git’s openness depends on specialized tooling, yet you dismiss SQL’s selective APIs as mere “centralized trust,” ignoring that meaningful transparency requires accessible data presentation, not just raw access. This conflates openness with opacity under the guise of purity.\n\nYou claim Git’s append-only commits naturally serialize modest concurrency, but even low-traffic collaborative edits risk conflicts needing manual reconciliation—an operational burden you downplay. SQL’s ACID transactions provide immediate, consistent state without such hidden costs, essential for reliable user experience.\n\nSeparating canonical ledger from query indexes sounds neat but duplicates complexity: maintaining consistency across multiple layers is nontrivial and fragments responsibility. SQL’s integrated model, while monolithic, simplifies development and reduces potential data drift.\n\nOperationally, shifting complexity from servers to clients is not “lean” but redistributes risk to less mature tooling and contributors, potentially increasing bugs and delays. Managed SQL services offer battle-tested infrastructure that mitigates these risks upfront.\n\nFinally, schema-less commits may enable flexibility, but they sacrifice data integrity guarantees and complicate validation, increasing long-term maintenance costs. SQL schemas enforce clear contracts, reducing ambiguity and errors.\n\nIn sum, your case underestimates the practical costs and risks Git imposes while overstating openness and simplicity benefits compared to hosted SQL’s proven consistency, query power, and manageable operations.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1810,
+          "output_tokens": 269,
+          "total_tokens": 2079
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-4.1-mini",
+          "started_at": "2026-06-27T11:19:39.934Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-06-27T11:19:39.934Z",
+      "completed_at": "2026-06-27T11:19:43.126Z",
+      "time_used_sec": 3.192,
+      "tokens_estimate": 273
+    }
+  ],
+  "judge_votes": [
+    {
+      "judge_id": "epistemic-judge-v1",
+      "winner": "tie",
+      "confidence": 0.85,
+      "scores": {
+        "pro": {
+          "factual_accuracy": 4,
+          "responsiveness": 4,
+          "argument_structure": 4,
+          "burden_of_proof": 4,
+          "handling_counterarguments": 4,
+          "style_clarity": 4
+        },
+        "con": {
+          "factual_accuracy": 4,
+          "responsiveness": 4,
+          "argument_structure": 4,
+          "burden_of_proof": 4,
+          "handling_counterarguments": 4,
+          "style_clarity": 4
+        }
+      },
+      "decisive_moments": [
+        {
+          "turn_id": "pro_opening",
+          "reason": "Clearly outlined the key dimensions and argued for Git's advantages with respect to openness, durability, operational simplicity, and flexible schema evolution, setting a strong burden of proof."
+        },
+        {
+          "turn_id": "con_opening",
+          "reason": "Effectively challenged pro's assumptions by emphasizing SQL's practical strengths in queryability, consistency, and operational maturity, highlighting hidden costs in Git's approach."
+        },
+        {
+          "turn_id": "pro_rebuttal",
+          "reason": "Directly addressed con's points by contextualizing Debate Club's modest scale and needs, defending Git's append-only model and separation of concerns for query layers."
+        },
+        {
+          "turn_id": "con_rebuttal",
+          "reason": "Reinforced concerns about hidden operational burdens and complexity shifted to clients, emphasizing SQL's integrated tooling and consistency guarantees."
+        }
+      ],
+      "flags": [],
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-4.1-mini",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 2321,
+          "output_tokens": 273,
+          "total_tokens": 2594
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "Epistemic Judge v1",
+          "model": "gpt-4.1-mini",
+          "started_at": "2026-06-27T11:19:43.127Z",
+          "response_storage": "disabled"
+        }
+      }
+    }
+  ],
+  "result": {
+    "winner": "tie",
+    "judge_split": {
+      "pro": 0,
+      "con": 0,
+      "tie": 1
+    },
+    "confidence_mean": 0.85,
+    "confidence_variance": 0,
+    "flags": []
+  }
+}

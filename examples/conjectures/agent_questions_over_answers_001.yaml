@@ -1,0 +1,17 @@
+id: agent_questions_over_answers_001
+statement: "Most useful AI agents will be judged more by their ability to ask good questions than by their ability to answer immediately."
+domain: ai_workflows
+truth_type: strategic
+stance_mode: forced_random
+evidence_mode: no_external_info
+featured: false
+allowed_tools:
+  web: false
+  calculator: false
+  evidence_pack: false
+background:
+  short_context: "Debate how applied agents create value under ambiguity, incomplete context, and real operational constraints."
+rubric_notes:
+  - distinguish exploratory questions from needless user friction
+  - address task type, autonomy, correctness, speed, and trust
+  - avoid universal claims that ignore low-ambiguity workflows

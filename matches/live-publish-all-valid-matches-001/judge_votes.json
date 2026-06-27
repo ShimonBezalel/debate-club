@@ -1,0 +1,57 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "pro",
+    "confidence": 0.85,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 4,
+        "responsiveness": 5,
+        "argument_structure": 5,
+        "burden_of_proof": 5,
+        "handling_counterarguments": 5,
+        "style_clarity": 5
+      },
+      "con": {
+        "factual_accuracy": 4,
+        "responsiveness": 4,
+        "argument_structure": 4,
+        "burden_of_proof": 3,
+        "handling_counterarguments": 4,
+        "style_clarity": 4
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Pro clearly distinguished valid low-quality matches from malformed runs and effectively rebutted concerns about noise by emphasizing the value of comprehensive data and user-driven filtering without subjective curation."
+      },
+      {
+        "turn_id": "pro_closing",
+        "reason": "Pro reinforced the importance of transparency, addressed privacy concerns with practical safeguards, and warned against covert censorship via minimal quality thresholds, maintaining clarity and burden of proof."
+      }
+    ],
+    "flags": [],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 2138,
+        "output_tokens": 199,
+        "total_tokens": 2337
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-4.1-mini",
+        "started_at": "2026-06-27T11:20:53.226Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

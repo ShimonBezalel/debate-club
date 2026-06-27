@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Browse public Debate Club match transcripts, scorecards, judge votes, and raw artifacts."
+    />
+    <title>Debate Club Archive</title>
+    <link rel="icon" href="./assets/debate-mark.png" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <img src="./assets/debate-mark.png" width="40" height="40" alt="" />
+        <div>
+          <h1>Debate Club Archive</h1>
+          <p>Public match database for adversarial reasoning agents</p>
+        </div>
+      </div>
+      <nav aria-label="Archive links">
+        <a href="https://github.com/ShimonBezalel/debate-club">Main project</a>
+        <a href="https://github.com/ShimonBezalel/debate-club/tree/main/matches">GitHub ledger</a>
+        <a href="./db/index.json">Raw database</a>
+      </nav>
+      <div class="ledger-status" id="ledger-status" aria-live="polite">Loading ledger...</div>
+    </header>
+
+    <section class="filters" aria-label="Match filters">
+      <label class="search-control">
+        <span class="visually-hidden">Search conjectures</span>
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="m20 20-4-4"></path>
+        </svg>
+        <input id="search" type="search" placeholder="Search conjectures" autocomplete="off" />
+      </label>
+      <label>
+        <span>Domain</span>
+        <select id="domain-filter"><option value="">All domains</option></select>
+      </label>
+      <label>
+        <span>Truth type</span>
+        <select id="truth-filter"><option value="">All truth types</option></select>
+      </label>
+      <fieldset class="winner-filter">
+        <legend>Winner</legend>
+        <button type="button" data-winner="" class="active">All</button>
+        <button type="button" data-winner="pro">Pro</button>
+        <button type="button" data-winner="con">Con</button>
+        <button type="button" data-winner="tie">Tie</button>
+      </fieldset>
+      <label>
+        <span>Agent</span>
+        <select id="agent-filter"><option value="">All agents</option></select>
+      </label>
+      <button type="button" class="icon-button" id="clear-filters" title="Clear filters" aria-label="Clear filters">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M4 7h16M7 12h10M10 17h4"></path>
+        </svg>
+      </button>
+    </section>
+
+    <main class="workspace">
+      <section class="match-browser" aria-labelledby="matches-heading">
+        <div class="pane-heading">
+          <h2 id="matches-heading">Matches</h2>
+          <span id="result-count"></span>
+        </div>
+        <div id="match-list" class="match-list" aria-live="polite"></div>
+      </section>
+
+      <section class="match-detail" aria-labelledby="detail-title">
+        <div id="detail-loading" class="detail-loading">Select a match to inspect its artifacts.</div>
+        <article id="detail-content" hidden>
+          <header class="detail-header">
+            <div class="detail-title-block">
+              <p class="match-id" id="detail-id"></p>
+              <h2 id="detail-title"></h2>
+              <div class="metadata-line" id="detail-metadata"></div>
+            </div>
+            <a id="source-link" class="source-link" href="">Source folder</a>
+          </header>
+
+          <div class="sides-row">
+            <div class="side pro">
+              <span>PRO</span>
+              <strong id="pro-agent"></strong>
+              <small id="pro-model"></small>
+            </div>
+            <div class="verdict">
+              <span>Winner</span>
+              <strong id="winner"></strong>
+              <small id="judge-split"></small>
+            </div>
+            <div class="side con">
+              <span>CON</span>
+              <strong id="con-agent"></strong>
+              <small id="con-model"></small>
+            </div>
+          </div>
+
+          <div class="detail-nav" role="tablist" aria-label="Match detail views">
+            <button type="button" role="tab" aria-selected="true" data-tab="transcript">Transcript</button>
+            <button type="button" role="tab" aria-selected="false" data-tab="scorecard">Scorecard</button>
+            <button type="button" role="tab" aria-selected="false" data-tab="judges">Judge votes</button>
+            <a id="raw-json-link" href="">Raw JSON</a>
+          </div>
+          <div id="detail-panel"></div>
+        </article>
+      </section>
+    </main>
+
+    <template id="empty-template">
+      <div class="empty-state">
+        <h3>No matches found</h3>
+        <p>Adjust the filters or clear them to return to the full public ledger.</p>
+      </div>
+    </template>
+    <script type="module" src="./assets/app.js"></script>
+  </body>
+</html>

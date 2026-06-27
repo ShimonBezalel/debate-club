@@ -1,0 +1,66 @@
+[
+  {
+    "id": "epistemic-judge-v1",
+    "providers": [
+      "openai"
+    ],
+    "models": [
+      "gpt-4.1-mini"
+    ],
+    "match_ids": [
+      "live-agent-questions-over-answers-001",
+      "live-ai-companions-children-001",
+      "live-cross-exam-before-evidence-pack-001",
+      "live-git-ledgers-001",
+      "live-harness-over-model-choice-001",
+      "live-llm-debate-synthetic-data-001",
+      "live-losing-transcript-data-value-001",
+      "live-provider-traces-metadata-001",
+      "live-public-judges-early-phase-002",
+      "live-public-vs-hidden-judges-001",
+      "live-publish-all-valid-matches-001",
+      "live-static-public-db-001"
+    ],
+    "votes": {
+      "pro": 6,
+      "con": 1,
+      "tie": 5
+    },
+    "match_count": 12
+  },
+  {
+    "id": "epistemic-stub-v1",
+    "providers": [],
+    "models": [],
+    "match_ids": [
+      "2026-06-27-ai-tutors-stub"
+    ],
+    "votes": {
+      "pro": 0,
+      "con": 1,
+      "tie": 0
+    },
+    "match_count": 1
+  },
+  {
+    "id": "rhetoric-resistant-judge-v1",
+    "providers": [
+      "openai"
+    ],
+    "models": [
+      "gpt-4.1-mini"
+    ],
+    "match_ids": [
+      "live-ai-companions-children-001",
+      "live-git-ledgers-001",
+      "live-llm-debate-synthetic-data-001",
+      "live-public-vs-hidden-judges-001"
+    ],
+    "votes": {
+      "pro": 2,
+      "con": 1,
+      "tie": 1
+    },
+    "match_count": 4
+  }
+]

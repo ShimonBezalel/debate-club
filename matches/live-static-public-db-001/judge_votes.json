@@ -1,0 +1,65 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "tie",
+    "confidence": 0.85,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 4,
+        "responsiveness": 4,
+        "argument_structure": 4,
+        "burden_of_proof": 4,
+        "handling_counterarguments": 4,
+        "style_clarity": 4
+      },
+      "con": {
+        "factual_accuracy": 4,
+        "responsiveness": 4,
+        "argument_structure": 4,
+        "burden_of_proof": 4,
+        "handling_counterarguments": 4,
+        "style_clarity": 4
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_opening",
+        "reason": "Clearly outlined the key dimensions and argued for Git's advantages with respect to openness, durability, operational simplicity, and flexible schema evolution, setting a strong burden of proof."
+      },
+      {
+        "turn_id": "con_opening",
+        "reason": "Effectively challenged pro's assumptions by emphasizing SQL's practical strengths in queryability, consistency, and operational maturity, highlighting hidden costs in Git's approach."
+      },
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Directly addressed con's points by contextualizing Debate Club's modest scale and needs, defending Git's append-only model and separation of concerns for query layers."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Reinforced concerns about hidden operational burdens and complexity shifted to clients, emphasizing SQL's integrated tooling and consistency guarantees."
+      }
+    ],
+    "flags": [],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 2321,
+        "output_tokens": 273,
+        "total_tokens": 2594
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-4.1-mini",
+        "started_at": "2026-06-27T11:19:43.127Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

@@ -1,10 +1,19 @@
 import { describe, expect, it } from "vitest";
-import { createOpenAiAgentsSdkAgent, createOpenAiAgentsSdkJudge, openAiAgentsSdkAvailable } from "../src/adapters/openaiAgentsSdk.js";
+import { createOpenAiAgentsSdkAgent, createOpenAiAgentsSdkJudge, effectiveTurnBudget, effectiveTurnWordBudget, openAiAgentsSdkAvailable } from "../src/adapters/openaiAgentsSdk.js";
 
 describe("openai agents sdk adapter boundary", () => {
   it("reports availability without requiring credentials", async () => {
     const available = await openAiAgentsSdkAvailable();
     expect(typeof available).toBe("boolean");
+  });
+
+  it("keeps the prompted turn budget below the provider hard cap", () => {
+    expect(effectiveTurnBudget({ time_sec: 120, max_tokens: 700 }, 260)).toEqual({
+      time_sec: 120,
+      max_tokens: 228
+    });
+    expect(effectiveTurnBudget({ time_sec: 30, max_tokens: 120 }, 260).max_tokens).toBe(120);
+    expect(effectiveTurnWordBudget(228)).toBe(125);
   });
 
   it("requires explicit live or dry-run mode", async () => {
@@ -32,7 +41,7 @@ describe("openai agents sdk adapter boundary", () => {
       supports: ["no_external_info"],
       input_modes: ["text"],
       resource_limits: { max_wall_time_sec: 180, max_tokens_per_turn: 700 }
-    }, undefined, { dryRun: true });
+    }, undefined, { dryRun: true, tracing: true });
     const move = await agent.speak({
       match_id: "dry-run-match",
       conjecture: {
@@ -51,6 +60,13 @@ describe("openai agents sdk adapter boundary", () => {
       transcript: []
     }, { time_sec: 30, max_tokens: 120 });
     expect(move.metadata?.dry_run).toBe(true);
+    expect(move.metadata?.trace).toMatchObject({
+      requested: true,
+      enabled: false,
+      provider: "openai",
+      agent_name: "openai-example-v1",
+      response_storage: "disabled"
+    });
     if (previous) {
       process.env.OPENAI_API_KEY = previous;
     }

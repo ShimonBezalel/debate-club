@@ -1,0 +1,74 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "pro",
+    "confidence": 0.8,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 4,
+        "responsiveness": 5,
+        "argument_structure": 5,
+        "burden_of_proof": 4,
+        "handling_counterarguments": 5,
+        "style_clarity": 5
+      },
+      "con": {
+        "factual_accuracy": 4,
+        "responsiveness": 4,
+        "argument_structure": 4,
+        "burden_of_proof": 3,
+        "handling_counterarguments": 4,
+        "style_clarity": 4
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_opening",
+        "reason": "Clearly articulates the benefits of public judge panels in early phase for transparency, reproducibility, debugging, and generalization, setting a strong foundation for the argument."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Raises important concerns about gaming and overfitting risks with public panels, emphasizing the need for robust evaluation and cautioning against overreliance on social norms."
+      },
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Effectively rebuts con by highlighting the greater risks of hidden panels causing opaque overfitting and the insufficiency of partial feedback, reinforcing the priority of transparency in early phase."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "burden_of_proof",
+        "severity": "medium",
+        "quote": "We concede that once the evaluation criteria stabilize and the community matures, hidden panels might better prevent strategic manipulation."
+      },
+      {
+        "side": "con",
+        "type": "burden_of_proof",
+        "severity": "medium",
+        "quote": "The pro side’s claim that community norms can mitigate gaming lacks empirical support and shifts burden onto social enforcement rather than technical design."
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 2052,
+        "output_tokens": 331,
+        "total_tokens": 2383
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-4.1-mini",
+        "started_at": "2026-06-27T11:21:21.301Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

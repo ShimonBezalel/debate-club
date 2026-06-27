@@ -1,0 +1,425 @@
+{
+  "schema_version": "1.0",
+  "source_url": "https://github.com/ShimonBezalel/debate-club/tree/main/matches/live-llm-debate-synthetic-data-001",
+  "paths": {
+    "transcript": "matches/live-llm-debate-synthetic-data-001.transcript.md",
+    "scorecard": "matches/live-llm-debate-synthetic-data-001.scorecard.md"
+  },
+  "match": {
+    "match_id": "live-llm-debate-synthetic-data-001",
+    "created_at": "2026-06-27T09:52:31.224Z",
+    "conjecture": {
+      "id": "llm_debate_synthetic_data_001",
+      "statement": "Competitive LLM debate can generate useful synthetic reasoning data even when it does not reliably discover truth.",
+      "domain": "research_methodology",
+      "truth_type": "technical_design",
+      "stance_mode": "forced_random",
+      "evidence_mode": "no_external_info",
+      "allowed_tools": {
+        "web": false,
+        "calculator": false,
+        "evidence_pack": false
+      },
+      "background": {
+        "short_context": "Debate the core Debate Club thesis: value as adversarial reasoning data despite imperfect truth discovery."
+      },
+      "featured": true,
+      "rubric_notes": [
+        "separate usefulness for training/evaluation from truth-finding reliability",
+        "discuss judge-hacking and overfitting risks explicitly",
+        "explain what metadata makes the transcripts scientifically useful"
+      ]
+    },
+    "protocol": {
+      "id": "classic_v1",
+      "prep_time_sec": 180,
+      "max_turn_tokens": 700,
+      "turns": [
+        {
+          "id": "pro_opening",
+          "speaker": "pro",
+          "phase": "opening",
+          "time_sec": 120
+        },
+        {
+          "id": "con_opening",
+          "speaker": "con",
+          "phase": "opening",
+          "time_sec": 120
+        },
+        {
+          "id": "pro_rebuttal",
+          "speaker": "pro",
+          "phase": "rebuttal",
+          "time_sec": 90
+        },
+        {
+          "id": "con_rebuttal",
+          "speaker": "con",
+          "phase": "rebuttal",
+          "time_sec": 90
+        },
+        {
+          "id": "pro_closing",
+          "speaker": "pro",
+          "phase": "closing",
+          "time_sec": 90
+        },
+        {
+          "id": "con_closing",
+          "speaker": "con",
+          "phase": "closing",
+          "time_sec": 90
+        }
+      ]
+    },
+    "agents": {
+      "pro": {
+        "name": "cross-examiner-v1",
+        "version": "0.2.0",
+        "description": "Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.",
+        "adapter": "openai-agents-sdk",
+        "private": false,
+        "supports": [
+          "no_external_info"
+        ],
+        "input_modes": [
+          "text"
+        ],
+        "style": "adversarial_cross_examiner",
+        "model_config": {
+          "model": "gpt-4.1-mini",
+          "max_output_tokens": 300,
+          "temperature": 0.4,
+          "timeout_ms": 90000,
+          "instructions_file": "instructions.md",
+          "tracing": false
+        },
+        "resource_limits": {
+          "max_wall_time_sec": 180,
+          "max_tokens_per_turn": 700
+        }
+      },
+      "con": {
+        "name": "epistemic-conservative-v1",
+        "version": "0.2.0",
+        "description": "Penalizes overclaiming, prefers modest robust claims, and treats uncertainty carefully.",
+        "adapter": "openai-agents-sdk",
+        "private": false,
+        "supports": [
+          "no_external_info"
+        ],
+        "input_modes": [
+          "text"
+        ],
+        "style": "epistemic_conservative",
+        "model_config": {
+          "model": "gpt-4.1-mini",
+          "max_output_tokens": 300,
+          "temperature": 0.4,
+          "timeout_ms": 90000,
+          "instructions_file": "instructions.md",
+          "tracing": false
+        },
+        "resource_limits": {
+          "max_wall_time_sec": 180,
+          "max_tokens_per_turn": 700
+        }
+      }
+    },
+    "transcript": [
+      {
+        "turn_id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "text": "I affirm the conjecture that competitive LLM debate can generate useful synthetic reasoning data even when it does not reliably discover truth. This claim rests on a clear distinction: usefulness for training and evaluation versus the absolute reliability of truth-finding.\n\nFirst, the transcripts from competitive LLM debates capture rich, structured argumentation patterns, diverse reasoning strategies, and error modes. These features are valuable for training models to recognize and generate complex reasoning chains, regardless of whether the final conclusion is factually correct. The data serve as a sandbox for models to learn argumentative coherence, counterargument generation, and strategic reasoning, which are foundational skills beyond mere truth verification.\n\nSecond, from an evaluation perspective, debate transcripts provide a controlled environment to benchmark model capabilities in adversarial reasoning and robustness. Even if the debate fails to discover the ultimate truth, it exposes weaknesses, ambiguities, and reasoning shortcuts that models must overcome, thus driving iterative improvement.\n\nAddressing the risks of judge-hacking and overfitting: these are real concerns where models might learn to exploit judge heuristics or produce superficially persuasive but misleading arguments. However, this risk can be mitigated by incorporating metadata such as judge confidence scores, disagreement rates, argument novelty metrics, and cross-debate consistency checks. This metadata enables researchers to identify and penalize strategic manipulation, ensuring the synthetic data reflect genuine reasoning effort rather than gaming tactics.\n\nMoreover, the iterative nature of debate—multiple rounds, diverse judges, and varying topics—provides a natural regularization against over",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 266,
+            "output_tokens": 300,
+            "total_tokens": 566
+          }
+        },
+        "started_at": "2026-06-27T09:52:02.879Z",
+        "completed_at": "2026-06-27T09:52:06.256Z",
+        "time_used_sec": 3.377,
+        "tokens_estimate": 318
+      },
+      {
+        "turn_id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "text": "I contest the claim that competitive LLM debate reliably generates useful synthetic reasoning data independent of truth-finding reliability. While debate transcripts may display structured argumentation, their scientific value depends critically on the authenticity and epistemic grounding of those arguments.\n\nFirst, usefulness for training or evaluation hinges on the data reflecting genuine reasoning patterns rather than strategic posturing or judge-hacking. When models optimize to win debates judged by imperfect heuristics, they risk producing superficially persuasive but logically shallow or misleading arguments. Without reliable truth signals, the data can reinforce fallacious reasoning patterns, undermining rather than improving model reasoning.\n\nSecond, overfitting to judge preferences is a serious threat. If models learn to exploit judge biases or heuristics, the transcripts become artifacts of gaming rather than sources of robust reasoning. This compromises both training and evaluation, as models may appear skilled yet fail on independent truth-based tasks.\n\nThird, metadata such as judge confidence, disagreement rates, and argument novelty are necessary but not sufficient safeguards. They require careful calibration and external validation to distinguish genuine reasoning from manipulation. Without ground-truth anchors or independent verification, metadata alone cannot guarantee scientific utility.\n\nIn sum, the burden of proof lies with proponents to demonstrate that debate transcripts, absent reliable truth discovery, do not primarily encode strategic gaming or judge overfitting. Until then, claims of their standalone usefulness remain speculative. Modest claims acknowledging these limitations are more defensible and scientifically responsible.",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 562,
+            "output_tokens": 286,
+            "total_tokens": 848
+          }
+        },
+        "started_at": "2026-06-27T09:52:06.256Z",
+        "completed_at": "2026-06-27T09:52:09.138Z",
+        "time_used_sec": 2.882,
+        "tokens_estimate": 310
+      },
+      {
+        "turn_id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "text": "The opposition rightly flags judge-hacking and overfitting as risks, but these do not negate the usefulness of debate transcripts for synthetic reasoning data when truth-finding is unreliable. The key is that usefulness here is not synonymous with truth verification—it lies in capturing complex argumentative dynamics, error patterns, and strategic interplay that models must learn to navigate.\n\nFirst, judge-hacking and strategic gaming are precisely the phenomena we want to detect and study. Metadata such as judge confidence, disagreement rates, argument novelty, and cross-debate consistency are not mere afterthoughts but integral scientific signals. They enable researchers to identify when reasoning is genuine versus manipulative, providing a nuanced lens to filter and weight data during training and evaluation.\n\nSecond, overfitting to judges is mitigated by diverse judges, randomized debate pairings, and multi-round formats, which create a natural adversarial environment that discourages shallow heuristics. This diversity ensures that transcripts reflect a broad spectrum of reasoning styles and tactics, enriching the dataset rather than corrupting it.\n\nThird, the absence of guaranteed truth-finding does not reduce transcripts to noise; instead, it foregrounds the importance of modeling uncertainty, ambiguity, and argument strength—core aspects of real-world reasoning. These transcripts thus serve as a valuable synthetic proxy for reasoning complexity, even if the final verdict is fallible.\n\nIn sum, competitive LLM debate transcripts, enriched with carefully curated metadata and diverse judging, provide a scientifically useful resource for training and evaluation distinct from absolute truth discovery. The",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 867,
+            "output_tokens": 300,
+            "total_tokens": 1167
+          }
+        },
+        "started_at": "2026-06-27T09:52:09.139Z",
+        "completed_at": "2026-06-27T09:52:23.259Z",
+        "time_used_sec": 14.12,
+        "tokens_estimate": 316
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "text": "The pro side acknowledges judge-hacking and overfitting risks but downplays their impact on usefulness. I maintain these risks fundamentally undermine the scientific value of debate transcripts when truth-finding is unreliable.\n\nFirst, usefulness for training or evaluation requires data that reflect authentic reasoning patterns, not strategic manipulation. If models learn to exploit judge heuristics, the transcripts encode artifacts of gaming rather than genuine argumentation. This compromises the generalizability and robustness of any model trained or evaluated on such data.\n\nSecond, metadata like judge confidence or disagreement rates can flag potential manipulation but cannot by themselves guarantee scientific utility without external truth anchors or independent validation. The burden of proof is on proponents to show these metadata reliably distinguish genuine reasoning from judge-hacking in practice, not just in theory.\n\nThird, diversity of judges and debate formats helps but does not eliminate systematic biases or heuristic exploitation. Without reliable truth signals, overfitting remains a persistent threat, and the transcripts risk reinforcing fallacious or shallow reasoning patterns.\n\nIn conclusion, while competitive LLM debate transcripts may capture interesting argumentative dynamics, their standalone usefulness as synthetic reasoning data is severely limited without reliable truth discovery or robust external validation. Modest claims acknowledging these constraints are warranted; otherwise, we risk training models on misleading, strategically optimized data that degrade reasoning quality rather than improve it.",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 1169,
+            "output_tokens": 261,
+            "total_tokens": 1430
+          }
+        },
+        "started_at": "2026-06-27T09:52:23.259Z",
+        "completed_at": "2026-06-27T09:52:25.709Z",
+        "time_used_sec": 2.45,
+        "tokens_estimate": 290
+      },
+      {
+        "turn_id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "text": "The opposition’s insistence on truth anchors as a prerequisite for usefulness conflates truth-finding with the broader scientific value of synthetic reasoning data. Competitive LLM debate transcripts excel precisely because they expose complex reasoning behaviors—including strategic gaming and judge-hacking—not despite them. These “imperfections” are not noise but informative signals about model weaknesses and adversarial tactics.\n\nMetadata such as judge confidence, disagreement rates, and argument novelty are not passive annotations but active tools enabling researchers to quantify and control for manipulation. This enables selective weighting or filtering, preserving genuine reasoning patterns while mitigating artifacts. Empirical protocols—like cross-debate consistency checks and multi-judge aggregation—further reduce overfitting risks, ensuring data diversity and robustness.\n\nMoreover, training on transcripts that include strategic exploitation fosters models better equipped to detect and counter such tactics, a critical real-world skill beyond pure truth verification. The value lies in capturing the full spectrum of reasoning dynamics, including ambiguity and uncertainty, which ground-truth labels alone cannot provide.\n\nIn sum, competitive LLM debate generates scientifically useful synthetic reasoning data by illuminating both sound and flawed reasoning under adversarial conditions. This utility stands independently of guaranteed truth discovery, provided metadata and experimental design rigorously address judge-hacking and overfitting. The opposition’s demand for absolute truth signals overlooks the rich, actionable insights embedded in these transcripts.",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 1445,
+            "output_tokens": 270,
+            "total_tokens": 1715
+          }
+        },
+        "started_at": "2026-06-27T09:52:25.710Z",
+        "completed_at": "2026-06-27T09:52:28.442Z",
+        "time_used_sec": 2.732,
+        "tokens_estimate": 280
+      },
+      {
+        "turn_id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "text": "The pro side rightly emphasizes the richness of debate transcripts and the potential value of metadata, but these do not suffice to establish standalone scientific usefulness without reliable truth signals.\n\nFirst, usefulness for training or evaluation depends on data reflecting genuine reasoning patterns that generalize beyond the debate context. When truth-finding is unreliable, transcripts risk encoding strategic manipulation and judge-hacking as dominant features, which models may learn and amplify. This undermines the goal of improving reasoning rather than merely winning debates.\n\nSecond, metadata such as judge confidence or disagreement rates are valuable only insofar as they correlate meaningfully with truth or reasoning quality. Without external validation or ground-truth anchors, these signals cannot reliably distinguish genuine from manipulative arguments. The burden of proof remains on proponents to demonstrate this correlation empirically, not assume it.\n\nThird, while diverse judges and multi-round formats reduce some risks, they do not eliminate systematic biases or heuristic exploitation. Overfitting to judge heuristics remains a persistent threat, limiting the generalizability and robustness of models trained on such data.\n\nIn conclusion, the opposition’s position is that competitive LLM debate transcripts lack intrinsic scientific utility as synthetic reasoning data without reliable truth discovery or validated external signals. Modest claims acknowledging these limitations are more scientifically responsible than asserting broad usefulness. The burden lies with proponents to provide concrete evidence that metadata and design features effectively mitigate judge-hacking and overfitting in practice.",
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 1713,
+            "output_tokens": 281,
+            "total_tokens": 1994
+          }
+        },
+        "started_at": "2026-06-27T09:52:28.442Z",
+        "completed_at": "2026-06-27T09:52:31.223Z",
+        "time_used_sec": 2.781,
+        "tokens_estimate": 309
+      }
+    ],
+    "judge_votes": [
+      {
+        "judge_id": "epistemic-judge-v1",
+        "winner": "pro",
+        "confidence": 0.85,
+        "scores": {
+          "pro": {
+            "factual_accuracy": 4,
+            "responsiveness": 5,
+            "argument_structure": 5,
+            "burden_of_proof": 4,
+            "handling_counterarguments": 5,
+            "style_clarity": 5
+          },
+          "con": {
+            "factual_accuracy": 4,
+            "responsiveness": 4,
+            "argument_structure": 4,
+            "burden_of_proof": 4,
+            "handling_counterarguments": 4,
+            "style_clarity": 4
+          }
+        },
+        "decisive_moments": [
+          {
+            "turn_id": "pro_rebuttal",
+            "reason": "Pro effectively reframes judge-hacking and overfitting as phenomena that are themselves valuable data points, supported by concrete metadata strategies and experimental design features to mitigate risks, directly addressing Con's strongest concerns."
+          },
+          {
+            "turn_id": "pro_closing",
+            "reason": "Pro clarifies the distinction between truth-finding and scientific usefulness, emphasizing the role of metadata and diverse judging to preserve data quality and usefulness, reinforcing their burden-of-proof management."
+          }
+        ],
+        "flags": [
+          {
+            "side": "pro",
+            "type": "overconfident_claim",
+            "severity": "low",
+            "quote": "The opposition’s insistence on truth anchors as a prerequisite for usefulness conflates truth-finding with the broader scientific value of synthetic reasoning data."
+          },
+          {
+            "side": "con",
+            "type": "burden_of_proof",
+            "severity": "medium",
+            "quote": "The burden of proof lies with proponents to demonstrate that debate transcripts, absent reliable truth discovery, do not primarily encode strategic gaming or judge overfitting."
+          }
+        ],
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 2365,
+            "output_tokens": 360,
+            "total_tokens": 2725
+          }
+        }
+      },
+      {
+        "judge_id": "rhetoric-resistant-judge-v1",
+        "winner": "pro",
+        "confidence": 0.8,
+        "scores": {
+          "pro": {
+            "factual_accuracy": 4,
+            "responsiveness": 5,
+            "argument_structure": 5,
+            "burden_of_proof": 4,
+            "handling_counterarguments": 5,
+            "style_clarity": 4
+          },
+          "con": {
+            "factual_accuracy": 4,
+            "responsiveness": 4,
+            "argument_structure": 4,
+            "burden_of_proof": 3,
+            "handling_counterarguments": 4,
+            "style_clarity": 4
+          }
+        },
+        "decisive_moments": [
+          {
+            "turn_id": "pro_opening",
+            "reason": "Clearly distinguishes usefulness for training/evaluation from truth-finding reliability and introduces relevant metadata as mitigation for judge-hacking and overfitting."
+          },
+          {
+            "turn_id": "pro_rebuttal",
+            "reason": "Effectively argues that judge-hacking and overfitting are not negations of usefulness but phenomena that can be studied and mitigated through metadata and experimental design."
+          },
+          {
+            "turn_id": "con_rebuttal",
+            "reason": "Raises important concerns about reliance on metadata without external validation but fails to provide concrete alternatives or evidence that metadata cannot be effective."
+          }
+        ],
+        "flags": [
+          {
+            "side": "pro",
+            "type": "unsupported_empirical_claim",
+            "severity": "medium",
+            "quote": "Empirical protocols—like cross-debate consistency checks and multi-judge aggregation—further reduce overfitting risks, ensuring data diversity and robustness."
+          },
+          {
+            "side": "con",
+            "type": "burden_of_proof_evaded",
+            "severity": "medium",
+            "quote": "The burden of proof lies with proponents to demonstrate that debate transcripts, absent reliable truth discovery, do not primarily encode strategic gaming or judge overfitting."
+          }
+        ],
+        "metadata": {
+          "provider": "openai",
+          "adapter": "openai-agents-sdk",
+          "model": "gpt-4.1-mini",
+          "dry_run": false,
+          "usage": {
+            "requests": 1,
+            "input_tokens": 2356,
+            "output_tokens": 381,
+            "total_tokens": 2737
+          }
+        }
+      }
+    ],
+    "result": {
+      "winner": "pro",
+      "judge_split": {
+        "pro": 2,
+        "con": 0,
+        "tie": 0
+      },
+      "confidence_mean": 0.825,
+      "confidence_variance": 0.0006249999999999984,
+      "flags": [
+        {
+          "side": "pro",
+          "type": "overconfident_claim",
+          "severity": "low",
+          "quote": "The opposition’s insistence on truth anchors as a prerequisite for usefulness conflates truth-finding with the broader scientific value of synthetic reasoning data."
+        },
+        {
+          "side": "con",
+          "type": "burden_of_proof",
+          "severity": "medium",
+          "quote": "The burden of proof lies with proponents to demonstrate that debate transcripts, absent reliable truth discovery, do not primarily encode strategic gaming or judge overfitting."
+        },
+        {
+          "side": "pro",
+          "type": "unsupported_empirical_claim",
+          "severity": "medium",
+          "quote": "Empirical protocols—like cross-debate consistency checks and multi-judge aggregation—further reduce overfitting risks, ensuring data diversity and robustness."
+        },
+        {
+          "side": "con",
+          "type": "burden_of_proof_evaded",
+          "severity": "medium",
+          "quote": "The burden of proof lies with proponents to demonstrate that debate transcripts, absent reliable truth discovery, do not primarily encode strategic gaming or judge overfitting."
+        }
+      ]
+    }
+  }
+}

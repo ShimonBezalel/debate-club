@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T09:53:25.173Z",
+  "generated_at": "2026-06-27T11:23:24.944Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -128,6 +128,206 @@
         "match": "live-public-vs-hidden-judges-001/match.json",
         "transcript": "live-public-vs-hidden-judges-001/transcript.md",
         "scorecard": "live-public-vs-hidden-judges-001/scorecard.md"
+      }
+    },
+    {
+      "match_id": "live-static-public-db-001",
+      "created_at": "2026-06-27T11:19:43.126Z",
+      "conjecture_id": "static_public_db_001",
+      "conjecture_statement": "For Debate Club, a static Git-backed public ledger is a better first database than a hosted SQL database.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "steelman-v1",
+      "con_agent": "cross-examiner-v1",
+      "winner": "tie",
+      "judge_split": {
+        "pro": 0,
+        "con": 0,
+        "tie": 1
+      },
+      "confidence_mean": 0.85,
+      "featured": true,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "live-static-public-db-001/match.json",
+        "transcript": "live-static-public-db-001/transcript.md",
+        "scorecard": "live-static-public-db-001/scorecard.md"
+      }
+    },
+    {
+      "match_id": "live-provider-traces-metadata-001",
+      "created_at": "2026-06-27T11:20:24.779Z",
+      "conjecture_id": "provider_traces_metadata_001",
+      "conjecture_statement": "Debate Club should treat provider traces as debugging metadata, not as canonical match artifacts.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "epistemic-conservative-v1",
+      "con_agent": "cross-examiner-v1",
+      "winner": "tie",
+      "judge_split": {
+        "pro": 0,
+        "con": 0,
+        "tie": 1
+      },
+      "confidence_mean": 0.7,
+      "featured": true,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "live-provider-traces-metadata-001/match.json",
+        "transcript": "live-provider-traces-metadata-001/transcript.md",
+        "scorecard": "live-provider-traces-metadata-001/scorecard.md"
+      }
+    },
+    {
+      "match_id": "live-publish-all-valid-matches-001",
+      "created_at": "2026-06-27T11:20:53.226Z",
+      "conjecture_id": "publish_all_valid_matches_001",
+      "conjecture_statement": "All valid Debate Club matches should be published by default, even if they are low quality.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "cross-examiner-v1",
+      "con_agent": "epistemic-conservative-v1",
+      "winner": "pro",
+      "judge_split": {
+        "pro": 1,
+        "con": 0,
+        "tie": 0
+      },
+      "confidence_mean": 0.85,
+      "featured": true,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "live-publish-all-valid-matches-001/match.json",
+        "transcript": "live-publish-all-valid-matches-001/transcript.md",
+        "scorecard": "live-publish-all-valid-matches-001/scorecard.md"
+      }
+    },
+    {
+      "match_id": "live-public-judges-early-phase-002",
+      "created_at": "2026-06-27T11:21:21.301Z",
+      "conjecture_id": "public_judges_early_phase_002",
+      "conjecture_statement": "Public judge panels are more valuable than hidden judge panels during the early phase of Debate Club.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "steelman-v1",
+      "con_agent": "epistemic-conservative-v1",
+      "winner": "pro",
+      "judge_split": {
+        "pro": 1,
+        "con": 0,
+        "tie": 0
+      },
+      "confidence_mean": 0.8,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "live-public-judges-early-phase-002/match.json",
+        "transcript": "live-public-judges-early-phase-002/transcript.md",
+        "scorecard": "live-public-judges-early-phase-002/scorecard.md"
+      }
+    },
+    {
+      "match_id": "live-cross-exam-before-evidence-pack-001",
+      "created_at": "2026-06-27T11:21:54.148Z",
+      "conjecture_id": "cross_exam_before_evidence_pack_001",
+      "conjecture_statement": "Cross-examination should be implemented before evidence-pack debates.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "cross-examiner-v1",
+      "con_agent": "steelman-v1",
+      "winner": "tie",
+      "judge_split": {
+        "pro": 0,
+        "con": 0,
+        "tie": 1
+      },
+      "confidence_mean": 0.85,
+      "featured": true,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "live-cross-exam-before-evidence-pack-001/match.json",
+        "transcript": "live-cross-exam-before-evidence-pack-001/transcript.md",
+        "scorecard": "live-cross-exam-before-evidence-pack-001/scorecard.md"
+      }
+    },
+    {
+      "match_id": "live-losing-transcript-data-value-001",
+      "created_at": "2026-06-27T11:22:23.506Z",
+      "conjecture_id": "losing_transcript_data_value_001",
+      "conjecture_statement": "A losing debate transcript can be more valuable training data than a winning debate transcript.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "epistemic-conservative-v1",
+      "con_agent": "cross-examiner-v1",
+      "winner": "tie",
+      "judge_split": {
+        "pro": 0,
+        "con": 0,
+        "tie": 1
+      },
+      "confidence_mean": 0.85,
+      "featured": true,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "live-losing-transcript-data-value-001/match.json",
+        "transcript": "live-losing-transcript-data-value-001/transcript.md",
+        "scorecard": "live-losing-transcript-data-value-001/scorecard.md"
+      }
+    },
+    {
+      "match_id": "live-agent-questions-over-answers-001",
+      "created_at": "2026-06-27T11:22:53.813Z",
+      "conjecture_id": "agent_questions_over_answers_001",
+      "conjecture_statement": "Most useful AI agents will be judged more by their ability to ask good questions than by their ability to answer immediately.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "steelman-v1",
+      "con_agent": "cross-examiner-v1",
+      "winner": "tie",
+      "judge_split": {
+        "pro": 0,
+        "con": 0,
+        "tie": 1
+      },
+      "confidence_mean": 0.7,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "live-agent-questions-over-answers-001/match.json",
+        "transcript": "live-agent-questions-over-answers-001/transcript.md",
+        "scorecard": "live-agent-questions-over-answers-001/scorecard.md"
+      }
+    },
+    {
+      "match_id": "live-harness-over-model-choice-001",
+      "created_at": "2026-06-27T11:23:24.944Z",
+      "conjecture_id": "harness_over_model_choice_001",
+      "conjecture_statement": "Open-source agent harnesses will matter more than model choice for many applied AI workflows.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "cross-examiner-v1",
+      "con_agent": "epistemic-conservative-v1",
+      "winner": "pro",
+      "judge_split": {
+        "pro": 1,
+        "con": 0,
+        "tie": 0
+      },
+      "confidence_mean": 0.85,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "live-harness-over-model-choice-001/match.json",
+        "transcript": "live-harness-over-model-choice-001/transcript.md",
+        "scorecard": "live-harness-over-model-choice-001/scorecard.md"
       }
     }
   ]

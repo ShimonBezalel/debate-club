@@ -1,0 +1,57 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "tie",
+    "confidence": 0.85,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 4,
+        "responsiveness": 5,
+        "argument_structure": 5,
+        "burden_of_proof": 5,
+        "handling_counterarguments": 5,
+        "style_clarity": 5
+      },
+      "con": {
+        "factual_accuracy": 5,
+        "responsiveness": 5,
+        "argument_structure": 5,
+        "burden_of_proof": 5,
+        "handling_counterarguments": 5,
+        "style_clarity": 5
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Effectively challenged the con’s assumption that static evidence-packs can anticipate all ambiguities, emphasizing the unique role of interactive probing in revealing hidden technical details."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Reinforced the scalability and reproducibility advantages of static evidence-packs and highlighted risks of variability and bias in dynamic cross-examination."
+      }
+    ],
+    "flags": [],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-4.1-mini",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 2186,
+        "output_tokens": 194,
+        "total_tokens": 2380
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-4.1-mini",
+        "started_at": "2026-06-27T11:21:54.148Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "ledger_through": "2026-06-27T11:23:24.944Z",
+  "source_repo": "https://github.com/ShimonBezalel/debate-club",
+  "match_count": 13,
+  "default_match_id": "live-losing-transcript-data-value-001",
+  "files": {
+    "matches": "matches.json",
+    "agents": "agents.json",
+    "judges": "judges.json",
+    "conjectures": "conjectures.json"
+  }
+}

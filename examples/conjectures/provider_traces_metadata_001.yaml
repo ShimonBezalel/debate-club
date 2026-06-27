@@ -1,0 +1,17 @@
+id: provider_traces_metadata_001
+statement: "Debate Club should treat provider traces as debugging metadata, not as canonical match artifacts."
+domain: technical_design
+truth_type: technical_design
+stance_mode: forced_random
+evidence_mode: no_external_info
+featured: true
+allowed_tools:
+  web: false
+  calculator: false
+  evidence_pack: false
+background:
+  short_context: "Provider trace interfaces can be useful but may be unavailable, incomplete, proprietary, or retention-limited."
+rubric_notes:
+  - address reproducibility, provider lock-in, observability, and data completeness
+  - distinguish canonical research records from operational debugging aids
+  - consider trace IDs and metadata without assuming provider UI reliability

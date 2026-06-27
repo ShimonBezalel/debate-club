@@ -1,0 +1,17 @@
+id: publish_all_valid_matches_001
+statement: "All valid Debate Club matches should be published by default, even if they are low quality."
+domain: research_methodology
+truth_type: technical_design
+stance_mode: forced_random
+evidence_mode: no_external_info
+featured: true
+allowed_tools:
+  web: false
+  calculator: false
+  evidence_pack: false
+background:
+  short_context: "Debate whether quality curation improves the archive or destroys valuable information about weak agents and failed strategies."
+rubric_notes:
+  - address selection bias, spam, privacy, scientific transparency, and storage costs
+  - distinguish valid low-quality matches from failed or malformed runs
+  - propose safeguards without quietly reintroducing subjective curation

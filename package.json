@@ -10,6 +10,7 @@
     "dist",
     "examples",
     "docs",
+    "viewer",
     "README.md",
     "LICENSE"
   ],
@@ -21,6 +22,9 @@
     "cli": "tsx src/cli/main.ts",
     "debate:stub": "tsx src/cli/main.ts run --protocol examples/protocols/classic_v1.yaml --conjecture examples/conjectures/ai_tutors_homework_001.yaml --pro examples/agents/stub_pro --con examples/agents/stub_con --judges examples/judges/stub_panel --out matches",
     "ledger:rebuild": "tsx src/cli/main.ts ledger rebuild --matches matches",
+    "public-db:export": "tsx src/cli/main.ts ledger export-public-db --matches matches --out public-db",
+    "public-db:validate": "tsx src/cli/main.ts ledger validate-public-db --db public-db",
+    "viewer:build": "tsx src/cli/main.ts viewer build --db public-db --out viewer-dist",
     "replay:latest": "tsx src/cli/main.ts replay matches/latest"
   },
   "keywords": [

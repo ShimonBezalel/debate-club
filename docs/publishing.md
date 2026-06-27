@@ -22,6 +22,16 @@ npm run cli -- ledger rebuild --matches matches
 
 The same command also updates `matches/README.md`, a human-readable archive table with transcript and scorecard links.
 
+## Static Public Database
+
+```bash
+npm run cli -- ledger export-public-db --matches matches --out public-db
+npm run cli -- ledger validate-public-db --db public-db
+npm run cli -- viewer build --db public-db --out viewer-dist
+```
+
+`matches/` remains canonical. `public-db/` is the deterministic, viewer-oriented projection. `viewer-dist/` is generated deployment output and is not committed.
+
 ## Quickstart Commands
 
 ```bash
@@ -34,4 +44,4 @@ npm run cli -- leaderboard matches
 
 ## Website Page
 
-`site/debate-club.md` is a website-ready page. Production site publication should happen through a reviewed site change and a clean build.
+The real Astro website page lives in `/Users/shimon/ws/shimmybezalel/src/pages/projects/debate-club.astro`. Production publication should happen through a reviewed site change and a clean build.

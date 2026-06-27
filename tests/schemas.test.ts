@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { agentCardSchema, judgeCardSchema, judgePanelSchema } from "../src/schemas/cards.js";
 import { conjectureSchema } from "../src/schemas/conjecture.js";
-import { judgeVoteSchema } from "../src/schemas/judgeVote.js";
+import { judgeModelOutputSchema, judgeVoteSchema } from "../src/schemas/judgeVote.js";
 import { loadYamlFile } from "../src/schemas/load.js";
 import { protocolSchema } from "../src/schemas/protocol.js";
 
@@ -98,6 +98,10 @@ describe("schemas", () => {
       flags: [{ side: "con", type: "unsupported_empirical_claim", severity: "medium", quote: "It always works." }]
     });
     expect(vote.confidence).toBeGreaterThan(0.7);
+  });
+
+  it("keeps adapter metadata out of the model-facing judge schema", () => {
+    expect("metadata" in judgeModelOutputSchema.shape).toBe(false);
   });
 
   it("loads YAML files", async () => {
