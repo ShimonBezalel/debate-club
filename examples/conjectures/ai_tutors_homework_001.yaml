@@ -1,0 +1,16 @@
+id: ai_tutors_homework_001
+statement: "AI tutors should replace traditional homework for middle-school students."
+domain: education_policy
+truth_type: policy
+stance_mode: forced_random
+evidence_mode: no_external_info
+allowed_tools:
+  web: false
+  calculator: false
+  evidence_pack: false
+background:
+  short_context: "Debate whether AI tutors should replace traditional homework, not whether AI tutors are useful in general."
+rubric_notes:
+  - distinguish replacement from supplementation
+  - discuss equity, feedback quality, cheating, and motivation
+  - avoid unsupported empirical claims

@@ -1,0 +1,14 @@
+name: stub-con-v1
+version: 0.1.0
+description: Deterministic con agent for local tests and examples.
+adapter: stub
+private: false
+supports:
+  - no_external_info
+input_modes:
+  - text
+stance: con
+style: skeptical_policy_case
+resource_limits:
+  max_wall_time_sec: 180
+  max_tokens_per_turn: 700

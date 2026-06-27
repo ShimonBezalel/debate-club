@@ -1,0 +1,12 @@
+id: epistemic-stub-v1
+name: Epistemic Stub Judge
+version: 0.1.0
+adapter: stub
+public: true
+rubric:
+  factual_accuracy: 0.25
+  responsiveness: 0.20
+  argument_structure: 0.20
+  burden_of_proof: 0.15
+  handling_counterarguments: 0.15
+  style_clarity: 0.05
