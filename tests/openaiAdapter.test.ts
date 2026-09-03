@@ -1,7 +1,43 @@
 import { describe, expect, it } from "vitest";
-import { createOpenAiAgentsSdkAgent, createOpenAiAgentsSdkJudge, effectiveTurnBudget, effectiveTurnWordBudget, openAiAgentsSdkAvailable } from "../src/adapters/openaiAgentsSdk.js";
+import {
+  createOpenAiAgentsSdkAgent,
+  createOpenAiAgentsSdkJudge,
+  effectiveTurnBudget,
+  effectiveTurnWordBudget,
+  openAiAgentsSdkAvailable,
+  resolveLiveModelConfig,
+  type LiveAdapterOptions
+} from "../src/adapters/openaiAgentsSdk.js";
 
 describe("openai agents sdk adapter boundary", () => {
+  it("uses an explicit cost-controlled reasoning setting", () => {
+    const options: LiveAdapterOptions = {
+      model: "gpt-5.6-luna",
+      reasoningEffort: "none"
+    };
+
+    expect(resolveLiveModelConfig(undefined, options, "agent")).toMatchObject({
+      model: "gpt-5.6-luna",
+      reasoning_effort: "none"
+    });
+  });
+
+  it("lets a card override the command reasoning setting", () => {
+    expect(resolveLiveModelConfig(
+      { reasoning_effort: "low" },
+      { reasoningEffort: "none" },
+      "judge"
+    ).reasoning_effort).toBe("low");
+  });
+
+  it("lets the command select a model over the card default", () => {
+    expect(resolveLiveModelConfig(
+      { model: "gpt-4.1-mini" },
+      { model: "gpt-5.6-luna" },
+      "agent"
+    ).model).toBe("gpt-5.6-luna");
+  });
+
   it("reports availability without requiring credentials", async () => {
     const available = await openAiAgentsSdkAvailable();
     expect(typeof available).toBe("boolean");

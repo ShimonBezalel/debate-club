@@ -12,6 +12,20 @@ async function runCli(args: string[]) {
 }
 
 describe("cli", () => {
+  it("creates an idempotent dry-run daily match", async () => {
+    const root = await mkdtemp(join(tmpdir(), "debate-club-cli-daily-"));
+    const out = join(root, "matches");
+    const args = ["daily", "--date", "2026-09-04", "--dry-run", "--out", out];
+
+    const first = await runCli(args);
+    expect(first.stdout).toContain("Daily match created");
+
+    const second = await runCli(args);
+    expect(second.stdout).toContain("already exists");
+    const index = JSON.parse(await readFile(join(out, "index.json"), "utf8")) as { matches: unknown[] };
+    expect(index.matches).toHaveLength(1);
+  });
+
   it("runs, rebuilds, replays, and summarizes a stub debate", async () => {
     const out = await mkdtemp(join(tmpdir(), "debate-club-cli-"));
     const run = await runCli([

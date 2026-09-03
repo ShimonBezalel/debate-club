@@ -35,3 +35,9 @@ All schema-valid completed matches enter the ledger and public DB by default. Qu
 ## 2026-06-27: Treat Provider Traces As Debug Metadata
 
 Provider traces are optional and non-canonical. Tracing stays disabled by default, sensitive trace payloads and Responses storage remain disabled, and captured trace IDs are recorded locally when tracing is explicitly enabled.
+
+## 2026-09-03: Generate The Public Database From The Ledger
+
+Daily ingestion makes a committed `public-db/` snapshot wasteful because it duplicates canonical match JSON and rendered artifacts in every update. `matches/` remains the only source of truth. Public database and viewer directories are ignored build products that CI and GitHub Pages regenerate and validate before deployment.
+
+Removing the snapshot from the current tree does not remove public access. The Pages artifact still embeds the complete generated database, and prior snapshots remain recoverable from Git history.

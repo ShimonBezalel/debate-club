@@ -1,0 +1,448 @@
+version: evergreen-v1
+defaults:
+  stance_mode: forced_random
+  evidence_mode: no_external_info
+  allowed_tools:
+    web: false
+    calculator: false
+    evidence_pack: false
+domains:
+  - id: ai_software_systems
+    rubric_notes:
+      - compare reliability, capability, cost, and long-term adaptability
+      - distinguish prototype incentives from production-system incentives
+      - address both developer freedom and user protection
+    topics:
+      - id: ai_open_standards_001
+        statement: "Open standards matter more than model capability for the long-term health of agent ecosystems."
+        truth_type: technical_design
+        short_context: "Compare ecosystem durability, interoperability, innovation speed, and the value of proprietary integration."
+      - id: ai_small_models_002
+        statement: "Production AI systems should default to the smallest model that can pass their evaluations."
+        truth_type: technical_design
+        short_context: "Weigh cost, latency, environmental load, failure margins, and the value of surplus capability."
+      - id: ai_tests_over_demos_003
+        statement: "A strong evaluation suite is more valuable to an AI product than an impressive public demonstration."
+        truth_type: strategic
+        short_context: "Consider product discovery, reliability, fundraising, learning speed, and what each artifact can actually prove."
+      - id: ai_human_release_gate_004
+        statement: "Autonomous agents should require a human release gate for every externally visible action."
+        truth_type: policy
+        short_context: "Debate risk tiers, reversibility, speed, accountability, and whether universal approval defeats useful autonomy."
+      - id: ai_deterministic_replay_005
+        statement: "Deterministic replay should be a standard requirement for agentic software."
+        truth_type: technical_design
+        short_context: "Examine nondeterministic models, auditability, privacy, implementation cost, and the difference between replaying inputs and outcomes."
+      - id: ai_modular_agents_006
+        statement: "Teams of narrow agents are generally easier to trust than one highly capable general agent."
+        truth_type: technical_design
+        short_context: "Compare observability, coordination failures, context loss, specialization, and end-to-end responsibility."
+      - id: ai_local_first_007
+        statement: "Personal AI tools should be local-first even when cloud models are substantially more capable."
+        truth_type: technical_design
+        short_context: "Weigh privacy, availability, hardware inequality, maintenance, and the benefits of frontier cloud capability."
+      - id: ai_transparency_tradeoff_008
+        statement: "An interpretable AI system should be preferred over a better-performing opaque system in most deployments."
+        truth_type: policy
+        short_context: "Clarify deployment stakes, measurable performance gaps, contestability, and what interpretability can realistically deliver."
+      - id: ai_synthetic_data_009
+        statement: "Synthetic data will become more important than newly collected human data for improving AI systems."
+        truth_type: strategic
+        short_context: "Consider scaling, coverage, feedback loops, privacy, distribution shift, and the need for grounded evaluation data."
+      - id: ai_evals_before_scale_010
+        statement: "AI teams should invest in evaluations before investing in additional model capability."
+        truth_type: strategic
+        short_context: "Compare measurement readiness, opportunity cost, research uncertainty, product feedback, and capability-driven discovery."
+      - id: ai_tool_constraints_011
+        statement: "Giving an agent fewer tools usually makes the resulting system more useful."
+        truth_type: technical_design
+        short_context: "Debate attack surface, cognitive load, task coverage, permission design, and composability."
+      - id: ai_open_benchmarks_012
+        statement: "Public benchmarks should remain the main coordination mechanism for AI progress."
+        truth_type: policy
+        short_context: "Weigh shared measurement, benchmark gaming, private evaluations, scientific comparison, and real-world validity."
+
+  - id: science_epistemology
+    rubric_notes:
+      - distinguish incentives for discovery from incentives for verification
+      - compare individual rationality with system-level knowledge quality
+      - address uncertainty, replication, and evidence accessibility
+    topics:
+      - id: science_publish_failures_001
+        statement: "Researchers should be rewarded as strongly for publishing failed experiments as for publishing positive results."
+        truth_type: policy
+        short_context: "Consider publication bias, research effort, low-quality null results, career incentives, and cumulative knowledge."
+      - id: science_replication_funding_002
+        statement: "A fixed share of all research funding should be reserved for replication studies."
+        truth_type: policy
+        short_context: "Debate opportunity cost, field differences, credibility, novelty incentives, and who should select replication targets."
+      - id: science_simplicity_003
+        statement: "Scientists should prefer simpler explanations even when complex models predict slightly better."
+        truth_type: philosophical
+        short_context: "Weigh predictive accuracy, interpretability, overfitting, causal insight, and the meaning of simplicity."
+      - id: science_uncertainty_ranges_004
+        statement: "Public scientific communication should emphasize uncertainty ranges more than headline conclusions."
+        truth_type: policy
+        short_context: "Consider public comprehension, decision urgency, false precision, media incentives, and trust."
+      - id: science_peer_review_005
+        statement: "Open post-publication review would improve science more than anonymous pre-publication peer review."
+        truth_type: policy
+        short_context: "Compare gatekeeping, correction speed, reviewer candor, prestige effects, harassment risk, and information overload."
+      - id: science_adversarial_collaboration_006
+        statement: "Adversarial collaboration should be the default method for resolving major scientific disagreements."
+        truth_type: policy
+        short_context: "Examine genuine disagreement, shared protocols, asymmetric resources, entrenched incentives, and limits of consensus."
+      - id: science_negative_evidence_007
+        statement: "Absence of expected evidence should usually count more strongly than the presence of surprising evidence."
+        truth_type: philosophical
+        short_context: "Discuss prior probabilities, measurement sensitivity, selective observation, anomaly value, and burden of proof."
+      - id: science_preregistration_008
+        statement: "Exploratory research benefits more from preregistration than it loses in flexibility."
+        truth_type: policy
+        short_context: "Clarify exploratory versus confirmatory work, researcher degrees of freedom, discovery, and transparent deviation."
+      - id: science_reproducibility_novelty_009
+        statement: "Research institutions should value reproducible work more than novel work."
+        truth_type: policy
+        short_context: "Compare career signals, scientific risk-taking, cumulative progress, field maturity, and verification labor."
+      - id: science_public_data_010
+        statement: "Publicly funded research data should be open by default."
+        truth_type: policy
+        short_context: "Weigh privacy, consent, misuse, reproducibility, public value, curation cost, and legitimate embargoes."
+      - id: science_model_plurality_011
+        statement: "Maintaining several competing explanations is better science than converging quickly on one dominant model."
+        truth_type: philosophical
+        short_context: "Consider coordination, falsifiability, research diversity, scarce resources, and when convergence is earned."
+      - id: science_causes_over_prediction_012
+        statement: "Scientific models that explain causes are more valuable than models that only predict accurately."
+        truth_type: philosophical
+        short_context: "Compare intervention, generalization, engineering utility, explanation quality, and domains where prediction is enough."
+
+  - id: education_learning
+    rubric_notes:
+      - compare learning outcomes with motivation, access, and teacher workload
+      - distinguish short-term performance from durable understanding
+      - address differences among learners and subject areas
+    topics:
+      - id: education_ai_tutors_001
+        statement: "AI tutors should guide students with questions rather than provide direct answers."
+        truth_type: policy
+        short_context: "Consider productive struggle, accessibility, frustration, feedback speed, and when explicit instruction is superior."
+      - id: education_oral_assessment_002
+        statement: "Oral examination should replace most take-home assessment in the age of generative AI."
+        truth_type: policy
+        short_context: "Weigh authenticity, anxiety, scalability, accessibility, depth of understanding, and communication bias."
+      - id: education_projects_003
+        statement: "Project-based learning should be the organizing principle of secondary education."
+        truth_type: policy
+        short_context: "Compare engagement, foundational knowledge, assessment consistency, collaboration, and curriculum coverage."
+      - id: education_spaced_practice_004
+        statement: "Schools should allocate more time to spaced practice even if it reduces the number of topics covered."
+        truth_type: policy
+        short_context: "Debate retention, breadth, transfer, exam incentives, and the cost of revisiting material."
+      - id: education_group_work_005
+        statement: "Collaborative assignments teach more durable skills than individually graded assignments."
+        truth_type: factual_uncertain
+        short_context: "Consider accountability, peer learning, unequal contribution, workplace preparation, and individual mastery."
+      - id: education_ai_literacy_006
+        statement: "AI literacy should be taught as a core subject alongside mathematics and language."
+        truth_type: policy
+        short_context: "Weigh curriculum scarcity, rapid tool change, civic importance, foundational skills, and teacher readiness."
+      - id: education_grades_007
+        statement: "Narrative feedback should replace numerical grades for most schoolwork."
+        truth_type: policy
+        short_context: "Compare motivation, information quality, selection needs, teacher workload, consistency, and student interpretation."
+      - id: education_depth_008
+        statement: "A narrow curriculum taught deeply is better than a broad curriculum taught superficially."
+        truth_type: policy
+        short_context: "Debate transfer, cultural literacy, specialization, learner discovery, and minimum common knowledge."
+      - id: education_teacher_autonomy_009
+        statement: "Teacher autonomy matters more than curriculum standardization for educational quality."
+        truth_type: policy
+        short_context: "Consider local adaptation, equity, professional judgment, quality variance, and shared expectations."
+      - id: education_open_textbooks_010
+        statement: "Schools should prefer open educational resources over commercial textbooks."
+        truth_type: policy
+        short_context: "Weigh cost, editorial quality, update speed, teacher customization, support, and long-term maintenance."
+      - id: education_coding_foundations_011
+        statement: "Students learning programming should master fundamentals before using high-level AI coding tools."
+        truth_type: policy
+        short_context: "Compare motivation, feedback, abstraction, employability, debugging skill, and the changing nature of programming."
+      - id: education_homework_012
+        statement: "Routine homework contributes less to learning than schools commonly assume."
+        truth_type: factual_uncertain
+        short_context: "Consider practice, family inequality, age, subject differences, feedback quality, and opportunity cost."
+
+  - id: organizations_work
+    rubric_notes:
+      - compare coordination quality, autonomy, speed, and institutional memory
+      - distinguish practices for small teams from practices for large organizations
+      - address incentives and second-order effects, not only stated policy
+    topics:
+      - id: work_meetings_decisions_001
+        statement: "A meeting that does not produce a recorded decision is usually a failed meeting."
+        truth_type: strategic
+        short_context: "Consider relationship building, discovery, ambiguity reduction, decision latency, and documentation overhead."
+      - id: work_async_default_002
+        statement: "Knowledge-work organizations should make asynchronous communication the default."
+        truth_type: policy
+        short_context: "Weigh focus, inclusion, speed, misunderstanding, social cohesion, time zones, and urgent coordination."
+      - id: work_generalists_003
+        statement: "Early-stage teams benefit more from strong generalists than exceptional specialists."
+        truth_type: strategic
+        short_context: "Compare flexibility, technical depth, hiring constraints, handoffs, and the stage at which specialization dominates."
+      - id: work_documentation_004
+        statement: "Important work should be considered incomplete until another person can reproduce it from documentation."
+        truth_type: policy
+        short_context: "Debate tacit knowledge, creative work, bus factor, speed, reproducibility, and proportional documentation."
+      - id: work_technical_leaders_005
+        statement: "Engineering leaders should continue making direct technical contributions."
+        truth_type: policy
+        short_context: "Consider credibility, context, leverage, managerial neglect, organizational size, and different leadership roles."
+      - id: work_remote_default_006
+        statement: "Remote-first work produces healthier organizations than office-first work."
+        truth_type: factual_uncertain
+        short_context: "Weigh autonomy, mentoring, access, coordination, belonging, management quality, and task differences."
+      - id: work_metrics_incentives_007
+        statement: "Once a metric becomes a target, organizations should stop using it for individual evaluation."
+        truth_type: policy
+        short_context: "Debate gaming, clarity, accountability, mixed evaluation systems, and whether every measure degrades under incentives."
+      - id: work_small_teams_008
+        statement: "Large projects should be organized as networks of small teams with end-to-end ownership."
+        truth_type: technical_design
+        short_context: "Compare dependencies, autonomy, duplication, platform needs, coordination cost, and system-level consistency."
+      - id: work_rotating_ownership_009
+        statement: "Critical organizational responsibilities should rotate regularly rather than remain with permanent experts."
+        truth_type: policy
+        short_context: "Weigh resilience, expertise, motivation, handoff cost, accountability, and continuity."
+      - id: work_internal_open_source_010
+        statement: "Internal software should be open to contribution across an organization by default."
+        truth_type: policy
+        short_context: "Consider discoverability, code ownership, support burden, security, reuse, and contribution quality."
+      - id: work_blame_free_postmortems_011
+        statement: "Blameless postmortems can obscure individual accountability after preventable failures."
+        truth_type: policy
+        short_context: "Distinguish learning culture from consequence avoidance, and examine system design, negligence, candor, and fairness."
+      - id: work_hiring_samples_012
+        statement: "Short paid work samples are fairer hiring evidence than conventional interviews."
+        truth_type: policy
+        short_context: "Compare predictive validity, candidate burden, accessibility, confidentiality, compensation, and role realism."
+
+  - id: technology_governance
+    rubric_notes:
+      - weigh innovation and access against accountability and systemic risk
+      - distinguish high-stakes deployments from ordinary consumer tools
+      - address enforceability, institutional capacity, and unintended effects
+    topics:
+      - id: governance_audits_before_launch_001
+        statement: "High-impact algorithms should pass independent audits before public deployment."
+        truth_type: policy
+        short_context: "Consider audit quality, trade secrets, launch delay, changing systems, liability, and who defines high impact."
+      - id: governance_explanation_right_002
+        statement: "People should have a legal right to a meaningful explanation of automated decisions that affect them."
+        truth_type: policy
+        short_context: "Weigh contestability, model complexity, privacy, gaming, administrative cost, and what makes an explanation meaningful."
+      - id: governance_interoperability_003
+        statement: "Governments should require interoperability from dominant digital platforms."
+        truth_type: policy
+        short_context: "Compare competition, privacy, security, implementation burden, network effects, and product coherence."
+      - id: governance_open_procurement_004
+        statement: "Public institutions should prefer open standards in technology procurement even at a higher initial cost."
+        truth_type: policy
+        short_context: "Consider vendor lock-in, support quality, migration, public accountability, total cost, and specialized requirements."
+      - id: governance_sandboxes_005
+        statement: "Regulatory sandboxes are better than immediate comprehensive rules for emerging technologies."
+        truth_type: policy
+        short_context: "Weigh learning, regulatory capture, public protection, uncertainty, unequal access, and irreversible harms."
+      - id: governance_privacy_defaults_006
+        statement: "Digital services should minimize data collection even when more data would materially improve personalization."
+        truth_type: policy
+        short_context: "Debate consent, service quality, power asymmetry, data security, business models, and user choice."
+      - id: governance_child_access_007
+        statement: "Online services should use stricter default limits for young users than for adults."
+        truth_type: policy
+        short_context: "Consider autonomy, developmental risk, privacy-preserving age assurance, access, family roles, and enforcement."
+      - id: governance_deployer_liability_008
+        statement: "Organizations deploying AI should bear more liability than the companies that build the underlying models."
+        truth_type: policy
+        short_context: "Compare control, foreseeability, supply-chain responsibility, innovation effects, and shared-liability models."
+      - id: governance_synthetic_labels_009
+        statement: "Publicly distributed synthetic media should carry durable machine-readable provenance labels."
+        truth_type: policy
+        short_context: "Weigh trust, evasion, open tools, anonymity, implementation standards, and legitimate unlabeled transformations."
+      - id: governance_algorithm_registers_010
+        statement: "Public agencies should maintain registries of every algorithm used in consequential decisions."
+        truth_type: policy
+        short_context: "Consider transparency, security, procurement complexity, public comprehension, and defining consequential use."
+      - id: governance_safety_cases_011
+        statement: "Developers of high-risk technology should publish structured safety cases before deployment."
+        truth_type: policy
+        short_context: "Compare assurance, box-checking, confidential evidence, burden of proof, update frequency, and independent challenge."
+      - id: governance_sunset_clauses_012
+        statement: "Technology regulations should expire automatically unless lawmakers actively renew them."
+        truth_type: policy
+        short_context: "Weigh adaptability, regulatory certainty, lobbying, legislative capacity, rights protection, and policy evaluation."
+
+  - id: creativity_culture
+    rubric_notes:
+      - compare creative freedom, craft, attribution, access, and cultural continuity
+      - distinguish economic value from artistic value
+      - address both individual creators and shared cultural ecosystems
+    topics:
+      - id: culture_constraints_001
+        statement: "Creative constraints produce better work than unrestricted choice."
+        truth_type: philosophical
+        short_context: "Consider focus, novelty, mastery, arbitrary limitation, genre, resources, and differences among creators."
+      - id: culture_transformative_remix_002
+        statement: "Transformative remix contributes more to culture than strict control over derivative works."
+        truth_type: policy
+        short_context: "Weigh creator livelihoods, permission, cultural dialogue, market substitution, access, and definitions of transformation."
+      - id: culture_ai_attribution_003
+        statement: "Creators should disclose meaningful use of generative AI in published work."
+        truth_type: normative
+        short_context: "Debate audience expectations, process privacy, materiality, stigma, labor credit, and practical disclosure standards."
+      - id: culture_unfinished_work_004
+        statement: "Publishing unfinished creative work benefits artists more than protecting it until completion."
+        truth_type: strategic
+        short_context: "Consider feedback, audience building, imitation, vulnerability, momentum, and the value of private incubation."
+      - id: culture_critics_over_crowds_005
+        statement: "Expert criticism is more useful to culture than aggregate audience ratings."
+        truth_type: philosophical
+        short_context: "Compare depth, elitism, diversity, discoverability, popularity bias, and different purposes of evaluation."
+      - id: culture_public_domain_006
+        statement: "Creative works should enter the public domain much sooner than they currently do."
+        truth_type: policy
+        short_context: "Weigh incentives, estates, preservation, access, adaptation, administrative simplicity, and long-tail value."
+      - id: culture_visible_craft_007
+        statement: "Audiences value creative work more when its process and labor are visible."
+        truth_type: factual_uncertain
+        short_context: "Consider mystery, authenticity, education, perceived effort, automation, marketing, and outcome-focused appreciation."
+      - id: culture_genre_rules_008
+        statement: "Artists create more original work by mastering genre conventions before rejecting them."
+        truth_type: philosophical
+        short_context: "Debate tradition, imitation, outsider innovation, technical vocabulary, and whether sequence matters."
+      - id: culture_collective_authorship_009
+        statement: "Collaborative works should emphasize collective authorship over individual credit."
+        truth_type: normative
+        short_context: "Weigh recognition, power, accountability, hidden labor, motivation, and the practical need to identify contributions."
+      - id: culture_digital_preservation_010
+        statement: "Cultural institutions should prioritize digitization over acquiring additional physical collections."
+        truth_type: policy
+        short_context: "Consider access, preservation quality, authenticity, storage, selection bias, rights, and born-digital material."
+      - id: culture_coherence_over_novelty_011
+        statement: "Coherence matters more than novelty in enduring creative work."
+        truth_type: philosophical
+        short_context: "Compare surprise, craft, meaning, historical context, imitation, and how endurance can be assessed."
+      - id: culture_tools_expand_012
+        statement: "Lowering technical barriers with creative tools expands culture more than it dilutes craft."
+        truth_type: factual_uncertain
+        short_context: "Weigh participation, quality filters, professional identity, new forms, abundance, and audience attention."
+
+  - id: cities_environment
+    rubric_notes:
+      - compare long-term public value with transition cost and local disruption
+      - address distributional effects, maintenance, and practical implementation
+      - distinguish dense urban areas from lower-density contexts
+    topics:
+      - id: cities_density_001
+        statement: "Cities should permit substantially denser housing in already developed neighborhoods."
+        truth_type: policy
+        short_context: "Consider affordability, infrastructure, displacement, neighborhood change, emissions, and property expectations."
+      - id: cities_transit_priority_002
+        statement: "Urban street space should prioritize public transit over private vehicle throughput."
+        truth_type: policy
+        short_context: "Weigh capacity, accessibility, travel time, trades, emergency access, land use, and political feasibility."
+      - id: cities_congestion_pricing_003
+        statement: "Congestion pricing is fairer than expanding roads to address urban traffic."
+        truth_type: policy
+        short_context: "Compare pricing burdens, induced demand, transit alternatives, revenue use, geography, and access needs."
+      - id: cities_trees_over_parking_004
+        statement: "Cities should replace substantial curbside parking with trees and public space."
+        truth_type: policy
+        short_context: "Consider heat, commerce, disability access, deliveries, housing patterns, public health, and parking spillover."
+      - id: cities_adaptive_reuse_005
+        statement: "Adapting existing buildings should be preferred to demolition and new construction."
+        truth_type: policy
+        short_context: "Weigh embodied carbon, safety, heritage, cost, accessibility, design limits, and housing supply."
+      - id: cities_distributed_energy_006
+        statement: "Communities should prioritize distributed energy systems over large centralized projects."
+        truth_type: technical_design
+        short_context: "Compare resilience, economies of scale, grid coordination, land use, equity, and maintenance capability."
+      - id: cities_water_pricing_007
+        statement: "Household water prices should rise sharply after a guaranteed basic allocation."
+        truth_type: policy
+        short_context: "Consider conservation, household size, affordability, metering, agriculture, public trust, and revenue use."
+      - id: cities_car_free_centers_008
+        statement: "Most city centers would be better off without private cars."
+        truth_type: policy
+        short_context: "Weigh access, commerce, air quality, logistics, mobility differences, transit readiness, and public space."
+      - id: cities_green_codes_009
+        statement: "Strict building-efficiency codes are better climate policy than voluntary incentives."
+        truth_type: policy
+        short_context: "Compare compliance, housing cost, split incentives, enforcement, innovation, and the pace of building turnover."
+      - id: cities_resilience_redundancy_010
+        statement: "Infrastructure planners should value redundancy more than peak efficiency."
+        truth_type: technical_design
+        short_context: "Consider rare failures, daily cost, interdependence, spare capacity, public expectations, and climate uncertainty."
+      - id: cities_local_food_011
+        statement: "Cities should support local food production even when imported food is cheaper and more efficient."
+        truth_type: policy
+        short_context: "Weigh resilience, land use, emissions, education, price, seasonality, and comparative advantage."
+      - id: cities_repair_first_012
+        statement: "Governments should repair existing infrastructure before funding visible new projects."
+        truth_type: policy
+        short_context: "Compare maintenance debt, growth needs, political incentives, equity, system performance, and transformative investment."
+
+  - id: philosophy_ethics
+    rubric_notes:
+      - identify competing moral principles and test them across difficult cases
+      - distinguish personal virtue from fair public rules
+      - address uncertainty, incentives, and unintended consequences
+    topics:
+      - id: ethics_truth_kindness_001
+        statement: "Kindness can justify withholding a truth that another person has a reasonable interest in knowing."
+        truth_type: normative
+        short_context: "Consider autonomy, harm, trust, timing, relationship duties, and the difference between silence and deception."
+      - id: ethics_privacy_convenience_002
+        statement: "People have a duty to protect their privacy even when surrendering it would be more convenient."
+        truth_type: normative
+        short_context: "Weigh collective effects, informed choice, personal responsibility, power asymmetry, and ordinary trade-offs."
+      - id: ethics_duties_to_strangers_003
+        statement: "Our moral duties to distant strangers are much stronger than everyday behavior suggests."
+        truth_type: philosophical
+        short_context: "Consider proximity, effectiveness, special obligations, demandingness, uncertainty, and institutional responsibility."
+      - id: ethics_forgiveness_004
+        statement: "Forgiveness is valuable even when the person who caused harm has not apologized."
+        truth_type: normative
+        short_context: "Distinguish forgiveness from reconciliation, accountability, self-protection, resentment, and moral desert."
+      - id: ethics_loyalty_005
+        statement: "Loyalty is a virtue only when it survives impartial moral scrutiny."
+        truth_type: philosophical
+        short_context: "Weigh special relationships, group identity, betrayal, fairness, courage, and the purpose of loyalty."
+      - id: ethics_reversibility_006
+        statement: "When values conflict, people should prefer the decision that is easier to reverse."
+        truth_type: philosophical
+        short_context: "Consider option value, delay, urgent harm, commitment, path dependence, and decisions whose benefits require permanence."
+      - id: ethics_future_generations_007
+        statement: "Future generations deserve nearly the same moral weight as people alive today."
+        truth_type: philosophical
+        short_context: "Debate uncertainty, identity, discounting, present deprivation, irreversible harm, and institutional representation."
+      - id: ethics_consent_defaults_008
+        statement: "A beneficial default is ethically suspect when most people do not understand they can refuse it."
+        truth_type: normative
+        short_context: "Weigh welfare, autonomy, disclosure quality, inertia, power, and the difference between nudges and manipulation."
+      - id: ethics_equal_process_009
+        statement: "A fair decision process matters more than producing equal outcomes."
+        truth_type: philosophical
+        short_context: "Compare legitimacy, luck, structural disadvantage, incentives, predictability, and plural views of fairness."
+      - id: ethics_transparency_trust_010
+        statement: "Complete transparency can undermine rather than strengthen trust."
+        truth_type: philosophical
+        short_context: "Consider privacy, surveillance, candor, accountability, information overload, and healthy boundaries."
+      - id: ethics_indirect_harm_011
+        statement: "People are morally responsible for predictable harms caused indirectly through institutions they support."
+        truth_type: philosophical
+        short_context: "Weigh causal distance, collective action, knowledge, alternatives, complicity, and reasonable limits on responsibility."
+      - id: ethics_moral_uncertainty_012
+        statement: "Moral uncertainty should make people more cautious about imposing irreversible choices on others."
+        truth_type: philosophical
+        short_context: "Consider paralysis, confidence, power, precaution, urgent action, and how competing moral theories should influence decisions."

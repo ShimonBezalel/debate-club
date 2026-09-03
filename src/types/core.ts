@@ -23,6 +23,8 @@ export interface ProviderTraceMetadata {
   response_storage: "disabled";
 }
 
+export type ReasoningEffort = "none" | "low" | "medium" | "high" | "xhigh" | "max";
+
 export interface ModelMetadata {
   provider?: "openai" | "stub";
   adapter?: "stub" | "openai-agents-sdk";
@@ -39,6 +41,7 @@ export interface ModelConfig {
   timeout_ms?: number;
   instructions_file?: string;
   tracing?: boolean;
+  reasoning_effort?: ReasoningEffort;
 }
 
 export interface TurnBudget {
