@@ -2,7 +2,7 @@
 
 This directory is the Git-backed open debate ledger. Every match is a reproducible artifact with transcript, JSONL turns, judge votes, scorecard, timing, tool log, and match metadata.
 
-Ledger through: 2026-06-27T11:23:24.944Z
+Ledger through: 2026-09-03T12:04:08.143Z
 
 | Match | Featured | Timestamp | Conjecture | Protocol | Pro | Con | Winner | Judge split | Transcript | Scorecard |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -19,3 +19,4 @@ Ledger through: 2026-06-27T11:23:24.944Z
 | live-losing-transcript-data-value-001 | yes | 2026-06-27T11:22:23.506Z | A losing debate transcript can be more valuable training data than a winning debate transcript. | classic_v1 | epistemic-conservative-v1 | cross-examiner-v1 | tie | pro 0, con 0, tie 1 | [transcript](live-losing-transcript-data-value-001/transcript.md) | [scorecard](live-losing-transcript-data-value-001/scorecard.md) |
 | live-agent-questions-over-answers-001 | no | 2026-06-27T11:22:53.813Z | Most useful AI agents will be judged more by their ability to ask good questions than by their ability to answer immediately. | classic_v1 | steelman-v1 | cross-examiner-v1 | tie | pro 0, con 0, tie 1 | [transcript](live-agent-questions-over-answers-001/transcript.md) | [scorecard](live-agent-questions-over-answers-001/scorecard.md) |
 | live-harness-over-model-choice-001 | no | 2026-06-27T11:23:24.944Z | Open-source agent harnesses will matter more than model choice for many applied AI workflows. | classic_v1 | cross-examiner-v1 | epistemic-conservative-v1 | pro | pro 1, con 0, tie 0 | [transcript](live-harness-over-model-choice-001/transcript.md) | [scorecard](live-harness-over-model-choice-001/scorecard.md) |
+| daily-2026-09-03-s01-ai_open_standards_001 | no | 2026-09-03T12:04:08.143Z | Open standards matter more than model capability for the long-term health of agent ecosystems. | classic_v1 | steelman-v1 | cross-examiner-v1 | pro | pro 1, con 0, tie 0 | [transcript](daily-2026-09-03-s01-ai_open_standards_001/transcript.md) | [scorecard](daily-2026-09-03-s01-ai_open_standards_001/scorecard.md) |

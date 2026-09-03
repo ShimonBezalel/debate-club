@@ -1,0 +1,80 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "pro",
+    "confidence": 0.64,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 8,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 8,
+        "handling_counterarguments": 9,
+        "style_clarity": 9
+      },
+      "con": {
+        "factual_accuracy": 8,
+        "responsiveness": 8,
+        "argument_structure": 8,
+        "burden_of_proof": 6,
+        "handling_counterarguments": 8,
+        "style_clarity": 9
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Pro directly conceded the strongest limitations of standards, then reframed the comparison around long-term ecosystem adaptability and explained how versioning, conformance, provenance, and permissions can mitigate—not eliminate—those limitations."
+      },
+      {
+        "turn_id": "pro_closing",
+        "reason": "Pro made the prototype-versus-production distinction explicit and connected standards to switching costs, auditability, competition, and adaptation across model generations, addressing the rubric's long-term and developer-freedom dimensions."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "Con correctly identified unresolved problems—semantic incompatibility, integration security, accountability, and the possibility that vertical integration improves outcomes—but largely asserted that these outweigh contestability without comparative evidence."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_empirical_generalization",
+        "severity": "low",
+        "quote": "portability and competition reduce cost and expose failures"
+      },
+      {
+        "side": "con",
+        "type": "unsupported_empirical_generalization",
+        "severity": "medium",
+        "quote": "A vertically integrated system can therefore provide users greater reliability and protection at lower total cost"
+      },
+      {
+        "side": "con",
+        "type": "burden_shift",
+        "severity": "medium",
+        "quote": "That requires proof, not assertion"
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1609,
+        "output_tokens": 353,
+        "total_tokens": 1962
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-09-03T12:04:08.144Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

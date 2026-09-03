@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T11:23:24.944Z",
+  "generated_at": "2026-09-03T12:04:08.143Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -328,6 +328,31 @@
         "match": "live-harness-over-model-choice-001/match.json",
         "transcript": "live-harness-over-model-choice-001/transcript.md",
         "scorecard": "live-harness-over-model-choice-001/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-09-03-s01-ai_open_standards_001",
+      "created_at": "2026-09-03T12:04:08.143Z",
+      "conjecture_id": "ai_open_standards_001",
+      "conjecture_statement": "Open standards matter more than model capability for the long-term health of agent ecosystems.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "steelman-v1",
+      "con_agent": "cross-examiner-v1",
+      "winner": "pro",
+      "judge_split": {
+        "pro": 1,
+        "con": 0,
+        "tie": 0
+      },
+      "confidence_mean": 0.64,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-09-03-s01-ai_open_standards_001/match.json",
+        "transcript": "daily-2026-09-03-s01-ai_open_standards_001/transcript.md",
+        "scorecard": "daily-2026-09-03-s01-ai_open_standards_001/scorecard.md"
       }
     }
   ]
