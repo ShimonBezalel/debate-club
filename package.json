@@ -21,6 +21,7 @@
     "test:watch": "vitest",
     "cli": "tsx src/cli/main.ts",
     "debate:stub": "tsx src/cli/main.ts run --protocol examples/protocols/classic_v1.yaml --conjecture examples/conjectures/ai_tutors_homework_001.yaml --pro examples/agents/stub_pro --con examples/agents/stub_con --judges examples/judges/stub_panel --out matches",
+    "daily:run": "tsx src/cli/main.ts daily",
     "ledger:rebuild": "tsx src/cli/main.ts ledger rebuild --matches matches",
     "public-db:export": "tsx src/cli/main.ts ledger export-public-db --matches matches --out public-db",
     "public-db:validate": "tsx src/cli/main.ts ledger validate-public-db --db public-db",

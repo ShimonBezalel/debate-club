@@ -30,6 +30,14 @@ describe("openai agents sdk adapter boundary", () => {
     ).reasoning_effort).toBe("low");
   });
 
+  it("lets the command select a model over the card default", () => {
+    expect(resolveLiveModelConfig(
+      { model: "gpt-4.1-mini" },
+      { model: "gpt-5.6-luna" },
+      "agent"
+    ).model).toBe("gpt-5.6-luna");
+  });
+
   it("reports availability without requiring credentials", async () => {
     const available = await openAiAgentsSdkAvailable();
     expect(typeof available).toBe("boolean");

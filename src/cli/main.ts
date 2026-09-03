@@ -3,8 +3,9 @@ import { existsSync } from "node:fs";
 import { symlink, unlink } from "node:fs/promises";
 import { join } from "node:path";
 import { Command } from "commander";
-import { DEFAULT_MAX_OUTPUT_TOKENS, DEFAULT_OPENAI_JUDGE_MODEL, DEFAULT_OPENAI_MODEL, DEFAULT_TEMPERATURE, DEFAULT_TIMEOUT_MS, openAiAgentsSdkAvailable, openAiApiKeyPresent, type LiveAdapterOptions } from "../adapters/openaiAgentsSdk.js";
+import { DEFAULT_MAX_OUTPUT_TOKENS, DEFAULT_OPENAI_JUDGE_MODEL, DEFAULT_OPENAI_MODEL, DEFAULT_REASONING_EFFORT, DEFAULT_TEMPERATURE, DEFAULT_TIMEOUT_MS, openAiAgentsSdkAvailable, openAiApiKeyPresent, type LiveAdapterOptions } from "../adapters/openaiAgentsSdk.js";
 import { loadAgentFromDirectory } from "../agents/loadAgent.js";
+import { DAILY_DEFAULT_JUDGE_LIMIT, DAILY_DEFAULT_JUDGE_MAX_OUTPUT_TOKENS, DAILY_DEFAULT_MAX_OUTPUT_TOKENS, DAILY_DEFAULT_MODEL, runDailyMatch } from "../daily/runDaily.js";
 import { writeMatchArtifacts } from "../ledger/artifacts.js";
 import { buildLeaderboard } from "../ledger/leaderboard.js";
 import { rebuildLedgerIndex } from "../ledger/rebuild.js";
@@ -17,6 +18,7 @@ import { conjectureSchema } from "../schemas/conjecture.js";
 import { explainZodError, loadYamlFile } from "../schemas/load.js";
 import { protocolSchema } from "../schemas/protocol.js";
 import { buildViewer } from "../viewer/build.js";
+import type { ReasoningEffort } from "../types/core.js";
 
 function defaultMatchId(conjectureId: string): string {
   const stamp = new Date().toISOString().replace(/[:.]/g, "-");
@@ -39,6 +41,13 @@ function parseNumber(value: string): number {
   return parsed;
 }
 
+function parseReasoningEffort(value: string): ReasoningEffort {
+  if (["none", "low", "medium", "high", "xhigh", "max"].includes(value)) {
+    return value as ReasoningEffort;
+  }
+  throw new Error(`Unsupported reasoning effort '${value}'.`);
+}
+
 function liveOptions(options: {
   live?: boolean;
   dryRun?: boolean;
@@ -49,6 +58,7 @@ function liveOptions(options: {
   temperature?: number;
   timeoutMs?: number;
   tracing?: boolean;
+  reasoningEffort?: ReasoningEffort;
 }): LiveAdapterOptions {
   return {
     live: Boolean(options.live),
@@ -59,7 +69,8 @@ function liveOptions(options: {
     judgeMaxOutputTokens: options.judgeMaxOutputTokens,
     temperature: options.temperature,
     timeoutMs: options.timeoutMs,
-    tracing: Boolean(options.tracing)
+    tracing: Boolean(options.tracing),
+    reasoningEffort: options.reasoningEffort
   };
 }
 
@@ -116,6 +127,48 @@ async function main(): Promise<void> {
       }
     });
 
+  program.command("daily")
+    .description("Run the deterministic evergreen match planned for one UTC date.")
+    .option("--date <YYYY-MM-DD>", "UTC date to run", new Date().toISOString().slice(0, 10))
+    .option("--catalog <path>", "evergreen catalog", "topics/evergreen-v1.yaml")
+    .option("--protocol <path>", "debate protocol", "examples/protocols/classic_v1.yaml")
+    .option("--agents-root <path>", "directory containing daily agent harnesses", "examples/agents")
+    .option("--judges <path>", "daily judge panel", "examples/judges/panels/openai_epistemic_panel_v1")
+    .option("--out <path>", "canonical match ledger", "matches")
+    .option("--live", "allow live OpenAI adapter calls")
+    .option("--dry-run", "validate and write a deterministic match without API calls")
+    .option("--model <model>", "OpenAI model for debaters", DAILY_DEFAULT_MODEL)
+    .option("--judge-model <model>", "OpenAI model for judges", DAILY_DEFAULT_MODEL)
+    .option("--reasoning-effort <level>", "reasoning effort for daily calls", parseReasoningEffort, DEFAULT_REASONING_EFFORT)
+    .option("--max-output-tokens <tokens>", "maximum output tokens for debate turns", parsePositiveInt, DAILY_DEFAULT_MAX_OUTPUT_TOKENS)
+    .option("--judge-max-output-tokens <tokens>", "maximum output tokens for the judge", parsePositiveInt, DAILY_DEFAULT_JUDGE_MAX_OUTPUT_TOKENS)
+    .option("--timeout-ms <milliseconds>", "timeout per live model call", parsePositiveInt, DEFAULT_TIMEOUT_MS)
+    .action(async (options) => {
+      try {
+        if (options.live && options.dryRun) {
+          throw new Error("Choose either --live or --dry-run, not both.");
+        }
+        const result = await runDailyMatch({
+          date: options.date,
+          catalogPath: options.catalog,
+          protocolPath: options.protocol,
+          agentsRoot: options.agentsRoot,
+          judgesPath: options.judges,
+          matchesRoot: options.out,
+          judgeLimit: DAILY_DEFAULT_JUDGE_LIMIT,
+          adapterOptions: liveOptions(options)
+        });
+        if (result.status === "exists") {
+          process.stdout.write(`Daily match ${result.plan.matchId} already exists\nLedger matches: ${result.ledgerMatches}\n`);
+          return;
+        }
+        process.stdout.write(`Daily match created: ${result.plan.matchId}\nFolder: ${result.folder}\nLedger matches: ${result.ledgerMatches}\nWinner: ${result.winner}\n`);
+      } catch (error) {
+        process.stderr.write(`debateclub daily failed: ${explainZodError(error)}\n`);
+        process.exitCode = 1;
+      }
+    });
+
   program.command("doctor")
     .description("Check optional live adapter configuration without printing secrets.")
     .action(async () => {
@@ -129,6 +182,7 @@ async function main(): Promise<void> {
         `Default judge model: ${process.env.DEBATECLUB_JUDGE_MODEL ?? DEFAULT_OPENAI_JUDGE_MODEL}`,
         `Default max output tokens: ${DEFAULT_MAX_OUTPUT_TOKENS}`,
         `Default temperature: ${DEFAULT_TEMPERATURE}`,
+        `Default reasoning effort: ${process.env.DEBATECLUB_REASONING_EFFORT ?? DEFAULT_REASONING_EFFORT}`,
         `Default timeout ms: ${DEFAULT_TIMEOUT_MS}`,
         "Tracing default: disabled (enable with --tracing)",
         "Trace response storage: disabled (local match artifacts remain canonical)",

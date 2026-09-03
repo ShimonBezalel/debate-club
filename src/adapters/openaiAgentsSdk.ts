@@ -66,7 +66,9 @@ function reasoningEffort(value: string | undefined): ReasoningEffort {
 
 export function resolveLiveModelConfig(cardConfig: ModelConfig | undefined, options: LiveAdapterOptions, role: "agent" | "judge"): Required<Omit<ModelConfig, "instructions_file">> & { instructions_file?: string } {
   return {
-    model: cardConfig?.model ?? (role === "judge" ? options.judgeModel ?? process.env.DEBATECLUB_JUDGE_MODEL ?? DEFAULT_OPENAI_JUDGE_MODEL : options.model ?? process.env.DEBATECLUB_MODEL ?? DEFAULT_OPENAI_MODEL),
+    model: role === "judge"
+      ? options.judgeModel ?? process.env.DEBATECLUB_JUDGE_MODEL ?? cardConfig?.model ?? DEFAULT_OPENAI_JUDGE_MODEL
+      : options.model ?? process.env.DEBATECLUB_MODEL ?? cardConfig?.model ?? DEFAULT_OPENAI_MODEL,
     max_output_tokens: (role === "judge" ? options.judgeMaxOutputTokens : undefined) ?? options.maxOutputTokens ?? cardConfig?.max_output_tokens ?? DEFAULT_MAX_OUTPUT_TOKENS,
     temperature: options.temperature ?? cardConfig?.temperature ?? DEFAULT_TEMPERATURE,
     timeout_ms: options.timeoutMs ?? cardConfig?.timeout_ms ?? DEFAULT_TIMEOUT_MS,
