@@ -1,7 +1,7 @@
 import type { Conjecture } from "../types/core.js";
 
 const UTC_DAY_MS = 24 * 60 * 60 * 1000;
-const DAILY_EPOCH_MS = Date.UTC(2026, 8, 4);
+const DAILY_EPOCH_MS = Date.UTC(2026, 8, 3);
 
 export type DailyAgentName = "steelman-v1" | "cross-examiner-v1";
 
@@ -49,7 +49,7 @@ export function planDailyMatch(date: string, catalog: Conjecture[]): DailyMatchP
   const dateMs = utcDateMilliseconds(date);
   const dayIndex = (dateMs - DAILY_EPOCH_MS) / UTC_DAY_MS;
   if (!Number.isInteger(dayIndex) || dayIndex < 0) {
-    throw new Error(`Daily date '${date}' precedes the 2026-09-04 epoch.`);
+    throw new Error(`Daily date '${date}' precedes the 2026-09-03 epoch.`);
   }
   const topicIndex = dayIndex % catalog.length;
   const season = Math.floor(dayIndex / catalog.length) + 1;

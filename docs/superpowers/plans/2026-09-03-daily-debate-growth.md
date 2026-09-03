@@ -13,7 +13,7 @@
 ## Global Constraints
 
 - `matches/` remains the canonical database; generated `public-db/` and `viewer-dist/` directories are never committed by daily automation.
-- Daily planning uses UTC dates and a fixed epoch of `2026-09-04`.
+- Daily planning uses UTC dates and a fixed epoch of `2026-09-03`.
 - The first catalog contains 96 append-only evergreen topics across eight allowed domains.
 - Production daily defaults are `gpt-5.6-luna`, one judge, 260 debate output tokens, 700 judge output tokens, reasoning effort `none`, tracing disabled, response storage disabled, and no tools or web access.
 - Existing match directories are never overwritten and an existing daily match causes zero API calls.
@@ -154,22 +154,22 @@ Create `tests/dailyPlan.test.ts` with these assertions:
 ```ts
 it("maps the epoch to the first topic and first season", async () => {
   const catalog = await loadEvergreenCatalog("topics/evergreen-v1.yaml");
-  const plan = planDailyMatch("2026-09-04", catalog);
+  const plan = planDailyMatch("2026-09-03", catalog);
   expect(plan).toMatchObject({
-    date: "2026-09-04",
+    date: "2026-09-03",
     dayIndex: 0,
     season: 1,
     topicIndex: 0,
     proAgent: "steelman-v1",
     conAgent: "cross-examiner-v1"
   });
-  expect(plan.matchId).toMatch(/^daily-2026-09-04-s01-/);
+  expect(plan.matchId).toMatch(/^daily-2026-09-03-s01-/);
 });
 
 it("starts season two after the 96-topic catalog", async () => {
   const catalog = await loadEvergreenCatalog("topics/evergreen-v1.yaml");
   expect(catalog).toHaveLength(96);
-  expect(planDailyMatch("2026-12-09", catalog)).toMatchObject({
+  expect(planDailyMatch("2026-12-08", catalog)).toMatchObject({
     dayIndex: 96,
     season: 2,
     topicIndex: 0
