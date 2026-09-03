@@ -37,8 +37,8 @@ describe("daily match execution", () => {
     expect(match).toMatchObject({
       match_id: result.plan.matchId,
       agents: {
-        pro: { name: "steelman-v1", model_config: { model: "gpt-5.6-luna", reasoning_effort: "none" } },
-        con: { name: "cross-examiner-v1", model_config: { model: "gpt-5.6-luna", reasoning_effort: "none" } }
+        pro: { name: "cross-examiner-v1", model_config: { model: "gpt-5.6-luna", reasoning_effort: "none" } },
+        con: { name: "steelman-v1", model_config: { model: "gpt-5.6-luna", reasoning_effort: "none" } }
       }
     });
     expect(match.judge_votes).toHaveLength(1);

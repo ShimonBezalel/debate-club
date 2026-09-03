@@ -108,7 +108,7 @@ Daily production uses `gpt-5.6-luna`, six tightly capped turns, one public judge
 The workflow requires an encrypted repository secret named `OPENAI_API_KEY`. Failed provider runs are not committed and are not retried automatically. To recover a missed UTC date, dispatch the workflow manually:
 
 ```bash
-gh workflow run daily-debate.yml --repo ShimonBezalel/debate-club -f date=2026-09-04
+gh workflow run daily-debate.yml --repo ShimonBezalel/debate-club -f date=2026-09-03
 ```
 
 Dispatching a date that already exists is idempotent: the runner makes no model calls and leaves the match unchanged.

@@ -22,24 +22,24 @@ function validTopic(id: string): Conjecture {
 describe("daily debate planning", () => {
   it("maps the epoch to the first topic and first season", async () => {
     const catalog = await loadEvergreenCatalog("topics/evergreen-v1.yaml");
-    const plan = planDailyMatch("2026-09-04", catalog);
+    const plan = planDailyMatch("2026-09-03", catalog);
 
     expect(plan).toMatchObject({
-      date: "2026-09-04",
+      date: "2026-09-03",
       dayIndex: 0,
       season: 1,
       topicIndex: 0,
       proAgent: "steelman-v1",
       conAgent: "cross-examiner-v1"
     });
-    expect(plan.matchId).toBe(`daily-2026-09-04-s01-${catalog[0]?.id}`);
+    expect(plan.matchId).toBe(`daily-2026-09-03-s01-${catalog[0]?.id}`);
   });
 
   it("starts season two after the 96-topic catalog", async () => {
     const catalog = await loadEvergreenCatalog("topics/evergreen-v1.yaml");
 
     expect(catalog).toHaveLength(96);
-    expect(planDailyMatch("2026-12-09", catalog)).toMatchObject({
+    expect(planDailyMatch("2026-12-08", catalog)).toMatchObject({
       dayIndex: 96,
       season: 2,
       topicIndex: 0
@@ -49,13 +49,13 @@ describe("daily debate planning", () => {
   it("alternates harness sides", async () => {
     const catalog = await loadEvergreenCatalog("topics/evergreen-v1.yaml");
 
-    expect(planDailyMatch("2026-09-05", catalog)).toMatchObject({
+    expect(planDailyMatch("2026-09-04", catalog)).toMatchObject({
       proAgent: "cross-examiner-v1",
       conAgent: "steelman-v1"
     });
   });
 
-  it.each(["2026-09-03", "2026-02-30", "not-a-date"])("rejects invalid or pre-epoch date %s", async (date) => {
+  it.each(["2026-09-02", "2026-02-30", "not-a-date"])("rejects invalid or pre-epoch date %s", async (date) => {
     const catalog = await loadEvergreenCatalog("topics/evergreen-v1.yaml");
 
     expect(() => planDailyMatch(date, catalog)).toThrow();
