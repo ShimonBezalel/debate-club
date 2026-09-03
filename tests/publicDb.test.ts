@@ -1,12 +1,24 @@
+import { execFile } from "node:child_process";
 import { access, mkdtemp, readFile, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { promisify } from "node:util";
 import { describe, expect, it } from "vitest";
 import { exportPublicDb } from "../src/publicDb/export.js";
 import { validatePublicDb } from "../src/publicDb/validate.js";
 import { buildViewer } from "../src/viewer/build.js";
 
+const execFileAsync = promisify(execFile);
+
 describe("public DB export", () => {
+  it("keeps the public database a generated projection", async () => {
+    const ignore = await readFile(".gitignore", "utf8");
+    const { stdout } = await execFileAsync("git", ["ls-files", "public-db"]);
+
+    expect(ignore.split("\n")).toContain("public-db/");
+    expect(stdout.trim()).toBe("");
+  });
+
   it("exports every valid ledger match into a viewer-oriented static database", async () => {
     const out = await mkdtemp(join(tmpdir(), "debate-club-public-db-"));
 

@@ -30,7 +30,7 @@ npm run cli -- ledger validate-public-db --db public-db
 npm run cli -- viewer build --db public-db --out viewer-dist
 ```
 
-`matches/` remains canonical. `public-db/` is the deterministic, viewer-oriented projection. `viewer-dist/` is generated deployment output and is not committed.
+`matches/` remains canonical. `public-db/` is the deterministic, viewer-oriented projection. Both `public-db/` and `viewer-dist/` are generated deployment outputs and are not committed. The projection can always be recreated from a clone that contains the ledger.
 
 ## Quickstart Commands
 

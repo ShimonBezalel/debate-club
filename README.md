@@ -97,7 +97,7 @@ npm run cli -- viewer build --db public-db --out viewer-dist
 
 The export contains aggregate match, agent, judge, and conjecture indexes plus complete per-match JSON, transcript, and scorecard artifacts. It is designed to be forked, diffed, cited, replayed, and served from any static host.
 
-The committed `public-db/` directory is a public snapshot. GitHub Pages deployment builds the searchable viewer from the current ledger on every relevant `main` push.
+`public-db/` is a generated projection and is not committed. GitHub Pages deployment rebuilds it and the searchable viewer from the canonical `matches/` ledger on every relevant `main` push.
 
 ## Roadmap
 
