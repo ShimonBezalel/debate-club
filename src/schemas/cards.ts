@@ -16,7 +16,8 @@ export const modelConfigSchema = z.object({
   temperature: z.number().min(0).max(2).optional(),
   timeout_ms: z.number().int().positive().optional(),
   instructions_file: z.string().min(1).optional(),
-  tracing: z.boolean().optional()
+  tracing: z.boolean().optional(),
+  reasoning_effort: z.enum(["none", "low", "medium", "high", "xhigh", "max"]).optional()
 });
 
 export const agentCardSchema = z.object({

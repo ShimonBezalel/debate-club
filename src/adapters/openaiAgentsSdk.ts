@@ -17,6 +17,7 @@ import type {
   ModelMetadata,
   ModelUsage,
   ProviderTraceMetadata,
+  ReasoningEffort,
   TurnBudget
 } from "../types/core.js";
 
@@ -25,6 +26,9 @@ export const DEFAULT_OPENAI_JUDGE_MODEL = "gpt-4.1-mini";
 export const DEFAULT_TIMEOUT_MS = 45_000;
 export const DEFAULT_MAX_OUTPUT_TOKENS = 360;
 export const DEFAULT_TEMPERATURE = 0.4;
+export const DEFAULT_REASONING_EFFORT: ReasoningEffort = "none";
+
+const REASONING_EFFORTS: ReasoningEffort[] = ["none", "low", "medium", "high", "xhigh", "max"];
 
 export interface LiveAdapterOptions {
   live?: boolean;
@@ -36,6 +40,7 @@ export interface LiveAdapterOptions {
   temperature?: number;
   timeoutMs?: number;
   tracing?: boolean;
+  reasoningEffort?: ReasoningEffort;
 }
 
 export async function openAiAgentsSdkAvailable(): Promise<boolean> {
@@ -51,13 +56,22 @@ export function openAiApiKeyPresent(): boolean {
   return Boolean(process.env.OPENAI_API_KEY);
 }
 
-function resolveConfig(cardConfig: ModelConfig | undefined, options: LiveAdapterOptions, role: "agent" | "judge"): Required<Omit<ModelConfig, "instructions_file">> & { instructions_file?: string } {
+function reasoningEffort(value: string | undefined): ReasoningEffort {
+  const resolved = value ?? DEFAULT_REASONING_EFFORT;
+  if (!REASONING_EFFORTS.includes(resolved as ReasoningEffort)) {
+    throw new Error(`Unsupported reasoning effort '${resolved}'.`);
+  }
+  return resolved as ReasoningEffort;
+}
+
+export function resolveLiveModelConfig(cardConfig: ModelConfig | undefined, options: LiveAdapterOptions, role: "agent" | "judge"): Required<Omit<ModelConfig, "instructions_file">> & { instructions_file?: string } {
   return {
     model: cardConfig?.model ?? (role === "judge" ? options.judgeModel ?? process.env.DEBATECLUB_JUDGE_MODEL ?? DEFAULT_OPENAI_JUDGE_MODEL : options.model ?? process.env.DEBATECLUB_MODEL ?? DEFAULT_OPENAI_MODEL),
     max_output_tokens: (role === "judge" ? options.judgeMaxOutputTokens : undefined) ?? options.maxOutputTokens ?? cardConfig?.max_output_tokens ?? DEFAULT_MAX_OUTPUT_TOKENS,
     temperature: options.temperature ?? cardConfig?.temperature ?? DEFAULT_TEMPERATURE,
     timeout_ms: options.timeoutMs ?? cardConfig?.timeout_ms ?? DEFAULT_TIMEOUT_MS,
     tracing: options.tracing ?? cardConfig?.tracing ?? false,
+    reasoning_effort: reasoningEffort(cardConfig?.reasoning_effort ?? options.reasoningEffort ?? process.env.DEBATECLUB_REASONING_EFFORT),
     instructions_file: cardConfig?.instructions_file
   };
 }
@@ -261,7 +275,7 @@ function dryRunVote(card: JudgeCard, match: CompletedMatch, config: { model: str
 }
 
 export async function createOpenAiAgentsSdkAgent(card: AgentCard, directory?: string, options: LiveAdapterOptions = {}): Promise<DebateAgent> {
-  const config = resolveConfig(card.model_config, options, "agent");
+  const config = resolveLiveModelConfig(card.model_config, options, "agent");
   if (!options.dryRun && !options.live) {
     throw new Error("OpenAI debate agents require --live for API calls or --dry-run for local adapter validation.");
   }
@@ -275,7 +289,7 @@ export async function createOpenAiAgentsSdkAgent(card: AgentCard, directory?: st
   });
 
   return {
-    card: { ...card, model_config: { ...card.model_config, model: config.model, max_output_tokens: config.max_output_tokens, temperature: config.temperature, timeout_ms: config.timeout_ms, tracing: config.tracing } },
+    card: { ...card, model_config: { ...card.model_config, model: config.model, max_output_tokens: config.max_output_tokens, temperature: config.temperature, timeout_ms: config.timeout_ms, tracing: config.tracing, reasoning_effort: config.reasoning_effort } },
     async prepare(_context: MatchContext): Promise<void> {
       return undefined;
     },
@@ -290,6 +304,7 @@ export async function createOpenAiAgentsSdkAgent(card: AgentCard, directory?: st
         modelSettings: {
           maxTokens: Math.min(config.max_output_tokens, budget.max_tokens),
           temperature: config.temperature,
+          reasoning: { effort: config.reasoning_effort },
           store: false,
           parallelToolCalls: false
         }
@@ -320,7 +335,7 @@ export async function createOpenAiAgentsSdkAgent(card: AgentCard, directory?: st
 }
 
 export async function createOpenAiAgentsSdkJudge(card: JudgeCard, directory?: string, options: LiveAdapterOptions = {}): Promise<DebateJudge> {
-  const config = resolveConfig(card.model_config, options, "judge");
+  const config = resolveLiveModelConfig(card.model_config, options, "judge");
   if (!options.dryRun && !options.live) {
     throw new Error("OpenAI judges require --live for API calls or --dry-run for local adapter validation.");
   }
@@ -334,7 +349,7 @@ export async function createOpenAiAgentsSdkJudge(card: JudgeCard, directory?: st
   });
 
   return {
-    card: { ...card, model_config: { ...card.model_config, model: config.model, max_output_tokens: config.max_output_tokens, temperature: config.temperature, timeout_ms: config.timeout_ms, tracing: config.tracing } },
+    card: { ...card, model_config: { ...card.model_config, model: config.model, max_output_tokens: config.max_output_tokens, temperature: config.temperature, timeout_ms: config.timeout_ms, tracing: config.tracing, reasoning_effort: config.reasoning_effort } },
     async judge(match: CompletedMatch): Promise<JudgeVote> {
       if (options.dryRun) {
         return dryRunVote(card, match, config);
@@ -346,6 +361,7 @@ export async function createOpenAiAgentsSdkJudge(card: JudgeCard, directory?: st
         modelSettings: {
           maxTokens: config.max_output_tokens,
           temperature: config.temperature,
+          reasoning: { effort: config.reasoning_effort },
           store: false,
           parallelToolCalls: false
         },
