@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T12:04:08.143Z",
+  "generated_at": "2026-09-04T08:01:29.923Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -353,6 +353,31 @@
         "match": "daily-2026-09-03-s01-ai_open_standards_001/match.json",
         "transcript": "daily-2026-09-03-s01-ai_open_standards_001/transcript.md",
         "scorecard": "daily-2026-09-03-s01-ai_open_standards_001/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-09-04-s01-ai_small_models_002",
+      "created_at": "2026-09-04T08:01:29.923Z",
+      "conjecture_id": "ai_small_models_002",
+      "conjecture_statement": "Production AI systems should default to the smallest model that can pass their evaluations.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "cross-examiner-v1",
+      "con_agent": "steelman-v1",
+      "winner": "pro",
+      "judge_split": {
+        "pro": 1,
+        "con": 0,
+        "tie": 0
+      },
+      "confidence_mean": 0.97,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-09-04-s01-ai_small_models_002/match.json",
+        "transcript": "daily-2026-09-04-s01-ai_small_models_002/transcript.md",
+        "scorecard": "daily-2026-09-04-s01-ai_small_models_002/scorecard.md"
       }
     }
   ]
