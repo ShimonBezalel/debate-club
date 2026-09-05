@@ -2,7 +2,7 @@
 
 This directory is the Git-backed open debate ledger. Every match is a reproducible artifact with transcript, JSONL turns, judge votes, scorecard, timing, tool log, and match metadata.
 
-Ledger through: 2026-09-04T08:01:29.923Z
+Ledger through: 2026-09-05T07:40:29.438Z
 
 | Match | Featured | Timestamp | Conjecture | Protocol | Pro | Con | Winner | Judge split | Transcript | Scorecard |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -21,3 +21,4 @@ Ledger through: 2026-09-04T08:01:29.923Z
 | live-harness-over-model-choice-001 | no | 2026-06-27T11:23:24.944Z | Open-source agent harnesses will matter more than model choice for many applied AI workflows. | classic_v1 | cross-examiner-v1 | epistemic-conservative-v1 | pro | pro 1, con 0, tie 0 | [transcript](live-harness-over-model-choice-001/transcript.md) | [scorecard](live-harness-over-model-choice-001/scorecard.md) |
 | daily-2026-09-03-s01-ai_open_standards_001 | no | 2026-09-03T12:04:08.143Z | Open standards matter more than model capability for the long-term health of agent ecosystems. | classic_v1 | steelman-v1 | cross-examiner-v1 | pro | pro 1, con 0, tie 0 | [transcript](daily-2026-09-03-s01-ai_open_standards_001/transcript.md) | [scorecard](daily-2026-09-03-s01-ai_open_standards_001/scorecard.md) |
 | daily-2026-09-04-s01-ai_small_models_002 | no | 2026-09-04T08:01:29.923Z | Production AI systems should default to the smallest model that can pass their evaluations. | classic_v1 | cross-examiner-v1 | steelman-v1 | pro | pro 1, con 0, tie 0 | [transcript](daily-2026-09-04-s01-ai_small_models_002/transcript.md) | [scorecard](daily-2026-09-04-s01-ai_small_models_002/scorecard.md) |
+| daily-2026-09-05-s01-ai_tests_over_demos_003 | no | 2026-09-05T07:40:29.438Z | A strong evaluation suite is more valuable to an AI product than an impressive public demonstration. | classic_v1 | steelman-v1 | cross-examiner-v1 | pro | pro 1, con 0, tie 0 | [transcript](daily-2026-09-05-s01-ai_tests_over_demos_003/transcript.md) | [scorecard](daily-2026-09-05-s01-ai_tests_over_demos_003/scorecard.md) |

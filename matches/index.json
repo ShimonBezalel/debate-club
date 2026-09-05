@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T08:01:29.923Z",
+  "generated_at": "2026-09-05T07:40:29.438Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -378,6 +378,31 @@
         "match": "daily-2026-09-04-s01-ai_small_models_002/match.json",
         "transcript": "daily-2026-09-04-s01-ai_small_models_002/transcript.md",
         "scorecard": "daily-2026-09-04-s01-ai_small_models_002/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-09-05-s01-ai_tests_over_demos_003",
+      "created_at": "2026-09-05T07:40:29.438Z",
+      "conjecture_id": "ai_tests_over_demos_003",
+      "conjecture_statement": "A strong evaluation suite is more valuable to an AI product than an impressive public demonstration.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "steelman-v1",
+      "con_agent": "cross-examiner-v1",
+      "winner": "pro",
+      "judge_split": {
+        "pro": 1,
+        "con": 0,
+        "tie": 0
+      },
+      "confidence_mean": 0.84,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-09-05-s01-ai_tests_over_demos_003/match.json",
+        "transcript": "daily-2026-09-05-s01-ai_tests_over_demos_003/transcript.md",
+        "scorecard": "daily-2026-09-05-s01-ai_tests_over_demos_003/scorecard.md"
       }
     }
   ]

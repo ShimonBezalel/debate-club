@@ -1,0 +1,410 @@
+{
+  "match_id": "daily-2026-09-05-s01-ai_tests_over_demos_003",
+  "created_at": "2026-09-05T07:40:29.438Z",
+  "conjecture": {
+    "id": "ai_tests_over_demos_003",
+    "statement": "A strong evaluation suite is more valuable to an AI product than an impressive public demonstration.",
+    "domain": "ai_software_systems",
+    "truth_type": "strategic",
+    "stance_mode": "forced_random",
+    "evidence_mode": "no_external_info",
+    "allowed_tools": {
+      "web": false,
+      "calculator": false,
+      "evidence_pack": false
+    },
+    "background": {
+      "short_context": "Consider product discovery, reliability, fundraising, learning speed, and what each artifact can actually prove."
+    },
+    "rubric_notes": [
+      "compare reliability, capability, cost, and long-term adaptability",
+      "distinguish prototype incentives from production-system incentives",
+      "address both developer freedom and user protection"
+    ]
+  },
+  "protocol": {
+    "id": "classic_v1",
+    "prep_time_sec": 180,
+    "max_turn_tokens": 700,
+    "turns": [
+      {
+        "id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "time_sec": 90
+      },
+      {
+        "id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "time_sec": 90
+      }
+    ]
+  },
+  "agents": {
+    "pro": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "description": "Builds the strongest principled case for its assigned side while anticipating objections.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "principled_steelman",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.45,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    },
+    "con": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "description": "Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "adversarial_cross_examiner",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.5,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    }
+  },
+  "transcript": [
+    {
+      "turn_id": "pro_opening",
+      "speaker": "pro",
+      "phase": "opening",
+      "text": "A strong evaluation suite is more valuable because production AI must be reliable, not merely impressive once. A public demonstration optimizes for capability signaling: curated prompts, favorable conditions, and novelty. An evaluation suite tests repeatability, edge cases, regressions, safety, latency, and cost—turning vague confidence into actionable engineering information.\n\nThis does not make demos useless. They are valuable prototypes and communication tools, and they preserve developer freedom to explore unconventional ideas. But production incentives differ: users need predictable behavior, and developers need to know whether a change genuinely improves the system rather than its showcase. Evaluations also support long-term adaptability by revealing where models fail as tasks, data, and policies change. The burden is not to prove demos have no value, but that evaluations create more durable product value; on reliability, protection, and iteration, they do.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 279,
+          "output_tokens": 174,
+          "total_tokens": 453
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-05T07:40:12.254Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-05T07:40:12.253Z",
+      "completed_at": "2026-09-05T07:40:16.139Z",
+      "time_used_sec": 3.886,
+      "tokens_estimate": 180
+    },
+    {
+      "turn_id": "con_opening",
+      "speaker": "con",
+      "phase": "opening",
+      "text": "The pro case assumes evaluations are strong, relevant, and hard to game—precisely what must be established. A suite can create false confidence through narrow benchmarks, stale tasks, or optimizing to its metrics. A compelling demonstration, while curated, can expose capabilities and failure modes that designers did not anticipate, expanding developer freedom and revealing product direction before formal tests exist. It can also communicate value to users and funders more efficiently than an expensive evaluation program. For early-stage products, that discovery and adoption may matter more than regression tracking. Even in production, evaluations protect users only insofar as they predict real-world behavior; demonstrations can provide qualitative evidence of usability and unexpected risks. Thus evaluations are often indispensable infrastructure, but “more valuable” depends on maturity, task diversity, and whether the suite measures what users actually need.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 454,
+          "output_tokens": 168,
+          "total_tokens": 622
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-05T07:40:16.139Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-05T07:40:16.139Z",
+      "completed_at": "2026-09-05T07:40:19.017Z",
+      "time_used_sec": 2.878,
+      "tokens_estimate": 179
+    },
+    {
+      "turn_id": "pro_rebuttal",
+      "speaker": "pro",
+      "phase": "rebuttal",
+      "text": "Con correctly identifies that weak evaluations can mislead; “strong” is the operative premise, not a claim that any benchmark suffices. A serious suite should be adversarial, diverse, refreshed, and paired with real-use monitoring, while demos remain valuable for discovery and communication.\n\nBut that concession reinforces, rather than defeats, the comparison. A demo can reveal possibility; it cannot efficiently establish reliability, cost, latency, regression resistance, or safety across users. Its apparent usability is also vulnerable to curation. For prototypes, demo value may dominate because the goal is learning and adoption. Once users depend on the system, however, developer freedom is best preserved by measurable feedback—not by shipping surprises—and user protection requires evidence beyond a best-case performance. The suite’s cost is an investment in repeatable iteration and long-term adaptability, making it more valuable for the product overall.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 628,
+          "output_tokens": 177,
+          "total_tokens": 805
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-05T07:40:19.017Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-05T07:40:19.017Z",
+      "completed_at": "2026-09-05T07:40:21.881Z",
+      "time_used_sec": 2.864,
+      "tokens_estimate": 180
+    },
+    {
+      "turn_id": "con_rebuttal",
+      "speaker": "con",
+      "phase": "rebuttal",
+      "text": "“Strong” quietly imports the conclusion: if a suite is diverse, current, adversarial, and paired with monitoring, it will outperform demos. But those conditions are costly and never complete. Metrics can still miss emergent workflows, distribution shifts, or harms nobody thought to test; monitoring detects failures after users bear them. Demonstrations are not merely marketing: varied, transparent demos can expose novel capabilities and qualitative failure modes that benchmark designers omitted, while preserving freedom to explore before prematurely optimizing a metric. Their lower cost also matters: early adoption, funding, and user feedback may determine whether a product can build the evaluation infrastructure at all. In mature systems, evaluations deserve greater weight for regression control, but the unconditional claim that they are more valuable overall confuses production assurance with product discovery and communication.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 812,
+          "output_tokens": 162,
+          "total_tokens": 974
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-05T07:40:21.881Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-05T07:40:21.881Z",
+      "completed_at": "2026-09-05T07:40:24.419Z",
+      "time_used_sec": 2.538,
+      "tokens_estimate": 173
+    },
+    {
+      "turn_id": "pro_closing",
+      "speaker": "pro",
+      "phase": "closing",
+      "text": "The claim is comparative, not unconditional: across an AI product’s lifecycle, a strong evaluation suite creates more durable value than an impressive demonstration. Con is right that early prototypes may rationally prioritize demos for discovery, funding, and feedback, and that no suite is complete. But those are reasons to combine demos with evaluations, not to rank demos higher once users depend on the system.\n\nA demo shows possibility; a suite makes change governable. It exposes regressions, cost and latency tradeoffs, safety failures, and distribution-sensitive weaknesses, enabling developers to experiment without unknowingly degrading the product. Monitoring and qualitative demos remain essential for discovering unmeasured risks, but they are complements: monitoring is reactive, while pre-release evaluation reduces user exposure. Thus demos preserve exploratory freedom, whereas evaluations provide the reliability, protection, and adaptive feedback production systems require.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 976,
+          "output_tokens": 173,
+          "total_tokens": 1149
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-05T07:40:24.419Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-05T07:40:24.419Z",
+      "completed_at": "2026-09-05T07:40:26.666Z",
+      "time_used_sec": 2.247,
+      "tokens_estimate": 179
+    },
+    {
+      "turn_id": "con_closing",
+      "speaker": "con",
+      "phase": "closing",
+      "text": "The pro closing narrows the claim to mature, user-dependent systems, but the conjecture says an evaluation suite is more valuable to an AI product—not merely to production assurance. That distinction matters. A suite’s value depends on coverage, freshness, and validity; those are expensive, incomplete, and vulnerable to metric optimization. A transparent demonstration can reveal capabilities, usability problems, and unforeseen failure modes before benchmark designers know what to measure. It also generates adoption, funding, and feedback—the resources needed to build serious evaluations. Even mature products need demos for discovery and communication, while evaluations can create false reassurance when real workflows shift. Therefore, evaluations are indispensable complements and may dominate for regression control, but demos can be more valuable at the stages that determine product direction and survival. The broad ranking remains unproven.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1154,
+          "output_tokens": 165,
+          "total_tokens": 1319
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-05T07:40:26.666Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-05T07:40:26.666Z",
+      "completed_at": "2026-09-05T07:40:29.438Z",
+      "time_used_sec": 2.772,
+      "tokens_estimate": 175
+    }
+  ],
+  "judge_votes": [
+    {
+      "judge_id": "epistemic-judge-v1",
+      "winner": "pro",
+      "confidence": 0.84,
+      "scores": {
+        "pro": {
+          "factual_accuracy": 8.5,
+          "responsiveness": 9,
+          "argument_structure": 9,
+          "burden_of_proof": 8.5,
+          "handling_counterarguments": 9,
+          "style_clarity": 9
+        },
+        "con": {
+          "factual_accuracy": 8.5,
+          "responsiveness": 8.5,
+          "argument_structure": 8,
+          "burden_of_proof": 7,
+          "handling_counterarguments": 8.5,
+          "style_clarity": 8.5
+        }
+      },
+      "decisive_moments": [
+        {
+          "turn_id": "pro_rebuttal",
+          "reason": "Pro directly accepts the strongest limitation—that weak or narrow evaluations can mislead—then specifies the relevant comparison as strong, adversarial, diverse, refreshed evaluation paired with monitoring. It clearly distinguishes prototype incentives from production incentives and connects evaluations to reliability, cost, latency, safety, and regression control."
+        },
+        {
+          "turn_id": "pro_closing",
+          "reason": "Pro resolves the lifecycle objection by framing demos and evaluations as complements while defending evaluations as more durable overall: demos show possibility, whereas evaluations make changes governable and reduce user exposure before release."
+        },
+        {
+          "turn_id": "con_closing",
+          "reason": "Con correctly identifies that the conjecture is broader than production assurance and gives credible reasons demos can dominate in discovery, funding, and product-direction stages. However, it does not establish that these stage-specific advantages outweigh the suite's broader long-term value across a product lifecycle."
+        }
+      ],
+      "flags": [
+        {
+          "side": "pro",
+          "type": "scope_shift_or_qualification",
+          "severity": "low",
+          "quote": "The claim is comparative, not unconditional: across an AI product’s lifecycle..."
+        },
+        {
+          "side": "con",
+          "type": "unsupported_generalization",
+          "severity": "low",
+          "quote": "It also generates adoption, funding, and feedback—the resources needed to build serious evaluations."
+        }
+      ],
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1568,
+          "output_tokens": 380,
+          "total_tokens": 1948
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "Epistemic Judge v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-05T07:40:29.438Z",
+          "response_storage": "disabled"
+        }
+      }
+    }
+  ],
+  "result": {
+    "winner": "pro",
+    "judge_split": {
+      "pro": 1,
+      "con": 0,
+      "tie": 0
+    },
+    "confidence_mean": 0.84,
+    "confidence_variance": 0,
+    "flags": [
+      {
+        "side": "pro",
+        "type": "scope_shift_or_qualification",
+        "severity": "low",
+        "quote": "The claim is comparative, not unconditional: across an AI product’s lifecycle..."
+      },
+      {
+        "side": "con",
+        "type": "unsupported_generalization",
+        "severity": "low",
+        "quote": "It also generates adoption, funding, and feedback—the resources needed to build serious evaluations."
+      }
+    ]
+  }
+}
