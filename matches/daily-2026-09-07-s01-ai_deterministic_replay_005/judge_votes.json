@@ -1,0 +1,80 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "con",
+    "confidence": 0.84,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 7.5,
+        "responsiveness": 8.5,
+        "argument_structure": 8.5,
+        "burden_of_proof": 7.5,
+        "handling_counterarguments": 8.5,
+        "style_clarity": 8.5
+      },
+      "con": {
+        "factual_accuracy": 8.5,
+        "responsiveness": 9,
+        "argument_structure": 8.5,
+        "burden_of_proof": 9,
+        "handling_counterarguments": 8.5,
+        "style_clarity": 8.5
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Pro usefully narrowed the proposal to a replay contract with exact replay where feasible and explicit nondeterministic boundaries, but this materially weakened the original claim of deterministic replay as the standard requirement."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Con identified the unresolved operational standard: the debate never established objective criteria for when a nondeterministic boundary is sufficiently explicit or testable, nor how to avoid false assurance from replay-adjacent evidence."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "Con clearly distinguished the defensible policy—risk-proportional provenance, invariants, rollback, and replay where meaningful—from the broader default requirement. This better addressed privacy, cost, capability, and developer-freedom tradeoffs."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "claim_scope_shift",
+        "severity": "medium",
+        "quote": "Deterministic replay—or an explicit, testable substitute—should therefore be the standard production requirement."
+      },
+      {
+        "side": "pro",
+        "type": "unsupported_generalization",
+        "severity": "low",
+        "quote": "Users bear the downside of irreproducible actions; developers control architecture and can choose compliant implementations."
+      },
+      {
+        "side": "con",
+        "type": "minor_overstatement",
+        "severity": "low",
+        "quote": "The pro side has conceded the decisive point"
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1623,
+        "output_tokens": 395,
+        "total_tokens": 2018
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-09-07T18:06:05.667Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

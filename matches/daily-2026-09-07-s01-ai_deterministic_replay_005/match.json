@@ -1,0 +1,422 @@
+{
+  "match_id": "daily-2026-09-07-s01-ai_deterministic_replay_005",
+  "created_at": "2026-09-07T18:06:05.667Z",
+  "conjecture": {
+    "id": "ai_deterministic_replay_005",
+    "statement": "Deterministic replay should be a standard requirement for agentic software.",
+    "domain": "ai_software_systems",
+    "truth_type": "technical_design",
+    "stance_mode": "forced_random",
+    "evidence_mode": "no_external_info",
+    "allowed_tools": {
+      "web": false,
+      "calculator": false,
+      "evidence_pack": false
+    },
+    "background": {
+      "short_context": "Examine nondeterministic models, auditability, privacy, implementation cost, and the difference between replaying inputs and outcomes."
+    },
+    "rubric_notes": [
+      "compare reliability, capability, cost, and long-term adaptability",
+      "distinguish prototype incentives from production-system incentives",
+      "address both developer freedom and user protection"
+    ]
+  },
+  "protocol": {
+    "id": "classic_v1",
+    "prep_time_sec": 180,
+    "max_turn_tokens": 700,
+    "turns": [
+      {
+        "id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "time_sec": 90
+      },
+      {
+        "id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "time_sec": 90
+      }
+    ]
+  },
+  "agents": {
+    "pro": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "description": "Builds the strongest principled case for its assigned side while anticipating objections.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "principled_steelman",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.45,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    },
+    "con": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "description": "Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "adversarial_cross_examiner",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.5,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    }
+  },
+  "transcript": [
+    {
+      "turn_id": "pro_opening",
+      "speaker": "pro",
+      "phase": "opening",
+      "text": "Deterministic replay should be a standard production requirement for agentic software: given the same versioned inputs, tools, policies, and environment snapshot, operators should be able to reproduce an agent run—or explain precisely why they cannot.\n\nThe burden is not proving perfect determinism is always feasible; it is showing that replayability’s reliability and accountability benefits outweigh its costs. Replay enables debugging, regression testing, incident investigation, safety audits, and reproducible evaluation—especially valuable when agents take consequential actions. It protects users without dictating implementation: developers may use nondeterminism during exploration, while production systems expose configurable seeds, event logs, checkpoints, and explicit nondeterministic boundaries.\n\nThe strongest objection is cost: storage, performance, privacy, and constrained innovation. That warrants scoped requirements and redaction, not abandonment. Prototypes can optimize capability and speed; deployed systems need durable evidence and recovery. Standardized replay also improves long-term adaptability by making behavior changes measurable rather than mysterious.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 277,
+          "output_tokens": 199,
+          "total_tokens": 476
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-07T18:05:40.716Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-07T18:05:40.716Z",
+      "completed_at": "2026-09-07T18:05:46.006Z",
+      "time_used_sec": 5.29,
+      "tokens_estimate": 195
+    },
+    {
+      "turn_id": "con_opening",
+      "speaker": "con",
+      "phase": "opening",
+      "text": "Deterministic replay sounds protective, but the proposed standard quietly changes the claim from “record enough evidence” to “reproduce the run.” Those are not equivalent. Agent behavior may depend on external services, evolving models, hidden hardware state, user data, or stochastic exploration; versioning inputs does not guarantee semantic equivalence. Requiring replay can impose substantial storage, latency, privacy, and engineering costs, while creating false confidence when replay diverges.\n\nProduction systems do need incident evidence, rollback, and testing—but those goals can be met with event logs, checkpoints, provenance, invariant checks, and explicit nondeterminism, without mandating determinism. A universal requirement also constrains developer freedom and may exclude capable architectures whose value depends on adaptation. Make replay a risk-based option for high-consequence workflows, with auditable explanations where exact reproduction is infeasible—not a blanket standard.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 477,
+          "output_tokens": 180,
+          "total_tokens": 657
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-07T18:05:46.006Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-07T18:05:46.006Z",
+      "completed_at": "2026-09-07T18:05:51.981Z",
+      "time_used_sec": 5.975,
+      "tokens_estimate": 172
+    },
+    {
+      "turn_id": "pro_rebuttal",
+      "speaker": "pro",
+      "phase": "rebuttal",
+      "text": "The rebuttal conflates a universal outcome with a universal engineering obligation. The standard need not promise semantic identity across changing services; it should require a defined replay contract: exact replay where feasible, and explicit, testable nondeterministic boundaries where not. Logs alone show what was recorded, not whether the system can be reconstructed, tested, or safely recovered.\n\nYes, replay has storage, privacy, and latency costs. Those justify tiering, retention limits, redaction, and checkpointing—not making production accountability optional. Risk-based scope can preserve developer freedom: prototypes and low-impact tools may opt out, while systems affecting money, access, safety, or personal data meet stronger requirements. Users bear the downside of irreproducible actions; developers control architecture and can choose compliant implementations. Long-term adaptability also favors replay contracts, because migrations and model updates become comparable rather than anecdotal.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 663,
+          "output_tokens": 180,
+          "total_tokens": 843
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-07T18:05:51.981Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-07T18:05:51.981Z",
+      "completed_at": "2026-09-07T18:05:55.004Z",
+      "time_used_sec": 3.023,
+      "tokens_estimate": 176
+    },
+    {
+      "turn_id": "con_rebuttal",
+      "speaker": "con",
+      "phase": "rebuttal",
+      "text": "A “replay contract” does not solve the core problem; it may merely rename it. If exact replay is infeasible, what objective test determines whether a boundary is adequately “explicit” or “testable”? A log plus a post hoc explanation can satisfy paperwork while failing to reproduce a harmful action. Conversely, enforcing checkpoints, snapshots, and retention across every production agent imposes real privacy and infrastructure costs, especially where data cannot legally be retained.\n\nThe strongest case supports mandatory evidence proportional to risk—not deterministic replay as the default standard. High-consequence systems should require provenance, invariant checks, rollback, and replay where technically meaningful; low-risk or adaptive systems should retain developer freedom. Otherwise the standard rewards architectures optimized for auditability rather than capability, and may create false assurance precisely when replay diverges.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 850,
+          "output_tokens": 164,
+          "total_tokens": 1014
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-07T18:05:55.005Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-07T18:05:55.004Z",
+      "completed_at": "2026-09-07T18:05:58.859Z",
+      "time_used_sec": 3.855,
+      "tokens_estimate": 169
+    },
+    {
+      "turn_id": "pro_closing",
+      "speaker": "pro",
+      "phase": "closing",
+      "text": "The closing burden is not to prove replay is perfect, but that production agents need a reproducible accountability baseline. Concedes: exact replay cannot always survive changing services, privacy limits, or adaptive models. That is precisely why the standard should require a declared contract: exact replay where feasible, and machine-testable boundaries, provenance, and failure evidence where not. “Logs plus explanation” alone cannot establish whether an incident is reconstructible or a fix actually works.\n\nThis need not burden prototypes or low-risk tools. Tiered retention, redaction, checkpoints, and scoped obligations preserve developer freedom while protecting users when agents move money, alter access, or handle sensitive data. Capability matters, but production reliability and long-term adaptability require behavior that can be compared, debugged, and audited. Deterministic replay—or an explicit, testable substitute—should therefore be the standard production requirement.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1016,
+          "output_tokens": 179,
+          "total_tokens": 1195
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-07T18:05:58.859Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-07T18:05:58.859Z",
+      "completed_at": "2026-09-07T18:06:01.766Z",
+      "time_used_sec": 2.907,
+      "tokens_estimate": 176
+    },
+    {
+      "turn_id": "con_closing",
+      "speaker": "con",
+      "phase": "closing",
+      "text": "The pro side has conceded the decisive point: its requirement is no longer deterministic replay, but risk-tiered evidence with declared exceptions. That is a reasonable engineering policy, yet it does not justify making replay the standard requirement.\n\n“Machine-testable boundaries” still cannot guarantee meaningful reconstruction when models, services, hardware, or data semantics change; tests may validate the logging mechanism rather than the agent’s causal behavior. Meanwhile, mandatory snapshots and retention can increase privacy exposure and operational cost, and may be impossible where data cannot legally be stored. Those are not merely prototype inconveniences.\n\nProduction accountability should therefore mandate proportional provenance, invariants, rollback, and incident evidence. Exact replay should be required where technically meaningful and high-risk—not treated as the default architecture. This better balances user protection, developer freedom, capability, and long-term adaptability without creating false assurance.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1200,
+          "output_tokens": 173,
+          "total_tokens": 1373
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-07T18:06:01.766Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-07T18:06:01.766Z",
+      "completed_at": "2026-09-07T18:06:05.667Z",
+      "time_used_sec": 3.901,
+      "tokens_estimate": 179
+    }
+  ],
+  "judge_votes": [
+    {
+      "judge_id": "epistemic-judge-v1",
+      "winner": "con",
+      "confidence": 0.84,
+      "scores": {
+        "pro": {
+          "factual_accuracy": 7.5,
+          "responsiveness": 8.5,
+          "argument_structure": 8.5,
+          "burden_of_proof": 7.5,
+          "handling_counterarguments": 8.5,
+          "style_clarity": 8.5
+        },
+        "con": {
+          "factual_accuracy": 8.5,
+          "responsiveness": 9,
+          "argument_structure": 8.5,
+          "burden_of_proof": 9,
+          "handling_counterarguments": 8.5,
+          "style_clarity": 8.5
+        }
+      },
+      "decisive_moments": [
+        {
+          "turn_id": "pro_rebuttal",
+          "reason": "Pro usefully narrowed the proposal to a replay contract with exact replay where feasible and explicit nondeterministic boundaries, but this materially weakened the original claim of deterministic replay as the standard requirement."
+        },
+        {
+          "turn_id": "con_rebuttal",
+          "reason": "Con identified the unresolved operational standard: the debate never established objective criteria for when a nondeterministic boundary is sufficiently explicit or testable, nor how to avoid false assurance from replay-adjacent evidence."
+        },
+        {
+          "turn_id": "con_closing",
+          "reason": "Con clearly distinguished the defensible policy—risk-proportional provenance, invariants, rollback, and replay where meaningful—from the broader default requirement. This better addressed privacy, cost, capability, and developer-freedom tradeoffs."
+        }
+      ],
+      "flags": [
+        {
+          "side": "pro",
+          "type": "claim_scope_shift",
+          "severity": "medium",
+          "quote": "Deterministic replay—or an explicit, testable substitute—should therefore be the standard production requirement."
+        },
+        {
+          "side": "pro",
+          "type": "unsupported_generalization",
+          "severity": "low",
+          "quote": "Users bear the downside of irreproducible actions; developers control architecture and can choose compliant implementations."
+        },
+        {
+          "side": "con",
+          "type": "minor_overstatement",
+          "severity": "low",
+          "quote": "The pro side has conceded the decisive point"
+        }
+      ],
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1623,
+          "output_tokens": 395,
+          "total_tokens": 2018
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "Epistemic Judge v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-07T18:06:05.667Z",
+          "response_storage": "disabled"
+        }
+      }
+    }
+  ],
+  "result": {
+    "winner": "con",
+    "judge_split": {
+      "pro": 0,
+      "con": 1,
+      "tie": 0
+    },
+    "confidence_mean": 0.84,
+    "confidence_variance": 0,
+    "flags": [
+      {
+        "side": "pro",
+        "type": "claim_scope_shift",
+        "severity": "medium",
+        "quote": "Deterministic replay—or an explicit, testable substitute—should therefore be the standard production requirement."
+      },
+      {
+        "side": "pro",
+        "type": "unsupported_generalization",
+        "severity": "low",
+        "quote": "Users bear the downside of irreproducible actions; developers control architecture and can choose compliant implementations."
+      },
+      {
+        "side": "con",
+        "type": "minor_overstatement",
+        "severity": "low",
+        "quote": "The pro side has conceded the decisive point"
+      }
+    ]
+  }
+}
