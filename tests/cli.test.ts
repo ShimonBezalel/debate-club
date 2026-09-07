@@ -26,7 +26,8 @@ describe("cli", () => {
     expect(index.matches).toHaveLength(1);
   });
 
-  it("runs, rebuilds, replays, and summarizes a stub debate", async () => {
+  // Four CLI process launches need CI startup headroom.
+  it("runs, rebuilds, replays, and summarizes a stub debate", { timeout: 15_000 }, async () => {
     const out = await mkdtemp(join(tmpdir(), "debate-club-cli-"));
     const run = await runCli([
       "run",
