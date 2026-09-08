@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T18:06:05.667Z",
+  "generated_at": "2026-09-08T08:05:23.789Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -428,6 +428,31 @@
         "match": "daily-2026-09-07-s01-ai_deterministic_replay_005/match.json",
         "transcript": "daily-2026-09-07-s01-ai_deterministic_replay_005/transcript.md",
         "scorecard": "daily-2026-09-07-s01-ai_deterministic_replay_005/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-09-08-s01-ai_modular_agents_006",
+      "created_at": "2026-09-08T08:05:23.789Z",
+      "conjecture_id": "ai_modular_agents_006",
+      "conjecture_statement": "Teams of narrow agents are generally easier to trust than one highly capable general agent.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "cross-examiner-v1",
+      "con_agent": "steelman-v1",
+      "winner": "tie",
+      "judge_split": {
+        "pro": 0,
+        "con": 0,
+        "tie": 1
+      },
+      "confidence_mean": 0.84,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-09-08-s01-ai_modular_agents_006/match.json",
+        "transcript": "daily-2026-09-08-s01-ai_modular_agents_006/transcript.md",
+        "scorecard": "daily-2026-09-08-s01-ai_modular_agents_006/scorecard.md"
       }
     }
   ]

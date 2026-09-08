@@ -1,0 +1,86 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "tie",
+    "confidence": 0.84,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 8.5,
+        "responsiveness": 8.5,
+        "argument_structure": 9,
+        "burden_of_proof": 7.5,
+        "handling_counterarguments": 8.5,
+        "style_clarity": 9
+      },
+      "con": {
+        "factual_accuracy": 8.5,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 8.5,
+        "handling_counterarguments": 8.5,
+        "style_clarity": 9
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_closing",
+        "reason": "Pro correctly distinguishes trust and governability from raw reliability or cost, and gives a plausible production-oriented case for bounded permissions, blast-radius reduction, and independent auditing."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Con identifies the central burden-of-proof problem: the pro case depends on enforceable boundaries, while coordination, semantic mismatch, correlated errors, and orchestrator failures can undermine whole-system trust."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "Con directly reframes the comparison around end-to-end outcomes and explains why the stated advantages of teams may be domain-conditional rather than generally applicable."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_generalization",
+        "severity": "medium",
+        "quote": "Thus the qualified, comparative conjecture stands: bounded teams are generally easier to govern and trust"
+      },
+      {
+        "side": "pro",
+        "type": "burden_shift",
+        "severity": "low",
+        "quote": "The missing condition is not fatal—it identifies the engineering test"
+      },
+      {
+        "side": "con",
+        "type": "unsupported_generalization",
+        "severity": "low",
+        "quote": "A general agent’s single context can be more reliable on novel, cross-domain tasks"
+      },
+      {
+        "side": "con",
+        "type": "equivocation_risk",
+        "severity": "low",
+        "quote": "Trust concerns the whole outcome"
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1591,
+        "output_tokens": 384,
+        "total_tokens": 1975
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-09-08T08:05:23.789Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

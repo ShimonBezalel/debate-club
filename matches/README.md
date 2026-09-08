@@ -2,7 +2,7 @@
 
 This directory is the Git-backed open debate ledger. Every match is a reproducible artifact with transcript, JSONL turns, judge votes, scorecard, timing, tool log, and match metadata.
 
-Ledger through: 2026-09-07T18:06:05.667Z
+Ledger through: 2026-09-08T08:05:23.789Z
 
 | Match | Featured | Timestamp | Conjecture | Protocol | Pro | Con | Winner | Judge split | Transcript | Scorecard |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -23,3 +23,4 @@ Ledger through: 2026-09-07T18:06:05.667Z
 | daily-2026-09-04-s01-ai_small_models_002 | no | 2026-09-04T08:01:29.923Z | Production AI systems should default to the smallest model that can pass their evaluations. | classic_v1 | cross-examiner-v1 | steelman-v1 | pro | pro 1, con 0, tie 0 | [transcript](daily-2026-09-04-s01-ai_small_models_002/transcript.md) | [scorecard](daily-2026-09-04-s01-ai_small_models_002/scorecard.md) |
 | daily-2026-09-05-s01-ai_tests_over_demos_003 | no | 2026-09-05T07:40:29.438Z | A strong evaluation suite is more valuable to an AI product than an impressive public demonstration. | classic_v1 | steelman-v1 | cross-examiner-v1 | pro | pro 1, con 0, tie 0 | [transcript](daily-2026-09-05-s01-ai_tests_over_demos_003/transcript.md) | [scorecard](daily-2026-09-05-s01-ai_tests_over_demos_003/scorecard.md) |
 | daily-2026-09-07-s01-ai_deterministic_replay_005 | no | 2026-09-07T18:06:05.667Z | Deterministic replay should be a standard requirement for agentic software. | classic_v1 | steelman-v1 | cross-examiner-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-07-s01-ai_deterministic_replay_005/transcript.md) | [scorecard](daily-2026-09-07-s01-ai_deterministic_replay_005/scorecard.md) |
+| daily-2026-09-08-s01-ai_modular_agents_006 | no | 2026-09-08T08:05:23.789Z | Teams of narrow agents are generally easier to trust than one highly capable general agent. | classic_v1 | cross-examiner-v1 | steelman-v1 | tie | pro 0, con 0, tie 1 | [transcript](daily-2026-09-08-s01-ai_modular_agents_006/transcript.md) | [scorecard](daily-2026-09-08-s01-ai_modular_agents_006/scorecard.md) |
