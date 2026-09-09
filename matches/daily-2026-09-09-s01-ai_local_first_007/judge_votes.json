@@ -1,0 +1,80 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "con",
+    "confidence": 0.84,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 7.2,
+        "responsiveness": 8.1,
+        "argument_structure": 8.3,
+        "burden_of_proof": 6.8,
+        "handling_counterarguments": 8,
+        "style_clarity": 8.5
+      },
+      "con": {
+        "factual_accuracy": 8,
+        "responsiveness": 8.8,
+        "argument_structure": 8.5,
+        "burden_of_proof": 8.2,
+        "handling_counterarguments": 8.7,
+        "style_clarity": 8.6
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "turn_con_rebuttal",
+        "reason": "Con directly identified the central unresolved premise: a local component may not reliably recognize when it is outmatched, especially in high-stakes or accessibility contexts. This attacks the operational feasibility of pro's proposed guarded architecture rather than merely disputing its benefits."
+      },
+      {
+        "turn_id": "turn_con_closing",
+        "reason": "Con clarified that the debate is about the default under a stipulated substantial capability gap. It showed that local-first creates hardware, maintenance, compatibility, and exclusion costs, while cloud-first can be mitigated through abstraction, regional processing, retention limits, encryption, and spending controls."
+      },
+      {
+        "turn_id": "turn_pro_closing",
+        "reason": "Pro effectively framed long-term privacy, replaceability, offline availability, and vendor dependence as production concerns, and appropriately conceded that local-first cannot mean local-only. However, it did not establish that consent-based escalation is safe when the local system cannot detect its own limitations."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_generalization",
+        "severity": "medium",
+        "quote": "cloud-first makes disclosure, recurring payment, availability, and policy dependence the baseline, often before users can meaningfully choose"
+      },
+      {
+        "side": "con",
+        "type": "unsupported_generalization",
+        "severity": "low",
+        "quote": "delivering materially fewer errors"
+      },
+      {
+        "side": "pro",
+        "type": "unresolved_safety_assumption",
+        "severity": "high",
+        "quote": "A local-first system can refuse, defer, or request consent for stronger cloud assistance"
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1599,
+        "output_tokens": 433,
+        "total_tokens": 2032
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-09-09T08:09:13.832Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

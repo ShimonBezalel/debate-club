@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T08:05:23.789Z",
+  "generated_at": "2026-09-09T08:09:13.832Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -453,6 +453,31 @@
         "match": "daily-2026-09-08-s01-ai_modular_agents_006/match.json",
         "transcript": "daily-2026-09-08-s01-ai_modular_agents_006/transcript.md",
         "scorecard": "daily-2026-09-08-s01-ai_modular_agents_006/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-09-09-s01-ai_local_first_007",
+      "created_at": "2026-09-09T08:09:13.832Z",
+      "conjecture_id": "ai_local_first_007",
+      "conjecture_statement": "Personal AI tools should be local-first even when cloud models are substantially more capable.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "steelman-v1",
+      "con_agent": "cross-examiner-v1",
+      "winner": "con",
+      "judge_split": {
+        "pro": 0,
+        "con": 1,
+        "tie": 0
+      },
+      "confidence_mean": 0.84,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-09-09-s01-ai_local_first_007/match.json",
+        "transcript": "daily-2026-09-09-s01-ai_local_first_007/transcript.md",
+        "scorecard": "daily-2026-09-09-s01-ai_local_first_007/scorecard.md"
       }
     }
   ]
