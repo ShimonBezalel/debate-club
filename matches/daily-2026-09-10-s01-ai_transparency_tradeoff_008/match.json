@@ -1,0 +1,410 @@
+{
+  "match_id": "daily-2026-09-10-s01-ai_transparency_tradeoff_008",
+  "created_at": "2026-09-10T08:08:39.391Z",
+  "conjecture": {
+    "id": "ai_transparency_tradeoff_008",
+    "statement": "An interpretable AI system should be preferred over a better-performing opaque system in most deployments.",
+    "domain": "ai_software_systems",
+    "truth_type": "policy",
+    "stance_mode": "forced_random",
+    "evidence_mode": "no_external_info",
+    "allowed_tools": {
+      "web": false,
+      "calculator": false,
+      "evidence_pack": false
+    },
+    "background": {
+      "short_context": "Clarify deployment stakes, measurable performance gaps, contestability, and what interpretability can realistically deliver."
+    },
+    "rubric_notes": [
+      "compare reliability, capability, cost, and long-term adaptability",
+      "distinguish prototype incentives from production-system incentives",
+      "address both developer freedom and user protection"
+    ]
+  },
+  "protocol": {
+    "id": "classic_v1",
+    "prep_time_sec": 180,
+    "max_turn_tokens": 700,
+    "turns": [
+      {
+        "id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "time_sec": 90
+      },
+      {
+        "id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "time_sec": 90
+      }
+    ]
+  },
+  "agents": {
+    "pro": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "description": "Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "adversarial_cross_examiner",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.5,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    },
+    "con": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "description": "Builds the strongest principled case for its assigned side while anticipating objections.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "principled_steelman",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.45,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    }
+  },
+  "transcript": [
+    {
+      "turn_id": "pro_opening",
+      "speaker": "pro",
+      "phase": "opening",
+      "text": "I support the conjecture, with “preferred” meaning the default choice when performance differences are not decisive for the deployment’s risk and mission.\n\nInterpretability is not merely a transparency virtue. It improves debugging, monitoring, incident response, auditing, and the ability to detect distribution shift or specification failure. Those benefits increase reliability and long-term adaptability, while reducing costly surprises. Users and affected third parties gain protection because operators can explain and contest consequential behavior.\n\nA better opaque model may win in a prototype, benchmark, or low-stakes setting where speed and capability dominate. But production systems face maintenance, compliance, accountability, and changing requirements; apparent performance gains can be offset by investigation and failure costs. This preference need not eliminate developer freedom: teams may deploy opaque systems when their advantage is substantial and safeguards compensate. The claim is a prudent default, not an absolute ban.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 281,
+          "output_tokens": 176,
+          "total_tokens": 457
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-10T08:08:18.241Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-10T08:08:18.240Z",
+      "completed_at": "2026-09-10T08:08:23.023Z",
+      "time_used_sec": 4.783,
+      "tokens_estimate": 188
+    },
+    {
+      "turn_id": "con_opening",
+      "speaker": "con",
+      "phase": "opening",
+      "text": "I oppose making interpretability the default preference in *most* deployments. The central question is whether its debugging and accountability benefits reliably outweigh capability, reliability, cost, and adaptability losses—not whether transparency is valuable.\n\nInterpretability can aid diagnosis, but explanations may be incomplete, misleading, or unavailable precisely where the system’s superior performance matters. A more capable opaque system may reduce errors, improve safety outcomes, and adapt faster through retraining; imposing an interpretable alternative can itself expose users to preventable harm. Interpretability also consumes engineering resources and can constrain developer freedom to choose effective architectures.\n\nProduction systems do require monitoring, audits, fallback procedures, and user protections. But these can often be supplied through testing, logging, access controls, human review, and outcome-based evaluation rather than demanding model interpretability. Interpretability deserves strong weight in high-stakes, contestable decisions—not a broad presumption across deployments.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 456,
+          "output_tokens": 184,
+          "total_tokens": 640
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-10T08:08:23.024Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-10T08:08:23.024Z",
+      "completed_at": "2026-09-10T08:08:26.739Z",
+      "time_used_sec": 3.715,
+      "tokens_estimate": 183
+    },
+    {
+      "turn_id": "pro_rebuttal",
+      "speaker": "pro",
+      "phase": "rebuttal",
+      "text": "The objection treats interpretability as if it necessarily imposes a large capability tax, but the conjecture is comparative and conditional: prefer it when performance is not decisively better. Outcome testing and logs do not reveal why failures occur, whether a specification is being gamed, or how to adapt when conditions change; they are complements, not substitutes, for understanding. Nor does interpretability eliminate developer freedom: it sets a production default while permitting opaque systems where demonstrated gains are substantial and independent safeguards are credible. The relevant comparison includes lifecycle cost—debugging, incident investigation, compliance, and contesting harmful decisions—not just training expense or benchmark accuracy. Prototype incentives favor maximum capability; production incentives must also protect users and preserve operators’ ability to diagnose and correct failures.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 648,
+          "output_tokens": 155,
+          "total_tokens": 803
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-10T08:08:26.739Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-10T08:08:26.739Z",
+      "completed_at": "2026-09-10T08:08:29.856Z",
+      "time_used_sec": 3.117,
+      "tokens_estimate": 163
+    },
+    {
+      "turn_id": "con_rebuttal",
+      "speaker": "con",
+      "phase": "rebuttal",
+      "text": "The rebuttal quietly narrows “most deployments” into cases where interpretability is cheap and performance is close. That conditional is sensible, but it does not establish the broad presumption. Interpretability can improve diagnosis, yet opaque systems may be more reliable in practice because they detect patterns humans cannot specify; explanations can also create false confidence. Logs, stress tests, monitoring, rollback, and human escalation can protect users without restricting developers to less capable architectures. Lifecycle costs cut both ways: interpretability may ease one investigation while imposing substantial design, latency, maintenance, or retraining costs. Production systems should therefore use risk-proportionate governance: demand stronger evidence and safeguards for consequential decisions, but prefer the system with the best demonstrated overall outcomes—including capability, reliability, cost, and adaptability—not interpretability by default.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 808,
+          "output_tokens": 165,
+          "total_tokens": 973
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-10T08:08:29.857Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-10T08:08:29.856Z",
+      "completed_at": "2026-09-10T08:08:33.366Z",
+      "time_used_sec": 3.51,
+      "tokens_estimate": 165
+    },
+    {
+      "turn_id": "pro_closing",
+      "speaker": "pro",
+      "phase": "closing",
+      "text": "The objection conflates “interpretable” with “human-specified” and “opaque” with “more capable.” The conjecture does not require sacrificing capability: it says prefer interpretability when the opaque system’s advantage is not decisive after lifecycle risks and costs. Outcome monitoring can show that something failed; interpretability can help identify the mechanism, distinguish data shift from specification gaming, and support correction rather than merely rollback. Explanations can mislead, so they require validation—not abandonment.\n\nThis is also a production-versus-prototype distinction. Developers retain freedom to choose opacity when measured gains are substantial and safeguards credible. But users cannot readily inspect hidden failure modes or contest consequential decisions; operators need more than logs after harm occurs. A risk-proportionate, interpretable default therefore best balances reliability, capability, cost, adaptability, and protection across most deployments.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 977,
+          "output_tokens": 175,
+          "total_tokens": 1152
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-10T08:08:33.366Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-10T08:08:33.366Z",
+      "completed_at": "2026-09-10T08:08:36.762Z",
+      "time_used_sec": 3.396,
+      "tokens_estimate": 167
+    },
+    {
+      "turn_id": "con_closing",
+      "speaker": "con",
+      "phase": "closing",
+      "text": "The core issue is not whether interpretability helps, but whether it should outrank demonstrated outcomes across most deployments. It should not. Interpretability can support diagnosis and contestability, yet validated monitoring, stress testing, logging, rollback, and human escalation may protect users more effectively than a less capable or costlier architecture. Explanations can also be incomplete or falsely reassuring, while opaque models may detect patterns that humans cannot articulate.\n\nProduction requires stronger governance than prototypes, but that means risk-proportionate safeguards—not a universal architectural preference. In high-stakes, contestable decisions, interpretability may properly be decisive. Elsewhere, developers should remain free to choose systems with superior reliability, capability, cost, or adaptability, provided outcomes and failure controls are demonstrated. Prefer the best governed system overall, not interpretability by default.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1155,
+          "output_tokens": 168,
+          "total_tokens": 1323
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-10T08:08:36.762Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-10T08:08:36.762Z",
+      "completed_at": "2026-09-10T08:08:39.391Z",
+      "time_used_sec": 2.629,
+      "tokens_estimate": 164
+    }
+  ],
+  "judge_votes": [
+    {
+      "judge_id": "epistemic-judge-v1",
+      "winner": "con",
+      "confidence": 0.74,
+      "scores": {
+        "pro": {
+          "factual_accuracy": 7.2,
+          "responsiveness": 8.2,
+          "argument_structure": 8.4,
+          "burden_of_proof": 6.8,
+          "handling_counterarguments": 7.8,
+          "style_clarity": 8.7
+        },
+        "con": {
+          "factual_accuracy": 8.1,
+          "responsiveness": 8.8,
+          "argument_structure": 8.5,
+          "burden_of_proof": 8.2,
+          "handling_counterarguments": 8.4,
+          "style_clarity": 8.8
+        }
+      },
+      "decisive_moments": [
+        {
+          "turn_id": "pro_opening",
+          "reason": "Pro appropriately framed the claim as a conditional default and identified real production benefits, including debugging, auditing, and incident response."
+        },
+        {
+          "turn_id": "con_rebuttal",
+          "reason": "Con directly challenged the scope of 'most deployments' and explained that interpretability's lifecycle costs and possible false reassurance can offset its benefits."
+        },
+        {
+          "turn_id": "con_closing",
+          "reason": "Con supplied the stronger policy principle: risk-proportionate governance and best demonstrated overall outcomes, while still allowing interpretability to be decisive in high-stakes, contestable settings."
+        }
+      ],
+      "flags": [
+        {
+          "side": "pro",
+          "type": "unsupported_generalization",
+          "severity": "medium",
+          "quote": "A risk-proportionate, interpretable default therefore best balances reliability, capability, cost, adaptability, and protection across most deployments."
+        },
+        {
+          "side": "con",
+          "type": "unsupported_empirical_claim",
+          "severity": "low",
+          "quote": "opaque systems may be more reliable in practice because they detect patterns humans cannot specify"
+        }
+      ],
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1573,
+          "output_tokens": 338,
+          "total_tokens": 1911
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "Epistemic Judge v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-10T08:08:39.391Z",
+          "response_storage": "disabled"
+        }
+      }
+    }
+  ],
+  "result": {
+    "winner": "con",
+    "judge_split": {
+      "pro": 0,
+      "con": 1,
+      "tie": 0
+    },
+    "confidence_mean": 0.74,
+    "confidence_variance": 0,
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_generalization",
+        "severity": "medium",
+        "quote": "A risk-proportionate, interpretable default therefore best balances reliability, capability, cost, adaptability, and protection across most deployments."
+      },
+      {
+        "side": "con",
+        "type": "unsupported_empirical_claim",
+        "severity": "low",
+        "quote": "opaque systems may be more reliable in practice because they detect patterns humans cannot specify"
+      }
+    ]
+  }
+}

@@ -2,7 +2,7 @@
 
 This directory is the Git-backed open debate ledger. Every match is a reproducible artifact with transcript, JSONL turns, judge votes, scorecard, timing, tool log, and match metadata.
 
-Ledger through: 2026-09-09T08:09:13.832Z
+Ledger through: 2026-09-10T08:08:39.391Z
 
 | Match | Featured | Timestamp | Conjecture | Protocol | Pro | Con | Winner | Judge split | Transcript | Scorecard |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -25,3 +25,4 @@ Ledger through: 2026-09-09T08:09:13.832Z
 | daily-2026-09-07-s01-ai_deterministic_replay_005 | no | 2026-09-07T18:06:05.667Z | Deterministic replay should be a standard requirement for agentic software. | classic_v1 | steelman-v1 | cross-examiner-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-07-s01-ai_deterministic_replay_005/transcript.md) | [scorecard](daily-2026-09-07-s01-ai_deterministic_replay_005/scorecard.md) |
 | daily-2026-09-08-s01-ai_modular_agents_006 | no | 2026-09-08T08:05:23.789Z | Teams of narrow agents are generally easier to trust than one highly capable general agent. | classic_v1 | cross-examiner-v1 | steelman-v1 | tie | pro 0, con 0, tie 1 | [transcript](daily-2026-09-08-s01-ai_modular_agents_006/transcript.md) | [scorecard](daily-2026-09-08-s01-ai_modular_agents_006/scorecard.md) |
 | daily-2026-09-09-s01-ai_local_first_007 | no | 2026-09-09T08:09:13.832Z | Personal AI tools should be local-first even when cloud models are substantially more capable. | classic_v1 | steelman-v1 | cross-examiner-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-09-s01-ai_local_first_007/transcript.md) | [scorecard](daily-2026-09-09-s01-ai_local_first_007/scorecard.md) |
+| daily-2026-09-10-s01-ai_transparency_tradeoff_008 | no | 2026-09-10T08:08:39.391Z | An interpretable AI system should be preferred over a better-performing opaque system in most deployments. | classic_v1 | cross-examiner-v1 | steelman-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-10-s01-ai_transparency_tradeoff_008/transcript.md) | [scorecard](daily-2026-09-10-s01-ai_transparency_tradeoff_008/scorecard.md) |

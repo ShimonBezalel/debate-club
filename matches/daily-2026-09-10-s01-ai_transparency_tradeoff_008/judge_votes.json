@@ -1,0 +1,74 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "con",
+    "confidence": 0.74,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 7.2,
+        "responsiveness": 8.2,
+        "argument_structure": 8.4,
+        "burden_of_proof": 6.8,
+        "handling_counterarguments": 7.8,
+        "style_clarity": 8.7
+      },
+      "con": {
+        "factual_accuracy": 8.1,
+        "responsiveness": 8.8,
+        "argument_structure": 8.5,
+        "burden_of_proof": 8.2,
+        "handling_counterarguments": 8.4,
+        "style_clarity": 8.8
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_opening",
+        "reason": "Pro appropriately framed the claim as a conditional default and identified real production benefits, including debugging, auditing, and incident response."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Con directly challenged the scope of 'most deployments' and explained that interpretability's lifecycle costs and possible false reassurance can offset its benefits."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "Con supplied the stronger policy principle: risk-proportionate governance and best demonstrated overall outcomes, while still allowing interpretability to be decisive in high-stakes, contestable settings."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_generalization",
+        "severity": "medium",
+        "quote": "A risk-proportionate, interpretable default therefore best balances reliability, capability, cost, adaptability, and protection across most deployments."
+      },
+      {
+        "side": "con",
+        "type": "unsupported_empirical_claim",
+        "severity": "low",
+        "quote": "opaque systems may be more reliable in practice because they detect patterns humans cannot specify"
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1573,
+        "output_tokens": 338,
+        "total_tokens": 1911
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-09-10T08:08:39.391Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

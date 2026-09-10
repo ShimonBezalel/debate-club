@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T08:09:13.832Z",
+  "generated_at": "2026-09-10T08:08:39.391Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -478,6 +478,31 @@
         "match": "daily-2026-09-09-s01-ai_local_first_007/match.json",
         "transcript": "daily-2026-09-09-s01-ai_local_first_007/transcript.md",
         "scorecard": "daily-2026-09-09-s01-ai_local_first_007/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-09-10-s01-ai_transparency_tradeoff_008",
+      "created_at": "2026-09-10T08:08:39.391Z",
+      "conjecture_id": "ai_transparency_tradeoff_008",
+      "conjecture_statement": "An interpretable AI system should be preferred over a better-performing opaque system in most deployments.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "cross-examiner-v1",
+      "con_agent": "steelman-v1",
+      "winner": "con",
+      "judge_split": {
+        "pro": 0,
+        "con": 1,
+        "tie": 0
+      },
+      "confidence_mean": 0.74,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-09-10-s01-ai_transparency_tradeoff_008/match.json",
+        "transcript": "daily-2026-09-10-s01-ai_transparency_tradeoff_008/transcript.md",
+        "scorecard": "daily-2026-09-10-s01-ai_transparency_tradeoff_008/scorecard.md"
       }
     }
   ]
