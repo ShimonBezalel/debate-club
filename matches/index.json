@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T08:03:39.634Z",
+  "generated_at": "2026-09-12T07:55:30.065Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -528,6 +528,31 @@
         "match": "daily-2026-09-11-s01-ai_synthetic_data_009/match.json",
         "transcript": "daily-2026-09-11-s01-ai_synthetic_data_009/transcript.md",
         "scorecard": "daily-2026-09-11-s01-ai_synthetic_data_009/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-09-12-s01-ai_evals_before_scale_010",
+      "created_at": "2026-09-12T07:55:30.065Z",
+      "conjecture_id": "ai_evals_before_scale_010",
+      "conjecture_statement": "AI teams should invest in evaluations before investing in additional model capability.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "cross-examiner-v1",
+      "con_agent": "steelman-v1",
+      "winner": "pro",
+      "judge_split": {
+        "pro": 1,
+        "con": 0,
+        "tie": 0
+      },
+      "confidence_mean": 0.72,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-09-12-s01-ai_evals_before_scale_010/match.json",
+        "transcript": "daily-2026-09-12-s01-ai_evals_before_scale_010/transcript.md",
+        "scorecard": "daily-2026-09-12-s01-ai_evals_before_scale_010/scorecard.md"
       }
     }
   ]
