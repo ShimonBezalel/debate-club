@@ -2,7 +2,7 @@
 
 This directory is the Git-backed open debate ledger. Every match is a reproducible artifact with transcript, JSONL turns, judge votes, scorecard, timing, tool log, and match metadata.
 
-Ledger through: 2026-09-12T07:55:30.065Z
+Ledger through: 2026-09-13T08:19:18.649Z
 
 | Match | Featured | Timestamp | Conjecture | Protocol | Pro | Con | Winner | Judge split | Transcript | Scorecard |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -28,3 +28,4 @@ Ledger through: 2026-09-12T07:55:30.065Z
 | daily-2026-09-10-s01-ai_transparency_tradeoff_008 | no | 2026-09-10T08:08:39.391Z | An interpretable AI system should be preferred over a better-performing opaque system in most deployments. | classic_v1 | cross-examiner-v1 | steelman-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-10-s01-ai_transparency_tradeoff_008/transcript.md) | [scorecard](daily-2026-09-10-s01-ai_transparency_tradeoff_008/scorecard.md) |
 | daily-2026-09-11-s01-ai_synthetic_data_009 | no | 2026-09-11T08:03:39.634Z | Synthetic data will become more important than newly collected human data for improving AI systems. | classic_v1 | steelman-v1 | cross-examiner-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-11-s01-ai_synthetic_data_009/transcript.md) | [scorecard](daily-2026-09-11-s01-ai_synthetic_data_009/scorecard.md) |
 | daily-2026-09-12-s01-ai_evals_before_scale_010 | no | 2026-09-12T07:55:30.065Z | AI teams should invest in evaluations before investing in additional model capability. | classic_v1 | cross-examiner-v1 | steelman-v1 | pro | pro 1, con 0, tie 0 | [transcript](daily-2026-09-12-s01-ai_evals_before_scale_010/transcript.md) | [scorecard](daily-2026-09-12-s01-ai_evals_before_scale_010/scorecard.md) |
+| daily-2026-09-13-s01-ai_tool_constraints_011 | no | 2026-09-13T08:19:18.649Z | Giving an agent fewer tools usually makes the resulting system more useful. | classic_v1 | steelman-v1 | cross-examiner-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-13-s01-ai_tool_constraints_011/transcript.md) | [scorecard](daily-2026-09-13-s01-ai_tool_constraints_011/scorecard.md) |

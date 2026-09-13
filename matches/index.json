@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T07:55:30.065Z",
+  "generated_at": "2026-09-13T08:19:18.649Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -553,6 +553,31 @@
         "match": "daily-2026-09-12-s01-ai_evals_before_scale_010/match.json",
         "transcript": "daily-2026-09-12-s01-ai_evals_before_scale_010/transcript.md",
         "scorecard": "daily-2026-09-12-s01-ai_evals_before_scale_010/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-09-13-s01-ai_tool_constraints_011",
+      "created_at": "2026-09-13T08:19:18.649Z",
+      "conjecture_id": "ai_tool_constraints_011",
+      "conjecture_statement": "Giving an agent fewer tools usually makes the resulting system more useful.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "steelman-v1",
+      "con_agent": "cross-examiner-v1",
+      "winner": "con",
+      "judge_split": {
+        "pro": 0,
+        "con": 1,
+        "tie": 0
+      },
+      "confidence_mean": 0.78,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-09-13-s01-ai_tool_constraints_011/match.json",
+        "transcript": "daily-2026-09-13-s01-ai_tool_constraints_011/transcript.md",
+        "scorecard": "daily-2026-09-13-s01-ai_tool_constraints_011/scorecard.md"
       }
     }
   ]
