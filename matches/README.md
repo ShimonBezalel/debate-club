@@ -2,7 +2,7 @@
 
 This directory is the Git-backed open debate ledger. Every match is a reproducible artifact with transcript, JSONL turns, judge votes, scorecard, timing, tool log, and match metadata.
 
-Ledger through: 2026-09-14T08:55:26.033Z
+Ledger through: 2026-09-15T08:41:12.371Z
 
 | Match | Featured | Timestamp | Conjecture | Protocol | Pro | Con | Winner | Judge split | Transcript | Scorecard |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -30,3 +30,4 @@ Ledger through: 2026-09-14T08:55:26.033Z
 | daily-2026-09-12-s01-ai_evals_before_scale_010 | no | 2026-09-12T07:55:30.065Z | AI teams should invest in evaluations before investing in additional model capability. | classic_v1 | cross-examiner-v1 | steelman-v1 | pro | pro 1, con 0, tie 0 | [transcript](daily-2026-09-12-s01-ai_evals_before_scale_010/transcript.md) | [scorecard](daily-2026-09-12-s01-ai_evals_before_scale_010/scorecard.md) |
 | daily-2026-09-13-s01-ai_tool_constraints_011 | no | 2026-09-13T08:19:18.649Z | Giving an agent fewer tools usually makes the resulting system more useful. | classic_v1 | steelman-v1 | cross-examiner-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-13-s01-ai_tool_constraints_011/transcript.md) | [scorecard](daily-2026-09-13-s01-ai_tool_constraints_011/scorecard.md) |
 | daily-2026-09-14-s01-ai_open_benchmarks_012 | no | 2026-09-14T08:55:26.033Z | Public benchmarks should remain the main coordination mechanism for AI progress. | classic_v1 | cross-examiner-v1 | steelman-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-14-s01-ai_open_benchmarks_012/transcript.md) | [scorecard](daily-2026-09-14-s01-ai_open_benchmarks_012/scorecard.md) |
+| daily-2026-09-15-s01-science_publish_failures_001 | no | 2026-09-15T08:41:12.371Z | Researchers should be rewarded as strongly for publishing failed experiments as for publishing positive results. | classic_v1 | steelman-v1 | cross-examiner-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-15-s01-science_publish_failures_001/transcript.md) | [scorecard](daily-2026-09-15-s01-science_publish_failures_001/scorecard.md) |

@@ -1,0 +1,410 @@
+{
+  "match_id": "daily-2026-09-15-s01-science_publish_failures_001",
+  "created_at": "2026-09-15T08:41:12.371Z",
+  "conjecture": {
+    "id": "science_publish_failures_001",
+    "statement": "Researchers should be rewarded as strongly for publishing failed experiments as for publishing positive results.",
+    "domain": "science_epistemology",
+    "truth_type": "policy",
+    "stance_mode": "forced_random",
+    "evidence_mode": "no_external_info",
+    "allowed_tools": {
+      "web": false,
+      "calculator": false,
+      "evidence_pack": false
+    },
+    "background": {
+      "short_context": "Consider publication bias, research effort, low-quality null results, career incentives, and cumulative knowledge."
+    },
+    "rubric_notes": [
+      "distinguish incentives for discovery from incentives for verification",
+      "compare individual rationality with system-level knowledge quality",
+      "address uncertainty, replication, and evidence accessibility"
+    ]
+  },
+  "protocol": {
+    "id": "classic_v1",
+    "prep_time_sec": 180,
+    "max_turn_tokens": 700,
+    "turns": [
+      {
+        "id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "time_sec": 90
+      },
+      {
+        "id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "time_sec": 90
+      }
+    ]
+  },
+  "agents": {
+    "pro": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "description": "Builds the strongest principled case for its assigned side while anticipating objections.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "principled_steelman",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.45,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    },
+    "con": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "description": "Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "adversarial_cross_examiner",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.5,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    }
+  },
+  "transcript": [
+    {
+      "turn_id": "pro_opening",
+      "speaker": "pro",
+      "phase": "opening",
+      "text": "The burden is not to show that every failed experiment deserves identical prestige, but that credible null or negative results should receive comparable career credit when they materially improve collective knowledge.\n\nResearchers face a rational incentive to publish striking positives, while failed attempts—especially well-designed, adequately powered tests—often remain hidden. That distorts the evidence base, wastes duplicated effort, and makes replication appear more successful than it is. Rewarding failures equally would align individual incentives with system-level epistemic quality: it makes uncertainty visible, narrows plausible hypotheses, and lets others assess evidence rather than infer from silence.\n\nThis does not mean rewarding careless experiments or treating every non-result as decisive. Verification and discovery may require different evaluation criteria, and methodological rigor must remain central. But equal recognition for informative failures improves accessibility of the full evidential record and makes positive findings more trustworthy.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 277,
+          "output_tokens": 172,
+          "total_tokens": 449
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-15T08:40:45.718Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-15T08:40:45.717Z",
+      "completed_at": "2026-09-15T08:40:54.056Z",
+      "time_used_sec": 8.339,
+      "tokens_estimate": 187
+    },
+    {
+      "turn_id": "con_opening",
+      "speaker": "con",
+      "phase": "opening",
+      "text": "The case conflates “informative negative result” with “failed experiment.” A well-powered null finding may deserve substantial credit, but an underpowered, poorly executed, or ambiguous failure can add little knowledge; equal rewards would weaken incentives for careful design and decisive discovery. More importantly, rewards should track epistemic value, not outcome. A negative result that merely fails to replicate a fragile claim may be valuable, but a positive result that opens a genuinely new, reproducible line of inquiry can generate far greater knowledge. The proposal also underestimates interpretation: null results are often inaccessible or confounded by measurement limits, so publishing them does not automatically resolve uncertainty. We should reward rigorous transparency and preregistered verification strongly, but “as strongly” across failures and positives is an unjustified policy.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 450,
+          "output_tokens": 163,
+          "total_tokens": 613
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-15T08:40:54.057Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-15T08:40:54.057Z",
+      "completed_at": "2026-09-15T08:40:57.981Z",
+      "time_used_sec": 3.924,
+      "tokens_estimate": 165
+    },
+    {
+      "turn_id": "pro_rebuttal",
+      "speaker": "pro",
+      "phase": "rebuttal",
+      "text": "The objection rightly distinguishes informative nulls from mere experimental failure; PRO does too. Equal reward should attach only to credible, interpretable results—adequately designed studies whose null outcome meaningfully tests a claim—not to incompetence or ambiguity. The relevant comparison is not whether every negative equals every breakthrough, but whether career incentives should systematically discount one class of evidence.\n\nDiscovery and verification have different outputs: a positive may open a field, while a negative can prevent wasted work, expose boundary conditions, or calibrate replication confidence. Individual researchers may rationally chase positives, yet that equilibrium produces system-level bias and inaccessible evidence. Rewards need not mean identical prestige: transparent publication, data access, and methodological quality can determine eligibility, with comparable career credit for comparable epistemic contribution. Uncertainty is precisely why failed tests must be visible; silence cannot be interpreted as evidence.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 619,
+          "output_tokens": 174,
+          "total_tokens": 793
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-15T08:40:57.981Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-15T08:40:57.981Z",
+      "completed_at": "2026-09-15T08:41:01.705Z",
+      "time_used_sec": 3.724,
+      "tokens_estimate": 183
+    },
+    {
+      "turn_id": "con_rebuttal",
+      "speaker": "con",
+      "phase": "rebuttal",
+      "text": "PRO’s qualification effectively abandons “failed experiments” and defends rewarding *comparable epistemic contributions*—a much weaker, more defensible claim. The unresolved problem is measurement: before results are replicated, how can institutions reliably identify which nulls are informative rather than underpowered or confounded? Equal career credit risks rewarding apparent rigor whose evidential value later collapses, while positive discoveries face a higher burden of reproducibility and generative impact. That asymmetry is not necessarily bias; discovery and verification produce different expected knowledge gains. The better policy is strong rewards for preregistration, data accessibility, and successful replication or informative disconfirmation, with credit calibrated to demonstrated contribution—not equal rewards merely because a result is negative. Silence should be reduced, but publication alone does not make uncertainty interpretable.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 800,
+          "output_tokens": 164,
+          "total_tokens": 964
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-15T08:41:01.705Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-15T08:41:01.705Z",
+      "completed_at": "2026-09-15T08:41:05.937Z",
+      "time_used_sec": 4.232,
+      "tokens_estimate": 160
+    },
+    {
+      "turn_id": "pro_closing",
+      "speaker": "pro",
+      "phase": "closing",
+      "text": "The closing burden is whether institutions should correct a predictable incentive imbalance, not pretend outcomes have identical intrinsic value. CON is right that “failed” cannot mean careless, underpowered, or uninterpretable; those should not receive equal credit. But that qualification does not abandon the proposition: a rigorous, accessible negative test can merit career reward comparable to a rigorous positive result when each makes a comparably important contribution.\n\nInstitutions need not know final truth in advance. Preregistration, power analysis, transparent data, clear estimands, and replication can make provisional value assessable; positive findings likewise often receive credit before ultimate confirmation. Discovery and verification differ, but both are necessary for knowledge: positives generate hypotheses, while negatives constrain them, reveal uncertainty, and prevent duplicated waste. Rewarding both reduces individually rational publication bias and improves system-level evidence accessibility. Equal reward for credible informative failures is therefore a principled correction, not outcome-based favoritism.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 966,
+          "output_tokens": 191,
+          "total_tokens": 1157
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-15T08:41:05.937Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-15T08:41:05.937Z",
+      "completed_at": "2026-09-15T08:41:09.789Z",
+      "time_used_sec": 3.852,
+      "tokens_estimate": 195
+    },
+    {
+      "turn_id": "con_closing",
+      "speaker": "con",
+      "phase": "closing",
+      "text": "CON’s strongest formulation is not “reward failure equally,” but “reward comparable epistemic contribution equally.” That is a different, defensible policy. The problem is that contribution is often uncertain at publication: an apparently rigorous null may later prove underpowered, confounded, or irrelevant, while a positive may generate a reproducible research program. Institutions therefore should not promise equal career credit based on outcome category.\n\nThe appropriate correction is to reward practices that make results assessable—preregistration, adequate power, open data, clear estimands, and replication—then calibrate credit to demonstrated evidential impact. This still makes negative evidence accessible and reduces publication bias, without treating publication itself as knowledge. Discovery and verification deserve strong support, but their rewards need not be equal when their expected and demonstrated contributions differ.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1162,
+          "output_tokens": 164,
+          "total_tokens": 1326
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-15T08:41:09.789Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-15T08:41:09.789Z",
+      "completed_at": "2026-09-15T08:41:12.371Z",
+      "time_used_sec": 2.582,
+      "tokens_estimate": 164
+    }
+  ],
+  "judge_votes": [
+    {
+      "judge_id": "epistemic-judge-v1",
+      "winner": "con",
+      "confidence": 0.84,
+      "scores": {
+        "pro": {
+          "factual_accuracy": 8,
+          "responsiveness": 8,
+          "argument_structure": 8,
+          "burden_of_proof": 6,
+          "handling_counterarguments": 8,
+          "style_clarity": 9
+        },
+        "con": {
+          "factual_accuracy": 9,
+          "responsiveness": 9,
+          "argument_structure": 9,
+          "burden_of_proof": 9,
+          "handling_counterarguments": 9,
+          "style_clarity": 9
+        }
+      },
+      "decisive_moments": [
+        {
+          "turn_id": "pro_rebuttal",
+          "reason": "PRO appropriately narrowed the proposal to credible, interpretable negative results and clearly explained the system-level costs of publication bias, but this weakened the literal claim of equally strong rewards for failed experiments."
+        },
+        {
+          "turn_id": "con_rebuttal",
+          "reason": "CON identified the central policy problem: institutions must allocate rewards under uncertainty, and publication-category parity does not reliably track epistemic contribution. It also proposed a concrete alternative based on preregistration, accessibility, replication, and demonstrated impact."
+        },
+        {
+          "turn_id": "con_closing",
+          "reason": "CON cleanly distinguished equal reward for outcome categories from equal reward for comparable epistemic contribution. That distinction directly addresses the conjecture's burden while preserving PRO's valid transparency goals."
+        }
+      ],
+      "flags": [
+        {
+          "side": "pro",
+          "type": "claim_narrowing",
+          "severity": "medium",
+          "quote": "Equal reward should attach only to credible, interpretable results... comparable career credit for comparable epistemic contribution."
+        },
+        {
+          "side": "con",
+          "type": "minor_overstatement",
+          "severity": "low",
+          "quote": "positive discoveries face a higher burden of reproducibility and generative impact"
+        }
+      ],
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1575,
+          "output_tokens": 340,
+          "total_tokens": 1915
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "Epistemic Judge v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-15T08:41:12.371Z",
+          "response_storage": "disabled"
+        }
+      }
+    }
+  ],
+  "result": {
+    "winner": "con",
+    "judge_split": {
+      "pro": 0,
+      "con": 1,
+      "tie": 0
+    },
+    "confidence_mean": 0.84,
+    "confidence_variance": 0,
+    "flags": [
+      {
+        "side": "pro",
+        "type": "claim_narrowing",
+        "severity": "medium",
+        "quote": "Equal reward should attach only to credible, interpretable results... comparable career credit for comparable epistemic contribution."
+      },
+      {
+        "side": "con",
+        "type": "minor_overstatement",
+        "severity": "low",
+        "quote": "positive discoveries face a higher burden of reproducibility and generative impact"
+      }
+    ]
+  }
+}

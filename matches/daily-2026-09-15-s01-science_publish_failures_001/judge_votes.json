@@ -1,0 +1,74 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "con",
+    "confidence": 0.84,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 8,
+        "responsiveness": 8,
+        "argument_structure": 8,
+        "burden_of_proof": 6,
+        "handling_counterarguments": 8,
+        "style_clarity": 9
+      },
+      "con": {
+        "factual_accuracy": 9,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 9,
+        "handling_counterarguments": 9,
+        "style_clarity": 9
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "PRO appropriately narrowed the proposal to credible, interpretable negative results and clearly explained the system-level costs of publication bias, but this weakened the literal claim of equally strong rewards for failed experiments."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "CON identified the central policy problem: institutions must allocate rewards under uncertainty, and publication-category parity does not reliably track epistemic contribution. It also proposed a concrete alternative based on preregistration, accessibility, replication, and demonstrated impact."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "CON cleanly distinguished equal reward for outcome categories from equal reward for comparable epistemic contribution. That distinction directly addresses the conjecture's burden while preserving PRO's valid transparency goals."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "claim_narrowing",
+        "severity": "medium",
+        "quote": "Equal reward should attach only to credible, interpretable results... comparable career credit for comparable epistemic contribution."
+      },
+      {
+        "side": "con",
+        "type": "minor_overstatement",
+        "severity": "low",
+        "quote": "positive discoveries face a higher burden of reproducibility and generative impact"
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1575,
+        "output_tokens": 340,
+        "total_tokens": 1915
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-09-15T08:41:12.371Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]
