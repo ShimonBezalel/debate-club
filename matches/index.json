@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T08:41:12.371Z",
+  "generated_at": "2026-09-16T08:35:49.865Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -628,6 +628,31 @@
         "match": "daily-2026-09-15-s01-science_publish_failures_001/match.json",
         "transcript": "daily-2026-09-15-s01-science_publish_failures_001/transcript.md",
         "scorecard": "daily-2026-09-15-s01-science_publish_failures_001/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-09-16-s01-science_replication_funding_002",
+      "created_at": "2026-09-16T08:35:49.865Z",
+      "conjecture_id": "science_replication_funding_002",
+      "conjecture_statement": "A fixed share of all research funding should be reserved for replication studies.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "cross-examiner-v1",
+      "con_agent": "steelman-v1",
+      "winner": "con",
+      "judge_split": {
+        "pro": 0,
+        "con": 1,
+        "tie": 0
+      },
+      "confidence_mean": 0.78,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-09-16-s01-science_replication_funding_002/match.json",
+        "transcript": "daily-2026-09-16-s01-science_replication_funding_002/transcript.md",
+        "scorecard": "daily-2026-09-16-s01-science_replication_funding_002/scorecard.md"
       }
     }
   ]

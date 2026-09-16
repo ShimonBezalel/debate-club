@@ -1,0 +1,84 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "con",
+    "confidence": 0.78,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 7,
+        "responsiveness": 8,
+        "argument_structure": 8,
+        "burden_of_proof": 5,
+        "handling_counterarguments": 8,
+        "style_clarity": 8
+      },
+      "con": {
+        "factual_accuracy": 8,
+        "responsiveness": 9,
+        "argument_structure": 8,
+        "burden_of_proof": 9,
+        "handling_counterarguments": 8,
+        "style_clarity": 8
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "con_opening",
+        "reason": "Con correctly framed the central burden as comparative: showing that a fixed reservation outperforms targeted, field-sensitive allocation, rather than merely showing that replication is valuable."
+      },
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Pro effectively explained the system-level underprovision problem and clarified that its proposal was a reviewable, field-sensitive floor rather than a universal rigid quota."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Con directly identified the unresolved issue: once percentages, exceptions, and periodic review are introduced, the policy risks becoming either arbitrary arithmetic or ordinary flexible prioritization with added rigidity."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "Con gave the clearest alternative—target replication according to claim importance, uncertainty, feasibility, and interpretability—while conceding the value of verification and addressing why replication results can be difficult to interpret."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_empirical_generalization",
+        "severity": "medium",
+        "quote": "Without a protected floor, however, flexible allocation predictably favors visible discovery over less prestigious verification."
+      },
+      {
+        "side": "pro",
+        "type": "unresolved_comparative_claim",
+        "severity": "medium",
+        "quote": "A reservation therefore preserves system-level evidence quality while retaining discretion about which claims merit replication."
+      },
+      {
+        "side": "con",
+        "type": "minor_unsupported_assumption",
+        "severity": "low",
+        "quote": "A quota can consume scarce funds on accessible, repeatable studies while neglecting nonrepeatable phenomena, new methods, or genuinely high-value discovery."
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1582,
+        "output_tokens": 422,
+        "total_tokens": 2004
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-09-16T08:35:49.865Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

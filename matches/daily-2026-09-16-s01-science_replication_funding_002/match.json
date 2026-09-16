@@ -1,0 +1,426 @@
+{
+  "match_id": "daily-2026-09-16-s01-science_replication_funding_002",
+  "created_at": "2026-09-16T08:35:49.865Z",
+  "conjecture": {
+    "id": "science_replication_funding_002",
+    "statement": "A fixed share of all research funding should be reserved for replication studies.",
+    "domain": "science_epistemology",
+    "truth_type": "policy",
+    "stance_mode": "forced_random",
+    "evidence_mode": "no_external_info",
+    "allowed_tools": {
+      "web": false,
+      "calculator": false,
+      "evidence_pack": false
+    },
+    "background": {
+      "short_context": "Debate opportunity cost, field differences, credibility, novelty incentives, and who should select replication targets."
+    },
+    "rubric_notes": [
+      "distinguish incentives for discovery from incentives for verification",
+      "compare individual rationality with system-level knowledge quality",
+      "address uncertainty, replication, and evidence accessibility"
+    ]
+  },
+  "protocol": {
+    "id": "classic_v1",
+    "prep_time_sec": 180,
+    "max_turn_tokens": 700,
+    "turns": [
+      {
+        "id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "time_sec": 90
+      },
+      {
+        "id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "time_sec": 90
+      }
+    ]
+  },
+  "agents": {
+    "pro": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "description": "Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "adversarial_cross_examiner",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.5,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    },
+    "con": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "description": "Builds the strongest principled case for its assigned side while anticipating objections.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "principled_steelman",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.45,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    }
+  },
+  "transcript": [
+    {
+      "turn_id": "pro_opening",
+      "speaker": "pro",
+      "phase": "opening",
+      "text": "A fixed share of research funding should be reserved for replication studies because discovery and verification serve different incentives. Individual researchers may rationally prefer novel results: they bring visibility, grants, and careers. But science is a system, and knowledge quality depends on whether important findings survive independent testing. Without dedicated funding, replication is systematically underprovided, especially when results are ambiguous, inconvenient, or commercially unglamorous.\n\nThe reservation should be a floor, not an inflexible command: its percentage can vary by field, risk, and the existing evidence base. Replications should be methodologically independent, preregistered where appropriate, and their data and materials made accessible. This does not imply every study deserves repetition or that replication automatically establishes truth. It means uncertainty is measured rather than hidden, correcting false positives and clarifying which claims merit further investment. Discovery funding remains intact; the policy protects the reliability of what discovery produces.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 276,
+          "output_tokens": 187,
+          "total_tokens": 463
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-16T08:35:25.672Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-16T08:35:25.671Z",
+      "completed_at": "2026-09-16T08:35:30.549Z",
+      "time_used_sec": 4.878,
+      "tokens_estimate": 195
+    },
+    {
+      "turn_id": "con_opening",
+      "speaker": "con",
+      "phase": "opening",
+      "text": "The burden is not to show that replication is valuable, but that a fixed funding reservation is superior to flexible, field-sensitive allocation. We oppose the mandate. Discovery and verification have different incentives, but that does not justify one universal quota: some fields need extensive replication, while others face rapidly changing methods, scarce samples, or inherently nonrepeatable phenomena. A fixed share can displace promising discovery or fund low-value repetitions merely to satisfy a target.\n\nWe concede that replication is systematically underprovided and that accessible data, preregistration, and independent checks improve evidence. But those goals can be pursued through targeted grants, replication requirements for high-impact claims, and funding agencies’ periodic review—not a rigid reservation. System-level knowledge quality matters, yet it depends on prioritizing the most decision-relevant uncertainties, not treating all research budgets alike.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 462,
+          "output_tokens": 170,
+          "total_tokens": 632
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-16T08:35:30.549Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-16T08:35:30.549Z",
+      "completed_at": "2026-09-16T08:35:34.744Z",
+      "time_used_sec": 4.195,
+      "tokens_estimate": 175
+    },
+    {
+      "turn_id": "pro_rebuttal",
+      "speaker": "pro",
+      "phase": "rebuttal",
+      "text": "The objection treats “fixed” as “universal and rigid,” which is not my proposal. A fixed share can be a field-sensitive floor: agencies set different percentages, review them periodically, and permit justified exceptions for nonrepeatable phenomena or scarce samples. Without a protected floor, however, flexible allocation predictably favors visible discovery over less prestigious verification; targeted grants alone leave many important but unprofitable findings inaccessible to independent testing. The relevant comparison is not replication versus discovery, but marginal discovery funding versus the knowledge gained by resolving uncertainty in existing claims. Replication need not mean mechanical repetition: preregistration, shared materials, and independent designs can test robustness and expose boundary conditions. A reservation therefore preserves system-level evidence quality while retaining discretion about which claims merit replication.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 640,
+          "output_tokens": 157,
+          "total_tokens": 797
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-16T08:35:34.744Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-16T08:35:34.744Z",
+      "completed_at": "2026-09-16T08:35:39.656Z",
+      "time_used_sec": 4.912,
+      "tokens_estimate": 163
+    },
+    {
+      "turn_id": "con_rebuttal",
+      "speaker": "con",
+      "phase": "rebuttal",
+      "text": "The rebuttal concedes the central problem: replication is underprovided because discovery incentives dominate individually rational choices. But a “field-sensitive floor” remains a reservation in substance, and the key question is whether a preset share improves decisions over prioritizing claims by importance, uncertainty, and feasibility. It may not. A quota can consume scarce funds on accessible, repeatable studies while neglecting nonrepeatable phenomena, new methods, or genuinely high-value discovery. Exceptions and periodic review merely reintroduce flexible allocation—without proving the quota adds value.\n\nReplication also does not automatically resolve uncertainty: failures may reflect changed populations, measurement, or implementation, while inaccessible data and materials can block interpretation. Fund independent checks where expected information gain is high, require transparency for consequential claims, and condition further funding on evidential strength. That targets verification without sacrificing discovery by arithmetic.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 802,
+          "output_tokens": 174,
+          "total_tokens": 976
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-16T08:35:39.656Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-16T08:35:39.656Z",
+      "completed_at": "2026-09-16T08:35:43.406Z",
+      "time_used_sec": 3.75,
+      "tokens_estimate": 176
+    },
+    {
+      "turn_id": "pro_closing",
+      "speaker": "pro",
+      "phase": "closing",
+      "text": "The opposition identifies real design risks, but not a reason to abandon a protected floor. “Prioritize by information gain” sounds superior only if agencies can reliably identify that gain beforehand; uncertainty about which claims matter is precisely why a portfolio needs verification capacity. A reservation need not fund indiscriminate repetition: competitive review can select consequential, uncertain, feasible tests, while exceptions protect nonrepeatable work. Nor does a failed replication mechanically falsify a claim; independent designs, preregistration, and accessible data help distinguish genuine instability from changed populations or methods. The policy addresses a system-level market failure: discovery earns private career rewards, whereas verification benefits the entire research community. Flexible programs may help, but without a guaranteed minimum they remain vulnerable to discovery’s stronger incentives. Thus a reviewable, field-sensitive floor complements—not replaces—discovery funding.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 980,
+          "output_tokens": 172,
+          "total_tokens": 1152
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-16T08:35:43.407Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-16T08:35:43.406Z",
+      "completed_at": "2026-09-16T08:35:46.268Z",
+      "time_used_sec": 2.862,
+      "tokens_estimate": 173
+    },
+    {
+      "turn_id": "con_closing",
+      "speaker": "con",
+      "phase": "closing",
+      "text": "The burden remains unmet: show that reserving a preset share improves knowledge more than selecting verification by expected information gain. A floor may protect replication, but it also creates arithmetic allocation: money is spent because the quota exists, while high-value discovery or unusual, nonrepeatable work loses resources. Exceptions and field-specific percentages do not solve this; they make the policy a flexible prioritization system, while adding bureaucratic rigidity where flexibility is needed.\n\nWe concede that individual incentives favor discovery and that system-level knowledge needs independent checks, transparency, and accessible evidence. But those goals support targeted replication grants, preregistration, data-sharing requirements, and funding conditions for consequential claims—not a fixed reservation. Replication is valuable, yet its value depends on claim importance, uncertainty, feasibility, and interpretability. Fund those checks aggressively; do not guarantee them a percentage by rule.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1155,
+          "output_tokens": 176,
+          "total_tokens": 1331
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-16T08:35:46.268Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-16T08:35:46.268Z",
+      "completed_at": "2026-09-16T08:35:49.865Z",
+      "time_used_sec": 3.597,
+      "tokens_estimate": 179
+    }
+  ],
+  "judge_votes": [
+    {
+      "judge_id": "epistemic-judge-v1",
+      "winner": "con",
+      "confidence": 0.78,
+      "scores": {
+        "pro": {
+          "factual_accuracy": 7,
+          "responsiveness": 8,
+          "argument_structure": 8,
+          "burden_of_proof": 5,
+          "handling_counterarguments": 8,
+          "style_clarity": 8
+        },
+        "con": {
+          "factual_accuracy": 8,
+          "responsiveness": 9,
+          "argument_structure": 8,
+          "burden_of_proof": 9,
+          "handling_counterarguments": 8,
+          "style_clarity": 8
+        }
+      },
+      "decisive_moments": [
+        {
+          "turn_id": "con_opening",
+          "reason": "Con correctly framed the central burden as comparative: showing that a fixed reservation outperforms targeted, field-sensitive allocation, rather than merely showing that replication is valuable."
+        },
+        {
+          "turn_id": "pro_rebuttal",
+          "reason": "Pro effectively explained the system-level underprovision problem and clarified that its proposal was a reviewable, field-sensitive floor rather than a universal rigid quota."
+        },
+        {
+          "turn_id": "con_rebuttal",
+          "reason": "Con directly identified the unresolved issue: once percentages, exceptions, and periodic review are introduced, the policy risks becoming either arbitrary arithmetic or ordinary flexible prioritization with added rigidity."
+        },
+        {
+          "turn_id": "con_closing",
+          "reason": "Con gave the clearest alternative—target replication according to claim importance, uncertainty, feasibility, and interpretability—while conceding the value of verification and addressing why replication results can be difficult to interpret."
+        }
+      ],
+      "flags": [
+        {
+          "side": "pro",
+          "type": "unsupported_empirical_generalization",
+          "severity": "medium",
+          "quote": "Without a protected floor, however, flexible allocation predictably favors visible discovery over less prestigious verification."
+        },
+        {
+          "side": "pro",
+          "type": "unresolved_comparative_claim",
+          "severity": "medium",
+          "quote": "A reservation therefore preserves system-level evidence quality while retaining discretion about which claims merit replication."
+        },
+        {
+          "side": "con",
+          "type": "minor_unsupported_assumption",
+          "severity": "low",
+          "quote": "A quota can consume scarce funds on accessible, repeatable studies while neglecting nonrepeatable phenomena, new methods, or genuinely high-value discovery."
+        }
+      ],
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1582,
+          "output_tokens": 422,
+          "total_tokens": 2004
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "Epistemic Judge v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-16T08:35:49.865Z",
+          "response_storage": "disabled"
+        }
+      }
+    }
+  ],
+  "result": {
+    "winner": "con",
+    "judge_split": {
+      "pro": 0,
+      "con": 1,
+      "tie": 0
+    },
+    "confidence_mean": 0.78,
+    "confidence_variance": 0,
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_empirical_generalization",
+        "severity": "medium",
+        "quote": "Without a protected floor, however, flexible allocation predictably favors visible discovery over less prestigious verification."
+      },
+      {
+        "side": "pro",
+        "type": "unresolved_comparative_claim",
+        "severity": "medium",
+        "quote": "A reservation therefore preserves system-level evidence quality while retaining discretion about which claims merit replication."
+      },
+      {
+        "side": "con",
+        "type": "minor_unsupported_assumption",
+        "severity": "low",
+        "quote": "A quota can consume scarce funds on accessible, repeatable studies while neglecting nonrepeatable phenomena, new methods, or genuinely high-value discovery."
+      }
+    ]
+  }
+}
