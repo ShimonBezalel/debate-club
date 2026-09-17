@@ -1,0 +1,78 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "tie",
+    "confidence": 0.86,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 8.5,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 8.5,
+        "handling_counterarguments": 8.5,
+        "style_clarity": 9
+      },
+      "con": {
+        "factual_accuracy": 8.5,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 8.5,
+        "handling_counterarguments": 9,
+        "style_clarity": 9
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Pro clearly distinguished discovery incentives from verification standards and connected simplicity to auditability, replication, and cumulative system-level knowledge."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Con identified the central ambiguity in the conjecture: a slight predictive advantage is still evidence, and its weight should depend on flexibility, priors, measurement quality, and mechanism rather than simplicity alone."
+      },
+      {
+        "turn_id": "pro_closing",
+        "reason": "Pro narrowed the claim to a defeasible default under uncertainty, avoiding a blanket anti-complexity rule and directly addressing the burden of proof."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "Con ultimately accepted the same conditional position while emphasizing calibrated uncertainty, making the disagreement largely terminological rather than substantive."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_generalization",
+        "severity": "low",
+        "quote": "Complexity can absorb noise, hidden assumptions, and researcher degrees of freedom"
+      },
+      {
+        "side": "con",
+        "type": "minor_overstatement",
+        "severity": "low",
+        "quote": "The pro side still conflates “not yet decisive” with “prefer the simpler explanation.”"
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1586,
+        "output_tokens": 351,
+        "total_tokens": 1937
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-09-17T08:39:59.234Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

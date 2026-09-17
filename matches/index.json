@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T08:35:49.865Z",
+  "generated_at": "2026-09-17T08:39:59.234Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -653,6 +653,31 @@
         "match": "daily-2026-09-16-s01-science_replication_funding_002/match.json",
         "transcript": "daily-2026-09-16-s01-science_replication_funding_002/transcript.md",
         "scorecard": "daily-2026-09-16-s01-science_replication_funding_002/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-09-17-s01-science_simplicity_003",
+      "created_at": "2026-09-17T08:39:59.234Z",
+      "conjecture_id": "science_simplicity_003",
+      "conjecture_statement": "Scientists should prefer simpler explanations even when complex models predict slightly better.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "steelman-v1",
+      "con_agent": "cross-examiner-v1",
+      "winner": "tie",
+      "judge_split": {
+        "pro": 0,
+        "con": 0,
+        "tie": 1
+      },
+      "confidence_mean": 0.86,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-09-17-s01-science_simplicity_003/match.json",
+        "transcript": "daily-2026-09-17-s01-science_simplicity_003/transcript.md",
+        "scorecard": "daily-2026-09-17-s01-science_simplicity_003/scorecard.md"
       }
     }
   ]

@@ -1,0 +1,414 @@
+{
+  "match_id": "daily-2026-09-17-s01-science_simplicity_003",
+  "created_at": "2026-09-17T08:39:59.234Z",
+  "conjecture": {
+    "id": "science_simplicity_003",
+    "statement": "Scientists should prefer simpler explanations even when complex models predict slightly better.",
+    "domain": "science_epistemology",
+    "truth_type": "philosophical",
+    "stance_mode": "forced_random",
+    "evidence_mode": "no_external_info",
+    "allowed_tools": {
+      "web": false,
+      "calculator": false,
+      "evidence_pack": false
+    },
+    "background": {
+      "short_context": "Weigh predictive accuracy, interpretability, overfitting, causal insight, and the meaning of simplicity."
+    },
+    "rubric_notes": [
+      "distinguish incentives for discovery from incentives for verification",
+      "compare individual rationality with system-level knowledge quality",
+      "address uncertainty, replication, and evidence accessibility"
+    ]
+  },
+  "protocol": {
+    "id": "classic_v1",
+    "prep_time_sec": 180,
+    "max_turn_tokens": 700,
+    "turns": [
+      {
+        "id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "time_sec": 90
+      },
+      {
+        "id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "time_sec": 90
+      }
+    ]
+  },
+  "agents": {
+    "pro": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "description": "Builds the strongest principled case for its assigned side while anticipating objections.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "principled_steelman",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.45,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    },
+    "con": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "description": "Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "adversarial_cross_examiner",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.5,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    }
+  },
+  "transcript": [
+    {
+      "turn_id": "pro_opening",
+      "speaker": "pro",
+      "phase": "opening",
+      "text": "The burden is to show why simplicity should guide scientific preference when a complex model predicts slightly better—not that complexity is never justified. Scientists should prefer the simpler explanation because science seeks reliable, communicable, and cumulative knowledge, not merely maximal in-sample fit.\n\nComplexity can absorb noise, hidden assumptions, and researcher degrees of freedom; its slight predictive edge may therefore be fragile, especially when evidence is sparse or replication is difficult. Simpler models expose their commitments, are easier for independent researchers to audit, reproduce, and extend, and make evidence more accessible across laboratories. This improves system-level knowledge quality even if an individual scientist gains incentives from an elaborate model that wins a narrow benchmark.\n\nThe principle is defeasible: substantial, replicated, out-of-sample gains can warrant complexity. But under uncertainty, modest improvement does not outweigh the epistemic costs of added machinery.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 274,
+          "output_tokens": 176,
+          "total_tokens": 450
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-17T08:39:22.497Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-17T08:39:22.496Z",
+      "completed_at": "2026-09-17T08:39:28.899Z",
+      "time_used_sec": 6.403,
+      "tokens_estimate": 184
+    },
+    {
+      "turn_id": "con_opening",
+      "speaker": "con",
+      "phase": "opening",
+      "text": "The pro case quietly changes “prefer” into “accept only after substantial replication.” That may be a sensible verification standard, but it does not establish a general preference for simplicity. A complex model can encode real mechanisms, and dismissing a small predictive gain may systematically favor underfitting.\n\nNor is accessibility automatically epistemic superiority: a simple false explanation can replicate easily because its errors are shared, while a difficult but accurate model may require specialized measurement. Individual scientists should therefore rationally pursue the model best supported by relevant predictive and mechanistic evidence, not apply a complexity penalty merely because replication is costly.\n\nAt the system level, complexity is a risk, not a verdict. The proper response is preregistration, out-of-sample testing, independent replication, and explicit complexity penalties—not preferring simplicity when evidence already favors the complex model.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 451,
+          "output_tokens": 170,
+          "total_tokens": 621
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-17T08:39:28.899Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-17T08:39:28.899Z",
+      "completed_at": "2026-09-17T08:39:36.782Z",
+      "time_used_sec": 7.883,
+      "tokens_estimate": 177
+    },
+    {
+      "turn_id": "pro_rebuttal",
+      "speaker": "pro",
+      "phase": "rebuttal",
+      "text": "The objection rightly distinguishes discovery from verification, but that distinction supports our position. Individual researchers may rationally explore a complex model when its mechanism or predictions are promising; the question is what the scientific community should prefer as established explanation under uncertainty.\n\nA slight predictive gain is not yet decisive evidence, because complexity expands opportunities for tuning and makes failures harder to diagnose. Preregistration and replication help, but they are costly and imperfect; when evidence is inaccessible or replication scarce, simplicity is a rational prior, not an anti-complexity veto. Nor does simplicity mean underfitting: a complex model should win when its advantage is robust, independently replicated, and mechanistically informative. Until then, preferring the simpler account improves auditability, communication, and cumulative correction—system-level goods that individual optimization can neglect.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 627,
+          "output_tokens": 164,
+          "total_tokens": 791
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-17T08:39:36.782Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-17T08:39:36.782Z",
+      "completed_at": "2026-09-17T08:39:41.353Z",
+      "time_used_sec": 4.571,
+      "tokens_estimate": 169
+    },
+    {
+      "turn_id": "con_rebuttal",
+      "speaker": "con",
+      "phase": "rebuttal",
+      "text": "The pro side still conflates “not yet decisive” with “prefer the simpler explanation.” If a complex model has the better available predictive and mechanistic evidence, imposing a simplicity preference can bias verification toward an attractive but false underfit. Complexity is not merely researcher freedom; it may represent genuine causal structure.\n\nThe discovery–verification distinction does not rescue a blanket preference. System-level science needs exploration of difficult models, and evidence accessibility is a practical constraint, not evidence against truth. Replication and preregistration should test whether the gain survives, while model comparison can penalize complexity explicitly. But until those tests are performed, the rational stance is calibrated uncertainty—not declaring simplicity preferred. A slight advantage may be weak evidence, yet it remains evidence, and its weight should depend on flexibility, prior plausibility, and measurement quality rather than simplicity alone.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 798,
+          "output_tokens": 172,
+          "total_tokens": 970
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-17T08:39:41.353Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-17T08:39:41.353Z",
+      "completed_at": "2026-09-17T08:39:48.255Z",
+      "time_used_sec": 6.902,
+      "tokens_estimate": 180
+    },
+    {
+      "turn_id": "pro_closing",
+      "speaker": "pro",
+      "phase": "closing",
+      "text": "The burden is not to deny that complex models can be true, but to justify a default preference when their predictive advantage is slight and uncertain. Con is right that complexity may encode real causation; therefore simplicity is defeasible, not a veto. But available evidence is not automatically reliable evidence: flexible models can win narrowly through tuning, while scarce replication and inaccessible methods prevent effective correction.\n\nFor discovery, individuals should pursue promising complexity. For verification, however, the community should prefer the simpler account until the extra machinery earns its keep through robust out-of-sample success, independent replication, or distinctive mechanistic evidence. This is not underfitting; it is calibrated evidential weighting. A complexity penalty protects system-level knowledge—auditable, communicable, and cumulative—even when individual incentives reward novelty. Slightly better prediction is evidence, but ordinarily too weak to overcome those epistemic costs.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 972,
+          "output_tokens": 180,
+          "total_tokens": 1152
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-17T08:39:48.255Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-17T08:39:48.255Z",
+      "completed_at": "2026-09-17T08:39:53.471Z",
+      "time_used_sec": 5.216,
+      "tokens_estimate": 183
+    },
+    {
+      "turn_id": "con_closing",
+      "speaker": "con",
+      "phase": "closing",
+      "text": "The dispute is over what “prefer” means. If it means treat simplicity as a defeasible prior when the complex model’s advantage is slight and uncertain, Con has not defeated that claim. Better available prediction is evidence, but its weight depends on flexibility, measurement quality, and replication—not merely its direction.\n\nFor discovery, pursuing complexity is rational: genuine mechanisms may initially look unwieldy. For verification, however, the community must discount models whose gains cannot be independently audited or reproduced. Otherwise individual incentives for novelty can degrade system-level knowledge, especially when evidence is inaccessible and failed replications are costly.\n\nThis is not a blanket simplicity veto. A complex model should prevail when its advantage survives preregistered, out-of-sample tests, replication, and mechanistic scrutiny. Until then, preferring the simpler account is a rational safeguard against mistaking fragile improvement for established explanation.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1157,
+          "output_tokens": 180,
+          "total_tokens": 1337
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-17T08:39:53.471Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-17T08:39:53.471Z",
+      "completed_at": "2026-09-17T08:39:59.234Z",
+      "time_used_sec": 5.763,
+      "tokens_estimate": 181
+    }
+  ],
+  "judge_votes": [
+    {
+      "judge_id": "epistemic-judge-v1",
+      "winner": "tie",
+      "confidence": 0.86,
+      "scores": {
+        "pro": {
+          "factual_accuracy": 8.5,
+          "responsiveness": 9,
+          "argument_structure": 9,
+          "burden_of_proof": 8.5,
+          "handling_counterarguments": 8.5,
+          "style_clarity": 9
+        },
+        "con": {
+          "factual_accuracy": 8.5,
+          "responsiveness": 9,
+          "argument_structure": 9,
+          "burden_of_proof": 8.5,
+          "handling_counterarguments": 9,
+          "style_clarity": 9
+        }
+      },
+      "decisive_moments": [
+        {
+          "turn_id": "pro_rebuttal",
+          "reason": "Pro clearly distinguished discovery incentives from verification standards and connected simplicity to auditability, replication, and cumulative system-level knowledge."
+        },
+        {
+          "turn_id": "con_rebuttal",
+          "reason": "Con identified the central ambiguity in the conjecture: a slight predictive advantage is still evidence, and its weight should depend on flexibility, priors, measurement quality, and mechanism rather than simplicity alone."
+        },
+        {
+          "turn_id": "pro_closing",
+          "reason": "Pro narrowed the claim to a defeasible default under uncertainty, avoiding a blanket anti-complexity rule and directly addressing the burden of proof."
+        },
+        {
+          "turn_id": "con_closing",
+          "reason": "Con ultimately accepted the same conditional position while emphasizing calibrated uncertainty, making the disagreement largely terminological rather than substantive."
+        }
+      ],
+      "flags": [
+        {
+          "side": "pro",
+          "type": "unsupported_generalization",
+          "severity": "low",
+          "quote": "Complexity can absorb noise, hidden assumptions, and researcher degrees of freedom"
+        },
+        {
+          "side": "con",
+          "type": "minor_overstatement",
+          "severity": "low",
+          "quote": "The pro side still conflates “not yet decisive” with “prefer the simpler explanation.”"
+        }
+      ],
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1586,
+          "output_tokens": 351,
+          "total_tokens": 1937
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "Epistemic Judge v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-17T08:39:59.234Z",
+          "response_storage": "disabled"
+        }
+      }
+    }
+  ],
+  "result": {
+    "winner": "tie",
+    "judge_split": {
+      "pro": 0,
+      "con": 0,
+      "tie": 1
+    },
+    "confidence_mean": 0.86,
+    "confidence_variance": 0,
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_generalization",
+        "severity": "low",
+        "quote": "Complexity can absorb noise, hidden assumptions, and researcher degrees of freedom"
+      },
+      {
+        "side": "con",
+        "type": "minor_overstatement",
+        "severity": "low",
+        "quote": "The pro side still conflates “not yet decisive” with “prefer the simpler explanation.”"
+      }
+    ]
+  }
+}
