@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T08:39:59.234Z",
+  "generated_at": "2026-09-18T08:15:09.115Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -678,6 +678,31 @@
         "match": "daily-2026-09-17-s01-science_simplicity_003/match.json",
         "transcript": "daily-2026-09-17-s01-science_simplicity_003/transcript.md",
         "scorecard": "daily-2026-09-17-s01-science_simplicity_003/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-09-18-s01-science_uncertainty_ranges_004",
+      "created_at": "2026-09-18T08:15:09.115Z",
+      "conjecture_id": "science_uncertainty_ranges_004",
+      "conjecture_statement": "Public scientific communication should emphasize uncertainty ranges more than headline conclusions.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "cross-examiner-v1",
+      "con_agent": "steelman-v1",
+      "winner": "pro",
+      "judge_split": {
+        "pro": 1,
+        "con": 0,
+        "tie": 0
+      },
+      "confidence_mean": 0.74,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-09-18-s01-science_uncertainty_ranges_004/match.json",
+        "transcript": "daily-2026-09-18-s01-science_uncertainty_ranges_004/transcript.md",
+        "scorecard": "daily-2026-09-18-s01-science_uncertainty_ranges_004/scorecard.md"
       }
     }
   ]

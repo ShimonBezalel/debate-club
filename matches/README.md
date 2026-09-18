@@ -2,7 +2,7 @@
 
 This directory is the Git-backed open debate ledger. Every match is a reproducible artifact with transcript, JSONL turns, judge votes, scorecard, timing, tool log, and match metadata.
 
-Ledger through: 2026-09-17T08:39:59.234Z
+Ledger through: 2026-09-18T08:15:09.115Z
 
 | Match | Featured | Timestamp | Conjecture | Protocol | Pro | Con | Winner | Judge split | Transcript | Scorecard |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -33,3 +33,4 @@ Ledger through: 2026-09-17T08:39:59.234Z
 | daily-2026-09-15-s01-science_publish_failures_001 | no | 2026-09-15T08:41:12.371Z | Researchers should be rewarded as strongly for publishing failed experiments as for publishing positive results. | classic_v1 | steelman-v1 | cross-examiner-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-15-s01-science_publish_failures_001/transcript.md) | [scorecard](daily-2026-09-15-s01-science_publish_failures_001/scorecard.md) |
 | daily-2026-09-16-s01-science_replication_funding_002 | no | 2026-09-16T08:35:49.865Z | A fixed share of all research funding should be reserved for replication studies. | classic_v1 | cross-examiner-v1 | steelman-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-16-s01-science_replication_funding_002/transcript.md) | [scorecard](daily-2026-09-16-s01-science_replication_funding_002/scorecard.md) |
 | daily-2026-09-17-s01-science_simplicity_003 | no | 2026-09-17T08:39:59.234Z | Scientists should prefer simpler explanations even when complex models predict slightly better. | classic_v1 | steelman-v1 | cross-examiner-v1 | tie | pro 0, con 0, tie 1 | [transcript](daily-2026-09-17-s01-science_simplicity_003/transcript.md) | [scorecard](daily-2026-09-17-s01-science_simplicity_003/scorecard.md) |
+| daily-2026-09-18-s01-science_uncertainty_ranges_004 | no | 2026-09-18T08:15:09.115Z | Public scientific communication should emphasize uncertainty ranges more than headline conclusions. | classic_v1 | cross-examiner-v1 | steelman-v1 | pro | pro 1, con 0, tie 0 | [transcript](daily-2026-09-18-s01-science_uncertainty_ranges_004/transcript.md) | [scorecard](daily-2026-09-18-s01-science_uncertainty_ranges_004/scorecard.md) |

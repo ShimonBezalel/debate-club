@@ -1,0 +1,74 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "pro",
+    "confidence": 0.74,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 8,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 8,
+        "handling_counterarguments": 9,
+        "style_clarity": 9
+      },
+      "con": {
+        "factual_accuracy": 8,
+        "responsiveness": 8,
+        "argument_structure": 8,
+        "burden_of_proof": 6,
+        "handling_counterarguments": 8,
+        "style_clarity": 9
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Pro directly addressed the strongest accessibility objection by distinguishing prominence from technical presentation and giving a concise plain-language example that includes the estimate, range, and replication limits."
+      },
+      {
+        "turn_id": "pro_closing",
+        "reason": "Pro clarified that merely making caveats available is insufficient under headline-driven attention, while preserving accessibility through translated explanations and evidence-quality labels."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "Con correctly identified model dependence, false precision, and comprehension as real risks, but did not establish why layered communication requires uncertainty to be less prominent rather than prominently explained."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_generalization",
+        "severity": "low",
+        "quote": "They often do not."
+      },
+      {
+        "side": "con",
+        "type": "burden_shift_or_underjustified_claim",
+        "severity": "medium",
+        "quote": "If audiences cannot interpret intervals, foregrounding them may reduce uptake without improving judgment."
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1548,
+        "output_tokens": 302,
+        "total_tokens": 1850
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-09-18T08:15:09.115Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]
