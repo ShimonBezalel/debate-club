@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T08:15:09.115Z",
+  "generated_at": "2026-09-19T08:03:20.808Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -703,6 +703,31 @@
         "match": "daily-2026-09-18-s01-science_uncertainty_ranges_004/match.json",
         "transcript": "daily-2026-09-18-s01-science_uncertainty_ranges_004/transcript.md",
         "scorecard": "daily-2026-09-18-s01-science_uncertainty_ranges_004/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-09-19-s01-science_peer_review_005",
+      "created_at": "2026-09-19T08:03:20.808Z",
+      "conjecture_id": "science_peer_review_005",
+      "conjecture_statement": "Open post-publication review would improve science more than anonymous pre-publication peer review.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "steelman-v1",
+      "con_agent": "cross-examiner-v1",
+      "winner": "con",
+      "judge_split": {
+        "pro": 0,
+        "con": 1,
+        "tie": 0
+      },
+      "confidence_mean": 0.86,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-09-19-s01-science_peer_review_005/match.json",
+        "transcript": "daily-2026-09-19-s01-science_peer_review_005/transcript.md",
+        "scorecard": "daily-2026-09-19-s01-science_peer_review_005/scorecard.md"
       }
     }
   ]

@@ -1,0 +1,80 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "con",
+    "confidence": 0.86,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 7,
+        "responsiveness": 8,
+        "argument_structure": 8,
+        "burden_of_proof": 5,
+        "handling_counterarguments": 7,
+        "style_clarity": 8
+      },
+      "con": {
+        "factual_accuracy": 8,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 9,
+        "handling_counterarguments": 8,
+        "style_clarity": 8
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Con identifies the central comparative problem: pro's defended policy retains anonymous screening and therefore supports a hybrid rather than demonstrating that open post-publication review is superior to anonymous pre-publication review."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "Con directly connects selective participation and delayed correction to system-level knowledge quality, arguing that accessibility alone does not establish reliable verification or superiority per total effort."
+      },
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Pro usefully distinguishes discovery from verification and offers plausible mitigations such as structured reviews and replication reports, but these are asserted rather than supported with evidence that they overcome participation bias and early amplification."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_empirical_generalization",
+        "severity": "medium",
+        "quote": "Anonymous gatekeeping rewards persuading a small panel; open, durable review rewards claims that remain defensible as replications, corrections, and objections accumulate."
+      },
+      {
+        "side": "pro",
+        "type": "burden_shift",
+        "severity": "medium",
+        "quote": "System-level knowledge improves when correction is durable and inspectable, even if individual participation is imperfect."
+      },
+      {
+        "side": "con",
+        "type": "unsupported_empirical_generalization",
+        "severity": "low",
+        "quote": "Attributable criticism predictably deters junior researchers and challenges to powerful or fashionable claims."
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1629,
+        "output_tokens": 379,
+        "total_tokens": 2008
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-09-19T08:03:20.808Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

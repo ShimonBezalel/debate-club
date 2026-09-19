@@ -1,0 +1,422 @@
+{
+  "match_id": "daily-2026-09-19-s01-science_peer_review_005",
+  "created_at": "2026-09-19T08:03:20.808Z",
+  "conjecture": {
+    "id": "science_peer_review_005",
+    "statement": "Open post-publication review would improve science more than anonymous pre-publication peer review.",
+    "domain": "science_epistemology",
+    "truth_type": "policy",
+    "stance_mode": "forced_random",
+    "evidence_mode": "no_external_info",
+    "allowed_tools": {
+      "web": false,
+      "calculator": false,
+      "evidence_pack": false
+    },
+    "background": {
+      "short_context": "Compare gatekeeping, correction speed, reviewer candor, prestige effects, harassment risk, and information overload."
+    },
+    "rubric_notes": [
+      "distinguish incentives for discovery from incentives for verification",
+      "compare individual rationality with system-level knowledge quality",
+      "address uncertainty, replication, and evidence accessibility"
+    ]
+  },
+  "protocol": {
+    "id": "classic_v1",
+    "prep_time_sec": 180,
+    "max_turn_tokens": 700,
+    "turns": [
+      {
+        "id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "time_sec": 90
+      },
+      {
+        "id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "time_sec": 90
+      }
+    ]
+  },
+  "agents": {
+    "pro": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "description": "Builds the strongest principled case for its assigned side while anticipating objections.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "principled_steelman",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.45,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    },
+    "con": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "description": "Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "adversarial_cross_examiner",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.5,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    }
+  },
+  "transcript": [
+    {
+      "turn_id": "pro_opening",
+      "speaker": "pro",
+      "phase": "opening",
+      "text": "Our burden is comparative: show that open post-publication review would improve scientific knowledge more than anonymous pre-publication review, not that anonymity has no value.\n\nOpen review makes criticism continuous, public, attributable, and attached to the evidence as it accumulates. That improves accessibility: readers can see not only a paper’s initial gatekeeping, but replication results, methodological objections, corrections, and unresolved uncertainty. It also shifts incentives from merely securing publication toward producing claims that withstand scrutiny. Individual researchers may rationally avoid public criticism when reputational costs are possible; systemically, however, visible, durable review creates accountability and a richer record for verification.\n\nAnonymous pre-review can protect junior or dissenting reviewers and filter obvious flaws before dissemination—real advantages. But it is episodic, opaque, and often treats publication as a misleading endpoint. Open review need not replace all pre-review: retaining basic screening while making substantive evaluation public best supports discovery, correction, and cumulative knowledge.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 278,
+          "output_tokens": 196,
+          "total_tokens": 474
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-19T08:03:02.985Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-19T08:03:02.985Z",
+      "completed_at": "2026-09-19T08:03:07.500Z",
+      "time_used_sec": 4.515,
+      "tokens_estimate": 199
+    },
+    {
+      "turn_id": "con_opening",
+      "speaker": "con",
+      "phase": "opening",
+      "text": "The comparison remains underspecified: does “open post-publication review” mean replacing anonymous review, or merely adding a public layer? If addition, the claim that it improves science *more* requires showing its benefits exceed added workload and participation bias.\n\nPublic attribution may incentivize careful criticism, but it can also make individual researchers rationally avoid challenging senior scientists, controversial findings, or fashionable claims. That is not just a reputational inconvenience: it selectively suppresses precisely the dissent needed for correction. Anonymous pre-review can surface fatal methodological flaws before weak evidence is amplified, while post-publication correction often arrives after citation, media, and funding momentum.\n\nOpen records improve accessibility only if experts actually contribute and readers can distinguish replication from speculation. Thus openness helps verification, but it does not establish reliable verification. The stronger policy is complementary: anonymous pre-screening for baseline validity, followed by transparent, structured post-publication review.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 475,
+          "output_tokens": 186,
+          "total_tokens": 661
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-19T08:03:07.501Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-19T08:03:07.501Z",
+      "completed_at": "2026-09-19T08:03:10.264Z",
+      "time_used_sec": 2.763,
+      "tokens_estimate": 189
+    },
+    {
+      "turn_id": "pro_rebuttal",
+      "speaker": "pro",
+      "phase": "rebuttal",
+      "text": "The objection rightly identifies participation bias, but it does not defeat the comparison. Discovery incentives favor anonymous pre-review: authors need a gate that protects novel, uncertain work from premature dismissal. Verification incentives differ: critics and readers need an accessible, cumulative record showing which claims survived replication and which remain contested. Open post-publication review supplies that record, while anonymity can conceal disagreement and make publication look like resolution.\n\nNor must openness mean unmoderated commentary or abolishing screening. A baseline anonymous check can catch obvious fatal flaws; the question is where substantive epistemic judgment should live. Public, attributable review may reduce some dissent, but anonymous review also suppresses accountability and leaves later uncertainty difficult to locate. Structured public reviews, replication reports, and explicit confidence labels can mitigate noise. System-level knowledge improves when correction is durable and inspectable, even if individual participation is imperfect.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 667,
+          "output_tokens": 176,
+          "total_tokens": 843
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-19T08:03:10.264Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-19T08:03:10.264Z",
+      "completed_at": "2026-09-19T08:03:13.428Z",
+      "time_used_sec": 3.164,
+      "tokens_estimate": 188
+    },
+    {
+      "turn_id": "con_rebuttal",
+      "speaker": "con",
+      "phase": "rebuttal",
+      "text": "The pro case quietly changes the comparison: it now preserves anonymous screening while relocating “substantive” judgment publicly. That is a complementary hybrid, not evidence that open post-publication review is superior to anonymous pre-review. More importantly, a visible record is not necessarily a reliable one. Public review can overrepresent senior, confident, or career-safe critics, while junior researchers rationally avoid attributable challenges; confidence labels cannot manufacture missing expertise or replications. Pre-publication anonymity is especially valuable before weak evidence gains citations, media attention, and funding momentum. Post-publication review may eventually correct it, but correction is uneven and uncertainty remains costly to discover. Open review may improve accessibility for verification, yet the relevant comparison is knowledge quality per total effort: if participation is selective and delayed, its system-level gains do not establish superiority over anonymous review.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 850,
+          "output_tokens": 172,
+          "total_tokens": 1022
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-19T08:03:13.429Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-19T08:03:13.428Z",
+      "completed_at": "2026-09-19T08:03:15.822Z",
+      "time_used_sec": 2.394,
+      "tokens_estimate": 176
+    },
+    {
+      "turn_id": "pro_closing",
+      "speaker": "pro",
+      "phase": "closing",
+      "text": "The closing burden is comparative system-level knowledge quality, not whether open review is flawless or costless. Con should concede that anonymous pre-review protects vulnerable dissenters and can catch obvious errors early; that makes it valuable for discovery. But discovery and verification require different incentives. Anonymous gatekeeping rewards persuading a small panel; open, durable review rewards claims that remain defensible as replications, corrections, and objections accumulate.\n\nPublic criticism may be selectively underprovided, yet anonymous review makes disagreement and uncertainty harder to inspect, while publication falsely appears final. Structured moderation, replication reports, and preserved dissent can reduce noise without pretending every comment is expert evidence. The relevant gain is not guaranteed participation in every case, but an accessible evidential history that lets later researchers update rather than inherit opaque verdicts. Thus a baseline screen may remain, but open post-publication review should carry the larger epistemic burden.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1024,
+          "output_tokens": 182,
+          "total_tokens": 1206
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-19T08:03:15.822Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-19T08:03:15.822Z",
+      "completed_at": "2026-09-19T08:03:18.672Z",
+      "time_used_sec": 2.85,
+      "tokens_estimate": 192
+    },
+    {
+      "turn_id": "con_closing",
+      "speaker": "con",
+      "phase": "closing",
+      "text": "The pro side still has not established superiority; it has described a useful complement. An accessible evidential history matters only when qualified people contribute, yet attributable criticism predictably deters junior researchers and challenges to powerful or fashionable claims. That creates systematic blind spots, not merely imperfect participation. Nor does a durable record undo early amplification: citations, funding, and public belief can accumulate before replication, while later corrections are unevenly noticed.\n\nThe incentive distinction cuts both ways. Anonymous review may be imperfect for verification, but it enables dissent before weak evidence acquires momentum; open review may reward career-safe agreement rather than truth-seeking. Since the proposal retains anonymous screening, its strongest case is hybrid—not replacing anonymous pre-review. Without evidence that public review’s selective, delayed contributions produce higher knowledge quality per total effort, superiority remains unproven.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1211,
+          "output_tokens": 170,
+          "total_tokens": 1381
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-19T08:03:18.673Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-19T08:03:18.673Z",
+      "completed_at": "2026-09-19T08:03:20.808Z",
+      "time_used_sec": 2.135,
+      "tokens_estimate": 177
+    }
+  ],
+  "judge_votes": [
+    {
+      "judge_id": "epistemic-judge-v1",
+      "winner": "con",
+      "confidence": 0.86,
+      "scores": {
+        "pro": {
+          "factual_accuracy": 7,
+          "responsiveness": 8,
+          "argument_structure": 8,
+          "burden_of_proof": 5,
+          "handling_counterarguments": 7,
+          "style_clarity": 8
+        },
+        "con": {
+          "factual_accuracy": 8,
+          "responsiveness": 9,
+          "argument_structure": 9,
+          "burden_of_proof": 9,
+          "handling_counterarguments": 8,
+          "style_clarity": 8
+        }
+      },
+      "decisive_moments": [
+        {
+          "turn_id": "con_rebuttal",
+          "reason": "Con identifies the central comparative problem: pro's defended policy retains anonymous screening and therefore supports a hybrid rather than demonstrating that open post-publication review is superior to anonymous pre-publication review."
+        },
+        {
+          "turn_id": "con_closing",
+          "reason": "Con directly connects selective participation and delayed correction to system-level knowledge quality, arguing that accessibility alone does not establish reliable verification or superiority per total effort."
+        },
+        {
+          "turn_id": "pro_rebuttal",
+          "reason": "Pro usefully distinguishes discovery from verification and offers plausible mitigations such as structured reviews and replication reports, but these are asserted rather than supported with evidence that they overcome participation bias and early amplification."
+        }
+      ],
+      "flags": [
+        {
+          "side": "pro",
+          "type": "unsupported_empirical_generalization",
+          "severity": "medium",
+          "quote": "Anonymous gatekeeping rewards persuading a small panel; open, durable review rewards claims that remain defensible as replications, corrections, and objections accumulate."
+        },
+        {
+          "side": "pro",
+          "type": "burden_shift",
+          "severity": "medium",
+          "quote": "System-level knowledge improves when correction is durable and inspectable, even if individual participation is imperfect."
+        },
+        {
+          "side": "con",
+          "type": "unsupported_empirical_generalization",
+          "severity": "low",
+          "quote": "Attributable criticism predictably deters junior researchers and challenges to powerful or fashionable claims."
+        }
+      ],
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1629,
+          "output_tokens": 379,
+          "total_tokens": 2008
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "Epistemic Judge v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-19T08:03:20.808Z",
+          "response_storage": "disabled"
+        }
+      }
+    }
+  ],
+  "result": {
+    "winner": "con",
+    "judge_split": {
+      "pro": 0,
+      "con": 1,
+      "tie": 0
+    },
+    "confidence_mean": 0.86,
+    "confidence_variance": 0,
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_empirical_generalization",
+        "severity": "medium",
+        "quote": "Anonymous gatekeeping rewards persuading a small panel; open, durable review rewards claims that remain defensible as replications, corrections, and objections accumulate."
+      },
+      {
+        "side": "pro",
+        "type": "burden_shift",
+        "severity": "medium",
+        "quote": "System-level knowledge improves when correction is durable and inspectable, even if individual participation is imperfect."
+      },
+      {
+        "side": "con",
+        "type": "unsupported_empirical_generalization",
+        "severity": "low",
+        "quote": "Attributable criticism predictably deters junior researchers and challenges to powerful or fashionable claims."
+      }
+    ]
+  }
+}
