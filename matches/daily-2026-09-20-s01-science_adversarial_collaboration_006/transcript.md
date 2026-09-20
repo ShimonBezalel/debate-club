@@ -1,0 +1,67 @@
+# Debate Transcript
+
+Match: daily-2026-09-20-s01-science_adversarial_collaboration_006
+Conjecture: Adversarial collaboration should be the default method for resolving major scientific disagreements.
+Protocol: classic_v1
+
+## pro_opening
+
+Speaker: pro
+Phase: opening
+Time used: 5.574s
+Token estimate: 164
+
+Adversarial collaboration should be the default for major scientific disagreements because it converts conflict into a shared test rather than a contest of rhetoric. The key is a structured agreement: define competing predictions, preregister methods, share accessible data and code, and specify what outcomes would change each side’s view.
+
+This does not assume collaborators are altruistic. Individually, researchers may gain more from defending a position, but the scientific system gains when incentives reward discriminating evidence and credible updating. Collaboration also exposes hidden assumptions, improves replication, and makes uncertainty explicit.
+
+“Default” need not mean mandatory: urgent, exploratory, or highly asymmetric disputes may require other designs. But absent such exceptions, adversarial collaboration best aligns discovery incentives with verification, making major disagreements more informative and cumulative.
+
+## con_opening
+
+Speaker: con
+Phase: opening
+Time used: 2.467s
+Token estimate: 176
+
+The burden is not to show adversarial collaboration is useful, but that it should be the default across major disagreements. That is too strong. Incentives for discovery differ from incentives for verification: researchers may rationally pursue distinct theories, methods, or datasets because independence generates novel tests and exposes shared blind spots. A negotiated collaboration can instead produce lowest-common-denominator designs, strategic ambiguity, or premature consensus—especially when evidence is inaccessible or key uncertainties are conceptual rather than experimentally resolvable.
+
+Replication, preregistration, and open data are valuable, but they do not require adversaries to collaborate; independent replication may be more informative precisely because it avoids coordinated assumptions. System-level knowledge quality needs plural, partly independent investigations, not merely cooperative adjudication. Collaboration should be encouraged when predictions and evidence are genuinely shareable, not imposed as the default.
+
+## pro_rebuttal
+
+Speaker: pro
+Phase: rebuttal
+Time used: 2.041s
+Token estimate: 167
+
+The objection treats “default” as “mandatory joint research,” which is not my claim. The default is an adversarially structured attempt to make disagreement testable: each side states predictions, acceptable evidence, and updating criteria, while independent replication remains available and often required. Independence is valuable, but without explicit cross-examination, researchers can talk past one another, shift standards, or leave decisive assumptions hidden. Nor does collaboration require consensus or a lowest-common-denominator design; preregistered competing analyses can preserve pluralism while making outcomes comparable. Where evidence is inaccessible or the dispute is conceptual, the collaboration should document that underdetermination rather than manufacture agreement. Thus the policy is a presumption toward transparent joint adjudication, with opt-outs for genuine asymmetry, urgency, or non-shareable evidence—not a demand to sacrifice discovery for cooperation.
+
+## con_rebuttal
+
+Speaker: con
+Phase: rebuttal
+Time used: 2.991s
+Token estimate: 167
+
+The rebuttal quietly broadens “collaboration” until it means good scientific hygiene, while retaining the stronger policy claim. If the default is merely shared predictions and updating criteria, independent teams can do that without negotiating a joint project; if it means joint adjudication, the risks remain. Individual rationality matters systemically: researchers often discover errors precisely by pursuing different methods and incentives, not by agreeing in advance what counts as a decisive test. A collaboration can also make evidence less accessible when proprietary data, specialized tools, or tacit expertise are central. Documenting underdetermination is valuable, but it does not justify privileging a coordinated process over independent replication. The appropriate default is plural, transparent investigation, with adversarial collaboration a targeted option when assumptions and evidence are genuinely shareable.
+
+## pro_closing
+
+Speaker: pro
+Phase: closing
+Time used: 2.321s
+Token estimate: 183
+
+The strongest objection is that independence can reveal blind spots—and I agree it must remain part of the design. But that supports adversarial collaboration as a default *coordination layer*, not its rejection: opposing teams can jointly specify rival predictions and standards while conducting genuinely independent analyses and replications. This distinguishes discovery incentives from verification incentives: researchers retain reasons to pursue novel approaches, while the system gains comparable, accessible evidence and explicit updating rules.
+
+“Collaboration” is not merely generic hygiene when adversaries must expose assumptions to one another before results are interpreted. Nor does it require shareable evidence in every case; non-shareability is itself a documented limitation, not a reason to leave disagreement structurally vague. Since major disputes otherwise reward rhetorical persistence and fragmented evidence, a rebuttable presumption toward adversarial structure best improves cumulative knowledge without eliminating pluralism.
+
+## con_closing
+
+Speaker: con
+Phase: closing
+Time used: 2.155s
+Token estimate: 177
+
+The burden remains unmet: showing that adversarial structure can help does not show it should presumptively govern every major disagreement. Discovery and verification require different incentives. Independent researchers may rationally pursue divergent methods, measurements, and conceptual framings; that independence is not mere fragmentation but a safeguard against shared assumptions and coordinated error. A coordination layer can be useful, yet it can also privilege negotiable questions, exclude inaccessible evidence, or create premature convergence. Replication and transparent updating are better defaults because they preserve pluralism while making evidence cumulative; adversarial collaboration is especially valuable when predictions, data, and standards are genuinely shareable. System-level knowledge quality is not maximized by cooperation alone, but by a portfolio of independent and collaborative efforts. Therefore, collaboration should be encouraged and sometimes prioritized—not made the default across fundamentally heterogeneous disputes.

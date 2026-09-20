@@ -1,0 +1,84 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "con",
+    "confidence": 0.86,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 7,
+        "responsiveness": 8,
+        "argument_structure": 8,
+        "burden_of_proof": 5,
+        "handling_counterarguments": 8,
+        "style_clarity": 8
+      },
+      "con": {
+        "factual_accuracy": 8,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 9,
+        "handling_counterarguments": 9,
+        "style_clarity": 9
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "con_opening",
+        "reason": "Con directly identified the central burden: usefulness of adversarial collaboration does not establish that it should be the default across heterogeneous major disagreements. It also clearly distinguished verification from discovery and emphasized independent replication."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Con exposed the key ambiguity in pro's position: the proposal alternates between a broad coordination layer and actual joint adjudication. This matters because the former can be achieved through independent teams, while the latter retains risks of negotiated designs, shared assumptions, and premature convergence."
+      },
+      {
+        "turn_id": "pro_closing",
+        "reason": "Pro improved its position by proposing independent analyses within a coordination layer and by acknowledging exceptions, but it did not establish why this coordination should presumptively govern disputes involving inaccessible evidence or conceptual disagreement."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "Con gave the most defensible policy alternative: transparent, independent and plural investigation as the default, with adversarial collaboration targeted to cases where predictions, evidence, and standards are genuinely shareable. This better matches the burden and the system-level tradeoff."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "overgeneralization",
+        "severity": "medium",
+        "quote": "Since major disputes otherwise reward rhetorical persistence and fragmented evidence, a rebuttable presumption toward adversarial structure best improves cumulative knowledge"
+      },
+      {
+        "side": "pro",
+        "type": "unsupported_policy_inference",
+        "severity": "medium",
+        "quote": "non-shareability is itself a documented limitation, not a reason to leave disagreement structurally vague"
+      },
+      {
+        "side": "con",
+        "type": "minor_unsupported_generalization",
+        "severity": "low",
+        "quote": "researchers often discover errors precisely by pursuing different methods and incentives"
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1553,
+        "output_tokens": 449,
+        "total_tokens": 2002
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-09-20T08:35:38.270Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]
