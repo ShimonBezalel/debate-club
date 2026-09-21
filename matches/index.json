@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T08:35:38.269Z",
+  "generated_at": "2026-09-21T08:56:53.247Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -753,6 +753,31 @@
         "match": "daily-2026-09-20-s01-science_adversarial_collaboration_006/match.json",
         "transcript": "daily-2026-09-20-s01-science_adversarial_collaboration_006/transcript.md",
         "scorecard": "daily-2026-09-20-s01-science_adversarial_collaboration_006/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-09-21-s01-science_negative_evidence_007",
+      "created_at": "2026-09-21T08:56:53.247Z",
+      "conjecture_id": "science_negative_evidence_007",
+      "conjecture_statement": "Absence of expected evidence should usually count more strongly than the presence of surprising evidence.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "steelman-v1",
+      "con_agent": "cross-examiner-v1",
+      "winner": "con",
+      "judge_split": {
+        "pro": 0,
+        "con": 1,
+        "tie": 0
+      },
+      "confidence_mean": 0.86,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-09-21-s01-science_negative_evidence_007/match.json",
+        "transcript": "daily-2026-09-21-s01-science_negative_evidence_007/transcript.md",
+        "scorecard": "daily-2026-09-21-s01-science_negative_evidence_007/scorecard.md"
       }
     }
   ]

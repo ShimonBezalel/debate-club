@@ -1,0 +1,80 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "con",
+    "confidence": 0.86,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 8,
+        "responsiveness": 7,
+        "argument_structure": 8,
+        "burden_of_proof": 6,
+        "handling_counterarguments": 7,
+        "style_clarity": 8
+      },
+      "con": {
+        "factual_accuracy": 9,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 9,
+        "handling_counterarguments": 9,
+        "style_clarity": 9
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Con directly identifies the central issue: evidential weight is determined by likelihood ratios and auxiliary assumptions, not by whether evidence is absent or surprising. It also explains how repeated nulls can remain weak when power or measurement is uncertain."
+      },
+      {
+        "turn_id": "pro_closing",
+        "reason": "Pro gives a coherent qualified default and appropriately distinguishes discovery from verification incentives, but its claim that expected evidence 'usually' supplies the stronger benchmark is asserted more than established."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "Con cleanly separates individual rational updating from system-level verification norms. This answers pro's incentive argument while preserving the importance of replication and accessibility without turning them into a blanket discount on anomalies."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_generalization",
+        "severity": "medium",
+        "quote": "A surprise becomes strong evidence only after independent replication, specificity, and mechanism are demonstrated—conditions rarely available at discovery."
+      },
+      {
+        "side": "pro",
+        "type": "burden_shift",
+        "severity": "medium",
+        "quote": "expected evidence typically has a clearer counterfactual"
+      },
+      {
+        "side": "con",
+        "type": "minor_overstatement",
+        "severity": "low",
+        "quote": "consensus and funding incentives can make null accumulation easier than anomaly investigation"
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1594,
+        "output_tokens": 363,
+        "total_tokens": 1957
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-09-21T08:56:53.247Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]
