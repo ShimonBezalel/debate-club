@@ -2,7 +2,7 @@
 
 This directory is the Git-backed open debate ledger. Every match is a reproducible artifact with transcript, JSONL turns, judge votes, scorecard, timing, tool log, and match metadata.
 
-Ledger through: 2026-09-21T08:56:53.247Z
+Ledger through: 2026-09-22T08:33:09.480Z
 
 | Match | Featured | Timestamp | Conjecture | Protocol | Pro | Con | Winner | Judge split | Transcript | Scorecard |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -37,3 +37,4 @@ Ledger through: 2026-09-21T08:56:53.247Z
 | daily-2026-09-19-s01-science_peer_review_005 | no | 2026-09-19T08:03:20.808Z | Open post-publication review would improve science more than anonymous pre-publication peer review. | classic_v1 | steelman-v1 | cross-examiner-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-19-s01-science_peer_review_005/transcript.md) | [scorecard](daily-2026-09-19-s01-science_peer_review_005/scorecard.md) |
 | daily-2026-09-20-s01-science_adversarial_collaboration_006 | no | 2026-09-20T08:35:38.269Z | Adversarial collaboration should be the default method for resolving major scientific disagreements. | classic_v1 | cross-examiner-v1 | steelman-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-20-s01-science_adversarial_collaboration_006/transcript.md) | [scorecard](daily-2026-09-20-s01-science_adversarial_collaboration_006/scorecard.md) |
 | daily-2026-09-21-s01-science_negative_evidence_007 | no | 2026-09-21T08:56:53.247Z | Absence of expected evidence should usually count more strongly than the presence of surprising evidence. | classic_v1 | steelman-v1 | cross-examiner-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-21-s01-science_negative_evidence_007/transcript.md) | [scorecard](daily-2026-09-21-s01-science_negative_evidence_007/scorecard.md) |
+| daily-2026-09-22-s01-science_preregistration_008 | no | 2026-09-22T08:33:09.480Z | Exploratory research benefits more from preregistration than it loses in flexibility. | classic_v1 | cross-examiner-v1 | steelman-v1 | pro | pro 1, con 0, tie 0 | [transcript](daily-2026-09-22-s01-science_preregistration_008/transcript.md) | [scorecard](daily-2026-09-22-s01-science_preregistration_008/scorecard.md) |

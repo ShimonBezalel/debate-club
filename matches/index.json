@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T08:56:53.247Z",
+  "generated_at": "2026-09-22T08:33:09.480Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -778,6 +778,31 @@
         "match": "daily-2026-09-21-s01-science_negative_evidence_007/match.json",
         "transcript": "daily-2026-09-21-s01-science_negative_evidence_007/transcript.md",
         "scorecard": "daily-2026-09-21-s01-science_negative_evidence_007/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-09-22-s01-science_preregistration_008",
+      "created_at": "2026-09-22T08:33:09.480Z",
+      "conjecture_id": "science_preregistration_008",
+      "conjecture_statement": "Exploratory research benefits more from preregistration than it loses in flexibility.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "cross-examiner-v1",
+      "con_agent": "steelman-v1",
+      "winner": "pro",
+      "judge_split": {
+        "pro": 1,
+        "con": 0,
+        "tie": 0
+      },
+      "confidence_mean": 0.72,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-09-22-s01-science_preregistration_008/match.json",
+        "transcript": "daily-2026-09-22-s01-science_preregistration_008/transcript.md",
+        "scorecard": "daily-2026-09-22-s01-science_preregistration_008/scorecard.md"
       }
     }
   ]

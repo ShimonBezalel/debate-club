@@ -1,0 +1,84 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "pro",
+    "confidence": 0.72,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 8,
+        "responsiveness": 8,
+        "argument_structure": 9,
+        "burden_of_proof": 8,
+        "handling_counterarguments": 8,
+        "style_clarity": 9
+      },
+      "con": {
+        "factual_accuracy": 8,
+        "responsiveness": 8,
+        "argument_structure": 8,
+        "burden_of_proof": 6,
+        "handling_counterarguments": 8,
+        "style_clarity": 9
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Pro directly addressed the strongest objection by distinguishing preregistration from a fixed one-shot plan and proposing amendments, adaptive sampling, proportionate templates, and exemptions."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Con correctly identified the unresolved incentive problem: documentation and amendment costs may fall disproportionately on iterative, low-resource exploratory researchers, and labeling work exploratory does not guarantee equal publication or funding rewards."
+      },
+      {
+        "turn_id": "pro_closing",
+        "reason": "Pro made the clearest system-level epistemic case: timestamped histories and open data improve transparency but do not as reliably establish what was specified before outcomes, leaving prediction, discovery, and selective reporting harder to distinguish."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "Con showed that the comparative burden was not fully demonstrated, especially regarding compliance, fair treatment of deviations, and whether reduced discovery could undermine later verification."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_policy_assumption",
+        "severity": "medium",
+        "quote": "those costs are outweighed by more reliable cumulative knowledge"
+      },
+      {
+        "side": "pro",
+        "type": "underdeveloped_incentive_response",
+        "severity": "medium",
+        "quote": "A proportionate default with amendments, exemptions, and low-cost templates preserves adaptive inquiry"
+      },
+      {
+        "side": "con",
+        "type": "unsupported_empirical_assumption",
+        "severity": "medium",
+        "quote": "individual rationality can shift toward safer, less adaptive projects, reducing the discoveries that verification later depends on"
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1630,
+        "output_tokens": 406,
+        "total_tokens": 2036
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-09-22T08:33:09.480Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]
