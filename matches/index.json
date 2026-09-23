@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T08:33:09.480Z",
+  "generated_at": "2026-09-23T08:35:04.021Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -803,6 +803,31 @@
         "match": "daily-2026-09-22-s01-science_preregistration_008/match.json",
         "transcript": "daily-2026-09-22-s01-science_preregistration_008/transcript.md",
         "scorecard": "daily-2026-09-22-s01-science_preregistration_008/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-09-23-s01-science_reproducibility_novelty_009",
+      "created_at": "2026-09-23T08:35:04.021Z",
+      "conjecture_id": "science_reproducibility_novelty_009",
+      "conjecture_statement": "Research institutions should value reproducible work more than novel work.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "steelman-v1",
+      "con_agent": "cross-examiner-v1",
+      "winner": "con",
+      "judge_split": {
+        "pro": 0,
+        "con": 1,
+        "tie": 0
+      },
+      "confidence_mean": 0.78,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-09-23-s01-science_reproducibility_novelty_009/match.json",
+        "transcript": "daily-2026-09-23-s01-science_reproducibility_novelty_009/transcript.md",
+        "scorecard": "daily-2026-09-23-s01-science_reproducibility_novelty_009/scorecard.md"
       }
     }
   ]

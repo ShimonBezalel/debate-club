@@ -1,0 +1,80 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "con",
+    "confidence": 0.78,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 8,
+        "responsiveness": 8,
+        "argument_structure": 8,
+        "burden_of_proof": 6,
+        "handling_counterarguments": 8,
+        "style_clarity": 9
+      },
+      "con": {
+        "factual_accuracy": 9,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 9,
+        "handling_counterarguments": 9,
+        "style_clarity": 9
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "con_opening",
+        "reason": "Con identified the central policy ambiguity: valuing reproducibility more than novelty is stronger than requiring adequate verification, and the former may distort the research portfolio."
+      },
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Pro effectively addressed the truth-versus-reproducibility objection and distinguished individual incentives from system-level knowledge quality, but mainly asserted that portfolio protections could solve the opportunity cost."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "Con directly returned to the comparative burden and explained why reproducibility is not a proxy for importance, validity, or truth, while arguing that reserving some discovery funding may not prevent distortion."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_policy_effect",
+        "severity": "medium",
+        "quote": "Institutions can address opportunity cost by reserving funding for high-risk discovery, while giving greater weight to reproducible methods"
+      },
+      {
+        "side": "pro",
+        "type": "underdeveloped_comparison",
+        "severity": "medium",
+        "quote": "reproducibility determines which deserve cumulative investment"
+      },
+      {
+        "side": "con",
+        "type": "minor_unsupported_prediction",
+        "severity": "low",
+        "quote": "If reproducibility is the dominant criterion, researchers rationally avoid questions whose methods, data, or effects are initially difficult to verify"
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1571,
+        "output_tokens": 364,
+        "total_tokens": 1935
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-09-23T08:35:04.022Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]
