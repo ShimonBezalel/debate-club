@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T08:35:04.021Z",
+  "generated_at": "2026-09-24T08:27:57.015Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -828,6 +828,31 @@
         "match": "daily-2026-09-23-s01-science_reproducibility_novelty_009/match.json",
         "transcript": "daily-2026-09-23-s01-science_reproducibility_novelty_009/transcript.md",
         "scorecard": "daily-2026-09-23-s01-science_reproducibility_novelty_009/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-09-24-s01-science_public_data_010",
+      "created_at": "2026-09-24T08:27:57.015Z",
+      "conjecture_id": "science_public_data_010",
+      "conjecture_statement": "Publicly funded research data should be open by default.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "cross-examiner-v1",
+      "con_agent": "steelman-v1",
+      "winner": "pro",
+      "judge_split": {
+        "pro": 1,
+        "con": 0,
+        "tie": 0
+      },
+      "confidence_mean": 0.72,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-09-24-s01-science_public_data_010/match.json",
+        "transcript": "daily-2026-09-24-s01-science_public_data_010/transcript.md",
+        "scorecard": "daily-2026-09-24-s01-science_public_data_010/scorecard.md"
       }
     }
   ]

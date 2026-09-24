@@ -1,0 +1,34 @@
+{
+  "turns": [
+    {
+      "turn_id": "pro_opening",
+      "time_used_sec": 7.585,
+      "tokens_estimate": 167
+    },
+    {
+      "turn_id": "con_opening",
+      "time_used_sec": 3.734,
+      "tokens_estimate": 168
+    },
+    {
+      "turn_id": "pro_rebuttal",
+      "time_used_sec": 2.637,
+      "tokens_estimate": 169
+    },
+    {
+      "turn_id": "con_rebuttal",
+      "time_used_sec": 4.087,
+      "tokens_estimate": 189
+    },
+    {
+      "turn_id": "pro_closing",
+      "time_used_sec": 3.458,
+      "tokens_estimate": 173
+    },
+    {
+      "turn_id": "con_closing",
+      "time_used_sec": 3.015,
+      "tokens_estimate": 165
+    }
+  ]
+}

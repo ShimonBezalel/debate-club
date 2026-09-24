@@ -2,7 +2,7 @@
 
 This directory is the Git-backed open debate ledger. Every match is a reproducible artifact with transcript, JSONL turns, judge votes, scorecard, timing, tool log, and match metadata.
 
-Ledger through: 2026-09-23T08:35:04.021Z
+Ledger through: 2026-09-24T08:27:57.015Z
 
 | Match | Featured | Timestamp | Conjecture | Protocol | Pro | Con | Winner | Judge split | Transcript | Scorecard |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -39,3 +39,4 @@ Ledger through: 2026-09-23T08:35:04.021Z
 | daily-2026-09-21-s01-science_negative_evidence_007 | no | 2026-09-21T08:56:53.247Z | Absence of expected evidence should usually count more strongly than the presence of surprising evidence. | classic_v1 | steelman-v1 | cross-examiner-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-21-s01-science_negative_evidence_007/transcript.md) | [scorecard](daily-2026-09-21-s01-science_negative_evidence_007/scorecard.md) |
 | daily-2026-09-22-s01-science_preregistration_008 | no | 2026-09-22T08:33:09.480Z | Exploratory research benefits more from preregistration than it loses in flexibility. | classic_v1 | cross-examiner-v1 | steelman-v1 | pro | pro 1, con 0, tie 0 | [transcript](daily-2026-09-22-s01-science_preregistration_008/transcript.md) | [scorecard](daily-2026-09-22-s01-science_preregistration_008/scorecard.md) |
 | daily-2026-09-23-s01-science_reproducibility_novelty_009 | no | 2026-09-23T08:35:04.021Z | Research institutions should value reproducible work more than novel work. | classic_v1 | steelman-v1 | cross-examiner-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-23-s01-science_reproducibility_novelty_009/transcript.md) | [scorecard](daily-2026-09-23-s01-science_reproducibility_novelty_009/scorecard.md) |
+| daily-2026-09-24-s01-science_public_data_010 | no | 2026-09-24T08:27:57.015Z | Publicly funded research data should be open by default. | classic_v1 | cross-examiner-v1 | steelman-v1 | pro | pro 1, con 0, tie 0 | [transcript](daily-2026-09-24-s01-science_public_data_010/transcript.md) | [scorecard](daily-2026-09-24-s01-science_public_data_010/scorecard.md) |

@@ -1,0 +1,74 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "pro",
+    "confidence": 0.72,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 8,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 8,
+        "handling_counterarguments": 9,
+        "style_clarity": 9
+      },
+      "con": {
+        "factual_accuracy": 8,
+        "responsiveness": 8,
+        "argument_structure": 8,
+        "burden_of_proof": 7,
+        "handling_counterarguments": 8,
+        "style_clarity": 9
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Pro directly addressed the strongest objection by distinguishing default openness from immediate or unrestricted release, and proposed embargoes, metadata, codebooks, and controlled access as concrete safeguards."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Con correctly identified unresolved implementation costs—curation, documentation, interpretation, and allocation of responsibility—but did not show why these require rejecting a rebuttable presumption of openness."
+      },
+      {
+        "turn_id": "pro_closing",
+        "reason": "Pro sharpened the policy distinction: a documented, reviewable plan with data-specific exceptions can preserve discovery incentives while making verification the baseline, whereas 'when justified and feasible' risks leaving justification too discretionary."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "minor_overstatement",
+        "severity": "low",
+        "quote": "The concedes the core point"
+      },
+      {
+        "side": "con",
+        "type": "unsupported_empirical_implication",
+        "severity": "low",
+        "quote": "A presumption of release can impose ... potentially weakening careful discovery and stewardship"
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1552,
+        "output_tokens": 316,
+        "total_tokens": 1868
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-09-24T08:27:57.016Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]
