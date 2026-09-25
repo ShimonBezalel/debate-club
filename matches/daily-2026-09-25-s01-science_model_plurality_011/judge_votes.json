@@ -1,0 +1,84 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "con",
+    "confidence": 0.84,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 7.5,
+        "responsiveness": 8,
+        "argument_structure": 8,
+        "burden_of_proof": 6.5,
+        "handling_counterarguments": 8,
+        "style_clarity": 8.5
+      },
+      "con": {
+        "factual_accuracy": 8,
+        "responsiveness": 9,
+        "argument_structure": 8.5,
+        "burden_of_proof": 9,
+        "handling_counterarguments": 8.5,
+        "style_clarity": 8.5
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "con_opening",
+        "reason": "Con correctly identified the central burden problem: the conjecture is comparative and broad, while the pro case mainly established that conditional, proportionate pluralism can be useful."
+      },
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Pro effectively distinguished individual incentives from system-level knowledge and explained how shared assumptions can make within-framework replication miss common error."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Con directly answered the portfolio argument by emphasizing opportunity costs and the need to compare expected information gain against replication, measurement, and verification."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "Con crystallized the strongest synthesis: proportionality and a limited reserve of testable alternatives reject premature closure without showing that maintaining several explanations is generally superior."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "burden_shift",
+        "severity": "medium",
+        "quote": "The burden is not to prove pluralism always wins, but that premature convergence is systematically riskier under epistemic uncertainty."
+      },
+      {
+        "side": "pro",
+        "type": "unsupported_generalization",
+        "severity": "low",
+        "quote": "those conditions are often themselves uncertain"
+      },
+      {
+        "side": "con",
+        "type": "minor_overstatement",
+        "severity": "low",
+        "quote": "The pro side ultimately concedes the decisive point"
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1587,
+        "output_tokens": 377,
+        "total_tokens": 1964
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-09-25T08:49:31.658Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

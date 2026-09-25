@@ -1,0 +1,426 @@
+{
+  "match_id": "daily-2026-09-25-s01-science_model_plurality_011",
+  "created_at": "2026-09-25T08:49:31.658Z",
+  "conjecture": {
+    "id": "science_model_plurality_011",
+    "statement": "Maintaining several competing explanations is better science than converging quickly on one dominant model.",
+    "domain": "science_epistemology",
+    "truth_type": "philosophical",
+    "stance_mode": "forced_random",
+    "evidence_mode": "no_external_info",
+    "allowed_tools": {
+      "web": false,
+      "calculator": false,
+      "evidence_pack": false
+    },
+    "background": {
+      "short_context": "Consider coordination, falsifiability, research diversity, scarce resources, and when convergence is earned."
+    },
+    "rubric_notes": [
+      "distinguish incentives for discovery from incentives for verification",
+      "compare individual rationality with system-level knowledge quality",
+      "address uncertainty, replication, and evidence accessibility"
+    ]
+  },
+  "protocol": {
+    "id": "classic_v1",
+    "prep_time_sec": 180,
+    "max_turn_tokens": 700,
+    "turns": [
+      {
+        "id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "time_sec": 90
+      },
+      {
+        "id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "time_sec": 90
+      }
+    ]
+  },
+  "agents": {
+    "pro": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "description": "Builds the strongest principled case for its assigned side while anticipating objections.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "principled_steelman",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.45,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    },
+    "con": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "description": "Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "adversarial_cross_examiner",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.5,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    }
+  },
+  "transcript": [
+    {
+      "turn_id": "pro_opening",
+      "speaker": "pro",
+      "phase": "opening",
+      "text": "The burden is to show that, under uncertainty, plural explanations usually produce more reliable knowledge than rapid convergence.\n\nMaintaining serious competitors separates discovery from verification. A researcher may rationally pursue a promising model, but a scientific community that rewards only the dominant account risks confirmation bias, premature closure, and incentives to interpret ambiguous evidence as support. Rival models generate discriminating predictions, expose hidden assumptions, and preserve alternatives when evidence is noisy or inaccessible.\n\nThis does not mean treating every speculation as equally credible: alternatives should earn continued attention through coherence, testability, and responsiveness to evidence. Nor is convergence bad; replication and decisive evidence should eventually narrow the field. The claim is about timing and institutional design. System-level knowledge improves when some investigators explore and others verify, because independent approaches make failures visible and conclusions more robust than any individual’s rational commitment alone.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 277,
+          "output_tokens": 172,
+          "total_tokens": 449
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-25T08:49:10.962Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-25T08:49:10.961Z",
+      "completed_at": "2026-09-25T08:49:15.728Z",
+      "time_used_sec": 4.767,
+      "tokens_estimate": 189
+    },
+    {
+      "turn_id": "con_opening",
+      "speaker": "con",
+      "phase": "opening",
+      "text": "The pro case quietly shifts from “maintaining several competing explanations is better” to “some pluralism is useful.” That weaker claim is plausible, but it does not establish the conjecture. Competition has costs: scarce researchers, funding, and attention may be diverted toward increasingly unfalsifiable alternatives, while replication of the best-supported model is neglected. Individual incentives to preserve a favored theory can also produce motivated reasoning, not merely discovery.\n\nThe key issue is not whether alternatives can help, but when their expected information gain exceeds their opportunity cost. Convergence is rational when evidence is accessible, predictions discriminate reliably, and independent replications agree. Where evidence is noisy or inaccessible, pluralism may be warranted—but that is a conditional rule, not a general superiority claim. A scientific system should preserve credible alternatives proportionally to evidence, rather than maintain competition as an intrinsic virtue.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 450,
+          "output_tokens": 176,
+          "total_tokens": 626
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-25T08:49:15.729Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-25T08:49:15.728Z",
+      "completed_at": "2026-09-25T08:49:19.021Z",
+      "time_used_sec": 3.293,
+      "tokens_estimate": 184
+    },
+    {
+      "turn_id": "pro_rebuttal",
+      "speaker": "pro",
+      "phase": "rebuttal",
+      "text": "The objection identifies a real cost, but it does not defeat the conjecture: “maintaining several” need not mean funding every unfalsifiable idea equally. The relevant comparison is system-level knowledge, not each researcher’s local efficiency. Rapid convergence can make verification look productive while shared assumptions suppress anomalies and discourage replication that might falsify the dominant model. A portfolio—some investigators testing the leader, others pursuing credible rivals—better separates discovery incentives from verification incentives.\n\nConvergence is appropriate when evidence is accessible, predictions discriminate, and replications genuinely agree. But those conditions are often themselves uncertain; accessible evidence may reflect measurement or publication selection. Maintaining proportionate, testable alternatives therefore improves uncertainty calibration and preserves routes to correction. The burden is not to prove pluralism always wins, but that premature convergence is systematically riskier under epistemic uncertainty.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 632,
+          "output_tokens": 172,
+          "total_tokens": 804
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-25T08:49:19.021Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-25T08:49:19.021Z",
+      "completed_at": "2026-09-25T08:49:21.876Z",
+      "time_used_sec": 2.855,
+      "tokens_estimate": 175
+    },
+    {
+      "turn_id": "con_rebuttal",
+      "speaker": "con",
+      "phase": "rebuttal",
+      "text": "The portfolio argument supports conditional pluralism, not the conjecture’s broader claim. Calling alternatives “credible” and “testable” does not solve the allocation problem: credibility is often precisely what is disputed, and continued attention can entrench a theory through motivated reasoning rather than generate discrimination. System-level diversity can improve discovery, but system-level knowledge also requires verification; if pluralism weakens replication of the best-supported model, uncertainty remains unresolved rather than better calibrated.\n\nNor is convergence necessarily “premature” whenever evidence is imperfect. The relevant standard is comparative expected information gain: an alternative should receive resources only when its potential discriminating evidence justifies its opportunity cost. Individual researchers may rationally explore rivals, while institutions rationally concentrate verification. Thus uncertainty and inaccessible evidence justify preserving a limited reserve of alternatives—not maintaining several explanations as generally better science.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 811,
+          "output_tokens": 172,
+          "total_tokens": 983
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-25T08:49:21.876Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-25T08:49:21.876Z",
+      "completed_at": "2026-09-25T08:49:25.251Z",
+      "time_used_sec": 3.375,
+      "tokens_estimate": 175
+    },
+    {
+      "turn_id": "pro_closing",
+      "speaker": "pro",
+      "phase": "closing",
+      "text": "The closing burden is comparative: whether science should converge quickly or preserve a structured portfolio under uncertainty. Con is right that pluralism is not an intrinsic license to fund every speculation; unfalsifiable alternatives deserve little or no support. But that concession strengthens, rather than abandons, our case. Individual researchers may rationally specialize in verification, yet system-level science needs independent investigators testing rival assumptions, because evidence can be noisy, inaccessible, selectively published, or interpreted through the dominant model. Replication is essential, but replication within one framework cannot reveal shared error. Proportionate competition creates discriminating tests and preserves correction routes. Thus incentives should be divided: verification for established claims, discovery for credible alternatives. Convergence should follow accessible, discriminating, replicated evidence—not precede it. Maintaining several serious explanations is therefore generally better science when uncertainty remains material.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 985,
+          "output_tokens": 174,
+          "total_tokens": 1159
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-25T08:49:25.251Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-25T08:49:25.251Z",
+      "completed_at": "2026-09-25T08:49:28.451Z",
+      "time_used_sec": 3.2,
+      "tokens_estimate": 177
+    },
+    {
+      "turn_id": "con_closing",
+      "speaker": "con",
+      "phase": "closing",
+      "text": "The pro side ultimately concedes the decisive point: pluralism is superior only under specified conditions—material uncertainty, credible alternatives, and sufficient expected information gain. That is not the conjecture that maintaining several explanations is generally better science; it is a conditional portfolio rule.\n\nNor does “system-level” reasoning erase opportunity costs. Attention spent on rivals is attention not spent on replication, measurement improvement, or testing the best-supported model. A dominant framework can be wrong, but alternatives can also persist through motivated reasoning, weak predictions, and inaccessible evidence. Replication within one framework is imperfect, yet abandoning concentration before discriminating evidence exists leaves uncertainty unresolved rather than calibrated.\n\nThe sound norm is proportionality: converge when evidence is accessible and independently replicated; preserve a limited, testable reserve when it is not. That rejects rapid closure without making pluralism the default.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1164,
+          "output_tokens": 174,
+          "total_tokens": 1338
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-25T08:49:28.451Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-25T08:49:28.451Z",
+      "completed_at": "2026-09-25T08:49:31.658Z",
+      "time_used_sec": 3.207,
+      "tokens_estimate": 180
+    }
+  ],
+  "judge_votes": [
+    {
+      "judge_id": "epistemic-judge-v1",
+      "winner": "con",
+      "confidence": 0.84,
+      "scores": {
+        "pro": {
+          "factual_accuracy": 7.5,
+          "responsiveness": 8,
+          "argument_structure": 8,
+          "burden_of_proof": 6.5,
+          "handling_counterarguments": 8,
+          "style_clarity": 8.5
+        },
+        "con": {
+          "factual_accuracy": 8,
+          "responsiveness": 9,
+          "argument_structure": 8.5,
+          "burden_of_proof": 9,
+          "handling_counterarguments": 8.5,
+          "style_clarity": 8.5
+        }
+      },
+      "decisive_moments": [
+        {
+          "turn_id": "con_opening",
+          "reason": "Con correctly identified the central burden problem: the conjecture is comparative and broad, while the pro case mainly established that conditional, proportionate pluralism can be useful."
+        },
+        {
+          "turn_id": "pro_rebuttal",
+          "reason": "Pro effectively distinguished individual incentives from system-level knowledge and explained how shared assumptions can make within-framework replication miss common error."
+        },
+        {
+          "turn_id": "con_rebuttal",
+          "reason": "Con directly answered the portfolio argument by emphasizing opportunity costs and the need to compare expected information gain against replication, measurement, and verification."
+        },
+        {
+          "turn_id": "con_closing",
+          "reason": "Con crystallized the strongest synthesis: proportionality and a limited reserve of testable alternatives reject premature closure without showing that maintaining several explanations is generally superior."
+        }
+      ],
+      "flags": [
+        {
+          "side": "pro",
+          "type": "burden_shift",
+          "severity": "medium",
+          "quote": "The burden is not to prove pluralism always wins, but that premature convergence is systematically riskier under epistemic uncertainty."
+        },
+        {
+          "side": "pro",
+          "type": "unsupported_generalization",
+          "severity": "low",
+          "quote": "those conditions are often themselves uncertain"
+        },
+        {
+          "side": "con",
+          "type": "minor_overstatement",
+          "severity": "low",
+          "quote": "The pro side ultimately concedes the decisive point"
+        }
+      ],
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1587,
+          "output_tokens": 377,
+          "total_tokens": 1964
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "Epistemic Judge v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-25T08:49:31.658Z",
+          "response_storage": "disabled"
+        }
+      }
+    }
+  ],
+  "result": {
+    "winner": "con",
+    "judge_split": {
+      "pro": 0,
+      "con": 1,
+      "tie": 0
+    },
+    "confidence_mean": 0.84,
+    "confidence_variance": 0,
+    "flags": [
+      {
+        "side": "pro",
+        "type": "burden_shift",
+        "severity": "medium",
+        "quote": "The burden is not to prove pluralism always wins, but that premature convergence is systematically riskier under epistemic uncertainty."
+      },
+      {
+        "side": "pro",
+        "type": "unsupported_generalization",
+        "severity": "low",
+        "quote": "those conditions are often themselves uncertain"
+      },
+      {
+        "side": "con",
+        "type": "minor_overstatement",
+        "severity": "low",
+        "quote": "The pro side ultimately concedes the decisive point"
+      }
+    ]
+  }
+}
