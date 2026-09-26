@@ -1,0 +1,78 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "tie",
+    "confidence": 0.84,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 8,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 7,
+        "handling_counterarguments": 9,
+        "style_clarity": 9
+      },
+      "con": {
+        "factual_accuracy": 8,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 9,
+        "handling_counterarguments": 9,
+        "style_clarity": 9
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_opening",
+        "reason": "Pro usefully narrowed the conjecture to cumulative scientific understanding and distinguished individual use of black-box prediction from system-level value."
+      },
+      {
+        "turn_id": "con_opening",
+        "reason": "Con identified the central burden problem: showing that explanation is generally more valuable, rather than merely sometimes useful, and emphasized replication and public checkability."
+      },
+      {
+        "turn_id": "pro_closing",
+        "reason": "Pro clarified a defensible conditional thesis—explanation is more valuable when it makes verification portable, supports intervention, or enables transfer—but this qualification weakened the original broad conjecture."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "Con correctly maintained that conditional benefits do not establish general superiority and tied explanatory credit to identifiable mechanisms, accessible evidence, and discriminating replication."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "scope_qualification",
+        "severity": "medium",
+        "quote": "I claim greater value when explanation earns its keep by enabling transfer, intervention, or discriminating tests."
+      },
+      {
+        "side": "con",
+        "type": "scope_qualification",
+        "severity": "low",
+        "quote": "Explanations deserve extra credit when they earn it through successful, discriminating predictions—not because causal understanding has a default premium."
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1563,
+        "output_tokens": 355,
+        "total_tokens": 1918
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-09-26T08:35:55.400Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

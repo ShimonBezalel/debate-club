@@ -2,7 +2,7 @@
 
 This directory is the Git-backed open debate ledger. Every match is a reproducible artifact with transcript, JSONL turns, judge votes, scorecard, timing, tool log, and match metadata.
 
-Ledger through: 2026-09-25T08:49:31.658Z
+Ledger through: 2026-09-26T08:35:55.400Z
 
 | Match | Featured | Timestamp | Conjecture | Protocol | Pro | Con | Winner | Judge split | Transcript | Scorecard |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -41,3 +41,4 @@ Ledger through: 2026-09-25T08:49:31.658Z
 | daily-2026-09-23-s01-science_reproducibility_novelty_009 | no | 2026-09-23T08:35:04.021Z | Research institutions should value reproducible work more than novel work. | classic_v1 | steelman-v1 | cross-examiner-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-23-s01-science_reproducibility_novelty_009/transcript.md) | [scorecard](daily-2026-09-23-s01-science_reproducibility_novelty_009/scorecard.md) |
 | daily-2026-09-24-s01-science_public_data_010 | no | 2026-09-24T08:27:57.015Z | Publicly funded research data should be open by default. | classic_v1 | cross-examiner-v1 | steelman-v1 | pro | pro 1, con 0, tie 0 | [transcript](daily-2026-09-24-s01-science_public_data_010/transcript.md) | [scorecard](daily-2026-09-24-s01-science_public_data_010/scorecard.md) |
 | daily-2026-09-25-s01-science_model_plurality_011 | no | 2026-09-25T08:49:31.658Z | Maintaining several competing explanations is better science than converging quickly on one dominant model. | classic_v1 | steelman-v1 | cross-examiner-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-25-s01-science_model_plurality_011/transcript.md) | [scorecard](daily-2026-09-25-s01-science_model_plurality_011/scorecard.md) |
+| daily-2026-09-26-s01-science_causes_over_prediction_012 | no | 2026-09-26T08:35:55.400Z | Scientific models that explain causes are more valuable than models that only predict accurately. | classic_v1 | cross-examiner-v1 | steelman-v1 | tie | pro 0, con 0, tie 1 | [transcript](daily-2026-09-26-s01-science_causes_over_prediction_012/transcript.md) | [scorecard](daily-2026-09-26-s01-science_causes_over_prediction_012/scorecard.md) |

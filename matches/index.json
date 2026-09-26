@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T08:49:31.658Z",
+  "generated_at": "2026-09-26T08:35:55.400Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -878,6 +878,31 @@
         "match": "daily-2026-09-25-s01-science_model_plurality_011/match.json",
         "transcript": "daily-2026-09-25-s01-science_model_plurality_011/transcript.md",
         "scorecard": "daily-2026-09-25-s01-science_model_plurality_011/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-09-26-s01-science_causes_over_prediction_012",
+      "created_at": "2026-09-26T08:35:55.400Z",
+      "conjecture_id": "science_causes_over_prediction_012",
+      "conjecture_statement": "Scientific models that explain causes are more valuable than models that only predict accurately.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "cross-examiner-v1",
+      "con_agent": "steelman-v1",
+      "winner": "tie",
+      "judge_split": {
+        "pro": 0,
+        "con": 0,
+        "tie": 1
+      },
+      "confidence_mean": 0.84,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-09-26-s01-science_causes_over_prediction_012/match.json",
+        "transcript": "daily-2026-09-26-s01-science_causes_over_prediction_012/transcript.md",
+        "scorecard": "daily-2026-09-26-s01-science_causes_over_prediction_012/scorecard.md"
       }
     }
   ]
