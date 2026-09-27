@@ -1,0 +1,74 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "pro",
+    "confidence": 0.68,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 8,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 8,
+        "handling_counterarguments": 9,
+        "style_clarity": 9
+      },
+      "con": {
+        "factual_accuracy": 8,
+        "responsiveness": 9,
+        "argument_structure": 8,
+        "burden_of_proof": 7,
+        "handling_counterarguments": 9,
+        "style_clarity": 9
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Pro directly incorporated the strongest access and novice objections by specifying hints, definitions, worked steps, and adaptive exceptions while preserving questioning as the default."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Con effectively identified risks of friction, assessment-loop behavior, and subject-specific inefficiency, but these objections mainly supported adaptation rather than disproving a question-first norm."
+      },
+      {
+        "turn_id": "pro_closing",
+        "reason": "Pro clearly framed the policy as a defeasible default rather than an absolute rule and connected questioning to durable understanding, independence, and teacher-relevant misconception evidence."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_empirical_generalization",
+        "severity": "low",
+        "quote": "can reduce repeated dependence and give teachers useful misconception data"
+      },
+      {
+        "side": "con",
+        "type": "unsupported_empirical_generalization",
+        "severity": "low",
+        "quote": "seeing a complete worked example can prevent inefficient trial-and-error"
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1565,
+        "output_tokens": 303,
+        "total_tokens": 1868
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-09-27T09:15:51.738Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

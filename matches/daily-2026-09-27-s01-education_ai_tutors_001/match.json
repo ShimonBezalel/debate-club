@@ -1,0 +1,410 @@
+{
+  "match_id": "daily-2026-09-27-s01-education_ai_tutors_001",
+  "created_at": "2026-09-27T09:15:51.738Z",
+  "conjecture": {
+    "id": "education_ai_tutors_001",
+    "statement": "AI tutors should guide students with questions rather than provide direct answers.",
+    "domain": "education_learning",
+    "truth_type": "policy",
+    "stance_mode": "forced_random",
+    "evidence_mode": "no_external_info",
+    "allowed_tools": {
+      "web": false,
+      "calculator": false,
+      "evidence_pack": false
+    },
+    "background": {
+      "short_context": "Consider productive struggle, accessibility, frustration, feedback speed, and when explicit instruction is superior."
+    },
+    "rubric_notes": [
+      "compare learning outcomes with motivation, access, and teacher workload",
+      "distinguish short-term performance from durable understanding",
+      "address differences among learners and subject areas"
+    ]
+  },
+  "protocol": {
+    "id": "classic_v1",
+    "prep_time_sec": 180,
+    "max_turn_tokens": 700,
+    "turns": [
+      {
+        "id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "time_sec": 90
+      },
+      {
+        "id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "time_sec": 90
+      }
+    ]
+  },
+  "agents": {
+    "pro": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "description": "Builds the strongest principled case for its assigned side while anticipating objections.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "principled_steelman",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.45,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    },
+    "con": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "description": "Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "adversarial_cross_examiner",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.5,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    }
+  },
+  "transcript": [
+    {
+      "turn_id": "pro_opening",
+      "speaker": "pro",
+      "phase": "opening",
+      "text": "AI tutors should generally lead with questions because the goal is durable understanding, not merely producing the next correct answer. Asking students to explain, predict, diagnose an error, or choose a strategy makes their reasoning visible and supports retrieval, transfer, and metacognition. Direct answers can improve short-term performance, but may conceal confusion and encourage dependence.\n\nThis is not an absolute ban. Beginners, students facing accessibility barriers, urgent factual gaps, or highly procedural tasks may need a concise explanation first, followed by a question that checks understanding. Good tutoring should adapt difficulty and language, rather than impose endless Socratic questioning.\n\nAlthough questioning can take more turns, it can reduce repeated help by building independence and give teachers clearer evidence of misconceptions. The policy should therefore prioritize guided questions, with direct instruction as a targeted scaffold—not the default.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 272,
+          "output_tokens": 168,
+          "total_tokens": 440
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-27T09:15:33.898Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-27T09:15:33.897Z",
+      "completed_at": "2026-09-27T09:15:37.950Z",
+      "time_used_sec": 4.053,
+      "tokens_estimate": 181
+    },
+    {
+      "turn_id": "con_opening",
+      "speaker": "con",
+      "phase": "opening",
+      "text": "Questions are useful, but making them the default risks confusing productive struggle with needless friction. A novice who lacks prerequisite knowledge cannot reason from questions alone; an English learner, dyslexic student, or learner under time pressure may need a clear explanation before participation is possible. In mathematics, coding, and factual subjects, a worked example can establish a schema more efficiently than repeated guesses. That matters for access and for teachers whose workload increases when every misconception requires a long dialogue.\n\nThe pro side also assumes visible reasoning reliably produces durable learning, but questioning can elicit confident misconceptions or encourage students to game prompts. Direct answers are not inherently dependency-producing if paired with explanation, retrieval checks, and opportunities to apply the idea. The appropriate policy is adaptive: diagnose what the learner knows, answer when missing knowledge blocks progress, and question when the learner has enough foundation to reason productively.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 441,
+          "output_tokens": 177,
+          "total_tokens": 618
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-27T09:15:37.950Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-27T09:15:37.950Z",
+      "completed_at": "2026-09-27T09:15:41.217Z",
+      "time_used_sec": 3.267,
+      "tokens_estimate": 197
+    },
+    {
+      "turn_id": "pro_rebuttal",
+      "speaker": "pro",
+      "phase": "rebuttal",
+      "text": "The adaptive principle is right; the dispute is the default. “Answer first” can efficiently repair a gap, but it also lets students bypass the reasoning that reveals whether the gap is repaired. Questions need not mean guessing: an AI can offer a hint, definition, worked step, or multiple-choice scaffold, then ask the learner to explain or apply it. That preserves access while testing durable understanding.\n\nWe concede that novices, accessibility needs, urgent tasks, and some procedural domains warrant more direct instruction. But those are reasons for intelligent exceptions, not for making answers routine. Across learners and subjects, the tutor should calibrate support: question when a productive foothold exists, provide the smallest necessary explanation when it does not, and return to questioning. This may take an extra turn, but reduces dependence and gives teachers actionable evidence rather than merely higher short-term completion.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 624,
+          "output_tokens": 175,
+          "total_tokens": 799
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-27T09:15:41.217Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-27T09:15:41.217Z",
+      "completed_at": "2026-09-27T09:15:43.674Z",
+      "time_used_sec": 2.457,
+      "tokens_estimate": 188
+    },
+    {
+      "turn_id": "con_rebuttal",
+      "speaker": "con",
+      "phase": "rebuttal",
+      "text": "The proposed “default” still risks turning tutoring into an assessment loop. A student may have a foothold but lack the vocabulary, confidence, or working memory to express it; repeated prompts then impose friction without revealing a genuine misconception. That cost is not trivial for struggling learners or teachers managing limited time. Nor is a direct answer merely “routine” if it is an explicit model followed by a brief application task and feedback. In algebra or coding, seeing a complete worked example can prevent inefficient trial-and-error; in factual learning, questioning cannot substitute for supplying missing facts. Durable understanding depends on calibrated explanation, practice, and feedback—not the surface format of the first response. Therefore, the policy should require diagnosis and follow-up checks, but not privilege questions as the default across learners and subjects.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 806,
+          "output_tokens": 161,
+          "total_tokens": 967
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-27T09:15:43.674Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-27T09:15:43.674Z",
+      "completed_at": "2026-09-27T09:15:46.478Z",
+      "time_used_sec": 2.804,
+      "tokens_estimate": 175
+    },
+    {
+      "turn_id": "pro_closing",
+      "speaker": "pro",
+      "phase": "closing",
+      "text": "The burden is not to show that questions always win, but that they are the better default for learning. Con is right that novices, accessibility needs, factual gaps, time pressure, and some mathematics or coding tasks require direct explanation or a worked example. But an answer-first policy risks measuring completion rather than understanding: students can copy a solution without being able to retrieve, explain, or transfer it.\n\nA question-first default need not mean frustrating guesswork. The tutor can diagnose, provide a definition, hint, or modeled step, then ask the learner to apply it. That supports access while preserving evidence of learning, motivation, and eventual independence. It may require an extra turn, but can reduce repeated dependence and give teachers useful misconception data. Thus the principled policy is calibrated questioning as the norm, with concise answers as targeted scaffolds—not a rigid rule for every learner or subject.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 969,
+          "output_tokens": 180,
+          "total_tokens": 1149
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-27T09:15:46.478Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-27T09:15:46.478Z",
+      "completed_at": "2026-09-27T09:15:49.427Z",
+      "time_used_sec": 2.949,
+      "tokens_estimate": 195
+    },
+    {
+      "turn_id": "con_closing",
+      "speaker": "con",
+      "phase": "closing",
+      "text": "The pro side has conceded the central point: the tutor must diagnose before choosing a format. But that does not establish questioning as the default. A learner may possess a “productive foothold” yet lack vocabulary, confidence, or working memory to demonstrate it; an assessment loop then consumes time without improving understanding. Conversely, a concise explanation or worked example can be immediately followed by retrieval, application, and feedback—testing durable learning without forcing inefficient guessing. This matters for novices, accessibility needs, factual knowledge, algebra, coding, and teachers’ limited time. Questions can expose misconceptions, but answers can also be instructionally active when students must explain or transfer them. The defensible policy is adaptive sequencing, not privileging one surface format: diagnose, explain when necessary, then question and practice.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1154,
+          "output_tokens": 161,
+          "total_tokens": 1315
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-27T09:15:49.427Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-27T09:15:49.427Z",
+      "completed_at": "2026-09-27T09:15:51.738Z",
+      "time_used_sec": 2.311,
+      "tokens_estimate": 165
+    }
+  ],
+  "judge_votes": [
+    {
+      "judge_id": "epistemic-judge-v1",
+      "winner": "pro",
+      "confidence": 0.68,
+      "scores": {
+        "pro": {
+          "factual_accuracy": 8,
+          "responsiveness": 9,
+          "argument_structure": 9,
+          "burden_of_proof": 8,
+          "handling_counterarguments": 9,
+          "style_clarity": 9
+        },
+        "con": {
+          "factual_accuracy": 8,
+          "responsiveness": 9,
+          "argument_structure": 8,
+          "burden_of_proof": 7,
+          "handling_counterarguments": 9,
+          "style_clarity": 9
+        }
+      },
+      "decisive_moments": [
+        {
+          "turn_id": "pro_rebuttal",
+          "reason": "Pro directly incorporated the strongest access and novice objections by specifying hints, definitions, worked steps, and adaptive exceptions while preserving questioning as the default."
+        },
+        {
+          "turn_id": "con_rebuttal",
+          "reason": "Con effectively identified risks of friction, assessment-loop behavior, and subject-specific inefficiency, but these objections mainly supported adaptation rather than disproving a question-first norm."
+        },
+        {
+          "turn_id": "pro_closing",
+          "reason": "Pro clearly framed the policy as a defeasible default rather than an absolute rule and connected questioning to durable understanding, independence, and teacher-relevant misconception evidence."
+        }
+      ],
+      "flags": [
+        {
+          "side": "pro",
+          "type": "unsupported_empirical_generalization",
+          "severity": "low",
+          "quote": "can reduce repeated dependence and give teachers useful misconception data"
+        },
+        {
+          "side": "con",
+          "type": "unsupported_empirical_generalization",
+          "severity": "low",
+          "quote": "seeing a complete worked example can prevent inefficient trial-and-error"
+        }
+      ],
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1565,
+          "output_tokens": 303,
+          "total_tokens": 1868
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "Epistemic Judge v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-27T09:15:51.738Z",
+          "response_storage": "disabled"
+        }
+      }
+    }
+  ],
+  "result": {
+    "winner": "pro",
+    "judge_split": {
+      "pro": 1,
+      "con": 0,
+      "tie": 0
+    },
+    "confidence_mean": 0.68,
+    "confidence_variance": 0,
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_empirical_generalization",
+        "severity": "low",
+        "quote": "can reduce repeated dependence and give teachers useful misconception data"
+      },
+      {
+        "side": "con",
+        "type": "unsupported_empirical_generalization",
+        "severity": "low",
+        "quote": "seeing a complete worked example can prevent inefficient trial-and-error"
+      }
+    ]
+  }
+}
