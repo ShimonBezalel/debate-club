@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T09:15:51.738Z",
+  "generated_at": "2026-09-28T09:46:47.489Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -928,6 +928,31 @@
         "match": "daily-2026-09-27-s01-education_ai_tutors_001/match.json",
         "transcript": "daily-2026-09-27-s01-education_ai_tutors_001/transcript.md",
         "scorecard": "daily-2026-09-27-s01-education_ai_tutors_001/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-09-28-s01-education_oral_assessment_002",
+      "created_at": "2026-09-28T09:46:47.489Z",
+      "conjecture_id": "education_oral_assessment_002",
+      "conjecture_statement": "Oral examination should replace most take-home assessment in the age of generative AI.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "cross-examiner-v1",
+      "con_agent": "steelman-v1",
+      "winner": "con",
+      "judge_split": {
+        "pro": 0,
+        "con": 1,
+        "tie": 0
+      },
+      "confidence_mean": 0.86,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-09-28-s01-education_oral_assessment_002/match.json",
+        "transcript": "daily-2026-09-28-s01-education_oral_assessment_002/transcript.md",
+        "scorecard": "daily-2026-09-28-s01-education_oral_assessment_002/scorecard.md"
       }
     }
   ]

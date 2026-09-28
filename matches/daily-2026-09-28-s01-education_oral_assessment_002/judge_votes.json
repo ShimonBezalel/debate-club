@@ -1,0 +1,80 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "con",
+    "confidence": 0.86,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 7,
+        "responsiveness": 8,
+        "argument_structure": 8,
+        "burden_of_proof": 5,
+        "handling_counterarguments": 8,
+        "style_clarity": 8
+      },
+      "con": {
+        "factual_accuracy": 8,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 8,
+        "handling_counterarguments": 9,
+        "style_clarity": 9
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "TURN con_rebuttal",
+        "reason": "Con directly identified the central validity problem: oral performance can be contaminated by anxiety, language, disability, confidence, and examiner interaction, even when accommodations are provided. This addressed the pro case more deeply than simply disputing AI detection."
+      },
+      {
+        "turn_id": "TURN con_closing",
+        "reason": "Con showed that the pro position had narrowed from replacing most take-home assessment to adding oral verification to selected summatives. It also gave a concrete alternative—staged drafts, process evidence, checkpoints, authentic products, and selective defenses—that better covered motivation, access, workload, and subject differences."
+      },
+      {
+        "turn_id": "TURN pro_closing",
+        "reason": "Pro usefully clarified that projects, laboratories, portfolios, and team products would remain, and proposed design safeguards. However, it did not establish that oral assessment would improve overall learning enough to justify making it the default for most individual summative evidence."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_policy_effectiveness",
+        "severity": "medium",
+        "quote": "Even with workload and access costs, reliable evidence of learning outweighs the convenience of take-home products."
+      },
+      {
+        "side": "pro",
+        "type": "motion_narrowing",
+        "severity": "medium",
+        "quote": "The policy should therefore replace most summative evidence of individual mastery, not eliminate authentic projects."
+      },
+      {
+        "side": "con",
+        "type": "minor_overstatement",
+        "severity": "low",
+        "quote": "brief oral sample cannot capture sustained revision, research judgment, writing, practical work, or collaboration"
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1623,
+        "output_tokens": 417,
+        "total_tokens": 2040
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-09-28T09:46:47.489Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

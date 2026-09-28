@@ -1,0 +1,422 @@
+{
+  "match_id": "daily-2026-09-28-s01-education_oral_assessment_002",
+  "created_at": "2026-09-28T09:46:47.489Z",
+  "conjecture": {
+    "id": "education_oral_assessment_002",
+    "statement": "Oral examination should replace most take-home assessment in the age of generative AI.",
+    "domain": "education_learning",
+    "truth_type": "policy",
+    "stance_mode": "forced_random",
+    "evidence_mode": "no_external_info",
+    "allowed_tools": {
+      "web": false,
+      "calculator": false,
+      "evidence_pack": false
+    },
+    "background": {
+      "short_context": "Weigh authenticity, anxiety, scalability, accessibility, depth of understanding, and communication bias."
+    },
+    "rubric_notes": [
+      "compare learning outcomes with motivation, access, and teacher workload",
+      "distinguish short-term performance from durable understanding",
+      "address differences among learners and subject areas"
+    ]
+  },
+  "protocol": {
+    "id": "classic_v1",
+    "prep_time_sec": 180,
+    "max_turn_tokens": 700,
+    "turns": [
+      {
+        "id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "time_sec": 90
+      },
+      {
+        "id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "time_sec": 90
+      }
+    ]
+  },
+  "agents": {
+    "pro": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "description": "Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "adversarial_cross_examiner",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.5,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    },
+    "con": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "description": "Builds the strongest principled case for its assigned side while anticipating objections.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "principled_steelman",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.45,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    }
+  },
+  "transcript": [
+    {
+      "turn_id": "pro_opening",
+      "speaker": "pro",
+      "phase": "opening",
+      "text": "Most take-home assessment should be replaced by oral examination because it better measures durable understanding in an AI-saturated environment. A student must explain reasoning, answer follow-ups, and apply concepts—not merely submit polished text whose authorship is uncertain. That improves diagnostic value and can motivate genuine preparation.\n\n“Most” need not mean every assessment: projects, drafts, and practice tasks still support creativity and accessibility. Oral exams should be structured, recorded when appropriate, and offered with accommodations, since anxiety, disability, language, and unequal access to quiet preparation can affect performance. Teachers also need manageable formats—brief sampling interviews or group defenses rather than lengthy one-to-one interrogations.\n\nThe strongest case is for subjects requiring reasoning, interpretation, or problem-solving; practical demonstrations may be superior in some fields. Even with workload and access costs, reliable evidence of learning outweighs the convenience of take-home products.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 276,
+          "output_tokens": 180,
+          "total_tokens": 456
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-28T09:46:24.731Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-28T09:46:24.731Z",
+      "completed_at": "2026-09-28T09:46:29.737Z",
+      "time_used_sec": 5.006,
+      "tokens_estimate": 183
+    },
+    {
+      "turn_id": "con_opening",
+      "speaker": "con",
+      "phase": "opening",
+      "text": "The burden is not merely to detect AI use, but to improve learning overall. Oral exams can reveal understanding, yet replacing most take-home assessment risks trading one distortion for another: short-term verbal performance may reward confidence, fluency, memory, and familiarity with the examiner rather than durable learning. Anxiety, disability, language background, and limited access to coaching can matter even with accommodations.\n\nTake-home work, meanwhile, can assess revision, research, sustained problem-solving, creativity, and authentic collaboration—outcomes an oral snapshot may miss. AI requires redesign, not wholesale replacement: staged drafts, process logs, in-class checkpoints, personalized reflection, and selective oral defenses can verify authorship while preserving access. Oral assessment is valuable where explanation is central, but less suitable for writing-intensive, practical, or highly collaborative subjects. Scaling frequent, fair oral exams also imposes substantial teacher workload. Thus, use oral components strategically, not as the dominant mode.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 455,
+          "output_tokens": 192,
+          "total_tokens": 647
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-28T09:46:29.737Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-28T09:46:29.737Z",
+      "completed_at": "2026-09-28T09:46:33.862Z",
+      "time_used_sec": 4.125,
+      "tokens_estimate": 188
+    },
+    {
+      "turn_id": "pro_rebuttal",
+      "speaker": "pro",
+      "phase": "rebuttal",
+      "text": "The objection treats “oral examination” as a high-pressure, one-shot interview, but that is not the proposal. Structured, low-stakes oral defenses with preparation time, rubrics, recordings, and accommodations can test explanation and transfer while reducing the value of fluent bluffing. Take-home portfolios remain appropriate for writing, research, collaboration, and practical work; however, their polished products increasingly provide weak evidence of individual understanding unless supplemented by questioning. Process logs and checkpoints help, but they also add teacher workload and can document activity without proving comprehension. Oral sampling need not assess every detail: brief follow-ups across a portfolio can verify durable learning efficiently. The policy should therefore replace most *summative evidence of individual mastery*, not eliminate authentic projects. Subject fit and learner differences justify varied oral formats—not retaining assessment methods whose validity now depends on unverified authorship.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 655,
+          "output_tokens": 174,
+          "total_tokens": 829
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-28T09:46:33.862Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-28T09:46:33.862Z",
+      "completed_at": "2026-09-28T09:46:37.605Z",
+      "time_used_sec": 3.743,
+      "tokens_estimate": 179
+    },
+    {
+      "turn_id": "con_rebuttal",
+      "speaker": "con",
+      "phase": "rebuttal",
+      "text": "The key issue is validity, not whether oral exams can be improved. A structured defense may verify authorship, but it still samples performance under social and linguistic pressure. That can measure confidence or rapid recall more than durable understanding, especially for anxious, disabled, multilingual, or less-coached learners. Accommodations help, but do not erase these construct-irrelevant effects.\n\nNor are process logs and staged drafts merely “activity”: they can assess revision, research judgment, sustained problem-solving, and collaboration—learning outcomes a brief oral sample cannot capture. AI makes these designs more important, alongside selective defenses where individual reasoning matters. Subject differences are decisive: writing, design, laboratory, and team-based learning need authentic products and processes. Since frequent oral assessment also scales poorly for teachers, the defensible policy is targeted oral verification, not replacing most take-home assessment.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 834,
+          "output_tokens": 176,
+          "total_tokens": 1010
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-28T09:46:37.605Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-28T09:46:37.605Z",
+      "completed_at": "2026-09-28T09:46:41.439Z",
+      "time_used_sec": 3.834,
+      "tokens_estimate": 175
+    },
+    {
+      "turn_id": "pro_closing",
+      "speaker": "pro",
+      "phase": "closing",
+      "text": "The opposition identifies real risks, but treats them as decisive when they are design constraints. Take-home products can demonstrate revision or collaboration, yet they no longer reliably demonstrate individual mastery when authorship is opaque. Process evidence strengthens credibility, but cannot replace probing whether a learner understands and can transfer the work.\n\n“Most” should mean most summative checks of individual understanding, not most learning activities. Brief, scheduled defenses, question banks, multiple modes of response, preparation time, and accommodations can reduce fluency and anxiety bias; rubrics can reward reasoning rather than confidence. Meanwhile, projects, laboratories, writing portfolios, and team products remain essential where they measure outcomes oral exams cannot.\n\nThe policy is therefore not oral exams everywhere, but oral verification as the default companion to—and often replacement for—unverifiable take-home summatives. That better prioritizes durable understanding while preserving access and authentic learning.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1014,
+          "output_tokens": 181,
+          "total_tokens": 1195
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-28T09:46:41.440Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-28T09:46:41.440Z",
+      "completed_at": "2026-09-28T09:46:44.126Z",
+      "time_used_sec": 2.686,
+      "tokens_estimate": 185
+    },
+    {
+      "turn_id": "con_closing",
+      "speaker": "con",
+      "phase": "closing",
+      "text": "The pro case quietly changes the motion: “oral verification” is not replacing most take-home assessment, but adding costly checks to it. The burden is to show better overall learning, not merely better authorship detection.\n\nOral exams can reveal reasoning, but they also introduce construct-irrelevant effects—anxiety, language, disability, confidence, and examiner interaction—and brief questioning cannot capture sustained revision, research judgment, writing, practical work, or collaboration. Accommodations mitigate, not eliminate, those problems. Nor is teacher workload incidental: frequent individualized defenses reduce feedback and instructional time.\n\nA stronger AI-era design combines staged drafts, process evidence, in-class checkpoints, authentic products, and selective oral defenses where individual reasoning is central. That preserves motivation, access, and subject validity while addressing authorship. Oral assessment should be targeted—not the dominant form.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1198,
+          "output_tokens": 174,
+          "total_tokens": 1372
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-28T09:46:44.126Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-28T09:46:44.126Z",
+      "completed_at": "2026-09-28T09:46:47.489Z",
+      "time_used_sec": 3.363,
+      "tokens_estimate": 164
+    }
+  ],
+  "judge_votes": [
+    {
+      "judge_id": "epistemic-judge-v1",
+      "winner": "con",
+      "confidence": 0.86,
+      "scores": {
+        "pro": {
+          "factual_accuracy": 7,
+          "responsiveness": 8,
+          "argument_structure": 8,
+          "burden_of_proof": 5,
+          "handling_counterarguments": 8,
+          "style_clarity": 8
+        },
+        "con": {
+          "factual_accuracy": 8,
+          "responsiveness": 9,
+          "argument_structure": 9,
+          "burden_of_proof": 8,
+          "handling_counterarguments": 9,
+          "style_clarity": 9
+        }
+      },
+      "decisive_moments": [
+        {
+          "turn_id": "TURN con_rebuttal",
+          "reason": "Con directly identified the central validity problem: oral performance can be contaminated by anxiety, language, disability, confidence, and examiner interaction, even when accommodations are provided. This addressed the pro case more deeply than simply disputing AI detection."
+        },
+        {
+          "turn_id": "TURN con_closing",
+          "reason": "Con showed that the pro position had narrowed from replacing most take-home assessment to adding oral verification to selected summatives. It also gave a concrete alternative—staged drafts, process evidence, checkpoints, authentic products, and selective defenses—that better covered motivation, access, workload, and subject differences."
+        },
+        {
+          "turn_id": "TURN pro_closing",
+          "reason": "Pro usefully clarified that projects, laboratories, portfolios, and team products would remain, and proposed design safeguards. However, it did not establish that oral assessment would improve overall learning enough to justify making it the default for most individual summative evidence."
+        }
+      ],
+      "flags": [
+        {
+          "side": "pro",
+          "type": "unsupported_policy_effectiveness",
+          "severity": "medium",
+          "quote": "Even with workload and access costs, reliable evidence of learning outweighs the convenience of take-home products."
+        },
+        {
+          "side": "pro",
+          "type": "motion_narrowing",
+          "severity": "medium",
+          "quote": "The policy should therefore replace most summative evidence of individual mastery, not eliminate authentic projects."
+        },
+        {
+          "side": "con",
+          "type": "minor_overstatement",
+          "severity": "low",
+          "quote": "brief oral sample cannot capture sustained revision, research judgment, writing, practical work, or collaboration"
+        }
+      ],
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1623,
+          "output_tokens": 417,
+          "total_tokens": 2040
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "Epistemic Judge v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-28T09:46:47.489Z",
+          "response_storage": "disabled"
+        }
+      }
+    }
+  ],
+  "result": {
+    "winner": "con",
+    "judge_split": {
+      "pro": 0,
+      "con": 1,
+      "tie": 0
+    },
+    "confidence_mean": 0.86,
+    "confidence_variance": 0,
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_policy_effectiveness",
+        "severity": "medium",
+        "quote": "Even with workload and access costs, reliable evidence of learning outweighs the convenience of take-home products."
+      },
+      {
+        "side": "pro",
+        "type": "motion_narrowing",
+        "severity": "medium",
+        "quote": "The policy should therefore replace most summative evidence of individual mastery, not eliminate authentic projects."
+      },
+      {
+        "side": "con",
+        "type": "minor_overstatement",
+        "severity": "low",
+        "quote": "brief oral sample cannot capture sustained revision, research judgment, writing, practical work, or collaboration"
+      }
+    ]
+  }
+}
