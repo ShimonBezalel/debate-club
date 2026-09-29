@@ -1,0 +1,71 @@
+# Debate Transcript
+
+Match: daily-2026-09-29-s01-education_projects_003
+Conjecture: Project-based learning should be the organizing principle of secondary education.
+Protocol: classic_v1
+
+## pro_opening
+
+Speaker: pro
+Phase: opening
+Time used: 4.474s
+Token estimate: 183
+
+Project-based learning should organize secondary education because it makes knowledge durable by requiring students to apply, explain, revise, and create—not merely recall. Its central burden is not proving every lesson must be a large project, but showing that projects should connect and structure instruction across subjects.
+
+Well-designed projects can integrate disciplinary knowledge with motivation, collaboration, communication, and authentic problem-solving. They also reveal misconceptions that short-term tests may miss. We concede projects require substantial teacher planning and can disadvantage students without support; therefore, the model must include explicit instruction, scaffolding, individual accountability, accessible materials, and targeted assessment.
+
+Projects should not replace foundational practice: mathematics, languages, and sciences still need sequenced teaching and retrieval. But those elements should serve meaningful culminating applications. With varied roles and products, projects accommodate different strengths and build agency, while preserving rigorous common standards.
+
+## con_opening
+
+Speaker: con
+Phase: opening
+Time used: 2.678s
+Token estimate: 188
+
+The pro case quietly retreats from its headline: if projects require substantial explicit instruction, sequenced practice, retrieval, and targeted assessment, then projects are supplements—not the organizing principle. “Authentic” application does not guarantee durable understanding; students can divide labor, imitate models, or produce polished work while retaining misconceptions. Group projects also make individual mastery harder to measure and can amplify unequal access to technology, time, language support, and confident peers. Those burdens fall especially heavily on teachers, whose planning and feedback demands are already substantial. Learners differ: some need predictable, carefully sequenced instruction, while some subjects—foundational mathematics, grammar, and factual knowledge—depend on cumulative practice rather than an artificial culminating product. Projects can be valuable when objectives, resources, and developmental readiness justify them, but making them the organizing principle risks sacrificing reliable learning for engagement that is uneven, costly, and difficult to attribute.
+
+## pro_rebuttal
+
+Speaker: pro
+Phase: rebuttal
+Time used: 3.629s
+Token estimate: 195
+
+The objection treats “organizing” as “replacing.” A project-centered curriculum can organize the sequence—posing a meaningful problem, teaching the knowledge and practice needed to solve it, then requiring individual demonstration—without making every activity collaborative or every subject artificially “authentic.” That structure better tests durable understanding than short-term recall, while explicit instruction and retrieval remain essential components.
+
+We concede that unguided projects invite free-riding, misconceptions, and inequity. Hence common rubrics, checkpoints, individual oral or written defenses, accessible materials, and teacher modeling are not optional. These supports increase workload initially, but coherent projects can consolidate assessment and integrate skills rather than multiply disconnected tasks.
+
+Learners and disciplines differ, so projects should vary in scale: investigations in science, proofs and applications in mathematics, and sustained interpretation or creation in humanities. The claim is not uniformity; it is that application should organize learning, with practice serving understanding rather than replacing it.
+
+## con_rebuttal
+
+Speaker: con
+Phase: rebuttal
+Time used: 3.360s
+Token estimate: 177
+
+The distinction between “organizing” and “replacing” does not solve the central problem: if each project requires sequenced lessons, retrieval, checkpoints, individual defenses, and differentiated scaffolding, those instructional elements—not the project—actually determine learning. A project may motivate and reveal application, but motivation is not durable understanding, and polished group products remain weak evidence of individual mastery. The proposed safeguards also intensify teacher workload and demand resources that schools and families do not share equally. Nor is this merely a matter of making projects smaller: some knowledge, especially early mathematics, grammar, vocabulary, and scientific foundations, develops through cumulative practice whose value is not naturally organized around a product. Projects deserve strategic use after learners have the requisite knowledge and independence; making them the default risks trading reliable, equitable mastery for an appealing but variable format.
+
+## pro_closing
+
+Speaker: pro
+Phase: closing
+Time used: 3.733s
+Token estimate: 195
+
+The closing burden is comparative: should projects organize learning, not merely enrich it? Yes—provided “organize” means framing coherent units, not replacing instruction. Con is right that projects alone do not prove mastery, that foundational knowledge needs cumulative practice, and that unsupported group work magnifies inequity. Those are design constraints, not a decisive objection. Explicit teaching, retrieval, individual defenses, and accessible scaffolds can make each student’s understanding visible; projects then supply the application, revision, and explanation through which knowledge becomes durable rather than merely test-ready.
+
+Short-term scores may favor tightly sequenced practice, but secondary education should also develop transfer, agency, communication, and problem-solving. Projects can be scaled by learner readiness and discipline: investigations, proofs, interpretations, or designs—not one artificial format. They demand planning, yet integrated assessment can replace fragmented tasks. Thus projects should be the curriculum’s organizing spine, with direct instruction and practice as its essential muscles.
+
+## con_closing
+
+Speaker: con
+Phase: closing
+Time used: 3.288s
+Token estimate: 188
+
+The pro side has not met the comparative burden. Calling projects the “spine” does not show they produce better overall outcomes than instruction organized around disciplinary progression, with projects used strategically. Their safeguards—explicit teaching, retrieval, checkpoints, individual defenses, and scaffolding—are precisely what carry mastery, while the project adds variable benefits and substantial workload. Individual defenses may measure learning, but they also reveal that the group product was not reliable evidence.
+
+Nor is this merely a design constraint: unequal technology, support, language proficiency, and prior knowledge systematically affect participation and product quality. Learners who need repetition and structure, and subjects built cumulatively such as early mathematics, grammar, and vocabulary, may be harmed by project-centered pacing. Motivation, transfer, and communication matter, but plausible benefits do not establish durable understanding or equity. Projects belong in secondary education; they should not organize all of it.

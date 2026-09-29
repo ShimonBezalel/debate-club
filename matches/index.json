@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T09:46:47.489Z",
+  "generated_at": "2026-09-29T09:49:47.684Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -953,6 +953,31 @@
         "match": "daily-2026-09-28-s01-education_oral_assessment_002/match.json",
         "transcript": "daily-2026-09-28-s01-education_oral_assessment_002/transcript.md",
         "scorecard": "daily-2026-09-28-s01-education_oral_assessment_002/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-09-29-s01-education_projects_003",
+      "created_at": "2026-09-29T09:49:47.684Z",
+      "conjecture_id": "education_projects_003",
+      "conjecture_statement": "Project-based learning should be the organizing principle of secondary education.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "steelman-v1",
+      "con_agent": "cross-examiner-v1",
+      "winner": "con",
+      "judge_split": {
+        "pro": 0,
+        "con": 1,
+        "tie": 0
+      },
+      "confidence_mean": 0.78,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-09-29-s01-education_projects_003/match.json",
+        "transcript": "daily-2026-09-29-s01-education_projects_003/transcript.md",
+        "scorecard": "daily-2026-09-29-s01-education_projects_003/scorecard.md"
       }
     }
   ]

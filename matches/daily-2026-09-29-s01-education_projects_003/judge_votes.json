@@ -1,0 +1,80 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "con",
+    "confidence": 0.78,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 7,
+        "responsiveness": 8,
+        "argument_structure": 8,
+        "burden_of_proof": 5,
+        "handling_counterarguments": 8,
+        "style_clarity": 8
+      },
+      "con": {
+        "factual_accuracy": 8,
+        "responsiveness": 9,
+        "argument_structure": 8,
+        "burden_of_proof": 8,
+        "handling_counterarguments": 8,
+        "style_clarity": 8
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "con_opening",
+        "reason": "Con directly identified the central comparative issue: projects may produce polished outputs without individual mastery, while imposing equity and workload costs."
+      },
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Pro clarified that organizing does not mean replacing explicit instruction and offered credible safeguards, substantially answering concerns about free-riding and assessment."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "Con effectively argued that the proposed safeguards are the mechanisms carrying learning, while the project format adds variable benefits and costs. This directly challenged the claim that projects should be the organizing principle rather than a strategic supplement."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_empirical_generalization",
+        "severity": "medium",
+        "quote": "That structure better tests durable understanding than short-term recall"
+      },
+      {
+        "side": "pro",
+        "type": "unsupported_empirical_generalization",
+        "severity": "medium",
+        "quote": "projects then supply the application, revision, and explanation through which knowledge becomes durable rather than merely test-ready"
+      },
+      {
+        "side": "con",
+        "type": "overstatement",
+        "severity": "low",
+        "quote": "making them the default risks trading reliable, equitable mastery for an appealing but variable format"
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1642,
+        "output_tokens": 342,
+        "total_tokens": 1984
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-09-29T09:49:47.684Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

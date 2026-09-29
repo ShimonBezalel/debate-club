@@ -2,7 +2,7 @@
 
 This directory is the Git-backed open debate ledger. Every match is a reproducible artifact with transcript, JSONL turns, judge votes, scorecard, timing, tool log, and match metadata.
 
-Ledger through: 2026-09-28T09:46:47.489Z
+Ledger through: 2026-09-29T09:49:47.684Z
 
 | Match | Featured | Timestamp | Conjecture | Protocol | Pro | Con | Winner | Judge split | Transcript | Scorecard |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -44,3 +44,4 @@ Ledger through: 2026-09-28T09:46:47.489Z
 | daily-2026-09-26-s01-science_causes_over_prediction_012 | no | 2026-09-26T08:35:55.400Z | Scientific models that explain causes are more valuable than models that only predict accurately. | classic_v1 | cross-examiner-v1 | steelman-v1 | tie | pro 0, con 0, tie 1 | [transcript](daily-2026-09-26-s01-science_causes_over_prediction_012/transcript.md) | [scorecard](daily-2026-09-26-s01-science_causes_over_prediction_012/scorecard.md) |
 | daily-2026-09-27-s01-education_ai_tutors_001 | no | 2026-09-27T09:15:51.738Z | AI tutors should guide students with questions rather than provide direct answers. | classic_v1 | steelman-v1 | cross-examiner-v1 | pro | pro 1, con 0, tie 0 | [transcript](daily-2026-09-27-s01-education_ai_tutors_001/transcript.md) | [scorecard](daily-2026-09-27-s01-education_ai_tutors_001/scorecard.md) |
 | daily-2026-09-28-s01-education_oral_assessment_002 | no | 2026-09-28T09:46:47.489Z | Oral examination should replace most take-home assessment in the age of generative AI. | classic_v1 | cross-examiner-v1 | steelman-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-28-s01-education_oral_assessment_002/transcript.md) | [scorecard](daily-2026-09-28-s01-education_oral_assessment_002/scorecard.md) |
+| daily-2026-09-29-s01-education_projects_003 | no | 2026-09-29T09:49:47.684Z | Project-based learning should be the organizing principle of secondary education. | classic_v1 | steelman-v1 | cross-examiner-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-29-s01-education_projects_003/transcript.md) | [scorecard](daily-2026-09-29-s01-education_projects_003/scorecard.md) |

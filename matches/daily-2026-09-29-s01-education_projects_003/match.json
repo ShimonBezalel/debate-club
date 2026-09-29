@@ -1,0 +1,422 @@
+{
+  "match_id": "daily-2026-09-29-s01-education_projects_003",
+  "created_at": "2026-09-29T09:49:47.684Z",
+  "conjecture": {
+    "id": "education_projects_003",
+    "statement": "Project-based learning should be the organizing principle of secondary education.",
+    "domain": "education_learning",
+    "truth_type": "policy",
+    "stance_mode": "forced_random",
+    "evidence_mode": "no_external_info",
+    "allowed_tools": {
+      "web": false,
+      "calculator": false,
+      "evidence_pack": false
+    },
+    "background": {
+      "short_context": "Compare engagement, foundational knowledge, assessment consistency, collaboration, and curriculum coverage."
+    },
+    "rubric_notes": [
+      "compare learning outcomes with motivation, access, and teacher workload",
+      "distinguish short-term performance from durable understanding",
+      "address differences among learners and subject areas"
+    ]
+  },
+  "protocol": {
+    "id": "classic_v1",
+    "prep_time_sec": 180,
+    "max_turn_tokens": 700,
+    "turns": [
+      {
+        "id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "time_sec": 90
+      },
+      {
+        "id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "time_sec": 90
+      }
+    ]
+  },
+  "agents": {
+    "pro": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "description": "Builds the strongest principled case for its assigned side while anticipating objections.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "principled_steelman",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.45,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    },
+    "con": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "description": "Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "adversarial_cross_examiner",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.5,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    }
+  },
+  "transcript": [
+    {
+      "turn_id": "pro_opening",
+      "speaker": "pro",
+      "phase": "opening",
+      "text": "Project-based learning should organize secondary education because it makes knowledge durable by requiring students to apply, explain, revise, and create—not merely recall. Its central burden is not proving every lesson must be a large project, but showing that projects should connect and structure instruction across subjects.\n\nWell-designed projects can integrate disciplinary knowledge with motivation, collaboration, communication, and authentic problem-solving. They also reveal misconceptions that short-term tests may miss. We concede projects require substantial teacher planning and can disadvantage students without support; therefore, the model must include explicit instruction, scaffolding, individual accountability, accessible materials, and targeted assessment.\n\nProjects should not replace foundational practice: mathematics, languages, and sciences still need sequenced teaching and retrieval. But those elements should serve meaningful culminating applications. With varied roles and products, projects accommodate different strengths and build agency, while preserving rigorous common standards.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 271,
+          "output_tokens": 174,
+          "total_tokens": 445
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-29T09:49:26.522Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-29T09:49:26.522Z",
+      "completed_at": "2026-09-29T09:49:30.996Z",
+      "time_used_sec": 4.474,
+      "tokens_estimate": 183
+    },
+    {
+      "turn_id": "con_opening",
+      "speaker": "con",
+      "phase": "opening",
+      "text": "The pro case quietly retreats from its headline: if projects require substantial explicit instruction, sequenced practice, retrieval, and targeted assessment, then projects are supplements—not the organizing principle. “Authentic” application does not guarantee durable understanding; students can divide labor, imitate models, or produce polished work while retaining misconceptions. Group projects also make individual mastery harder to measure and can amplify unequal access to technology, time, language support, and confident peers. Those burdens fall especially heavily on teachers, whose planning and feedback demands are already substantial. Learners differ: some need predictable, carefully sequenced instruction, while some subjects—foundational mathematics, grammar, and factual knowledge—depend on cumulative practice rather than an artificial culminating product. Projects can be valuable when objectives, resources, and developmental readiness justify them, but making them the organizing principle risks sacrificing reliable learning for engagement that is uneven, costly, and difficult to attribute.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 446,
+          "output_tokens": 185,
+          "total_tokens": 631
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-29T09:49:30.996Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-29T09:49:30.996Z",
+      "completed_at": "2026-09-29T09:49:33.674Z",
+      "time_used_sec": 2.678,
+      "tokens_estimate": 188
+    },
+    {
+      "turn_id": "pro_rebuttal",
+      "speaker": "pro",
+      "phase": "rebuttal",
+      "text": "The objection treats “organizing” as “replacing.” A project-centered curriculum can organize the sequence—posing a meaningful problem, teaching the knowledge and practice needed to solve it, then requiring individual demonstration—without making every activity collaborative or every subject artificially “authentic.” That structure better tests durable understanding than short-term recall, while explicit instruction and retrieval remain essential components.\n\nWe concede that unguided projects invite free-riding, misconceptions, and inequity. Hence common rubrics, checkpoints, individual oral or written defenses, accessible materials, and teacher modeling are not optional. These supports increase workload initially, but coherent projects can consolidate assessment and integrate skills rather than multiply disconnected tasks.\n\nLearners and disciplines differ, so projects should vary in scale: investigations in science, proofs and applications in mathematics, and sustained interpretation or creation in humanities. The claim is not uniformity; it is that application should organize learning, with practice serving understanding rather than replacing it.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 637,
+          "output_tokens": 195,
+          "total_tokens": 832
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-29T09:49:33.675Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-29T09:49:33.674Z",
+      "completed_at": "2026-09-29T09:49:37.303Z",
+      "time_used_sec": 3.629,
+      "tokens_estimate": 195
+    },
+    {
+      "turn_id": "con_rebuttal",
+      "speaker": "con",
+      "phase": "rebuttal",
+      "text": "The distinction between “organizing” and “replacing” does not solve the central problem: if each project requires sequenced lessons, retrieval, checkpoints, individual defenses, and differentiated scaffolding, those instructional elements—not the project—actually determine learning. A project may motivate and reveal application, but motivation is not durable understanding, and polished group products remain weak evidence of individual mastery. The proposed safeguards also intensify teacher workload and demand resources that schools and families do not share equally. Nor is this merely a matter of making projects smaller: some knowledge, especially early mathematics, grammar, vocabulary, and scientific foundations, develops through cumulative practice whose value is not naturally organized around a product. Projects deserve strategic use after learners have the requisite knowledge and independence; making them the default risks trading reliable, equitable mastery for an appealing but variable format.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 839,
+          "output_tokens": 170,
+          "total_tokens": 1009
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-29T09:49:37.303Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-29T09:49:37.303Z",
+      "completed_at": "2026-09-29T09:49:40.663Z",
+      "time_used_sec": 3.36,
+      "tokens_estimate": 177
+    },
+    {
+      "turn_id": "pro_closing",
+      "speaker": "pro",
+      "phase": "closing",
+      "text": "The closing burden is comparative: should projects organize learning, not merely enrich it? Yes—provided “organize” means framing coherent units, not replacing instruction. Con is right that projects alone do not prove mastery, that foundational knowledge needs cumulative practice, and that unsupported group work magnifies inequity. Those are design constraints, not a decisive objection. Explicit teaching, retrieval, individual defenses, and accessible scaffolds can make each student’s understanding visible; projects then supply the application, revision, and explanation through which knowledge becomes durable rather than merely test-ready.\n\nShort-term scores may favor tightly sequenced practice, but secondary education should also develop transfer, agency, communication, and problem-solving. Projects can be scaled by learner readiness and discipline: investigations, proofs, interpretations, or designs—not one artificial format. They demand planning, yet integrated assessment can replace fragmented tasks. Thus projects should be the curriculum’s organizing spine, with direct instruction and practice as its essential muscles.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1011,
+          "output_tokens": 196,
+          "total_tokens": 1207
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-29T09:49:40.663Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-29T09:49:40.663Z",
+      "completed_at": "2026-09-29T09:49:44.396Z",
+      "time_used_sec": 3.733,
+      "tokens_estimate": 195
+    },
+    {
+      "turn_id": "con_closing",
+      "speaker": "con",
+      "phase": "closing",
+      "text": "The pro side has not met the comparative burden. Calling projects the “spine” does not show they produce better overall outcomes than instruction organized around disciplinary progression, with projects used strategically. Their safeguards—explicit teaching, retrieval, checkpoints, individual defenses, and scaffolding—are precisely what carry mastery, while the project adds variable benefits and substantial workload. Individual defenses may measure learning, but they also reveal that the group product was not reliable evidence.\n\nNor is this merely a design constraint: unequal technology, support, language proficiency, and prior knowledge systematically affect participation and product quality. Learners who need repetition and structure, and subjects built cumulatively such as early mathematics, grammar, and vocabulary, may be harmed by project-centered pacing. Motivation, transfer, and communication matter, but plausible benefits do not establish durable understanding or equity. Projects belong in secondary education; they should not organize all of it.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1212,
+          "output_tokens": 183,
+          "total_tokens": 1395
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-29T09:49:44.396Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-29T09:49:44.396Z",
+      "completed_at": "2026-09-29T09:49:47.684Z",
+      "time_used_sec": 3.288,
+      "tokens_estimate": 188
+    }
+  ],
+  "judge_votes": [
+    {
+      "judge_id": "epistemic-judge-v1",
+      "winner": "con",
+      "confidence": 0.78,
+      "scores": {
+        "pro": {
+          "factual_accuracy": 7,
+          "responsiveness": 8,
+          "argument_structure": 8,
+          "burden_of_proof": 5,
+          "handling_counterarguments": 8,
+          "style_clarity": 8
+        },
+        "con": {
+          "factual_accuracy": 8,
+          "responsiveness": 9,
+          "argument_structure": 8,
+          "burden_of_proof": 8,
+          "handling_counterarguments": 8,
+          "style_clarity": 8
+        }
+      },
+      "decisive_moments": [
+        {
+          "turn_id": "con_opening",
+          "reason": "Con directly identified the central comparative issue: projects may produce polished outputs without individual mastery, while imposing equity and workload costs."
+        },
+        {
+          "turn_id": "pro_rebuttal",
+          "reason": "Pro clarified that organizing does not mean replacing explicit instruction and offered credible safeguards, substantially answering concerns about free-riding and assessment."
+        },
+        {
+          "turn_id": "con_closing",
+          "reason": "Con effectively argued that the proposed safeguards are the mechanisms carrying learning, while the project format adds variable benefits and costs. This directly challenged the claim that projects should be the organizing principle rather than a strategic supplement."
+        }
+      ],
+      "flags": [
+        {
+          "side": "pro",
+          "type": "unsupported_empirical_generalization",
+          "severity": "medium",
+          "quote": "That structure better tests durable understanding than short-term recall"
+        },
+        {
+          "side": "pro",
+          "type": "unsupported_empirical_generalization",
+          "severity": "medium",
+          "quote": "projects then supply the application, revision, and explanation through which knowledge becomes durable rather than merely test-ready"
+        },
+        {
+          "side": "con",
+          "type": "overstatement",
+          "severity": "low",
+          "quote": "making them the default risks trading reliable, equitable mastery for an appealing but variable format"
+        }
+      ],
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1642,
+          "output_tokens": 342,
+          "total_tokens": 1984
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "Epistemic Judge v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-29T09:49:47.684Z",
+          "response_storage": "disabled"
+        }
+      }
+    }
+  ],
+  "result": {
+    "winner": "con",
+    "judge_split": {
+      "pro": 0,
+      "con": 1,
+      "tie": 0
+    },
+    "confidence_mean": 0.78,
+    "confidence_variance": 0,
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_empirical_generalization",
+        "severity": "medium",
+        "quote": "That structure better tests durable understanding than short-term recall"
+      },
+      {
+        "side": "pro",
+        "type": "unsupported_empirical_generalization",
+        "severity": "medium",
+        "quote": "projects then supply the application, revision, and explanation through which knowledge becomes durable rather than merely test-ready"
+      },
+      {
+        "side": "con",
+        "type": "overstatement",
+        "severity": "low",
+        "quote": "making them the default risks trading reliable, equitable mastery for an appealing but variable format"
+      }
+    ]
+  }
+}
