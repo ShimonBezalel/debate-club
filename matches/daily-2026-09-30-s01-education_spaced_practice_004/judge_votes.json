@@ -1,0 +1,84 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "con",
+    "confidence": 0.78,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 8,
+        "responsiveness": 8,
+        "argument_structure": 8,
+        "burden_of_proof": 6,
+        "handling_counterarguments": 8,
+        "style_clarity": 9
+      },
+      "con": {
+        "factual_accuracy": 9,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 9,
+        "handling_counterarguments": 9,
+        "style_clarity": 9
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "con_opening",
+        "reason": "Con correctly identified the central burden: evidence that the marginal benefit of additional spacing justifies sacrificing breadth, rather than merely showing that spacing is beneficial."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Con sharpened the proportionality objection by explaining that omitted topics can provide prerequisites, context, aptitude discovery, and later choices, while benefits of spacing vary substantially by subject."
+      },
+      {
+        "turn_id": "pro_closing",
+        "reason": "Pro responded well by narrowing the proposal to high-value content, diagnostic assessment, varied tasks, and subject-sensitive scheduling, but did not establish how schools should reliably identify low-priority material or quantify the tradeoff."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "Con's concession that spacing is valuable while rejecting a general breadth-sacrificing mandate produced the most defensible policy position given the unresolved uncertainty about curriculum selection, teacher workload, motivation, and subject differences."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_empirical_claim",
+        "severity": "medium",
+        "quote": "A rapidly surveyed curriculum can create the appearance of access while leaving disadvantaged students unable to build on it later."
+      },
+      {
+        "side": "pro",
+        "type": "unsupported_empirical_claim",
+        "severity": "low",
+        "quote": "Motivation is better served by visible competence than by constant novelty."
+      },
+      {
+        "side": "con",
+        "type": "unsupported_empirical_claim",
+        "severity": "low",
+        "quote": "Embedding retrieval in rich tasks is possible, but increases planning and assessment demands."
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1543,
+        "output_tokens": 411,
+        "total_tokens": 1954
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-09-30T09:42:41.152Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

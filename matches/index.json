@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T09:49:47.684Z",
+  "generated_at": "2026-09-30T09:42:41.152Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -978,6 +978,31 @@
         "match": "daily-2026-09-29-s01-education_projects_003/match.json",
         "transcript": "daily-2026-09-29-s01-education_projects_003/transcript.md",
         "scorecard": "daily-2026-09-29-s01-education_projects_003/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-09-30-s01-education_spaced_practice_004",
+      "created_at": "2026-09-30T09:42:41.152Z",
+      "conjecture_id": "education_spaced_practice_004",
+      "conjecture_statement": "Schools should allocate more time to spaced practice even if it reduces the number of topics covered.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "cross-examiner-v1",
+      "con_agent": "steelman-v1",
+      "winner": "con",
+      "judge_split": {
+        "pro": 0,
+        "con": 1,
+        "tie": 0
+      },
+      "confidence_mean": 0.78,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-09-30-s01-education_spaced_practice_004/match.json",
+        "transcript": "daily-2026-09-30-s01-education_spaced_practice_004/transcript.md",
+        "scorecard": "daily-2026-09-30-s01-education_spaced_practice_004/scorecard.md"
       }
     }
   ]

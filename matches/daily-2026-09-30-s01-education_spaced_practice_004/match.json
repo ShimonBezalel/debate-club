@@ -1,0 +1,426 @@
+{
+  "match_id": "daily-2026-09-30-s01-education_spaced_practice_004",
+  "created_at": "2026-09-30T09:42:41.152Z",
+  "conjecture": {
+    "id": "education_spaced_practice_004",
+    "statement": "Schools should allocate more time to spaced practice even if it reduces the number of topics covered.",
+    "domain": "education_learning",
+    "truth_type": "policy",
+    "stance_mode": "forced_random",
+    "evidence_mode": "no_external_info",
+    "allowed_tools": {
+      "web": false,
+      "calculator": false,
+      "evidence_pack": false
+    },
+    "background": {
+      "short_context": "Debate retention, breadth, transfer, exam incentives, and the cost of revisiting material."
+    },
+    "rubric_notes": [
+      "compare learning outcomes with motivation, access, and teacher workload",
+      "distinguish short-term performance from durable understanding",
+      "address differences among learners and subject areas"
+    ]
+  },
+  "protocol": {
+    "id": "classic_v1",
+    "prep_time_sec": 180,
+    "max_turn_tokens": 700,
+    "turns": [
+      {
+        "id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "time_sec": 90
+      },
+      {
+        "id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "time_sec": 90
+      }
+    ]
+  },
+  "agents": {
+    "pro": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "description": "Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "adversarial_cross_examiner",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.5,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    },
+    "con": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "description": "Builds the strongest principled case for its assigned side while anticipating objections.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "principled_steelman",
+      "model_config": {
+        "model": "gpt-5.6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.45,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    }
+  },
+  "transcript": [
+    {
+      "turn_id": "pro_opening",
+      "speaker": "pro",
+      "phase": "opening",
+      "text": "Schools should allocate more time to spaced practice, even if that means covering fewer topics, because education should prioritize durable understanding over superficial syllabus completion. Revisiting material across days or weeks strengthens retrieval, exposes misconceptions, and makes knowledge usable beyond the test; a single rapid pass often produces short-term performance that quickly fades.\n\nThis is not an argument for abandoning breadth. Schools should retain essential foundations and sequence topics carefully, while trimming low-priority content. The tradeoff also supports equity: students with less outside tutoring or study support benefit when practice is built into school time. Teachers may initially need planning adjustments, but repeated, targeted practice can reduce later reteaching.\n\nImplementation should vary by subject and learner: mathematics and vocabulary may need frequent retrieval, while projects and inquiry require longer cycles. The policy is more time for strategically spaced practice, not monotonous worksheets.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 278,
+          "output_tokens": 173,
+          "total_tokens": 451
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-30T09:42:20.794Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-30T09:42:20.793Z",
+      "completed_at": "2026-09-30T09:42:25.002Z",
+      "time_used_sec": 4.209,
+      "tokens_estimate": 189
+    },
+    {
+      "turn_id": "con_opening",
+      "speaker": "con",
+      "phase": "opening",
+      "text": "The burden is not to show that spaced practice helps; it is to show that its marginal benefit justifies sacrificing breadth across schools and subjects. Durable learning matters, but fewer topics can leave students without prerequisite knowledge, limit later course choice, and disadvantage learners whose interests or strengths lie outside the repeatedly practiced material. Spacing is also not automatically meaningful: poorly designed drills can reduce motivation, consume teacher planning time, and rehearse misconceptions. Access cuts both ways—school-based practice helps students lacking support at home, but narrowing the curriculum may remove enrichment they cannot obtain elsewhere. The better policy is targeted spacing for high-value foundations, alongside sufficient breadth and varied instruction. Subject demands differ: vocabulary may reward retrieval, whereas science understanding, writing, arts, and civic inquiry require exploration and production.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 450,
+          "output_tokens": 160,
+          "total_tokens": 610
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-30T09:42:25.002Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-30T09:42:25.002Z",
+      "completed_at": "2026-09-30T09:42:27.903Z",
+      "time_used_sec": 2.901,
+      "tokens_estimate": 172
+    },
+    {
+      "turn_id": "pro_rebuttal",
+      "speaker": "pro",
+      "phase": "rebuttal",
+      "text": "The objection assumes that “fewer topics” means losing essential prerequisites; our proposal instead protects high-value foundations and trims low-priority coverage. Breadth has value only if students retain and can use it. A rapidly surveyed curriculum can create the appearance of access while leaving disadvantaged students unable to build on it later. Spaced practice need not mean repetitive drills: retrieval can be embedded in explanation, problem-solving, writing, experiments, and projects, with misconceptions diagnosed and corrected. Nor should every subject receive identical scheduling—arts and inquiry need production and exploration, but those skills also improve through revisiting techniques and ideas. Motivation is better served by visible competence than by constant novelty. The relevant comparison is not spacing versus rich teaching, but durable, varied learning versus superficial coverage; schools should make that tradeoff explicitly.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 618,
+          "output_tokens": 165,
+          "total_tokens": 783
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-30T09:42:27.903Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-30T09:42:27.903Z",
+      "completed_at": "2026-09-30T09:42:31.484Z",
+      "time_used_sec": 3.581,
+      "tokens_estimate": 173
+    },
+    {
+      "turn_id": "con_rebuttal",
+      "speaker": "con",
+      "phase": "rebuttal",
+      "text": "The comparison is not simply durable learning versus superficial coverage. It is also durable mastery of fewer areas versus adequate preparation across many prerequisites. Even “low-priority” topics can provide context, reveal aptitudes, or enable later choices; schools cannot reliably predict which knowledge each learner will need. Spacing is valuable, but its payoff varies: foundational mathematics and vocabulary may warrant frequent retrieval, while writing, science, arts, and civic inquiry need breadth, discussion, creation, and investigation. Embedding retrieval in rich tasks helps, yet those tasks increase planning and assessment demands, especially for teachers already serving diverse learners. Motivation may improve through competence, but can decline when repetition displaces curiosity and choice. The defensible policy is targeted spacing for demonstrably foundational content, not a general mandate to sacrifice curriculum breadth.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 788,
+          "output_tokens": 164,
+          "total_tokens": 952
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-30T09:42:31.484Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-30T09:42:31.484Z",
+      "completed_at": "2026-09-30T09:42:34.941Z",
+      "time_used_sec": 3.457,
+      "tokens_estimate": 169
+    },
+    {
+      "turn_id": "pro_closing",
+      "speaker": "pro",
+      "phase": "closing",
+      "text": "The opposition’s strongest concern is legitimate: schools should not erase prerequisites, enrichment, or learner choice. But that argues for disciplined prioritization, not preserving breadth by default. A topic students cannot retrieve or apply is not meaningful preparation for later choice; it is merely nominal exposure. The policy should therefore protect prerequisite maps, diagnostic assessment, and varied tasks, while reallocating time from low-retention coverage to spaced revisiting of high-value knowledge and skills. This is especially important for students lacking tutoring, though teachers need shared materials and manageable schedules to avoid added workload. Spacing is not identical across subjects: mathematics and vocabulary may recur frequently; writing, science, arts, and civics should revisit ideas through increasingly independent creation and inquiry. The standard is durable, transferable learning—not maximum topic count.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 956,
+          "output_tokens": 162,
+          "total_tokens": 1118
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-30T09:42:34.941Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-30T09:42:34.941Z",
+      "completed_at": "2026-09-30T09:42:38.630Z",
+      "time_used_sec": 3.689,
+      "tokens_estimate": 168
+    },
+    {
+      "turn_id": "con_closing",
+      "speaker": "con",
+      "phase": "closing",
+      "text": "The decisive issue is proportionality. Spaced practice can improve retention, but that does not establish that schools should generally buy it by cutting breadth. Students need a durable base across many domains: omitted topics can supply prerequisites, context, motivation, and later choices that no planner can predict. The tradeoff also differs by subject and learner. Retrieval may be highly efficient for arithmetic facts or vocabulary; writing, science, arts, and civics require exploration, production, discussion, and varied examples, not merely more revisits. Embedding spacing in rich tasks is possible, but increases planning and assessment demands, while repetition can reduce curiosity and choice. We concede that superficial coverage is inadequate and targeted spacing is valuable—especially for foundational content and students lacking support at home. But that supports selective implementation, not a broad mandate to sacrifice curriculum breadth.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1121,
+          "output_tokens": 171,
+          "total_tokens": 1292
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-30T09:42:38.630Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-09-30T09:42:38.630Z",
+      "completed_at": "2026-09-30T09:42:41.152Z",
+      "time_used_sec": 2.522,
+      "tokens_estimate": 180
+    }
+  ],
+  "judge_votes": [
+    {
+      "judge_id": "epistemic-judge-v1",
+      "winner": "con",
+      "confidence": 0.78,
+      "scores": {
+        "pro": {
+          "factual_accuracy": 8,
+          "responsiveness": 8,
+          "argument_structure": 8,
+          "burden_of_proof": 6,
+          "handling_counterarguments": 8,
+          "style_clarity": 9
+        },
+        "con": {
+          "factual_accuracy": 9,
+          "responsiveness": 9,
+          "argument_structure": 9,
+          "burden_of_proof": 9,
+          "handling_counterarguments": 9,
+          "style_clarity": 9
+        }
+      },
+      "decisive_moments": [
+        {
+          "turn_id": "con_opening",
+          "reason": "Con correctly identified the central burden: evidence that the marginal benefit of additional spacing justifies sacrificing breadth, rather than merely showing that spacing is beneficial."
+        },
+        {
+          "turn_id": "con_rebuttal",
+          "reason": "Con sharpened the proportionality objection by explaining that omitted topics can provide prerequisites, context, aptitude discovery, and later choices, while benefits of spacing vary substantially by subject."
+        },
+        {
+          "turn_id": "pro_closing",
+          "reason": "Pro responded well by narrowing the proposal to high-value content, diagnostic assessment, varied tasks, and subject-sensitive scheduling, but did not establish how schools should reliably identify low-priority material or quantify the tradeoff."
+        },
+        {
+          "turn_id": "con_closing",
+          "reason": "Con's concession that spacing is valuable while rejecting a general breadth-sacrificing mandate produced the most defensible policy position given the unresolved uncertainty about curriculum selection, teacher workload, motivation, and subject differences."
+        }
+      ],
+      "flags": [
+        {
+          "side": "pro",
+          "type": "unsupported_empirical_claim",
+          "severity": "medium",
+          "quote": "A rapidly surveyed curriculum can create the appearance of access while leaving disadvantaged students unable to build on it later."
+        },
+        {
+          "side": "pro",
+          "type": "unsupported_empirical_claim",
+          "severity": "low",
+          "quote": "Motivation is better served by visible competence than by constant novelty."
+        },
+        {
+          "side": "con",
+          "type": "unsupported_empirical_claim",
+          "severity": "low",
+          "quote": "Embedding retrieval in rich tasks is possible, but increases planning and assessment demands."
+        }
+      ],
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-5.6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1543,
+          "output_tokens": 411,
+          "total_tokens": 1954
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "Epistemic Judge v1",
+          "model": "gpt-5.6-luna",
+          "started_at": "2026-09-30T09:42:41.152Z",
+          "response_storage": "disabled"
+        }
+      }
+    }
+  ],
+  "result": {
+    "winner": "con",
+    "judge_split": {
+      "pro": 0,
+      "con": 1,
+      "tie": 0
+    },
+    "confidence_mean": 0.78,
+    "confidence_variance": 0,
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_empirical_claim",
+        "severity": "medium",
+        "quote": "A rapidly surveyed curriculum can create the appearance of access while leaving disadvantaged students unable to build on it later."
+      },
+      {
+        "side": "pro",
+        "type": "unsupported_empirical_claim",
+        "severity": "low",
+        "quote": "Motivation is better served by visible competence than by constant novelty."
+      },
+      {
+        "side": "con",
+        "type": "unsupported_empirical_claim",
+        "severity": "low",
+        "quote": "Embedding retrieval in rich tasks is possible, but increases planning and assessment demands."
+      }
+    ]
+  }
+}
