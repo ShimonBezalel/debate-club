@@ -1,0 +1,80 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "con",
+    "confidence": 0.84,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 7,
+        "responsiveness": 8,
+        "argument_structure": 8,
+        "burden_of_proof": 5,
+        "handling_counterarguments": 8,
+        "style_clarity": 9
+      },
+      "con": {
+        "factual_accuracy": 8,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 9,
+        "handling_counterarguments": 9,
+        "style_clarity": 9
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Pro offered a plausible conditional design—individual accountability plus interdependent group work—and directly addressed free-riding, diagnosis, access, and workload. However, it did not provide evidence that this design produces greater durability than strong individual assignments."
+      },
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Con identified the central burden-of-proof problem: the argument shifted from comparative superiority to complementarity, while the added social skills were asserted to be durable without establishing retention, transfer, or comparative advantage."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "Con appropriately distinguished broader outcomes from greater durability and emphasized subject-, learner-, and task-level variation. This supported the narrower conclusion that collaboration can be valuable without establishing the conjecture."
+      }
+    ],
+    "flags": [
+      {
+        "side": "pro",
+        "type": "unsupported_comparative_claim",
+        "severity": "medium",
+        "quote": "purposeful collaboration, integrated with individual accountability, develops a broader and more durable competence than individual grading alone"
+      },
+      {
+        "side": "pro",
+        "type": "under-supported_transfer_claim",
+        "severity": "low",
+        "quote": "These capacities require authentic interdependence, not merely solitary practice, and transfer beyond school."
+      },
+      {
+        "side": "con",
+        "type": "minor_overstatement",
+        "severity": "low",
+        "quote": "retrieval, drafting, revision, and unaided problem-solving directly test whether each learner can perform independently"
+      }
+    ],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-5.6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1587,
+        "output_tokens": 385,
+        "total_tokens": 1972
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-5.6-luna",
+        "started_at": "2026-10-01T10:08:25.761Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T09:42:41.152Z",
+  "generated_at": "2026-10-01T10:08:25.761Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -1003,6 +1003,31 @@
         "match": "daily-2026-09-30-s01-education_spaced_practice_004/match.json",
         "transcript": "daily-2026-09-30-s01-education_spaced_practice_004/transcript.md",
         "scorecard": "daily-2026-09-30-s01-education_spaced_practice_004/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-10-01-s01-education_group_work_005",
+      "created_at": "2026-10-01T10:08:25.761Z",
+      "conjecture_id": "education_group_work_005",
+      "conjecture_statement": "Collaborative assignments teach more durable skills than individually graded assignments.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "steelman-v1",
+      "con_agent": "cross-examiner-v1",
+      "winner": "con",
+      "judge_split": {
+        "pro": 0,
+        "con": 1,
+        "tie": 0
+      },
+      "confidence_mean": 0.84,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-10-01-s01-education_group_work_005/match.json",
+        "transcript": "daily-2026-10-01-s01-education_group_work_005/transcript.md",
+        "scorecard": "daily-2026-10-01-s01-education_group_work_005/scorecard.md"
       }
     }
   ]
