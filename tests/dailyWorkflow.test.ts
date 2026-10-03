@@ -74,4 +74,15 @@ describe("daily debate workflow", () => {
 
     expect(commands).toContain("npm audit --omit=dev");
   });
+
+  it("shares a publication lease with the Mac and always releases it", async () => {
+    const workflow = await loadWorkflow(".github/workflows/daily-debate.yml");
+    const steps = workflow.jobs.build?.steps ?? [];
+    const acquire = steps.find((step) => step.name === "Acquire publication lease");
+    const release = steps.find((step) => step.name === "Release publication lease");
+    expect(acquire?.run).toContain("--lease acquire");
+    expect(release?.run).toContain("--lease release");
+    expect(release).toMatchObject({ if: "${{ always() }}" });
+    expect(steps.indexOf(acquire!)).toBeLessThan(steps.findIndex((step) => step.name === "Run daily debate"));
+  });
 });

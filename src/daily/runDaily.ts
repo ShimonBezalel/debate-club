@@ -1,5 +1,5 @@
 import { existsSync } from "node:fs";
-import { mkdir } from "node:fs/promises";
+import { access, mkdir, mkdtemp, readFile, rename, rm } from "node:fs/promises";
 import { join } from "node:path";
 import type { LiveAdapterOptions } from "../adapters/openaiAgentsSdk.js";
 import { loadAgentFromDirectory } from "../agents/loadAgent.js";
@@ -43,6 +43,17 @@ export async function runDailyMatch(options: DailyRunOptions): Promise<DailyRunR
   const folder = join(options.matchesRoot, plan.matchId);
   await mkdir(options.matchesRoot, { recursive: true });
   if (existsSync(folder)) {
+    try {
+      await Promise.all(["match.json", "transcript.md", "transcript.jsonl", "judge_votes.json", "scorecard.md", "timing.json", "tool_log.json"].map((name) => access(join(folder, name))));
+      const existing = JSON.parse(await readFile(join(folder, "match.json"), "utf8"));
+      if (existing.match_id !== plan.matchId || !Array.isArray(existing.transcript) ||
+          existing.transcript.length !== existing.protocol?.turns?.length ||
+          !Array.isArray(existing.judge_votes) || existing.judge_votes.length < 1 || !existing.result) {
+        throw new Error("Invalid completed daily match");
+      }
+    } catch {
+      throw new Error(`Daily match ${plan.matchId} is incomplete; quarantine its directory before explicit date recovery.`);
+    }
     const index = await rebuildLedgerIndex(options.matchesRoot);
     return { status: "exists", plan, folder, ledgerMatches: index.matches.length };
   }
@@ -63,7 +74,17 @@ export async function runDailyMatch(options: DailyRunOptions): Promise<DailyRunR
     judges,
     matchId: plan.matchId
   });
-  await writeMatchArtifacts(match, options.matchesRoot);
+  // Stage on the same filesystem for an atomic directory rename. The ignored
+  // tmp directory is outside the ledger's immediate match-directory scan.
+  const stagingRoot = join(options.matchesRoot, "tmp");
+  await mkdir(stagingRoot, { recursive: true });
+  const staging = await mkdtemp(join(stagingRoot, "daily-"));
+  try {
+    const stagedFolder = await writeMatchArtifacts(match, staging);
+    await rename(stagedFolder, folder);
+  } finally {
+    await rm(staging, { recursive: true, force: true });
+  }
   const index = await rebuildLedgerIndex(options.matchesRoot);
   return {
     status: "created",

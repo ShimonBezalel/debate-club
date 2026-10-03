@@ -32,6 +32,10 @@ jobs:
           node-version: "22"
           cache: npm
       - run: npm ci
+      - name: Acquire publication lease
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/local_daily.py --lease acquire --owner "cloud:${GITHUB_RUN_ID}"
       - name: Run daily debate
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -81,6 +85,11 @@ jobs:
       - uses: actions/upload-pages-artifact@v4
         with:
           path: viewer-dist
+      - name: Release publication lease
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/local_daily.py --lease release --owner "cloud:${GITHUB_RUN_ID}"
 
   deploy:
     environment:

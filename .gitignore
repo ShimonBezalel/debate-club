@@ -11,3 +11,5 @@ matches/latest
 private_agents/
 viewer-dist/
 public-db/
+__pycache__/
+*.pyc

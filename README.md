@@ -115,6 +115,8 @@ Dispatching a date that already exists is idempotent: the runner makes no model 
 
 ## Roadmap
 
+Local Mac scheduling, recovery and rollback: [operating guide](docs/local-runner.md).
+
 - 0.1 local deterministic debate runner
 - 0.2 real SDK agents and judges
 - 0.3 evidence-pack debates
