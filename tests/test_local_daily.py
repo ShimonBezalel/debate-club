@@ -260,6 +260,28 @@ class LocalDailyTests(unittest.TestCase):
         with self.assertRaises(InterruptedError):
             handler(runner.signal.SIGTERM, None)
 
+    def test_restart_resumes_an_older_completed_date_before_generating_today(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            runner.save_json(root / "2026-10-02.json", {"phase": "generated"})
+            now = datetime(2026, 10, 4, 12, tzinfo=timezone.utc)
+            with patch.object(runner, "completed_match", return_value=Path("complete-live-match")):
+                self.assertEqual(runner.scheduled_date(root, now), "2026-10-02")
+            runner.save_json(root / "2026-10-02.json", {"phase": "verified"})
+            self.assertEqual(runner.scheduled_date(root, now), "2026-10-04")
+
+    def test_old_failed_generation_is_accounted_for_without_automatic_paid_backfill(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            runner.save_json(root / "2026-10-02.json", {"phase": "failed"})
+            now = datetime(2026, 10, 4, 12, tzinfo=timezone.utc)
+            with patch.object(runner, "completed_match", return_value=None):
+                self.assertEqual(runner.scheduled_date(root, now), "2026-10-04")
+            runner.save_json(root / "2026-10-02.json", {"phase": "generated"})
+            with patch.object(runner, "completed_match", return_value=None):
+                with self.assertRaises(runner.RunnerError):
+                    runner.scheduled_date(root, now)
+
 
 if __name__ == "__main__":
     unittest.main()

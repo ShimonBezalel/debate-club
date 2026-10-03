@@ -90,6 +90,9 @@ one-hour cooldown; manual `--recover` overrides it. Unexpected checkout edits,
 another pending date, incomplete artifacts and rebase conflicts stop safely.
 Do not reset the publication checkout or force-push.
 
+After restart, older retained completed output is published before starting the
+latest due date. Older failed generations without completed output stay manual.
+
 After funding is available, use the same explicit date contract as the existing
 documented cloud recovery. The wrapper fetches the remote ledger first and
 skips generation for an existing complete date. It validates before committing,

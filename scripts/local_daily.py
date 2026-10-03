@@ -166,6 +166,22 @@ def completed_match(root, date):
     return folder
 
 
+def scheduled_date(root, now):
+    # Finish retained paid output even if reboot crossed a UTC date boundary.
+    # A failed generation with no output remains an explicit recovery decision.
+    for path in sorted(root.glob("20??-??-??.json")):
+        date = validate_date(path.stem, now)
+        state = json.loads(path.read_text())
+        if state["phase"] == "verified":
+            continue
+        complete = completed_match(root / "checkout/matches", date)
+        if complete:
+            return date
+        if state["phase"] in ("generated", "pushed"):
+            raise RunnerError("Retained completed match is missing; restore it before continuing")
+    return due_date(now)
+
+
 def launchd_plist(root, python, script, user, daemon):
     job = {"Label": LABEL, "ProgramArguments": [python, script, "--config", str(root / "config.json")],
            "RunAtLoad": True, "StartInterval": 60, "ProcessType": "Standard", "Umask": 0o077,
@@ -452,7 +468,7 @@ def main():
                 # Quiet, observable heartbeat while cloud remains the active scheduler.
                 save_json(root / "heartbeat.json", {"at": now.isoformat(), "mode": "standby"})
                 return 0
-            date = validate_date(args.date or due_date(now), now)
+            date = validate_date(args.date or (due_date(now) if args.check else scheduled_date(root, now)), now)
             outcome = Publisher(config, root).run(date, args.recover, args.check)
             save_json(root / "heartbeat.json", {"at": datetime.now(timezone.utc).isoformat(), "mode": "check" if args.check else "live", "date": date, "outcome": outcome})
             print(f"{date}: {outcome}")
