@@ -103,7 +103,7 @@ The export contains aggregate match, agent, judge, and conjecture indexes plus c
 
 The public archive adds one evergreen debate every day at 03:17 UTC. A deterministic planner maps the UTC date to one of 96 reviewed topics, alternates the two agent harnesses between pro and con, and starts a new numbered season after the catalog completes. Repeating a topic in a later season creates a longitudinal comparison with the current agent and model metadata rather than silently changing the original record.
 
-Daily production uses `gpt-5.6-luna`, six tightly capped turns, one public judge, reasoning effort `none`, no tools, no web access, no tracing, and no provider-side response storage. Based on the existing live corpus average of roughly 8,832 input and 2,033 output tokens, the [published Luna rates](https://developers.openai.com/api/docs/models/gpt-5.6-luna) imply about $0.0042 per match or $1.54 per 365 days. Actual usage and pricing can change; match artifacts preserve observed token usage.
+Daily production uses `gpt-6-luna`, six tightly capped turns, one public judge, reasoning effort `none`, no tools, no web access, no tracing, and no provider-side response storage. Based on the existing live corpus average of roughly 8,832 input and 2,033 output tokens, the [published Luna rates](https://developers.openai.com/api/docs/models/gpt-6-luna) imply about $0.0019 per match or $0.70 per 365 days. Actual usage and pricing can change; match artifacts preserve observed token usage.
 
 The workflow requires an encrypted repository secret named `OPENAI_API_KEY`. Failed provider runs are not committed and are not retried automatically. To recover a missed UTC date, dispatch the workflow manually:
 

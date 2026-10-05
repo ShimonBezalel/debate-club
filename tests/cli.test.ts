@@ -24,6 +24,11 @@ describe("cli", () => {
     expect(second.stdout).toContain("already exists");
     const index = JSON.parse(await readFile(join(out, "index.json"), "utf8")) as { matches: unknown[] };
     expect(index.matches).toHaveLength(1);
+    const matchId = (index.matches[0] as { match_id: string }).match_id;
+    const match = JSON.parse(await readFile(join(out, matchId, "match.json"), "utf8"));
+    expect(match.agents.pro.model_config.model).toBe("gpt-6-luna");
+    expect(match.agents.con.model_config.model).toBe("gpt-6-luna");
+    expect(match.judge_votes[0].metadata.model).toBe("gpt-6-luna");
   });
 
   // Four CLI process launches need CI startup headroom.

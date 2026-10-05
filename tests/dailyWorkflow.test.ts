@@ -40,8 +40,8 @@ describe("daily debate workflow", () => {
     const liveStep = steps.find((step) => step.name === "Run daily debate");
 
     expect(liveStep?.env).toEqual({ OPENAI_API_KEY: "${{ secrets.OPENAI_API_KEY }}" });
-    expect(liveStep?.run).toContain("--model gpt-5.6-luna");
-    expect(liveStep?.run).toContain("--judge-model gpt-5.6-luna");
+    expect(liveStep?.run).toContain("--model gpt-6-luna");
+    expect(liveStep?.run).toContain("--judge-model gpt-6-luna");
     expect(liveStep?.run).toContain("--reasoning-effort none");
     expect(liveStep?.run).toContain("--max-output-tokens 260");
     expect(liveStep?.run).toContain("--judge-max-output-tokens 700");

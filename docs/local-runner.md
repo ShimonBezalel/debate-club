@@ -1,6 +1,6 @@
 # Mac daily runner
 
-The local runner preserves **03:17 UTC**, the existing `gpt-5.6-luna` recipe,
+The local runner preserves **03:17 UTC**, the existing `gpt-6-luna` recipe,
 canonical `matches/` ledger and [public viewer](https://shimonbezalel.github.io/debate-club/).
 Paid generation happens on the Mac; GitHub Pages still builds and deploys the viewer.
 
@@ -74,6 +74,28 @@ GitHub credential and avoids dependency on an unlocked login Keychain after
 restart; it grants no new permissions. Keep all secret locators local.
 
 ## Recovery and duplicate protection
+
+### Hobby spending limit
+
+The Mac runner uses a **$5 working ceiling per UTC calendar month**; config
+`monthly_budget_usd` can be lowered, and values above **$10 are rejected**.
+Before each new paid attempt it durably reserves **$0.10** in private
+`spend-YYYY-MM.json`. Failed/interrupted attempts and explicit retries retain
+their reservations. Backfills count against the month in which generation
+actually executes; resuming completed artifacts makes no new reservation.
+The kernel writer lock serializes budget checks, and reaching the ceiling stops
+generation before any provider call. Never delete the spend book to bypass a cap.
+
+The fixed recipe uses seven calls, at most 2,260 output tokens in total, and
+a 16,000-byte instructions/input limit per call. At the
+[current GPT-6 Luna pricing](https://developers.openai.com/api/docs/models/gpt-6-luna)
+($0.10/M input, $0.01/M cached input, $0.125/M cache writes and $0.50/M output),
+the $0.10 reservation gives substantial input/framing headroom. It is a
+conservative allocation, **not an invoice total**. Review pricing and the reserve
+before changing the model, call count, caps, tools or prompt guard. This covers
+the local wrapper, not unrelated API usage or direct CLI/cloud generation;
+use this wrapper for hobby recovery. The provider's billing page is authoritative
+for actual account charges. No credits are purchased automatically.
 
 Local processes share a kernel lock; model/build children retain that lock if
 the wrapper crashes. Cloud and local publishers also acquire the atomic GitHub

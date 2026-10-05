@@ -13,7 +13,7 @@ import type { DebateWinner } from "../types/core.js";
 import { loadEvergreenCatalog } from "./catalog.js";
 import { planDailyMatch, type DailyMatchPlan } from "./plan.js";
 
-export const DAILY_DEFAULT_MODEL = "gpt-5.6-luna";
+export const DAILY_DEFAULT_MODEL = "gpt-6-luna";
 export const DAILY_DEFAULT_MAX_OUTPUT_TOKENS = 260;
 export const DAILY_DEFAULT_JUDGE_MAX_OUTPUT_TOKENS = 700;
 export const DAILY_DEFAULT_JUDGE_LIMIT = 1;
