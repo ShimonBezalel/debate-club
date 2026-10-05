@@ -12,7 +12,7 @@ interface WorkflowStep {
 interface Workflow {
   name: string;
   on: {
-    schedule: Array<{ cron: string }>;
+    schedule?: Array<{ cron: string }>;
     workflow_dispatch: { inputs: Record<string, unknown> };
   };
   concurrency: { group: string; "cancel-in-progress": boolean };
@@ -25,10 +25,10 @@ async function loadWorkflow(path: string): Promise<Workflow> {
 }
 
 describe("daily debate workflow", () => {
-  it("serializes one scheduled and manually recoverable daily writer", async () => {
+  it("retains a serialized manual recovery writer after Mac scheduling cutover", async () => {
     const workflow = await loadWorkflow(".github/workflows/daily-debate.yml");
 
-    expect(workflow.on.schedule).toEqual([{ cron: "17 3 * * *" }]);
+    expect(workflow.on.schedule).toBeUndefined();
     expect(workflow.on.workflow_dispatch.inputs).toHaveProperty("date");
     expect(workflow.concurrency).toEqual({ group: "daily-debate", "cancel-in-progress": false });
     expect(workflow.permissions).toMatchObject({ contents: "write", pages: "write", "id-token": "write" });
