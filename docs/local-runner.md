@@ -1,6 +1,6 @@
 # Mac daily runner
 
-The local runner preserves **03:17 UTC**, the existing `gpt-5.6-luna` recipe,
+The local runner preserves **03:17 UTC**, the existing `gpt-6-luna` recipe,
 canonical `matches/` ledger and [public viewer](https://shimonbezalel.github.io/debate-club/).
 Paid generation happens on the Mac; GitHub Pages still builds and deploys the viewer.
 
@@ -88,8 +88,8 @@ generation before any provider call. Never delete the spend book to bypass a cap
 
 The fixed recipe uses seven calls, at most 2,260 output tokens in total, and
 a 16,000-byte instructions/input limit per call. At the
-[current GPT-5.6 Luna pricing](https://developers.openai.com/api/docs/models/gpt-5.6-luna)
-($0.20/M input, $0.02/M cached input, $0.25/M cache writes and $1.20/M output),
+[current GPT-6 Luna pricing](https://developers.openai.com/api/docs/models/gpt-6-luna)
+($0.10/M input, $0.01/M cached input, $0.125/M cache writes and $0.50/M output),
 the $0.10 reservation gives substantial input/framing headroom. It is a
 conservative allocation, **not an invoice total**. Review pricing and the reserve
 before changing the model, call count, caps, tools or prompt guard. This covers

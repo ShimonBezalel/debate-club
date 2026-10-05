@@ -426,7 +426,7 @@ class Publisher:
                 self.checkpoint(date, "generating")
                 try:
                     self.command([self.config["npm"], "run", "daily:run", "--", "--date", date, "--live",
-                                  "--model", "gpt-5.6-luna", "--judge-model", "gpt-5.6-luna", "--reasoning-effort", "none",
+                                  "--model", "gpt-6-luna", "--judge-model", "gpt-6-luna", "--reasoning-effort", "none",
                                   "--max-output-tokens", "260", "--judge-max-output-tokens", "700", "--out", "matches"], env=env)
                 except BaseException:
                     self.checkpoint(date, "failed")

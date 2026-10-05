@@ -185,6 +185,7 @@ class LocalDailyTests(unittest.TestCase):
                 pub.run_locked("2026-10-02")
             self.assertEqual(pub.run_locked("2026-10-02"), "manual-recovery")
             self.assertEqual(sum("daily:run" in args for args in commands), 1)
+            self.assertEqual(next(args for args in commands if "daily:run" in args).count("gpt-6-luna"), 2)
             self.assertEqual([args for args in commands if "ci" in args], [["npm", "ci", "--no-audit", "--no-fund"]])
             self.assertEqual(json.loads((root / "2026-10-02.json").read_text())["phase"], "failed")
             book = json.loads(next(root.glob("spend-*.json")).read_text())
