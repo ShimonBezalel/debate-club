@@ -4,12 +4,26 @@ import {
   createOpenAiAgentsSdkJudge,
   effectiveTurnBudget,
   effectiveTurnWordBudget,
+  assertLivePromptBudget,
   openAiAgentsSdkAvailable,
   resolveLiveModelConfig,
   type LiveAdapterOptions
 } from "../src/adapters/openaiAgentsSdk.js";
 
 describe("openai agents sdk adapter boundary", () => {
+  it("enforces the local spend guard on UTF-8 prompt bytes before provider calls", () => {
+    const previous = process.env.DEBATE_CLUB_MAX_PROMPT_BYTES;
+    try {
+      process.env.DEBATE_CLUB_MAX_PROMPT_BYTES = "10";
+      expect(() => assertLivePromptBudget("abc", "ééé")).not.toThrow();
+      expect(() => assertLivePromptBudget("abcde", "ééé")).toThrow(/prompt budget/i);
+      process.env.DEBATE_CLUB_MAX_PROMPT_BYTES = "invalid";
+      expect(() => assertLivePromptBudget("", "")).toThrow(/prompt budget/i);
+    } finally {
+      if (previous === undefined) delete process.env.DEBATE_CLUB_MAX_PROMPT_BYTES;
+      else process.env.DEBATE_CLUB_MAX_PROMPT_BYTES = previous;
+    }
+  });
   it("uses an explicit cost-controlled reasoning setting", () => {
     const options: LiveAdapterOptions = {
       model: "gpt-5.6-luna",

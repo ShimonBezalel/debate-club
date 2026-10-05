@@ -187,6 +187,15 @@ export function effectiveTurnWordBudget(maxTokens: number): number {
   return Math.max(1, Math.floor(maxTokens * 0.55));
 }
 
+export function assertLivePromptBudget(instructions: string, input: string): void {
+  const value = process.env.DEBATE_CLUB_MAX_PROMPT_BYTES;
+  if (value === undefined) return;
+  const limit = Number(value);
+  if (!Number.isInteger(limit) || limit <= 0 || Buffer.byteLength(instructions + input, "utf8") > limit) {
+    throw new Error("Local live prompt budget exceeded or invalid; no provider call made.");
+  }
+}
+
 function formatAgentInput(observation: DebateObservation, budget: TurnBudget): string {
   const maxWords = effectiveTurnWordBudget(budget.max_tokens);
   return [
@@ -299,6 +308,8 @@ export async function createOpenAiAgentsSdkAgent(card: AgentCard, directory?: st
       if (options.dryRun) {
         return dryRunMove(card, observation, config);
       }
+      const input = formatAgentInput(observation, effectiveTurnBudget(budget, config.max_output_tokens));
+      assertLivePromptBudget(instructions, input);
       const agent = new Agent({
         name: card.name,
         instructions,
@@ -318,7 +329,7 @@ export async function createOpenAiAgentsSdkAgent(card: AgentCard, directory?: st
           role: "debater",
           agentName: card.name,
           actionId: observation.turn.id
-        }, () => runner.run(agent, formatAgentInput(observation, effectiveTurnBudget(budget, config.max_output_tokens)), { signal: timeout.signal, maxTurns: 1 }));
+        }, () => runner.run(agent, input, { signal: timeout.signal, maxTurns: 1 }));
         return {
           turn_id: observation.turn.id,
           speaker: observation.side,
@@ -356,6 +367,8 @@ export async function createOpenAiAgentsSdkJudge(card: JudgeCard, directory?: st
       if (options.dryRun) {
         return dryRunVote(card, match, config);
       }
+      const input = formatJudgeInput(match);
+      assertLivePromptBudget(instructions, input);
       const agent = new Agent({
         name: card.name,
         instructions,
@@ -376,7 +389,7 @@ export async function createOpenAiAgentsSdkJudge(card: JudgeCard, directory?: st
           role: "judge",
           agentName: card.name,
           actionId: card.id
-        }, () => runner.run(agent, formatJudgeInput(match), { signal: timeout.signal, maxTurns: 1 }));
+        }, () => runner.run(agent, input, { signal: timeout.signal, maxTurns: 1 }));
         const vote = judgeModelOutputSchema.parse(traced.result.finalOutput);
         return {
           ...vote,

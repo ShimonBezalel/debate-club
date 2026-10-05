@@ -14,6 +14,24 @@ spec.loader.exec_module(runner)
 
 
 class LocalDailyTests(unittest.TestCase):
+    def test_monthly_spend_reservation_stops_before_crossing_working_or_absolute_limit(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            now = datetime(2026, 10, 5, tzinfo=timezone.utc)
+            for _ in range(50):
+                runner.reserve_spend(root, "2026-10-02", 5, now)
+            with self.assertRaises(runner.RunnerError):
+                runner.reserve_spend(root, "2026-10-03", 5, now)
+            # Failed attempts/retries stay reserved; the execution month owns backfills.
+            book = json.loads((root / "spend-2026-10.json").read_text())
+            self.assertEqual(book["reserved_cents"], 500)
+            self.assertEqual(len(book["attempts"]), 50)
+            self.assertFalse((root / "spend-2026-09.json").exists())
+            with self.assertRaises(runner.RunnerError):
+                runner.reserve_spend(root, "2026-10-03", 11, now)
+            runner.reserve_spend(root, "2026-10-03", 5, datetime(2026, 11, 1, tzinfo=timezone.utc))
+            self.assertEqual(json.loads((root / "spend-2026-11.json").read_text())["reserved_cents"], 10)
+
     def test_schedule_is_0317_utc_including_dst_and_restart(self):
         for instant, expected in [
             ("2026-10-03T03:16:59+00:00", "2026-10-02"),
@@ -169,6 +187,8 @@ class LocalDailyTests(unittest.TestCase):
             self.assertEqual(sum("daily:run" in args for args in commands), 1)
             self.assertEqual([args for args in commands if "ci" in args], [["npm", "ci", "--no-audit", "--no-fund"]])
             self.assertEqual(json.loads((root / "2026-10-02.json").read_text())["phase"], "failed")
+            book = json.loads(next(root.glob("spend-*.json")).read_text())
+            self.assertEqual(book["reserved_cents"], 10)
 
     def test_complete_artifacts_resume_publication_without_api_key_or_generation(self):
         with tempfile.TemporaryDirectory() as folder:

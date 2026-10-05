@@ -3,6 +3,7 @@
 import argparse
 from contextlib import contextmanager
 from datetime import datetime, timedelta, timezone
+from decimal import Decimal, InvalidOperation
 import fcntl
 import json
 import logging
@@ -104,6 +105,27 @@ def save_json(path, value):
         handle.flush()
         os.fsync(handle.fileno())
     os.replace(temp, path)
+
+
+def reserve_spend(root, date, monthly_limit, now):
+    # Held under the writer lock. A reservation is retained even on a failed or
+    # interrupted generation, including every explicit retry. Never count a
+    # backfill against its historical date's month instead of the billing month.
+    try:
+        cents = Decimal(str(monthly_limit)) * 100
+        if not cents.is_finite() or cents <= 0 or cents > 1000 or cents != cents.to_integral_value():
+            raise ValueError()
+    except (InvalidOperation, ValueError):
+        raise RunnerError("Monthly API budget must be positive, in cents, and at most $10") from None
+    month = now.astimezone(timezone.utc).strftime("%Y-%m")
+    path = root / f"spend-{month}.json"
+    book = json.loads(path.read_text()) if path.exists() else {"reserved_cents": 0, "attempts": []}
+    if book["reserved_cents"] + 10 > int(cents):
+        raise RunnerError("Monthly API spend budget exhausted; no paid generation started")
+    book["reserved_cents"] += 10
+    book["attempts"].append({"date": date, "at": now.isoformat(), "reserved_cents": 10})
+    save_json(path, book)
+    return book["reserved_cents"]
 
 
 def next_action(state, complete, recover):
@@ -397,7 +419,10 @@ class Publisher:
                 self.validate()
                 self.cloud_idle()
                 env = live_environment(self.env, self.config)
+                env["DEBATE_CLUB_MAX_PROMPT_BYTES"] = "16000"
                 self.secrets.append(env["OPENAI_API_KEY"])
+                reserved = reserve_spend(self.root, date, self.config.get("monthly_budget_usd", 5), datetime.now(timezone.utc))
+                self.log.info("Monthly conservative API reservations: $%.2f", reserved / 100)
                 self.checkpoint(date, "generating")
                 try:
                     self.command([self.config["npm"], "run", "daily:run", "--", "--date", date, "--live",
