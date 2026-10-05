@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T05:36:54.877Z",
+  "generated_at": "2026-10-05T05:39:28.459Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -1103,6 +1103,31 @@
         "match": "daily-2026-10-03-s01-education_grades_007/match.json",
         "transcript": "daily-2026-10-03-s01-education_grades_007/transcript.md",
         "scorecard": "daily-2026-10-03-s01-education_grades_007/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-10-04-s01-education_depth_008",
+      "created_at": "2026-10-05T05:39:28.459Z",
+      "conjecture_id": "education_depth_008",
+      "conjecture_statement": "A narrow curriculum taught deeply is better than a broad curriculum taught superficially.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "cross-examiner-v1",
+      "con_agent": "steelman-v1",
+      "winner": "con",
+      "judge_split": {
+        "pro": 0,
+        "con": 1,
+        "tie": 0
+      },
+      "confidence_mean": 0.72,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-10-04-s01-education_depth_008/match.json",
+        "transcript": "daily-2026-10-04-s01-education_depth_008/transcript.md",
+        "scorecard": "daily-2026-10-04-s01-education_depth_008/scorecard.md"
       }
     }
   ]

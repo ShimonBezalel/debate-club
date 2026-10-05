@@ -1,0 +1,61 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "con",
+    "confidence": 0.72,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 8,
+        "responsiveness": 8,
+        "argument_structure": 8,
+        "burden_of_proof": 6,
+        "handling_counterarguments": 8,
+        "style_clarity": 9
+      },
+      "con": {
+        "factual_accuracy": 8,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 9,
+        "handling_counterarguments": 8,
+        "style_clarity": 9
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "con_rebuttal",
+        "reason": "Con directly identifies that pro’s defense has shifted from a narrow curriculum being better to prioritizing depth within a deep core plus rotations and electives. It also explains why those mechanisms may not ensure equitable access."
+      },
+      {
+        "turn_id": "con_closing",
+        "reason": "Con keeps the burden on the comparative policy claim: depth may help, but the debate does not establish that narrowness generally outperforms purposeful breadth, especially given transfer, motivation, access, and workload concerns."
+      },
+      {
+        "turn_id": "pro_closing",
+        "reason": "Pro improves its case by acknowledging that depth does not guarantee transfer and must include varied applications and retention checks, but this qualification further narrows the claim to a flexible, deliberately broad model."
+      }
+    ],
+    "flags": [],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1474,
+        "output_tokens": 270,
+        "total_tokens": 1744
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-6-luna",
+        "started_at": "2026-10-05T05:39:28.460Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]
