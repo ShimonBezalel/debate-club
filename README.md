@@ -105,7 +105,7 @@ The public archive adds one evergreen debate every day at 03:17 UTC. A determini
 
 Daily production uses `gpt-6-luna`, six tightly capped turns, one public judge, reasoning effort `none`, no tools, no web access, no tracing, and no provider-side response storage. Based on the existing live corpus average of roughly 8,832 input and 2,033 output tokens, the [published Luna rates](https://developers.openai.com/api/docs/models/gpt-6-luna) imply about $0.0019 per match or $0.70 per 365 days. Actual usage and pricing can change; match artifacts preserve observed token usage.
 
-The workflow requires an encrypted repository secret named `OPENAI_API_KEY`. Failed provider runs are not committed and are not retried automatically. To recover a missed UTC date, dispatch the workflow manually:
+The always-on Mac runs the daily publication through launchd using a private personal key and a $5 monthly working allocation. The cloud daily timer is disabled; the cloud workflow retains manual recovery and uses its encrypted `OPENAI_API_KEY` repository secret. Failed provider runs are not committed or automatically retried. Prefer the local date-specific recovery in the [operating guide](docs/local-runner.md); cloud recovery remains:
 
 ```bash
 gh workflow run daily-debate.yml --repo ShimonBezalel/debate-club -f date=2026-09-03
