@@ -34,13 +34,13 @@ npm run cli -- viewer build --db public-db --out viewer-dist
 
 ## Daily Publication
 
-The Mac replacement is staged in standby during migration. See
-[local runner operations](local-runner.md) for verification, cutover and rollback.
-Cloud scheduling remains active until a real local publication is verified.
+The Mac runner is active after verified cutover on October 5, 2026. See
+[local runner operations](local-runner.md) for logs, recovery and rollback.
+Only the superseded cloud cron was removed; manual dispatch remains.
 
-`.github/workflows/daily-debate.yml` runs at 03:17 UTC and accepts an optional `YYYY-MM-DD` input for manual recovery. The date deterministically selects a topic, season, match ID, and alternating agent-side assignment from `topics/evergreen-v1.yaml`.
+The Mac LaunchDaemon runs at 03:17 UTC. `.github/workflows/daily-debate.yml` accepts an optional `YYYY-MM-DD` input for manual recovery. The date deterministically selects a topic, season, match ID, and alternating agent-side assignment from `topics/evergreen-v1.yaml`.
 
-The live step alone receives the encrypted `OPENAI_API_KEY` repository secret. It runs one `gpt-6-luna` match with six 260-token debate caps, one 700-token judge cap, reasoning effort `none`, and no automatic retry. Provider failure therefore creates a visible gap rather than multiplying spend or committing an incomplete record.
+In the manual cloud workflow, the live step alone receives the encrypted `OPENAI_API_KEY` repository secret. The Mac uses its private personal key. Both paths run one `gpt-6-luna` match with six 260-token debate caps, one 700-token judge cap, reasoning effort `none`, and no automatic retry. Provider failure creates a visible gap rather than multiplying spend or committing an incomplete record.
 
 After a complete match, the workflow:
 
