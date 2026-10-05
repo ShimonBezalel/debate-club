@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T10:08:25.761Z",
+  "generated_at": "2026-10-05T05:26:54.585Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -1028,6 +1028,31 @@
         "match": "daily-2026-10-01-s01-education_group_work_005/match.json",
         "transcript": "daily-2026-10-01-s01-education_group_work_005/transcript.md",
         "scorecard": "daily-2026-10-01-s01-education_group_work_005/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-09-06-s01-ai_human_release_gate_004",
+      "created_at": "2026-10-05T05:26:54.585Z",
+      "conjecture_id": "ai_human_release_gate_004",
+      "conjecture_statement": "Autonomous agents should require a human release gate for every externally visible action.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "cross-examiner-v1",
+      "con_agent": "steelman-v1",
+      "winner": "con",
+      "judge_split": {
+        "pro": 0,
+        "con": 1,
+        "tie": 0
+      },
+      "confidence_mean": 0.82,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-09-06-s01-ai_human_release_gate_004/match.json",
+        "transcript": "daily-2026-09-06-s01-ai_human_release_gate_004/transcript.md",
+        "scorecard": "daily-2026-09-06-s01-ai_human_release_gate_004/scorecard.md"
       }
     }
   ]
