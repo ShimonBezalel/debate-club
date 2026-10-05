@@ -1,0 +1,61 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "con",
+    "confidence": 0.72,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 8,
+        "responsiveness": 8,
+        "argument_structure": 8,
+        "burden_of_proof": 6,
+        "handling_counterarguments": 8,
+        "style_clarity": 9
+      },
+      "con": {
+        "factual_accuracy": 9,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 9,
+        "handling_counterarguments": 9,
+        "style_clarity": 9
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "TURN con_rebuttal",
+        "reason": "Con directly identifies the central burden: showing autonomy matters more, rather than merely showing that adaptation can help. It also explains how shared sequencing and continuity can protect access without requiring rigid teaching methods."
+      },
+      {
+        "turn_id": "TURN pro_closing",
+        "reason": "Pro offers a coherent account of how teacher judgment may support durable understanding and motivation, but largely asserts that it is the more decisive factor rather than comparing its benefits against standards’ protections."
+      },
+      {
+        "turn_id": "TURN con_closing",
+        "reason": "Con reinforces that the balance may differ by subject and learner and that autonomy’s benefits depend on common expectations and support. This leaves the broad superiority claim insufficiently established."
+      }
+    ],
+    "flags": [],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1511,
+        "output_tokens": 261,
+        "total_tokens": 1772
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-6-luna",
+        "started_at": "2026-10-05T05:43:28.356Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

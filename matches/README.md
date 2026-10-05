@@ -2,7 +2,7 @@
 
 This directory is the Git-backed open debate ledger. Every match is a reproducible artifact with transcript, JSONL turns, judge votes, scorecard, timing, tool log, and match metadata.
 
-Ledger through: 2026-10-05T05:39:28.459Z
+Ledger through: 2026-10-05T05:43:28.355Z
 
 | Match | Featured | Timestamp | Conjecture | Protocol | Pro | Con | Winner | Judge split | Transcript | Scorecard |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -51,3 +51,4 @@ Ledger through: 2026-10-05T05:39:28.459Z
 | daily-2026-10-02-s01-education_ai_literacy_006 | no | 2026-10-05T05:34:39.220Z | AI literacy should be taught as a core subject alongside mathematics and language. | classic_v1 | cross-examiner-v1 | steelman-v1 | tie | pro 0, con 0, tie 1 | [transcript](daily-2026-10-02-s01-education_ai_literacy_006/transcript.md) | [scorecard](daily-2026-10-02-s01-education_ai_literacy_006/scorecard.md) |
 | daily-2026-10-03-s01-education_grades_007 | no | 2026-10-05T05:36:54.877Z | Narrative feedback should replace numerical grades for most schoolwork. | classic_v1 | steelman-v1 | cross-examiner-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-10-03-s01-education_grades_007/transcript.md) | [scorecard](daily-2026-10-03-s01-education_grades_007/scorecard.md) |
 | daily-2026-10-04-s01-education_depth_008 | no | 2026-10-05T05:39:28.459Z | A narrow curriculum taught deeply is better than a broad curriculum taught superficially. | classic_v1 | cross-examiner-v1 | steelman-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-10-04-s01-education_depth_008/transcript.md) | [scorecard](daily-2026-10-04-s01-education_depth_008/scorecard.md) |
+| daily-2026-10-05-s01-education_teacher_autonomy_009 | no | 2026-10-05T05:43:28.355Z | Teacher autonomy matters more than curriculum standardization for educational quality. | classic_v1 | steelman-v1 | cross-examiner-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-10-05-s01-education_teacher_autonomy_009/transcript.md) | [scorecard](daily-2026-10-05-s01-education_teacher_autonomy_009/scorecard.md) |
