@@ -1,0 +1,380 @@
+{
+  "match_id": "daily-2026-10-03-s01-education_grades_007",
+  "created_at": "2026-10-05T05:36:54.877Z",
+  "conjecture": {
+    "id": "education_grades_007",
+    "statement": "Narrative feedback should replace numerical grades for most schoolwork.",
+    "domain": "education_learning",
+    "truth_type": "policy",
+    "stance_mode": "forced_random",
+    "evidence_mode": "no_external_info",
+    "allowed_tools": {
+      "web": false,
+      "calculator": false,
+      "evidence_pack": false
+    },
+    "background": {
+      "short_context": "Compare motivation, information quality, selection needs, teacher workload, consistency, and student interpretation."
+    },
+    "rubric_notes": [
+      "compare learning outcomes with motivation, access, and teacher workload",
+      "distinguish short-term performance from durable understanding",
+      "address differences among learners and subject areas"
+    ]
+  },
+  "protocol": {
+    "id": "classic_v1",
+    "prep_time_sec": 180,
+    "max_turn_tokens": 700,
+    "turns": [
+      {
+        "id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "time_sec": 90
+      },
+      {
+        "id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "time_sec": 90
+      }
+    ]
+  },
+  "agents": {
+    "pro": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "description": "Builds the strongest principled case for its assigned side while anticipating objections.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "principled_steelman",
+      "model_config": {
+        "model": "gpt-6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.45,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    },
+    "con": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "description": "Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "adversarial_cross_examiner",
+      "model_config": {
+        "model": "gpt-6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.5,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    }
+  },
+  "transcript": [
+    {
+      "turn_id": "pro_opening",
+      "speaker": "pro",
+      "phase": "opening",
+      "text": "The burden is not to show that numbers are useless, but that narrative feedback should be the default for most schoolwork. A grade summarizes performance; comments can identify what a learner understands, where reasoning breaks down, and what to try next. That makes feedback more actionable and supports durable understanding, rather than merely optimizing for the next score.\n\nThis need not mean abolishing grades: retain them where comparison, certification, or quick tracking matters. Nor should every task require a long essay from the teacher. Brief, focused comments, peer review, and selective grading can limit workload; accessible formats and clear criteria help students with different needs. Some learners value numerical targets, and some subjects benefit from precise scoring, so exceptions are appropriate. But when the goal is learning, feedback should lead with guidance, not a number.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 270,
+          "output_tokens": 165,
+          "total_tokens": 435
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-6-luna",
+          "started_at": "2026-10-05T05:36:37.421Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-10-05T05:36:37.421Z",
+      "completed_at": "2026-10-05T05:36:41.002Z",
+      "time_used_sec": 3.581,
+      "tokens_estimate": 180
+    },
+    {
+      "turn_id": "con_opening",
+      "speaker": "con",
+      "phase": "opening",
+      "text": "The case assumes comments reliably produce better learning, but that is not established: vague or delayed narratives can be less useful than a clear score tied to criteria. A score may help students spot short-term gaps; comments may support deeper revision, but neither alone guarantees durable understanding. Replacing grades as the default also risks motivation and access: some learners need explicit benchmarks, and students may interpret narrative judgments inconsistently without substantial guidance. Workload is not solved by calling comments “brief”—individualized feedback takes time, especially across large classes, and peer review cannot replace teacher expertise in every subject. The right balance varies: essays invite targeted comments, while routine practice or objectively scored work may benefit from quick results. Improve feedback where it helps, but do not presume one format should replace numbers for most work.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 436,
+          "output_tokens": 163,
+          "total_tokens": 599
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-6-luna",
+          "started_at": "2026-10-05T05:36:41.002Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-10-05T05:36:41.002Z",
+      "completed_at": "2026-10-05T05:36:43.502Z",
+      "time_used_sec": 2.5,
+      "tokens_estimate": 179
+    },
+    {
+      "turn_id": "pro_rebuttal",
+      "speaker": "pro",
+      "phase": "rebuttal",
+      "text": "The objection identifies real risks, but they argue for better-designed narratives and sensible exceptions—not keeping numbers as the default. A score can show where a student stands on a rubric; it rarely explains how to improve. Focused comments tied to criteria can do both, while students still receive benchmarks where they need them.\n\nNor must every comment be lengthy or immediate: prioritize feedback on work students can revise, and use quick scores for routine checks. That protects teacher time and preserves short-term tracking without mistaking performance on one task for durable understanding. Needs differ: some learners benefit from explicit models or structured prompts, and objective exercises may warrant scores; complex reasoning and writing often need explanation. Narrative-first feedback, with accommodations and exceptions, is the stronger default.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 605,
+          "output_tokens": 153,
+          "total_tokens": 758
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-6-luna",
+          "started_at": "2026-10-05T05:36:43.503Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-10-05T05:36:43.502Z",
+      "completed_at": "2026-10-05T05:36:47.283Z",
+      "time_used_sec": 3.781,
+      "tokens_estimate": 168
+    },
+    {
+      "turn_id": "con_rebuttal",
+      "speaker": "con",
+      "phase": "rebuttal",
+      "text": "“Better-designed narratives” does not answer whether they should replace numbers for *most* work. The pro concedes scores remain useful for tracking and routine checks, yet offers no basis for deciding those are exceptions rather than a large share of schoolwork. Comments can explain next steps, but only if they are timely, specific, and understood; producing them consistently across large classes has real costs, and peer review cannot ensure accuracy.\n\nNor does a score necessarily reduce learning to short-term performance: paired with clear criteria, it can give a quick benchmark, while comments guide revision. Durable understanding depends on what students do with feedback, not whether it is numerical or narrative. Since learners and subjects differ, retain both formats and choose by task rather than presume narrative-first is superior.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 765,
+          "output_tokens": 157,
+          "total_tokens": 922
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-6-luna",
+          "started_at": "2026-10-05T05:36:47.283Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-10-05T05:36:47.283Z",
+      "completed_at": "2026-10-05T05:36:49.675Z",
+      "time_used_sec": 2.392,
+      "tokens_estimate": 169
+    },
+    {
+      "turn_id": "pro_closing",
+      "speaker": "pro",
+      "phase": "closing",
+      "text": "The question is the default, not whether every task deserves comments. A score can efficiently mark routine practice or provide a benchmark; keep it there. But for work meant to develop reasoning, writing, or problem-solving, a number rarely tells students what to do next. Specific, criteria-linked narrative feedback makes revision possible and better serves durable understanding than optimizing for a short-term result.\n\nThe workload concern is real: prioritize comments on work students can act on, use concise prompts and structured peer review, and reserve teacher feedback for consequential learning. Access also requires clear criteria, examples, and accommodations—not abandoning narrative feedback. Learners and subjects differ, so preserve numerical measures where they genuinely help. Those exceptions do not justify making grades the default for most learning-focused work.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 924,
+          "output_tokens": 155,
+          "total_tokens": 1079
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-6-luna",
+          "started_at": "2026-10-05T05:36:49.675Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-10-05T05:36:49.675Z",
+      "completed_at": "2026-10-05T05:36:52.529Z",
+      "time_used_sec": 2.854,
+      "tokens_estimate": 167
+    },
+    {
+      "turn_id": "con_closing",
+      "speaker": "con",
+      "phase": "closing",
+      "text": "The pro’s closing narrows the claim to “learning-focused” work, but that does not establish that narrative feedback should replace numbers for most schoolwork. Many tasks build learning through practice and quick correction; a clear score against criteria can reveal a gap efficiently, while comments are valuable when students can act on them. Neither format alone ensures durable understanding.\n\nThe proposed safeguards also leave the central tradeoff unresolved. Concise comments still require judgment and time, and structured peer review cannot guarantee accurate feedback. Without consistent benchmarks, narrative judgments may be harder for some learners to interpret; with them, the supposed replacement becomes a hybrid.\n\nUse comments for revision-rich tasks and scores where quick, comparable results help. Because tasks, learners, and subjects differ, choose the format by purpose rather than make narrative feedback the default.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1084,
+          "output_tokens": 165,
+          "total_tokens": 1249
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-6-luna",
+          "started_at": "2026-10-05T05:36:52.529Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-10-05T05:36:52.529Z",
+      "completed_at": "2026-10-05T05:36:54.876Z",
+      "time_used_sec": 2.347,
+      "tokens_estimate": 177
+    }
+  ],
+  "judge_votes": [
+    {
+      "judge_id": "epistemic-judge-v1",
+      "winner": "con",
+      "confidence": 0.72,
+      "scores": {
+        "pro": {
+          "factual_accuracy": 7,
+          "responsiveness": 7,
+          "argument_structure": 8,
+          "burden_of_proof": 6,
+          "handling_counterarguments": 7,
+          "style_clarity": 8
+        },
+        "con": {
+          "factual_accuracy": 8,
+          "responsiveness": 8,
+          "argument_structure": 8,
+          "burden_of_proof": 8,
+          "handling_counterarguments": 8,
+          "style_clarity": 8
+        }
+      },
+      "decisive_moments": [
+        {
+          "turn_id": "TURN con_rebuttal",
+          "reason": "Con directly identifies the unresolved burden: pro argues for narrative feedback on complex, learning-focused tasks but does not establish that these constitute most schoolwork, while conceding scores for routine checks and tracking."
+        },
+        {
+          "turn_id": "TURN con_closing",
+          "reason": "Con offers a task-based alternative that addresses variation in learners and subjects, and explains why the proposed workload and access safeguards do not establish narrative-first as the general default."
+        }
+      ],
+      "flags": [],
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1497,
+          "output_tokens": 215,
+          "total_tokens": 1712
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "Epistemic Judge v1",
+          "model": "gpt-6-luna",
+          "started_at": "2026-10-05T05:36:54.877Z",
+          "response_storage": "disabled"
+        }
+      }
+    }
+  ],
+  "result": {
+    "winner": "con",
+    "judge_split": {
+      "pro": 0,
+      "con": 1,
+      "tie": 0
+    },
+    "confidence_mean": 0.72,
+    "confidence_variance": 0,
+    "flags": []
+  }
+}

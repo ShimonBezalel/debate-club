@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T05:34:39.220Z",
+  "generated_at": "2026-10-05T05:36:54.877Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -1078,6 +1078,31 @@
         "match": "daily-2026-10-02-s01-education_ai_literacy_006/match.json",
         "transcript": "daily-2026-10-02-s01-education_ai_literacy_006/transcript.md",
         "scorecard": "daily-2026-10-02-s01-education_ai_literacy_006/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-10-03-s01-education_grades_007",
+      "created_at": "2026-10-05T05:36:54.877Z",
+      "conjecture_id": "education_grades_007",
+      "conjecture_statement": "Narrative feedback should replace numerical grades for most schoolwork.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "steelman-v1",
+      "con_agent": "cross-examiner-v1",
+      "winner": "con",
+      "judge_split": {
+        "pro": 0,
+        "con": 1,
+        "tie": 0
+      },
+      "confidence_mean": 0.72,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-10-03-s01-education_grades_007/match.json",
+        "transcript": "daily-2026-10-03-s01-education_grades_007/transcript.md",
+        "scorecard": "daily-2026-10-03-s01-education_grades_007/scorecard.md"
       }
     }
   ]

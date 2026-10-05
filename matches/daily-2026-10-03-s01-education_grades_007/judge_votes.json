@@ -1,0 +1,57 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "con",
+    "confidence": 0.72,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 7,
+        "responsiveness": 7,
+        "argument_structure": 8,
+        "burden_of_proof": 6,
+        "handling_counterarguments": 7,
+        "style_clarity": 8
+      },
+      "con": {
+        "factual_accuracy": 8,
+        "responsiveness": 8,
+        "argument_structure": 8,
+        "burden_of_proof": 8,
+        "handling_counterarguments": 8,
+        "style_clarity": 8
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "TURN con_rebuttal",
+        "reason": "Con directly identifies the unresolved burden: pro argues for narrative feedback on complex, learning-focused tasks but does not establish that these constitute most schoolwork, while conceding scores for routine checks and tracking."
+      },
+      {
+        "turn_id": "TURN con_closing",
+        "reason": "Con offers a task-based alternative that addresses variation in learners and subjects, and explains why the proposed workload and access safeguards do not establish narrative-first as the general default."
+      }
+    ],
+    "flags": [],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1497,
+        "output_tokens": 215,
+        "total_tokens": 1712
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-6-luna",
+        "started_at": "2026-10-05T05:36:54.877Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]
