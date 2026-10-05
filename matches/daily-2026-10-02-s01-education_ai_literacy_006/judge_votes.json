@@ -1,0 +1,65 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "tie",
+    "confidence": 0.68,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 8,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 8,
+        "handling_counterarguments": 9,
+        "style_clarity": 9
+      },
+      "con": {
+        "factual_accuracy": 8,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 8,
+        "handling_counterarguments": 9,
+        "style_clarity": 9
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "TURN pro_rebuttal",
+        "reason": "Pro usefully distinguishes core status from a separate course and directly addresses the access risk of unguaranteed integration, while preserving subject-specific application."
+      },
+      {
+        "turn_id": "TURN con_rebuttal",
+        "reason": "Con identifies the remaining policy disagreement: guaranteed outcomes may be warranted without elevating AI literacy to core-subject status, and argues for contextual practice as a route to durable learning."
+      },
+      {
+        "turn_id": "TURN pro_closing",
+        "reason": "Pro makes the strongest case for its interpretation of core status—assured transferable outcomes plus contextual application—but this largely reframes rather than resolves whether that counts as a core subject."
+      },
+      {
+        "turn_id": "TURN con_closing",
+        "reason": "Con consistently defends supported cross-curricular instruction and highlights assessment and workload risks, but does not establish that this approach would reliably secure the shared foundations pro emphasizes."
+      }
+    ],
+    "flags": [],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1529,
+        "output_tokens": 297,
+        "total_tokens": 1826
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-6-luna",
+        "started_at": "2026-10-05T05:34:39.221Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

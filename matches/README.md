@@ -2,7 +2,7 @@
 
 This directory is the Git-backed open debate ledger. Every match is a reproducible artifact with transcript, JSONL turns, judge votes, scorecard, timing, tool log, and match metadata.
 
-Ledger through: 2026-10-05T05:26:54.585Z
+Ledger through: 2026-10-05T05:34:39.220Z
 
 | Match | Featured | Timestamp | Conjecture | Protocol | Pro | Con | Winner | Judge split | Transcript | Scorecard |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -48,3 +48,4 @@ Ledger through: 2026-10-05T05:26:54.585Z
 | daily-2026-09-30-s01-education_spaced_practice_004 | no | 2026-09-30T09:42:41.152Z | Schools should allocate more time to spaced practice even if it reduces the number of topics covered. | classic_v1 | cross-examiner-v1 | steelman-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-30-s01-education_spaced_practice_004/transcript.md) | [scorecard](daily-2026-09-30-s01-education_spaced_practice_004/scorecard.md) |
 | daily-2026-10-01-s01-education_group_work_005 | no | 2026-10-01T10:08:25.761Z | Collaborative assignments teach more durable skills than individually graded assignments. | classic_v1 | steelman-v1 | cross-examiner-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-10-01-s01-education_group_work_005/transcript.md) | [scorecard](daily-2026-10-01-s01-education_group_work_005/scorecard.md) |
 | daily-2026-09-06-s01-ai_human_release_gate_004 | no | 2026-10-05T05:26:54.585Z | Autonomous agents should require a human release gate for every externally visible action. | classic_v1 | cross-examiner-v1 | steelman-v1 | con | pro 0, con 1, tie 0 | [transcript](daily-2026-09-06-s01-ai_human_release_gate_004/transcript.md) | [scorecard](daily-2026-09-06-s01-ai_human_release_gate_004/scorecard.md) |
+| daily-2026-10-02-s01-education_ai_literacy_006 | no | 2026-10-05T05:34:39.220Z | AI literacy should be taught as a core subject alongside mathematics and language. | classic_v1 | cross-examiner-v1 | steelman-v1 | tie | pro 0, con 0, tie 1 | [transcript](daily-2026-10-02-s01-education_ai_literacy_006/transcript.md) | [scorecard](daily-2026-10-02-s01-education_ai_literacy_006/scorecard.md) |

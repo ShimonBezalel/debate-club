@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T05:26:54.585Z",
+  "generated_at": "2026-10-05T05:34:39.220Z",
   "matches": [
     {
       "match_id": "2026-06-27-ai-tutors-stub",
@@ -1053,6 +1053,31 @@
         "match": "daily-2026-09-06-s01-ai_human_release_gate_004/match.json",
         "transcript": "daily-2026-09-06-s01-ai_human_release_gate_004/transcript.md",
         "scorecard": "daily-2026-09-06-s01-ai_human_release_gate_004/scorecard.md"
+      }
+    },
+    {
+      "match_id": "daily-2026-10-02-s01-education_ai_literacy_006",
+      "created_at": "2026-10-05T05:34:39.220Z",
+      "conjecture_id": "education_ai_literacy_006",
+      "conjecture_statement": "AI literacy should be taught as a core subject alongside mathematics and language.",
+      "protocol_id": "classic_v1",
+      "pro_agent": "cross-examiner-v1",
+      "con_agent": "steelman-v1",
+      "winner": "tie",
+      "judge_split": {
+        "pro": 0,
+        "con": 0,
+        "tie": 1
+      },
+      "confidence_mean": 0.68,
+      "featured": false,
+      "judges": [
+        "epistemic-judge-v1"
+      ],
+      "paths": {
+        "match": "daily-2026-10-02-s01-education_ai_literacy_006/match.json",
+        "transcript": "daily-2026-10-02-s01-education_ai_literacy_006/transcript.md",
+        "scorecard": "daily-2026-10-02-s01-education_ai_literacy_006/scorecard.md"
       }
     }
   ]
