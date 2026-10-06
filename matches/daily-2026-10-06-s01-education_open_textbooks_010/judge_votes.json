@@ -1,0 +1,57 @@
+[
+  {
+    "judge_id": "epistemic-judge-v1",
+    "winner": "pro",
+    "confidence": 0.67,
+    "scores": {
+      "pro": {
+        "factual_accuracy": 8,
+        "responsiveness": 9,
+        "argument_structure": 9,
+        "burden_of_proof": 8,
+        "handling_counterarguments": 9,
+        "style_clarity": 9
+      },
+      "con": {
+        "factual_accuracy": 8,
+        "responsiveness": 8,
+        "argument_structure": 8,
+        "burden_of_proof": 7,
+        "handling_counterarguments": 8,
+        "style_clarity": 9
+      }
+    },
+    "decisive_moments": [
+      {
+        "turn_id": "pro_rebuttal",
+        "reason": "Pro directly answered the quality-first objection by defining preference as a conditional default, with review for quality and an explicit commercial-text exception. It also brought access barriers into the policy comparison."
+      },
+      {
+        "turn_id": "pro_closing",
+        "reason": "Pro made the clearest case for a default: when a suitable OER is available and no commercial advantage is demonstrated, avoiding imposed cost protects access. Con argued for neutral comparison but did not explain why that should outweigh this access-based presumption."
+      }
+    ],
+    "flags": [],
+    "metadata": {
+      "provider": "openai",
+      "adapter": "openai-agents-sdk",
+      "model": "gpt-6-luna",
+      "dry_run": false,
+      "usage": {
+        "requests": 1,
+        "input_tokens": 1466,
+        "output_tokens": 226,
+        "total_tokens": 1692
+      },
+      "trace": {
+        "requested": false,
+        "enabled": false,
+        "provider": "openai",
+        "agent_name": "Epistemic Judge v1",
+        "model": "gpt-6-luna",
+        "started_at": "2026-10-06T11:24:12.849Z",
+        "response_storage": "disabled"
+      }
+    }
+  }
+]

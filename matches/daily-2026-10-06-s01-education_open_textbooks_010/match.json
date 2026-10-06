@@ -1,0 +1,380 @@
+{
+  "match_id": "daily-2026-10-06-s01-education_open_textbooks_010",
+  "created_at": "2026-10-06T11:24:12.848Z",
+  "conjecture": {
+    "id": "education_open_textbooks_010",
+    "statement": "Schools should prefer open educational resources over commercial textbooks.",
+    "domain": "education_learning",
+    "truth_type": "policy",
+    "stance_mode": "forced_random",
+    "evidence_mode": "no_external_info",
+    "allowed_tools": {
+      "web": false,
+      "calculator": false,
+      "evidence_pack": false
+    },
+    "background": {
+      "short_context": "Weigh cost, editorial quality, update speed, teacher customization, support, and long-term maintenance."
+    },
+    "rubric_notes": [
+      "compare learning outcomes with motivation, access, and teacher workload",
+      "distinguish short-term performance from durable understanding",
+      "address differences among learners and subject areas"
+    ]
+  },
+  "protocol": {
+    "id": "classic_v1",
+    "prep_time_sec": 180,
+    "max_turn_tokens": 700,
+    "turns": [
+      {
+        "id": "pro_opening",
+        "speaker": "pro",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "con_opening",
+        "speaker": "con",
+        "phase": "opening",
+        "time_sec": 120
+      },
+      {
+        "id": "pro_rebuttal",
+        "speaker": "pro",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "con_rebuttal",
+        "speaker": "con",
+        "phase": "rebuttal",
+        "time_sec": 90
+      },
+      {
+        "id": "pro_closing",
+        "speaker": "pro",
+        "phase": "closing",
+        "time_sec": 90
+      },
+      {
+        "id": "con_closing",
+        "speaker": "con",
+        "phase": "closing",
+        "time_sec": 90
+      }
+    ]
+  },
+  "agents": {
+    "pro": {
+      "name": "cross-examiner-v1",
+      "version": "0.2.0",
+      "description": "Finds ambiguity, burden-of-proof errors, and hidden assumptions; strongest in rebuttal.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "adversarial_cross_examiner",
+      "model_config": {
+        "model": "gpt-6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.5,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    },
+    "con": {
+      "name": "steelman-v1",
+      "version": "0.2.0",
+      "description": "Builds the strongest principled case for its assigned side while anticipating objections.",
+      "adapter": "openai-agents-sdk",
+      "private": false,
+      "supports": [
+        "no_external_info"
+      ],
+      "input_modes": [
+        "text"
+      ],
+      "style": "principled_steelman",
+      "model_config": {
+        "model": "gpt-6-luna",
+        "max_output_tokens": 260,
+        "temperature": 0.45,
+        "timeout_ms": 45000,
+        "instructions_file": "instructions.md",
+        "tracing": false,
+        "reasoning_effort": "none"
+      },
+      "resource_limits": {
+        "max_wall_time_sec": 180,
+        "max_tokens_per_turn": 700
+      }
+    }
+  },
+  "transcript": [
+    {
+      "turn_id": "pro_opening",
+      "speaker": "pro",
+      "phase": "opening",
+      "text": "Schools should prefer open educational resources as their default—not require them in every case. “Prefer” means choosing an OER when it meets the course’s learning needs, while allowing a commercial text when evidence or classroom fit justifies the cost.\n\nOER can widen access by letting every student use the material without purchase barriers, and teachers can adapt examples, reading levels, or local context. That flexibility may support motivation and durable understanding, not merely short-term test performance. But adaptation takes time, and a polished commercial text may better serve a subject or learner group; schools should account for teacher workload and provide support.\n\nThe standard should be demonstrated learning over time, alongside access and usability—not price or novelty alone. Because needs differ across learners and subjects, schools should review outcomes and retain the option to choose commercial materials when they work better.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 270,
+          "output_tokens": 170,
+          "total_tokens": 440
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-6-luna",
+          "started_at": "2026-10-06T11:23:50.356Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-10-06T11:23:50.355Z",
+      "completed_at": "2026-10-06T11:23:55.104Z",
+      "time_used_sec": 4.749,
+      "tokens_estimate": 188
+    },
+    {
+      "turn_id": "con_opening",
+      "speaker": "con",
+      "phase": "opening",
+      "text": "The burden is not to show that commercial textbooks are always better; it is to show why schools should not prefer OER as a default. Learning materials must work for particular students, subjects, and teachers. An OER’s adaptability and free access can help, but neither guarantees accurate, coherent instruction or durable understanding. A polished commercial text may better sequence difficult concepts, provide practice, and reduce preparation time—especially where teachers lack capacity to evaluate or adapt materials.\n\nNor should short-term test gains settle the question: schools should consider lasting understanding, motivation, and access. Those outcomes may favor OER for some learners, but others benefit from structured, consistent materials. The prudent policy is to choose the resource that best serves the course, not to privilege one licensing model in advance.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 439,
+          "output_tokens": 159,
+          "total_tokens": 598
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-6-luna",
+          "started_at": "2026-10-06T11:23:55.106Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-10-06T11:23:55.106Z",
+      "completed_at": "2026-10-06T11:24:00.033Z",
+      "time_used_sec": 4.927,
+      "tokens_estimate": 171
+    },
+    {
+      "turn_id": "pro_rebuttal",
+      "speaker": "pro",
+      "phase": "rebuttal",
+      "text": "The opposition’s “choose what works best” sounds neutral, but it leaves access barriers and textbook cost out of the default decision. A school can prefer OER without assuming every OER is accurate or coherent: require review for quality and fit, and choose a commercial text when it better supports that course.\n\nNor does a polished text automatically reduce teacher workload; OER may require adaptation, while commercial materials may still need supplementation. Schools should compare total workload and learning over time—not just short-term test scores—and check motivation and durable understanding across different learners and subjects. That is a conditional preference, not a licensing rule: use OER when it meets the need, and retain commercial options when it does not.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 606,
+          "output_tokens": 145,
+          "total_tokens": 751
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-6-luna",
+          "started_at": "2026-10-06T11:24:00.034Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-10-06T11:24:00.033Z",
+      "completed_at": "2026-10-06T11:24:03.456Z",
+      "time_used_sec": 3.423,
+      "tokens_estimate": 157
+    },
+    {
+      "turn_id": "con_rebuttal",
+      "speaker": "con",
+      "phase": "rebuttal",
+      "text": "The pro side has narrowed “prefer” to “choose OER when it works,” but that is simply a quality-first policy—not a reason to privilege OER. Access matters, yet free materials do not ensure students can use them effectively; uneven structure or practice can undermine motivation and durable understanding, even if short-term scores look adequate.\n\nReviewing and adapting OER also consumes teacher time. That burden may be manageable in some subjects, but not where teachers lack capacity or learners need carefully sequenced instruction. Commercial texts are not automatically superior, and cost barriers should be addressed. But schools should compare access, workload, and learning outcomes for their actual students, rather than make licensing status the default.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 756,
+          "output_tokens": 143,
+          "total_tokens": 899
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-6-luna",
+          "started_at": "2026-10-06T11:24:03.456Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-10-06T11:24:03.456Z",
+      "completed_at": "2026-10-06T11:24:06.831Z",
+      "time_used_sec": 3.375,
+      "tokens_estimate": 151
+    },
+    {
+      "turn_id": "pro_closing",
+      "speaker": "pro",
+      "phase": "closing",
+      "text": "The opposition treats “quality-first” and “prefer OER” as mutually exclusive, but they are not. A preference is a starting point, not a mandate: choose a reviewed OER when it meets the course’s needs, and choose a commercial text when its sequencing, practice, or usability is better.\n\nThat default matters because cost can block access before learning even begins. Free access does not guarantee motivation or durable understanding, just as polished design does not guarantee them either. Schools should assess lasting learning—not only short-term scores—alongside student engagement and teacher workload, and support teachers where adaptation is worthwhile.\n\nNeeds differ by learner and subject, so no license wins every comparison. But absent a demonstrated advantage for a commercial text, avoid imposing its cost when a suitable OER is available.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 903,
+          "output_tokens": 162,
+          "total_tokens": 1065
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "cross-examiner-v1",
+          "model": "gpt-6-luna",
+          "started_at": "2026-10-06T11:24:06.831Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-10-06T11:24:06.831Z",
+      "completed_at": "2026-10-06T11:24:09.882Z",
+      "time_used_sec": 3.051,
+      "tokens_estimate": 169
+    },
+    {
+      "turn_id": "con_closing",
+      "speaker": "con",
+      "phase": "closing",
+      "text": "The pro closing’s final rule—prefer OER unless a commercial text shows an advantage—still gives licensing status priority before schools establish what works for their students. Access is important, but free availability alone does not ensure usable materials, motivation, or durable understanding.\n\nSchools should compare complete options: learning over time, student access and engagement, and the teacher time needed to evaluate, adapt, or teach each resource. A commercial text may offer useful sequencing and practice; an OER may be the better fit elsewhere. Neither short-term scores nor price settles that comparison.\n\nBecause learners, subjects, and teacher capacity differ, the sound policy is quality-first selection, with cost barriers addressed directly—not a default preference for either licensing model.",
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1068,
+          "output_tokens": 148,
+          "total_tokens": 1216
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "steelman-v1",
+          "model": "gpt-6-luna",
+          "started_at": "2026-10-06T11:24:09.882Z",
+          "response_storage": "disabled"
+        }
+      },
+      "started_at": "2026-10-06T11:24:09.882Z",
+      "completed_at": "2026-10-06T11:24:12.848Z",
+      "time_used_sec": 2.966,
+      "tokens_estimate": 153
+    }
+  ],
+  "judge_votes": [
+    {
+      "judge_id": "epistemic-judge-v1",
+      "winner": "pro",
+      "confidence": 0.67,
+      "scores": {
+        "pro": {
+          "factual_accuracy": 8,
+          "responsiveness": 9,
+          "argument_structure": 9,
+          "burden_of_proof": 8,
+          "handling_counterarguments": 9,
+          "style_clarity": 9
+        },
+        "con": {
+          "factual_accuracy": 8,
+          "responsiveness": 8,
+          "argument_structure": 8,
+          "burden_of_proof": 7,
+          "handling_counterarguments": 8,
+          "style_clarity": 9
+        }
+      },
+      "decisive_moments": [
+        {
+          "turn_id": "pro_rebuttal",
+          "reason": "Pro directly answered the quality-first objection by defining preference as a conditional default, with review for quality and an explicit commercial-text exception. It also brought access barriers into the policy comparison."
+        },
+        {
+          "turn_id": "pro_closing",
+          "reason": "Pro made the clearest case for a default: when a suitable OER is available and no commercial advantage is demonstrated, avoiding imposed cost protects access. Con argued for neutral comparison but did not explain why that should outweigh this access-based presumption."
+        }
+      ],
+      "flags": [],
+      "metadata": {
+        "provider": "openai",
+        "adapter": "openai-agents-sdk",
+        "model": "gpt-6-luna",
+        "dry_run": false,
+        "usage": {
+          "requests": 1,
+          "input_tokens": 1466,
+          "output_tokens": 226,
+          "total_tokens": 1692
+        },
+        "trace": {
+          "requested": false,
+          "enabled": false,
+          "provider": "openai",
+          "agent_name": "Epistemic Judge v1",
+          "model": "gpt-6-luna",
+          "started_at": "2026-10-06T11:24:12.849Z",
+          "response_storage": "disabled"
+        }
+      }
+    }
+  ],
+  "result": {
+    "winner": "pro",
+    "judge_split": {
+      "pro": 1,
+      "con": 0,
+      "tie": 0
+    },
+    "confidence_mean": 0.67,
+    "confidence_variance": 0,
+    "flags": []
+  }
+}
