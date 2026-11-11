@@ -1,9 +1,9 @@
 import { execFile } from "node:child_process";
-import { mkdtemp, readFile } from "node:fs/promises";
-import { tmpdir } from "node:os";
+import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { promisify } from "node:util";
 import { describe, expect, it } from "vitest";
+import { tempDir } from "./helpers/tempDir.js";
 
 const execFileAsync = promisify(execFile);
 
@@ -13,7 +13,7 @@ async function runCli(args: string[]) {
 
 describe("cli", () => {
   it("creates an idempotent dry-run daily match", async () => {
-    const root = await mkdtemp(join(tmpdir(), "debate-club-cli-daily-"));
+    const root = await tempDir("debate-club-cli-daily-");
     const out = join(root, "matches");
     const args = ["daily", "--date", "2026-09-04", "--dry-run", "--out", out];
 
@@ -33,7 +33,7 @@ describe("cli", () => {
 
   // Four CLI process launches need CI startup headroom.
   it("runs, rebuilds, replays, and summarizes a stub debate", { timeout: 15_000 }, async () => {
-    const out = await mkdtemp(join(tmpdir(), "debate-club-cli-"));
+    const out = await tempDir("debate-club-cli-");
     const run = await runCli([
       "run",
       "--protocol", "examples/protocols/classic_v1.yaml",

@@ -1,5 +1,4 @@
-import { mkdtemp, readFile } from "node:fs/promises";
-import { tmpdir } from "node:os";
+import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { loadAgentFromDirectory } from "../src/agents/loadAgent.js";
@@ -12,6 +11,7 @@ import { runMatch } from "../src/runner/runMatch.js";
 import { conjectureSchema } from "../src/schemas/conjecture.js";
 import { loadYamlFile } from "../src/schemas/load.js";
 import { protocolSchema } from "../src/schemas/protocol.js";
+import { tempDir } from "./helpers/tempDir.js";
 
 async function createMatch() {
   const protocol = protocolSchema.parse(await loadYamlFile("examples/protocols/classic_v1.yaml"));
@@ -27,7 +27,7 @@ async function createMatch() {
 
 describe("ledger artifacts", () => {
   it("writes match artifacts and rebuilds the index", async () => {
-    const out = await mkdtemp(join(tmpdir(), "debate-club-ledger-"));
+    const out = await tempDir("debate-club-ledger-");
     const match = await createMatch();
     const folder = await writeMatchArtifacts(match, out);
     const transcript = await readFile(join(folder, "transcript.md"), "utf8");

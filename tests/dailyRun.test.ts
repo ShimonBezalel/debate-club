@@ -1,11 +1,11 @@
-import { mkdir, mkdtemp, readFile } from "node:fs/promises";
+import { mkdir, readFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
-import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it, vi } from "vitest";
 import { runDailyMatch, type DailyRunOptions } from "../src/daily/runDaily.js";
 import { loadEvergreenCatalog } from "../src/daily/catalog.js";
 import { planDailyMatch } from "../src/daily/plan.js";
+import { tempDir } from "./helpers/tempDir.js";
 
 const failure = vi.hoisted(() => ({ afterWrite: false }));
 vi.mock("../src/ledger/artifacts.js", async (importOriginal) => {
@@ -21,7 +21,7 @@ vi.mock("../src/ledger/artifacts.js", async (importOriginal) => {
 });
 
 async function dailyOptions(date: string): Promise<DailyRunOptions> {
-  const root = await mkdtemp(join(tmpdir(), "debate-club-daily-"));
+  const root = await tempDir("debate-club-daily-");
   return {
     date,
     catalogPath: "topics/evergreen-v1.yaml",

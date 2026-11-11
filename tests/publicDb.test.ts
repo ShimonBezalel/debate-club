@@ -1,12 +1,12 @@
 import { execFile } from "node:child_process";
-import { access, mkdtemp, readFile, writeFile } from "node:fs/promises";
-import { tmpdir } from "node:os";
+import { access, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { promisify } from "node:util";
 import { describe, expect, it } from "vitest";
 import { exportPublicDb } from "../src/publicDb/export.js";
 import { validatePublicDb } from "../src/publicDb/validate.js";
 import { buildViewer } from "../src/viewer/build.js";
+import { tempDir } from "./helpers/tempDir.js";
 
 const execFileAsync = promisify(execFile);
 
@@ -20,7 +20,7 @@ describe("public DB export", () => {
   });
 
   it("exports every valid ledger match into a viewer-oriented static database", async () => {
-    const out = await mkdtemp(join(tmpdir(), "debate-club-public-db-"));
+    const out = await tempDir("debate-club-public-db-");
 
     const manifest = await exportPublicDb("matches", out);
 
@@ -49,7 +49,7 @@ describe("public DB export", () => {
   });
 
   it("validates a complete export and rejects inconsistent manifests", async () => {
-    const out = await mkdtemp(join(tmpdir(), "debate-club-public-db-"));
+    const out = await tempDir("debate-club-public-db-");
     const manifest = await exportPublicDb("matches", out);
 
     await expect(validatePublicDb(out)).resolves.toMatchObject({
@@ -64,8 +64,8 @@ describe("public DB export", () => {
 
 describe("static viewer build", () => {
   it("builds a standalone viewer with an embedded public DB", async () => {
-    const db = await mkdtemp(join(tmpdir(), "debate-club-public-db-"));
-    const out = await mkdtemp(join(tmpdir(), "debate-club-viewer-"));
+    const db = await tempDir("debate-club-public-db-");
+    const out = await tempDir("debate-club-viewer-");
     const manifest = await exportPublicDb("matches", db);
 
     const result = await buildViewer(db, out);

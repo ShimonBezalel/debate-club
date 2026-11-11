@@ -1,5 +1,4 @@
-import { mkdtemp, writeFile } from "node:fs/promises";
-import { tmpdir } from "node:os";
+import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { agentCardSchema, judgeCardSchema, judgePanelSchema } from "../src/schemas/cards.js";
@@ -7,6 +6,7 @@ import { conjectureSchema } from "../src/schemas/conjecture.js";
 import { judgeModelOutputSchema, judgeVoteSchema } from "../src/schemas/judgeVote.js";
 import { loadYamlFile } from "../src/schemas/load.js";
 import { protocolSchema } from "../src/schemas/protocol.js";
+import { tempDir } from "./helpers/tempDir.js";
 
 describe("schemas", () => {
   it("parses a structured conjecture", () => {
@@ -105,7 +105,7 @@ describe("schemas", () => {
   });
 
   it("loads YAML files", async () => {
-    const dir = await mkdtemp(join(tmpdir(), "debate-club-schema-"));
+    const dir = await tempDir("debate-club-schema-");
     const file = join(dir, "sample.yaml");
     await writeFile(file, "id: classic_v1\nprep_time_sec: 180\nmax_turn_tokens: 700\nturns: []\n");
     const loaded = await loadYamlFile(file);
